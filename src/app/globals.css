@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* Design tokens carried over from the Framer project (dark navy theme). */
+@theme {
+  --color-navy-900: #0a1628;
+  --color-navy-800: #121e30;
+  --color-navy-700: #1a283d;
+  --color-line: #24324a;
+  --color-mist: #f8fdf1;
+  --color-secondary: #a7b1c2;
+  --color-muted: #7f8ba0;
+  --color-green: #9ad751;
+  --color-blue: #3bb5e8;
+  --color-gold: #ead25f;
+  --color-aqua: #aef2ed;
+  --color-lemon: #f6f77e;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale from the Framer text styles (desktop / tablet / phone). */
+  --text-h1: 4rem;
+  --text-h1-md: 3rem;
+  --text-h1-sm: 2.375rem;
+  --text-h2: 2.75rem;
+  --text-h2-sm: 1.875rem;
+  --text-h3: 1.5rem;
+  --text-h3-sm: 1.25rem;
+  --text-h4: 1.125rem;
+  --text-lead: 1.1875rem;
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-nav: 0.9375rem;
+  --text-button: 0.9375rem;
+  --text-eyebrow: 0.75rem;
+}
+
+html {
+  background: var(--color-navy-900);
+  color: var(--color-mist);
+  scroll-behavior: smooth;
+}
+
+.select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' stroke='%23A7B1C2' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+
+::selection {
+  background: rgb(154 215 81 / 0.35);
+  color: var(--color-mist);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
