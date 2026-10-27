@@ -17,20 +17,38 @@
 
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 
-  /* Type scale (desktop values; smaller sizes applied responsively in components). */
+  /* Type scale from the Framer text styles (desktop / tablet / phone). */
   --text-h1: 4rem;
+  --text-h1-md: 3rem;
+  --text-h1-sm: 2.375rem;
   --text-h2: 2.75rem;
+  --text-h2-sm: 1.875rem;
   --text-h3: 1.5rem;
+  --text-h3-sm: 1.25rem;
   --text-h4: 1.125rem;
-  --text-statement: 2.25rem;
-  --text-lead: 1.25rem;
+  --text-lead: 1.1875rem;
   --text-body: 1.0625rem;
   --text-small: 0.9375rem;
-  --text-eyebrow: 0.8125rem;
+  --text-nav: 0.9375rem;
+  --text-button: 0.9375rem;
+  --text-eyebrow: 0.75rem;
 }
 
 html {
   background: var(--color-navy-900);
+  color: var(--color-mist);
+  scroll-behavior: smooth;
+}
+
+.select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' stroke='%23A7B1C2' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+
+::selection {
+  background: rgb(154 215 81 / 0.35);
   color: var(--color-mist);
 }
 
