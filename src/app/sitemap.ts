@@ -23,6 +23,11 @@ const paths = [
   "/integrations",
   "/careers",
   "/for-ceos",
+  "/contact",
+  "/faq",
+  "/privacy",
+  "/terms",
+  "/cookies",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

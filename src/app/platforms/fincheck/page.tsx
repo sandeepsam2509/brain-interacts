@@ -114,8 +114,8 @@ export default function FinCheckPage() {
           <p className="mx-auto mt-5 max-w-[560px] text-lg leading-[1.7] text-on-navy">
             We&apos;re talking to a small group of financial institutions ahead of launch.
           </p>
-          {/* Sends the visitor to the demo form with their email filled in. Wired to email delivery in round 4. */}
-          <form action={routes.contact} method="get" className="mx-auto mt-8 flex max-w-[520px] flex-col gap-3 sm:flex-row">
+          {/* Takes the visitor to the demo form on the Contact page with their email and FinCheck already filled in. */}
+          <form action={routes.demo} method="get" className="mx-auto mt-8 flex max-w-[520px] flex-col gap-3 sm:flex-row">
             <input type="hidden" name="interest" value="FinCheck" />
             <label htmlFor="fc-early" className="sr-only">
               Work email
