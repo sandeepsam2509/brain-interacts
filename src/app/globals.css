@@ -30,6 +30,8 @@ html {
 }
 
 body {
+  /* Soft glows behind images may extend past the edge; never let them cause sideways scrolling. */
+  overflow-x: clip;
   background: #ffffff;
   color: var(--color-ink);
   font-family: var(--font-sans);
@@ -49,4 +51,44 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* ---------- Brand motion (all switched off for reduced motion, below) ---------- */
+
+/* 3D renders float gently over a slow glow. */
+.float-3d { animation: float-3d 7s ease-in-out infinite; }
+@keyframes float-3d { 50% { transform: translateY(-10px); } }
+.glow-a { animation: glow-a 16s ease-in-out infinite; }
+.glow-b { animation: glow-b 19s ease-in-out infinite; }
+.glow-c { animation: glow-c 17s ease-in-out infinite; }
+@keyframes glow-a { 50% { transform: translate(-30px, 40px) scale(1.1); } }
+@keyframes glow-b { 50% { transform: translate(40px, -25px) scale(0.92); } }
+@keyframes glow-c { 50% { transform: translate(-25px, -30px) scale(1.08); } }
+
+/* Header logo: one soft heartbeat on hover or keyboard focus. */
+.group:hover .logo-beat,
+.group:focus-visible .logo-beat { animation: logo-beat 0.5s ease-out 1; }
+@keyframes logo-beat { 40% { transform: scale(1.06); } 100% { transform: scale(1); } }
+
+/* Dark closing sections: the three logo colours turn slowly behind the text. */
+.cta-aurora {
+  background: conic-gradient(from 0deg, rgb(154 215 81 / 0.22), rgb(234 210 95 / 0.14), rgb(59 181 232 / 0.24), rgb(154 215 81 / 0.22));
+  filter: blur(70px);
+  animation: cta-spin 26s linear infinite;
+}
+@keyframes cta-spin { to { transform: rotate(1turn); } }
+
+/* Logo intro. */
+.intro-ring { fill: none; stroke-width: 1.2; stroke-dasharray: 140; stroke-dashoffset: 140; animation: intro-draw 1s ease forwards; }
+.intro-ring:nth-of-type(2) { animation-delay: 0.15s; }
+.intro-ring:nth-of-type(3) { animation-delay: 0.3s; }
+.intro-fill { opacity: 0; animation: intro-in 0.45s ease 1.05s forwards; }
+.intro-word { opacity: 0; transform: translateX(18px); animation: intro-in 0.5s ease 1.25s forwards; }
+@keyframes intro-draw { to { stroke-dashoffset: 0; } }
+@keyframes intro-in { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-3d, .glow-a, .glow-b, .glow-c, .cta-aurora, .logo-beat, .intro-ring, .intro-fill, .intro-word { animation: none !important; }
+  .intro-ring { stroke-dashoffset: 0; }
+  .intro-fill, .intro-word { opacity: 1; transform: none; }
 }

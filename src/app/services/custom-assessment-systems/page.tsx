@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CompareTable, CtaBlock, PageHero, SplitIntro, Steps } from "@/components/blocks";
 import { routes } from "@/lib/site";
 
@@ -28,6 +29,7 @@ export default function CustomAssessmentsPage() {
           { label: "Get a demo", href: routes.demo, variant: "gold" },
           { label: "See how it works", href: "#how-we-work", variant: "outlineDark" },
         ]}
+        aside={<Hero3D render={renders.assessments} tint="gold" priority />}
       />
 
       <SplitIntro

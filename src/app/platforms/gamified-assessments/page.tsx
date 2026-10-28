@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CtaBlock, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { routes } from "@/lib/site";
@@ -45,6 +46,7 @@ export default function GamifiedPage() {
           { label: "Get a demo", href: routes.demo, variant: "gold" },
           { label: "See the science", href: routes.science, variant: "outlineDark" },
         ]}
+        aside={<Hero3D render={renders.hiring} tint="gold" priority />}
       />
 
       <Section tone="light">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CtaBlock, PageHero, Stats } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { routes } from "@/lib/site";
@@ -35,6 +36,7 @@ export default function SciencePage() {
         lead="Corporate Brain rests on the Big Five — the most widely studied model of personality — and on decades of research into what predicts performance at work."
         // Points at the research brief PDF once it is supplied.
         actions={[{ label: "Read the research brief", href: routes.resources }]}
+        aside={<Hero3D render={renders.flow} tint="brand" priority />}
       />
 
       <Stats

@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { AssessmentBot } from "@/components/AssessmentBot";
 import { CookieConsent } from "@/components/CookieConsent";
 import { DemoDialog } from "@/components/DemoDialog";
+import { LogoIntro } from "@/components/LogoIntro";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <DemoDialog />
         <AssessmentBot />
         <CookieConsent />
+        <LogoIntro />
         {/* Cookieless page-view counts; switch on Web Analytics in the Vercel project. */}
         <Analytics />
       </body>

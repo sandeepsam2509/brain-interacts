@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerColumns, legalLinks, routes, site } from "@/lib/site";
-import { BrandMark } from "./BrandMark";
+import { BrandMark, Wordmark } from "./BrandMark";
 import { CookieSettingsButton } from "./CookieConsent";
 
 export function SiteFooter() {
@@ -8,9 +8,9 @@ export function SiteFooter() {
     <footer className="border-t border-navy-rule bg-navy text-on-navy-muted">
       <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-10 px-6 pt-14 pb-12 md:grid-cols-3 md:pt-[72px] lg:grid-cols-6 lg:gap-10">
         <div className="col-span-2 md:col-span-3 lg:col-span-2">
-          <Link href={routes.home} className="flex items-center gap-2.5 text-xl font-extrabold text-white no-underline">
+          <Link href={routes.home} aria-label={`${site.name} home`} className="flex items-center gap-2.5 no-underline">
             <BrandMark size={36} />
-            {site.name}
+            <Wordmark height={20} />
           </Link>
           <p className="mt-[18px] max-w-[340px] text-[15px] leading-[1.7]">
             Team analytics, behavioral analysis and workforce analytics for organizations that build on evidence.

@@ -4,24 +4,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { mainNav, routes, site } from "@/lib/site";
-import { BrandMark } from "./BrandMark";
+import { BrandMark, Wordmark } from "./BrandMark";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   // Close the phone menu whenever the page changes.
   useEffect(() => setOpen(false), [pathname]);
 
+  // Once the page scrolls, the header slims down and the wordmark folds away behind the mark.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  const compact = scrolled && !open;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-navy-rule bg-navy">
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-[18px]">
-        <Link
-          href={routes.home}
-          className="flex items-center gap-2.5 text-[17px] font-extrabold text-white no-underline md:text-[19px]"
-        >
-          <BrandMark size={32} />
-          {site.name}
+    <header className={`sticky top-0 z-50 border-b border-navy-rule transition-colors duration-300 ${compact ? "bg-navy/90 backdrop-blur-md" : "bg-navy"}`}>
+      <div className={`mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 transition-[padding] duration-300 md:px-6 ${compact ? "py-2 md:py-2.5" : "py-3 md:py-[18px]"}`}>
+        <Link href={routes.home} aria-label={`${site.name} home`} className="group flex items-center no-underline">
+          <BrandMark size={32} className="logo-beat" />
+          <span
+            className={`overflow-hidden transition-all duration-500 ease-out motion-reduce:transition-none ${
+              compact ? "ml-0 max-w-0 opacity-0" : "ml-2.5 max-w-[160px] opacity-100"
+            }`}
+          >
+            <Wordmark height={18} />
+          </span>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-6 text-[15px] font-semibold lg:flex">
