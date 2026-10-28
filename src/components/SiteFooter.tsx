@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { footerColumns, legalLinks, routes, site } from "@/lib/site";
 import { BrandMark } from "./BrandMark";
+import { CookieSettingsButton } from "./CookieConsent";
 
 export function SiteFooter() {
   return (
@@ -45,10 +46,7 @@ export function SiteFooter() {
                 {item.label}
               </Link>
             ))}
-            {/* Opens the cookie preferences panel once the consent banner is added (round 4). */}
-            <Link href={routes.cookies} className="text-on-navy-muted no-underline hover:text-white">
-              Cookie settings
-            </Link>
+            <CookieSettingsButton className="cursor-pointer text-on-navy-muted hover:text-white" />
             {site.linkedIn && (
               <a href={site.linkedIn} className="text-on-navy-muted no-underline hover:text-white">
                 LinkedIn

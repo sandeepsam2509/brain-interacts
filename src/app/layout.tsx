@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { AssessmentBot } from "@/components/AssessmentBot";
+import { CookieConsent } from "@/components/CookieConsent";
+import { DemoDialog } from "@/components/DemoDialog";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
@@ -40,6 +44,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <DemoDialog />
+        <AssessmentBot />
+        <CookieConsent />
+        {/* Cookieless page-view counts; switch on Web Analytics in the Vercel project. */}
+        <Analytics />
       </body>
     </html>
   );
