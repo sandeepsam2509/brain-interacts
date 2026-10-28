@@ -1,139 +1,109 @@
 import Link from "next/link";
-import type { Accent, Action } from "@/lib/types";
+import type { ReactNode } from "react";
+import { Icon, type IconName } from "./Icon";
 
-export const accentDot: Record<Accent, string> = {
-  green: "bg-green",
-  gold: "bg-gold",
-  blue: "bg-blue",
-  aqua: "bg-aqua",
-  lemon: "bg-lemon",
-};
+export type Tone = "dark" | "light";
 
-export const accentText: Record<Accent, string> = {
-  green: "text-green",
-  gold: "text-gold",
-  blue: "text-blue",
-  aqua: "text-aqua",
-  lemon: "text-lemon",
-};
-
-const accentCycle: Accent[] = ["green", "gold", "blue", "aqua"];
-export const accentAt = (i: number) => accentCycle[i % accentCycle.length];
-
-export function Container({ className = "", children }: { className?: string; children: React.ReactNode }) {
-  return <div className={`mx-auto w-full max-w-[1200px] px-5 md:px-8 ${className}`}>{children}</div>;
-}
-
-export function Eyebrow({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <p className={`text-eyebrow font-medium uppercase tracking-[0.14em] text-green ${className}`}>{children}</p>
-  );
-}
-
-export function SectionHeading({
-  eyebrow,
-  title,
-  intro,
-  center = false,
-}: {
-  eyebrow?: string;
-  title?: string;
-  intro?: string;
-  center?: boolean;
-}) {
-  if (!eyebrow && !title && !intro) return null;
-  return (
-    <div className={`mb-10 max-w-3xl md:mb-14 ${center ? "mx-auto text-center" : ""}`}>
-      {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
-      {title && <h2 className="text-balance text-h2-sm font-semibold leading-[1.15] tracking-tight md:text-h2">{title}</h2>}
-      {intro && <p className="mt-5 text-pretty text-lead text-secondary">{intro}</p>}
-    </div>
-  );
-}
-
-export function isExternal(href: string) {
-  return /^(https?:|mailto:|tel:)/.test(href);
-}
-
-export function SmartLink({
-  href,
-  className,
+/** A full-width band. Dark and light bands alternate down each page. */
+export function Section({
+  tone,
   children,
-  ...rest
-}: { href: string; className?: string; children: React.ReactNode } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  if (isExternal(href)) {
-    const newTab = href.startsWith("http");
-    return (
-      <a href={href} className={className} {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})} {...rest}>
-        {children}
-      </a>
-    );
-  }
+  id,
+  className = "",
+  innerClassName = "py-16 md:py-24",
+}: {
+  tone: Tone;
+  children: ReactNode;
+  id?: string;
+  className?: string;
+  innerClassName?: string;
+}) {
+  const toneClass = tone === "dark" ? "bg-navy text-white" : "bg-white text-ink";
   return (
-    <Link href={href} className={className} {...rest}>
+    <section id={id} className={`${toneClass} ${className}`}>
+      <div className={`mx-auto max-w-[1280px] px-6 ${innerClassName}`}>{children}</div>
+    </section>
+  );
+}
+
+const eyebrowColors = {
+  lime: "text-lime",
+  gold: "text-gold",
+  sky: "text-sky",
+  link: "text-ink-link",
+  goldInk: "text-gold-ink",
+} as const;
+
+/** Small mono label with an icon that sits above a heading. */
+export function Eyebrow({
+  icon,
+  children,
+  color,
+}: {
+  icon: IconName;
+  children: ReactNode;
+  color: keyof typeof eyebrowColors;
+}) {
+  return (
+    <p className={`mb-3.5 flex items-center gap-2 font-mono text-[13px] ${eyebrowColors[color]}`}>
+      <Icon name={icon} />
+      <span>{children}</span>
+    </p>
+  );
+}
+
+export function H2({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <h2 className={`text-[clamp(30px,3.4vw,44px)] leading-[1.12] font-extrabold tracking-[-0.02em] ${className}`}>
+      {children}
+    </h2>
+  );
+}
+
+const buttonStyles = {
+  lime: "bg-lime text-navy hover:bg-[#c7ea72]",
+  navy: "bg-navy text-white hover:bg-[#1e3a66]",
+  outlineLight: "border border-rule-strong text-ink hover:border-ink",
+  outlineDark: "border border-navy-line text-white hover:border-on-navy",
+} as const;
+
+export function ButtonLink({
+  href,
+  children,
+  variant = "lime",
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  variant?: keyof typeof buttonStyles;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center justify-center rounded-lg px-6 py-4 text-base font-bold no-underline transition-colors max-md:w-full ${buttonStyles[variant]} ${className}`}
+    >
       {children}
     </Link>
   );
 }
 
-export function ButtonLink({ label, href, variant = "primary", className = "" }: Action & { className?: string }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-button font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green";
-  const styles =
-    variant === "primary"
-      ? "bg-green text-navy-900 hover:-translate-y-0.5 hover:bg-[#a9e264] hover:shadow-[0_8px_24px_-8px_rgba(154,215,81,0.6)]"
-      : "border border-line bg-navy-800/60 text-mist hover:-translate-y-0.5 hover:border-secondary/60";
+/** Inline "Explore →" style link. */
+export function ArrowLink({
+  href,
+  children,
+  tone,
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  tone: Tone;
+  className?: string;
+}) {
+  const color = tone === "dark" ? "text-lime" : "text-ink-link";
   return (
-    <SmartLink href={href} className={`${base} ${styles} ${className}`}>
-      {label}
-    </SmartLink>
-  );
-}
-
-export function Actions({ actions, className = "" }: { actions?: Action[]; className?: string }) {
-  if (!actions?.length) return null;
-  return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
-      {actions.map((a, i) => (
-        <ButtonLink key={a.label + a.href} {...a} variant={a.variant ?? (i === 0 ? "primary" : "secondary")} />
-      ))}
-    </div>
-  );
-}
-
-export function TextLink({ label, href }: Action) {
-  return (
-    <SmartLink
-      href={href}
-      className="group inline-flex items-center gap-2 font-medium text-aqua transition-colors hover:text-mist"
-    >
-      {label.replace(/\s*→\s*$/, "")}
-      <ArrowIcon className="transition-transform group-hover:translate-x-1" />
-    </SmartLink>
-  );
-}
-
-export function ArrowIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className={className}>
-      <path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function CheckIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
-      <circle cx="10" cy="10" r="10" className="fill-green/15" />
-      <path d="m6 10.2 2.7 2.6L14 7.5" className="stroke-green" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function ChevronIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className={className}>
-      <path d="m3 4.5 3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <Link href={href} className={`font-bold no-underline hover:underline ${color} ${className}`}>
+      {children} <span aria-hidden="true">→</span>
+    </Link>
   );
 }

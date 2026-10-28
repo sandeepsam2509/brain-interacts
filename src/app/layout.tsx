@@ -1,23 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
-import { JsonLd } from "@/components/JsonLd";
+import { JetBrains_Mono, Manrope } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["500"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: site.name, template: `%s | ${site.name}` },
+  title: { default: site.name, template: `%s — ${site.name}` },
   description: site.description,
-  alternates: { canonical: "/" },
-  openGraph: { type: "website", siteName: site.name, locale: "en_IN", title: site.name, description: site.description },
+  openGraph: { type: "website", siteName: site.name, locale: "en_IN" },
   twitter: { card: "summary_large_image" },
 };
 
@@ -26,25 +30,16 @@ export const viewport: Viewport = { themeColor: "#0a1628" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        {/* Scroll-reveal content stays visible when JavaScript is off. */}
-        <noscript>
-          <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
-        </noscript>
+      <body className={`${manrope.variable} ${jetbrains.variable}`}>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded focus:bg-white focus:px-4 focus:py-2"
+        >
+          Skip to content
+        </a>
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: site.name,
-            url: site.url,
-            email: site.email,
-            telephone: site.phone,
-            address: { "@type": "PostalAddress", streetAddress: site.address, addressLocality: "Pune", addressCountry: "IN" },
-          }}
-        />
       </body>
     </html>
   );

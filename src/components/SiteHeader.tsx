@@ -2,198 +2,88 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { navGroups, navLinks, site } from "@/lib/site";
+import { useEffect, useState } from "react";
+import { mainNav, routes, site } from "@/lib/site";
 import { BrandMark } from "./BrandMark";
-import { ButtonLink, ChevronIcon } from "./ui";
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const [open, setOpen] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
 
-  // Close menus on navigation.
-  useEffect(() => {
-    setOpen(null);
-    setMobileOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setOpen(null);
-        setMobileOpen(false);
-      }
-    };
-    const onClick = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpen(null);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("keydown", onKey);
-    document.addEventListener("click", onClick);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("keydown", onKey);
-      document.removeEventListener("click", onClick);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-  }, [mobileOpen]);
-
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+  // Close the phone menu whenever the page changes.
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled || mobileOpen ? "border-line bg-navy-900/90 backdrop-blur-md" : "border-transparent bg-navy-900"
-      }`}
-    >
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-green focus:px-4 focus:py-2 focus:text-navy-900"
-      >
-        Skip to content
-      </a>
-      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-6 px-5 md:px-8 lg:px-10">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-tight" aria-label={`${site.name} home`}>
-          <BrandMark size={26} />
+    <header className="sticky top-0 z-50 border-b border-navy-rule bg-navy">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-[18px]">
+        <Link
+          href={routes.home}
+          className="flex items-center gap-2.5 text-[17px] font-extrabold text-white no-underline md:text-[19px]"
+        >
+          <BrandMark size={32} />
           {site.name}
         </Link>
 
-        <nav ref={navRef} aria-label="Main" className="hidden flex-1 lg:block">
-          <ul className="flex items-center gap-1">
-            {navGroups.map((group) => {
-              const expanded = open === group.label;
-              const active = group.items.some((i) => isActive(i.href));
-              return (
-                <li
-                  key={group.label}
-                  className="relative"
-                  onMouseEnter={() => setOpen(group.label)}
-                  onMouseLeave={() => setOpen(null)}
-                >
-                  <button
-                    type="button"
-                    aria-expanded={expanded}
-                    aria-haspopup="true"
-                    onClick={() => setOpen(expanded ? null : group.label)}
-                    className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-nav font-medium transition-colors hover:text-mist ${
-                      active ? "text-mist" : "text-secondary"
-                    }`}
-                  >
-                    {group.label}
-                    <ChevronIcon className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
-                  </button>
-                  <div
-                    className={`absolute left-0 top-full pt-2 transition-all duration-200 ${
-                      expanded ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
-                    }`}
-                  >
-                    <ul className="w-[340px] rounded-2xl border border-line bg-navy-800 p-2 shadow-2xl shadow-black/40">
-                      {group.items.map((item) => (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            className={`block rounded-xl px-4 py-3 transition-colors hover:bg-navy-700 ${
-                              isActive(item.href) ? "bg-navy-700/60" : ""
-                            }`}
-                          >
-                            <span className="flex items-center gap-2 text-small font-medium text-mist">
-                              {item.label}
-                              {item.soon && (
-                                <span className="rounded-full bg-gold/15 px-2 py-0.5 text-[0.6875rem] font-semibold text-gold">Soon</span>
-                              )}
-                            </span>
-                            {item.description && <span className="mt-0.5 block text-[0.8125rem] text-muted">{item.description}</span>}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              );
-            })}
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={isActive(link.href) ? "page" : undefined}
-                  className={`rounded-lg px-3 py-2 text-nav font-medium transition-colors hover:text-mist ${
-                    isActive(link.href) ? "text-mist" : "text-secondary"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label="Main" className="hidden items-center gap-6 text-[15px] font-semibold lg:flex">
+          {mainNav.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`no-underline transition-colors hover:text-white ${active ? "text-white" : "text-on-navy-soft"}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="hidden items-center gap-6 lg:flex">
-          <a href={site.signIn} className="text-nav font-medium text-secondary transition-colors hover:text-mist">
+        <div className="flex items-center gap-2.5">
+          <a
+            href={site.signIn}
+            className="hidden px-4 py-3 text-[15px] font-semibold text-white no-underline lg:inline-block"
+          >
             Sign in
           </a>
-          <ButtonLink label="Request a Demo" href="/demo" className="!py-2.5" />
+          <Link
+            href={routes.demo}
+            className="rounded-lg bg-lime px-4 py-2.5 text-[15px] font-bold text-navy no-underline hover:bg-[#c7ea72] md:px-5 md:py-3"
+          >
+            Get a demo
+          </Link>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-11 w-11 items-center justify-center rounded-[10px] border border-navy-line text-white lg:hidden"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+              {open ? <path d="M5 5l10 10M15 5L5 15" /> : <path d="M3 5h14M3 10h14M3 15h14" />}
+            </svg>
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-lg lg:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-menu"
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <span className="relative block h-3.5 w-5">
-            <span className={`absolute left-0 block h-0.5 w-5 rounded bg-mist transition-all ${mobileOpen ? "top-1.5 rotate-45" : "top-0"}`} />
-            <span className={`absolute left-0 top-1.5 block h-0.5 w-5 rounded bg-mist transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`absolute left-0 block h-0.5 w-5 rounded bg-mist transition-all ${mobileOpen ? "top-1.5 -rotate-45" : "top-3"}`} />
-          </span>
-        </button>
       </div>
 
-      <div
-        id="mobile-menu"
-        hidden={!mobileOpen}
-        className="h-[calc(100dvh-72px)] overflow-y-auto border-t border-line bg-navy-900 px-5 pb-10 pt-4 lg:hidden"
-      >
-        <nav aria-label="Mobile">
-          {navGroups.map((group) => (
-            <div key={group.label} className="border-b border-line py-4">
-              <p className="mb-2 text-eyebrow font-medium uppercase tracking-[0.14em] text-muted">{group.label}</p>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="block py-2 text-lead font-medium">
-                      {item.label}
-                      {item.soon && <span className="ml-2 text-small text-gold">Soon</span>}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <ul className="border-b border-line py-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="block py-2 text-lead font-medium">
-                  {link.label}
+      {open && (
+        <nav id="mobile-menu" aria-label="Main" className="border-t border-navy-rule bg-navy px-4 pb-6 lg:hidden">
+          <ul className="m-0 list-none p-0">
+            {mainNav.map((item) => (
+              <li key={item.label} className="border-b border-navy-rule">
+                <Link href={item.href} className="block py-4 text-[17px] font-semibold text-white no-underline">
+                  {item.label}
                 </Link>
               </li>
             ))}
           </ul>
+          <a href={site.signIn} className="mt-4 block py-2 font-semibold text-on-navy-soft no-underline">
+            Sign in
+          </a>
         </nav>
-        <div className="mt-6 flex flex-col gap-3">
-          <ButtonLink label="Request a Demo" href="/demo" />
-          <ButtonLink label="Sign in to Corporate Brain" href={site.signIn} variant="secondary" />
-        </div>
-      </div>
+      )}
     </header>
   );
 }

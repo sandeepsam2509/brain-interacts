@@ -1,28 +1,20 @@
-import { Motif } from "@/components/BrandMark";
-import { ButtonLink, Container, Eyebrow, TextLink } from "@/components/ui";
-
-const quickLinks = [
-  { label: "Platforms", href: "/platforms" },
-  { label: "Services", href: "/services" },
-  { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
-];
+import { ButtonLink, Section } from "@/components/ui";
+import { routes } from "@/lib/site";
 
 export default function NotFound() {
   return (
-    <section className="relative overflow-hidden">
-      <Motif className="-right-24 top-1/2 hidden h-[360px] w-[540px] -translate-y-1/2 lg:block" />
-      <Container className="relative py-28 md:py-40">
-        <Eyebrow className="mb-5">Error 404</Eyebrow>
-        <h1 className="text-h1-sm font-semibold leading-[1.08] tracking-tight md:text-h1-md">We couldn’t find that page.</h1>
-        <p className="mt-6 max-w-xl text-lead text-secondary">The link may be out of date, or the page may have moved.</p>
-        <ButtonLink label="Back to Homepage" href="/" className="mt-10" />
-        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
-          {quickLinks.map((l) => (
-            <TextLink key={l.href} {...l} />
-          ))}
-        </div>
-      </Container>
-    </section>
+    <Section tone="dark" innerClassName="py-24 md:py-32">
+      <p className="font-mono text-[13px] text-lime">404</p>
+      <h1 className="mt-3 text-[clamp(32px,4vw,52px)] font-extrabold tracking-[-0.02em]">This page isn&apos;t here.</h1>
+      <p className="mt-4 max-w-[520px] text-[17px] leading-[1.7] text-on-navy">
+        It may have moved, or it is still being built. Head back to the home page or get in touch.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <ButtonLink href={routes.home}>Back to home</ButtonLink>
+        <ButtonLink href={routes.contact} variant="outlineDark">
+          Contact us
+        </ButtonLink>
+      </div>
+    </Section>
   );
 }
