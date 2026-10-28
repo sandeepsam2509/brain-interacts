@@ -32,7 +32,10 @@ const eyebrowColors = {
   sky: "text-sky",
   link: "text-ink-link",
   goldInk: "text-gold-ink",
+  green: "text-green-ink",
 } as const;
+
+export type EyebrowColor = keyof typeof eyebrowColors;
 
 /** Small mono label with an icon that sits above a heading. */
 export function Eyebrow({
@@ -42,7 +45,7 @@ export function Eyebrow({
 }: {
   icon: IconName;
   children: ReactNode;
-  color: keyof typeof eyebrowColors;
+  color: EyebrowColor;
 }) {
   return (
     <p className={`mb-3.5 flex items-center gap-2 font-mono text-[13px] ${eyebrowColors[color]}`}>
@@ -62,10 +65,14 @@ export function H2({ children, className = "" }: { children: ReactNode; classNam
 
 const buttonStyles = {
   lime: "bg-lime text-navy hover:bg-[#c7ea72]",
+  gold: "bg-gold text-navy hover:bg-[#f6d27a]",
+  sky: "bg-sky text-navy hover:bg-[#82cbf8]",
   navy: "bg-navy text-white hover:bg-[#1e3a66]",
   outlineLight: "border border-rule-strong text-ink hover:border-ink",
   outlineDark: "border border-navy-line text-white hover:border-on-navy",
 } as const;
+
+export type ButtonVariant = keyof typeof buttonStyles;
 
 export function ButtonLink({
   href,
@@ -75,7 +82,7 @@ export function ButtonLink({
 }: {
   href: string;
   children: ReactNode;
-  variant?: keyof typeof buttonStyles;
+  variant?: ButtonVariant;
   className?: string;
 }) {
   return (
