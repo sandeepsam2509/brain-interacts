@@ -16,6 +16,27 @@ const paths = {
       <rect x="9" y="9" width="5" height="5" rx="1" />
     </>
   ),
+  target: (
+    <>
+      <circle cx="8" cy="8" r="6.5" />
+      <circle cx="8" cy="8" r="3.5" />
+      <circle cx="8" cy="8" r="0.8" />
+    </>
+  ),
+  flow: (
+    <>
+      <circle cx="3" cy="8" r="1.5" />
+      <circle cx="13" cy="8" r="1.5" />
+      <path d="M4.5 8h7M9.5 6l2 2-2 2" />
+    </>
+  ),
+  briefcase: (
+    <>
+      <rect x="1.5" y="4.5" width="13" height="9" rx="1.5" />
+      <path d="M5.5 4.5V3a1 1 0 011-1h3a1 1 0 011 1v1.5M1.5 8.5h13" />
+    </>
+  ),
+  chart: <path d="M2 14h12M4 11V8M8 11V3M12 11V6" />,
   quote: <path d="M2.5 13V9.5c0-2.6 1.2-4.2 3-5M2.5 9.5h3.5V13H2.5M9.5 13V9.5c0-2.6 1.2-4.2 3-5M9.5 9.5H13V13H9.5" />,
 };
 
