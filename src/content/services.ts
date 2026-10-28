@@ -1,4 +1,5 @@
 import type { Card, Faq, PageContent, Section } from "@/lib/types";
+import { renders } from "./images";
 
 const home = { label: "Home", href: "/" };
 const servicesCrumb = { label: "Services", href: "/services" };
@@ -32,6 +33,7 @@ export const servicesPage: PageContent = {
       { label: "Schedule a Diagnostic", href: "/diagnostic" },
       { label: "Find the right service", href: "/services#which-service" },
     ],
+    visual: renders.analytics,
   },
   sections: [
     {
@@ -159,6 +161,7 @@ export const rootCausePage: PageContent = {
       { label: "Find the Root Cause", href: "/diagnostic" },
       { label: "How we work", href: "/services/root-cause-analysis#method" },
     ],
+    visual: renders.bench,
   },
   sections: [
     {
@@ -268,6 +271,7 @@ export const psychometricPage: PageContent = {
       { label: "Talk to a Psychometric Consultant", href: "/diagnostic" },
       { label: "What we measure", href: "/services/psychometric-consulting#measure" },
     ],
+    visual: renders.assessments,
   },
   sections: [
     {
@@ -388,6 +392,7 @@ export const culturePage: PageContent = {
       { label: "Commission a Culture Study", href: "/diagnostic" },
       { label: "Survey vs. study", href: "/services/organizational-culture-assessment#compare" },
     ],
+    visual: renders.reports,
   },
   sections: [
     {

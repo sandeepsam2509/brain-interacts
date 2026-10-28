@@ -7,6 +7,7 @@ export function CtaBanner({ title, body, actions }: { title: string; body?: stri
     <section className="py-16 md:py-24">
       <Container>
         <div className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-navy-800 to-navy-700 px-6 py-14 text-center sm:px-12 md:py-20">
+          <div aria-hidden="true" className="cta-aurora pointer-events-none absolute -inset-1/2" />
           <Motif className="-bottom-24 -right-16 h-[260px] w-[390px]" />
           <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green/60 to-transparent" />
           <div className="relative mx-auto max-w-2xl">

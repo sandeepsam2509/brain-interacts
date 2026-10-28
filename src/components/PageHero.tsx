@@ -4,14 +4,16 @@ import { site } from "@/lib/site";
 import type { Hero } from "@/lib/types";
 import { Motif } from "./BrandMark";
 import { DashboardPreview } from "./DashboardPreview";
+import { Hero3D } from "./Hero3D";
 import { JsonLd } from "./JsonLd";
 import { PatternPreview } from "./PatternPreview";
 import { Actions, Container, Eyebrow } from "./ui";
 
 export function PageHero({ hero, path }: { hero: Hero; path: string }) {
-  const { crumbs, eyebrow, title, lead, actions, visual } = hero;
+  const { crumbs, eyebrow, title, lead, actions, visual, tint } = hero;
   const hasVisual = Boolean(visual);
   const visualFirst = visual === "pattern";
+  const isRender = typeof visual === "object" && visual.render;
 
   return (
     <section className="relative overflow-hidden border-b border-line/60">
@@ -19,7 +21,7 @@ export function PageHero({ hero, path }: { hero: Hero; path: string }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_85%_0%,rgba(59,181,232,0.12),transparent_70%),radial-gradient(40%_50%_at_0%_100%,rgba(154,215,81,0.08),transparent_70%)]"
       />
-      <Motif className="-right-24 top-1/2 hidden h-[360px] w-[540px] -translate-y-1/2 xl:block" />
+      {!isRender && <Motif className="-right-24 top-1/2 hidden h-[360px] w-[540px] -translate-y-1/2 xl:block" />}
       <Container className="relative py-16 md:py-24">
         {crumbs.length > 0 && (
         <nav aria-label="Breadcrumb" className="mb-10 text-small text-muted">
@@ -54,6 +56,8 @@ export function PageHero({ hero, path }: { hero: Hero; path: string }) {
                 <DashboardPreview />
               ) : visual === "pattern" ? (
                 <PatternPreview />
+              ) : isRender ? (
+                <Hero3D image={visual} tint={tint} />
               ) : visual ? (
                 <Image
                   src={visual.src}

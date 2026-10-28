@@ -60,10 +60,18 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-6 px-5 md:px-8 lg:px-10">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-tight" aria-label={`${site.name} home`}>
-          <BrandMark size={26} />
-          {site.name}
+      <div className={`mx-auto flex max-w-[1440px] transition-[height] duration-300 ${scrolled && !mobileOpen ? "h-[60px]" : "h-[72px]"} items-center justify-between gap-6 px-5 md:px-8 lg:px-10`}>
+        <Link href="/" className="group flex shrink-0 items-center" aria-label={`${site.name} home`}>
+          <BrandMark size={30} className="logo-beat" />
+          {/* The wordmark folds away once the page scrolls, leaving just the mark. */}
+          <span
+            className={`overflow-hidden transition-all duration-500 ease-out ${
+              scrolled && !mobileOpen ? "ml-0 max-w-0 opacity-0" : "ml-2 max-w-[150px] opacity-100"
+            }`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/brain-interacts-wordmark.svg" alt="" width={140} height={18} className="block h-[18px] w-[140px] max-w-none" />
+          </span>
         </Link>
 
         <nav ref={navRef} aria-label="Main" className="hidden flex-1 lg:block">

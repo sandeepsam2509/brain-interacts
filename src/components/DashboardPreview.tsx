@@ -1,4 +1,4 @@
-import { BrandMark } from "./BrandMark";
+import { BrandLogo } from "./BrandMark";
 
 const stats = [
   { value: "1,248", label: "Assessed" },
@@ -20,8 +20,7 @@ export function DashboardPreview({ className = "" }: { className?: string }) {
       className={`relative w-full max-w-md rounded-2xl border border-line bg-navy-800/90 p-5 shadow-[0_30px_80px_-30px_rgba(59,181,232,0.35)] backdrop-blur sm:p-6 ${className}`}
     >
       <div className="flex items-center gap-3">
-        <BrandMark size={22} />
-        <p className="font-semibold">Corporate Brain</p>
+        <BrandLogo product="corporate-brain" height={26} />
       </div>
       <p className="mt-4 text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-green">Workforce intelligence</p>
       <p className="mt-1 text-small font-medium">Corporate Brain · Team overview</p>

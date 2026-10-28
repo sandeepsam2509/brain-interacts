@@ -17,3 +17,26 @@ export const screenshots = {
   teamsReport: shot("qbqWKLvLLt0Ivw3ZSkovlOl7I8", "Corporate Brain teams report", 577),
   teamAnalytics: shot("dvVT5lqU5F3lS10EDL9MZO9kpk", "Corporate Brain team analytics", 577),
 };
+
+// 3D renders of the platform on transparent backgrounds (public/3d). Sample data only.
+const render = (name: string, alt: string, width: number, height: number): Image => ({
+  src: `/3d/${name}.webp`,
+  alt,
+  width,
+  height,
+  render: true,
+});
+
+export const renders = {
+  home: render("home", "Corporate Brain leadership, manager and employee views in 3D", 1600, 910),
+  leadership: render("lead", "Corporate Brain leadership dashboard with attrition risk and bench strength", 1600, 1138),
+  managers: render("mgr", "Corporate Brain team board with team capability and a suggested assignment", 1600, 1062),
+  employees: render("emp", "Corporate Brain employee profile with strengths and a growth path", 1600, 1015),
+  flow: render("flow", "Employee, manager and leadership views stacked as layers", 1507, 1600),
+  people: render("people", "Corporate Brain people directory with availability and assessment status", 1600, 978),
+  bench: render("bench", "Corporate Brain bench view matching free people to delayed projects", 1600, 1050),
+  hiring: render("hiring", "Corporate Brain hiring board with project fit scores", 1600, 1102),
+  analytics: render("analytics", "Corporate Brain team analytics by team", 1600, 1117),
+  reports: render("reports", "Corporate Brain leadership report with recommended next steps", 1600, 1132),
+  assessments: render("assess", "Corporate Brain assessments overview", 1600, 1106),
+};
