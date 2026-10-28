@@ -1,6 +1,6 @@
 import type { PageContent } from "@/lib/types";
 import { site } from "@/lib/site";
-import { screenshots } from "./images";
+import { renders, screenshots } from "./images";
 
 const home = { label: "Home", href: "/" };
 const platformsCrumb = { label: "Platforms", href: "/platforms" };
@@ -19,6 +19,7 @@ export const platformsPage: PageContent = {
       { label: "Request a Demo", href: "/demo" },
       { label: "Compare the platforms", href: "/platforms#compare" },
     ],
+    visual: renders.people,
   },
   sections: [
     {
@@ -159,7 +160,7 @@ export const corporateBrainPage: PageContent = {
       { label: "Request a Corporate Brain Demo", href: "/demo" },
       { label: "Sign in", href: site.signIn },
     ],
-    visual: screenshots.signIn,
+    visual: renders.leadership,
   },
   sections: [
     {

@@ -1,4 +1,5 @@
 import type { PageContent } from "@/lib/types";
+import { renders } from "./images";
 import { site } from "@/lib/site";
 
 const home = { label: "Home", href: "/" };
@@ -18,6 +19,7 @@ export const howItWorksPage: PageContent = {
       { label: "Request a Demo", href: "/demo" },
       { label: "See the timeline", href: "/how-it-works#timeline" },
     ],
+    visual: renders.flow,
   },
   sections: [
     {
@@ -115,7 +117,8 @@ export const leadershipPage: PageContent = {
       { label: "Request an Enterprise Demo", href: "/demo" },
       { label: "Schedule a Diagnostic", href: "/diagnostic" },
     ],
-    visual: "dashboard",
+    visual: renders.leadership,
+    tint: "gold",
   },
   sections: [
     {
@@ -205,6 +208,8 @@ export const managersPage: PageContent = {
       { label: "Request a Demo", href: "/demo" },
       { label: "Sign in", href: site.signIn },
     ],
+    visual: renders.managers,
+    tint: "green",
   },
   sections: [
     {
@@ -281,6 +286,8 @@ export const employeesPage: PageContent = {
     title: "Your strengths assessment: know how you work and grow on purpose",
     lead: "Your Corporate Brain profile shows how you think, work and decide, and gives you a clear path to grow.",
     actions: [{ label: "Sign in to Corporate Brain", href: site.signIn }],
+    visual: renders.employees,
+    tint: "blue",
   },
   sections: [
     {

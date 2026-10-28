@@ -17,7 +17,7 @@ export type Step = { title: string; body: string };
 
 export type Faq = { q: string; a: string };
 
-export type Image = { src: string; alt: string; width: number; height: number };
+export type Image = { src: string; alt: string; width: number; height: number; render?: boolean };
 
 export type Feature = {
   eyebrow?: string;
@@ -53,6 +53,8 @@ export type Hero = {
   lead: string;
   actions?: Action[];
   visual?: "dashboard" | "pattern" | Image;
+  /** Colour of the glow behind a 3D render; defaults to all three logo colours. */
+  tint?: Accent;
 };
 
 export type PageContent = {

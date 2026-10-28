@@ -1,24 +1,61 @@
-// The three overlapping circles: psychological science, interactive technology
-// and organizational strategy.
-export function BrandMark({ size = 32, className = "" }: { size?: number; className?: string }) {
+/* eslint-disable @next/next/no-img-element -- small SVG logos don't need next/image */
+
+type Product = "brain-interacts" | "corporate-brain";
+
+const marks: Record<Product, { mark: string; logo: string; name: string; ratio: number }> = {
+  "brain-interacts": {
+    mark: "/brand/brain-interacts-mark.svg",
+    logo: "/brand/brain-interacts-logo.svg",
+    name: "Brain Interacts",
+    ratio: 342.07 / 85,
+  },
+  "corporate-brain": {
+    mark: "/brand/corporate-brain-mark.svg",
+    logo: "/brand/corporate-brain-logo.svg",
+    name: "Corporate Brain",
+    ratio: 368.55 / 85,
+  },
+};
+
+// The three overlapping circles on their own. Brain Interacts uses the same mark as
+// Corporate Brain with the colours moved one circle round.
+export function BrandMark({
+  size = 32,
+  product = "brain-interacts",
+  className = "",
+}: {
+  size?: number;
+  product?: Product;
+  className?: string;
+}) {
   return (
-    <svg width={size * 1.6} height={size} viewBox="0 0 52 32" aria-hidden="true" className={className}>
-      <circle cx="16" cy="16" r="13" fill="#EAD25F" />
-      <circle cx="26" cy="16" r="13" fill="#9AD751" fillOpacity="0.85" />
-      <circle cx="36" cy="16" r="13" fill="#3BB5E8" fillOpacity="0.8" />
-      <circle cx="26" cy="16" r="6" fill="#AEF2ED" fillOpacity="0.55" />
-    </svg>
+    <img src={marks[product].mark} alt="" aria-hidden="true" width={Math.round(size * (80 / 77))} height={size} className={className} />
   );
 }
 
+// Full logo: mark plus wordmark, as one image.
+export function BrandLogo({
+  height = 32,
+  product = "brain-interacts",
+  className = "",
+}: {
+  height?: number;
+  product?: Product;
+  className?: string;
+}) {
+  const m = marks[product];
+  return <img src={m.logo} alt={m.name} width={Math.round(height * m.ratio)} height={height} className={className} />;
+}
+
 // Large, soft version of the mark used as a background motif in heroes and CTAs.
+// The circles sit in the logo's triangle and drift slowly.
 export function Motif({ className = "" }: { className?: string }) {
   return (
     <div aria-hidden="true" className={`pointer-events-none absolute ${className}`}>
       <div className="relative h-full w-full opacity-[0.16] blur-[2px]">
-        <span className="absolute left-0 top-1/2 aspect-square w-1/2 -translate-y-1/2 rounded-full bg-gold" />
-        <span className="absolute left-1/4 top-1/2 aspect-square w-1/2 -translate-y-1/2 rounded-full bg-green mix-blend-screen" />
-        <span className="absolute left-1/2 top-1/2 aspect-square w-1/2 -translate-y-1/2 rounded-full bg-blue mix-blend-screen" />
+        <span className="motif-drift-a absolute left-[18%] top-[30%] aspect-square w-[46%] rounded-full bg-green" />
+        <span className="motif-drift-b absolute left-[38%] top-[30%] aspect-square w-[46%] rounded-full bg-gold mix-blend-screen" />
+        <span className="motif-drift-c absolute left-[28%] top-[2%] aspect-square w-[46%] rounded-full bg-blue mix-blend-screen" />
       </div>
     </div>
   );

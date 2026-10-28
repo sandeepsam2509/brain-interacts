@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerColumns, site } from "@/lib/site";
-import { BrandMark } from "./BrandMark";
+import { BrandLogo } from "./BrandMark";
 import { Container, SmartLink } from "./ui";
 
 export function SiteFooter() {
@@ -8,9 +8,8 @@ export function SiteFooter() {
     <footer className="border-t border-line bg-navy-900">
       <Container className="grid gap-12 py-16 md:py-20 lg:grid-cols-[1.35fr_repeat(4,1fr)] lg:gap-8">
         <div className="max-w-sm">
-          <Link href="/" className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
-            <BrandMark size={24} />
-            {site.name}
+          <Link href="/" className="inline-flex" aria-label={`${site.name} home`}>
+            <BrandLogo height={34} />
           </Link>
           <p className="mt-5 text-small text-secondary">
             Brain Interacts is a team analytics and behavioral analysis company. We help enterprises and growing businesses see how

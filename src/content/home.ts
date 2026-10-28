@@ -1,4 +1,5 @@
 import type { PageContent } from "@/lib/types";
+import { renders } from "./images";
 
 export const homePage: PageContent = {
   path: "/",
@@ -14,7 +15,7 @@ export const homePage: PageContent = {
       { label: "Request a Demo", href: "/demo" },
       { label: "Schedule a Diagnostic", href: "/diagnostic", variant: "secondary" },
     ],
-    visual: "dashboard",
+    visual: renders.home,
   },
   sections: [
     {
