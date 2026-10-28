@@ -1,95 +1,101 @@
-// Site-wide facts and navigation, mirrored from the Framer project so every
-// existing URL keeps working.
+// Site-wide facts and navigation. Every link on the site comes from here.
 
-export type NavLink = { label: string; href: string; description?: string; soon?: boolean };
+export type NavLink = { label: string; href: string };
 export type NavGroup = { label: string; items: NavLink[] };
 
 export const site = {
   name: "Brain Interacts",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://braininteracts.com",
   description:
-    "Team analytics, behavioral analysis and workforce analytics for enterprises and growing businesses. See how your people think, decide and deliver.",
+    "Behavioral analytics and people analytics for organizations that build teams on evidence. See how your people really work, and who should do what next.",
   email: "support@braininteracts.com",
-  phone: "+91 93734 62454",
-  address: "Survey No 43 H. No. 8/1 (P), Plot A, opp. Bhartiya Vidyapeeth School, Balewadi, Pune, Maharashtra 411045",
+  phone: "+91 72760 69027",
+  phoneHref: "tel:+917276069027",
   signIn: "https://corporatebrain.braininteracts.com",
-  privacy: "https://braininteracts.com/privacy",
-  terms: "https://braininteracts.com/terms",
+  // Company LinkedIn page. Left empty until the exact URL is confirmed; the footer hides the link while empty.
+  linkedIn: "",
 };
 
-export const platforms: NavLink[] = [
-  { label: "Corporate Brain", href: "/platforms/corporate-brain", description: "People analytics built on behavioral science." },
-  { label: "Gamified Assessments", href: "/platforms/gamified-assessments", description: "Observe decisions in interactive challenges." },
-  { label: "FinCheck", href: "/platforms/fincheck", description: "Behavioral analysis for banks and NBFCs.", soon: true },
-];
+export const routes = {
+  home: "/",
+  corporateBrain: "/platforms/corporate-brain",
+  finCheck: "/platforms/fincheck",
+  gamified: "/platforms/gamified-assessments",
+  customAssessments: "/services/custom-assessment-systems",
+  cultureStudy: "/services/corporate-culture-study",
+  rootCause: "/services/root-cause-analytics",
+  science: "/science",
+  resources: "/resources",
+  blog: "/resources/blog",
+  stories: "/customer-stories",
+  pricing: "/pricing",
+  about: "/about",
+  contact: "/contact",
+  demo: "/contact#demo",
+  security: "/security",
+  integrations: "/integrations",
+  careers: "/careers",
+  ceo: "/for-ceos",
+  faq: "/faq",
+  privacy: "/privacy",
+  terms: "/terms",
+  cookies: "/cookies",
+  snapshot: "/#snapshot",
+} as const;
 
-export const services: NavLink[] = [
-  { label: "Root Cause Analysis", href: "/services/root-cause-analysis", description: "Why projects stall and top talent leaves." },
-  { label: "Psychometric Consulting", href: "/services/psychometric-consulting", description: "Measure leaders in critical roles." },
-  { label: "Culture Assessment", href: "/services/organizational-culture-assessment", description: "Understand culture beyond eNPS." },
-  { label: "Mental Health Workshops", href: "/services/corporate-mental-health-workshops", description: "Reduce strain at the system level." },
-];
-
-export const solutions: NavLink[] = [
-  { label: "For Leadership", href: "/for/leadership", description: "Enterprise capability and people risk." },
-  { label: "For Managers", href: "/for/managers", description: "Build and staff teams on evidence." },
-  { label: "For Employees", href: "/for/employees", description: "Understand strengths and growth." },
-];
-
-export const navGroups: NavGroup[] = [
-  {
-    label: "Platforms",
-    items: [
-      ...platforms,
-      { label: "How it works", href: "/how-it-works", description: "From kickoff to first insight." },
-      { label: "Pricing", href: "/pricing", description: "Plans shaped around your organization." },
-    ],
-  },
-  {
-    label: "Services",
-    items: [
-      ...services,
-      { label: "Schedule a diagnostic", href: "/diagnostic", description: "Start with your business question." },
-    ],
-  },
-  { label: "Solutions", items: solutions },
-];
-
-export const navLinks: NavLink[] = [
-  { label: "Resources", href: "/resources" },
-  { label: "About Us", href: "/about" },
+export const mainNav: NavLink[] = [
+  { label: "Products", href: routes.corporateBrain },
+  { label: "Solutions", href: routes.customAssessments },
+  { label: "Science", href: routes.science },
+  { label: "Resources", href: routes.resources },
+  { label: "Customer Stories", href: routes.stories },
+  { label: "Pricing", href: routes.pricing },
+  { label: "About", href: routes.about },
+  { label: "Contact", href: routes.contact },
 ];
 
 export const footerColumns: NavGroup[] = [
   {
-    label: "Platforms",
+    label: "Products",
     items: [
-      { label: "Corporate Brain", href: "/platforms/corporate-brain" },
-      { label: "Gamified Assessments", href: "/platforms/gamified-assessments" },
-      { label: "FinCheck · Soon", href: "/platforms/fincheck" },
-      { label: "How it works", href: "/how-it-works" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "Corporate Brain", href: routes.corporateBrain },
+      { label: "FinCheck", href: routes.finCheck },
+      { label: "Gamified Assessments", href: routes.gamified },
     ],
   },
   {
-    label: "Services",
+    label: "Solutions",
     items: [
-      { label: "Root Cause Analysis", href: "/services/root-cause-analysis" },
-      { label: "Psychometric Consulting", href: "/services/psychometric-consulting" },
-      { label: "Culture Assessment", href: "/services/organizational-culture-assessment" },
-      { label: "Mental Health Workshops", href: "/services/corporate-mental-health-workshops" },
-      { label: "Schedule a diagnostic", href: "/diagnostic" },
+      { label: "Custom Psychological Assessment Systems", href: routes.customAssessments },
+      { label: "Corporate Culture Study", href: routes.cultureStudy },
+      { label: "Root Cause Analytics", href: routes.rootCause },
     ],
   },
-  { label: "Solutions", items: solutions.map(({ label, href }) => ({ label, href })) },
+  {
+    label: "Resources",
+    items: [
+      { label: "The Science", href: routes.science },
+      { label: "Blogs & Whitepapers", href: routes.blog },
+      { label: "Customer Stories", href: routes.stories },
+      { label: "Pricing", href: routes.pricing },
+      { label: "FAQ", href: routes.faq },
+      { label: "For CEOs", href: routes.ceo },
+    ],
+  },
   {
     label: "Company",
     items: [
-      { label: "About Us", href: "/about" },
-      { label: "Resources", href: "/resources" },
-      { label: "Security & privacy", href: "/security" },
-      { label: "Contact", href: "/contact" },
-      { label: "Sign in", href: site.signIn },
+      { label: "About", href: routes.about },
+      { label: "Contact", href: routes.contact },
+      { label: "Security & Privacy", href: routes.security },
+      { label: "Integrations", href: routes.integrations },
+      { label: "Careers", href: routes.careers },
     ],
   },
+];
+
+export const legalLinks: NavLink[] = [
+  { label: "Privacy", href: routes.privacy },
+  { label: "Terms", href: routes.terms },
+  { label: "Cookies", href: routes.cookies },
 ];

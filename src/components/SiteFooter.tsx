@@ -1,59 +1,62 @@
 import Link from "next/link";
-import { footerColumns, site } from "@/lib/site";
+import { footerColumns, legalLinks, routes, site } from "@/lib/site";
 import { BrandMark } from "./BrandMark";
-import { Container, SmartLink } from "./ui";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line bg-navy-900">
-      <Container className="grid gap-12 py-16 md:py-20 lg:grid-cols-[1.35fr_repeat(4,1fr)] lg:gap-8">
-        <div className="max-w-sm">
-          <Link href="/" className="flex items-center gap-2.5 text-xl font-semibold tracking-tight">
-            <BrandMark size={24} />
+    <footer className="border-t border-navy-rule bg-navy text-on-navy-muted">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-10 px-6 pt-14 pb-12 md:grid-cols-3 md:pt-[72px] lg:grid-cols-6 lg:gap-10">
+        <div className="col-span-2 md:col-span-3 lg:col-span-2">
+          <Link href={routes.home} className="flex items-center gap-2.5 text-xl font-extrabold text-white no-underline">
+            <BrandMark size={36} />
             {site.name}
           </Link>
-          <p className="mt-5 text-small text-secondary">
-            Brain Interacts is a team analytics and behavioral analysis company. We help enterprises and growing businesses see how
-            their people think, decide and work together, and act on it.
+          <p className="mt-[18px] max-w-[340px] text-[15px] leading-[1.7]">
+            Team analytics, behavioral analysis and workforce analytics for organizations that build on evidence.
           </p>
-          <a href={`mailto:${site.email}`} className="mt-6 inline-block text-small text-aqua hover:text-mist">
-            {site.email}
-          </a>
-          <address className="mt-6 not-italic">
-            <p className="text-small font-medium">Location</p>
-            <p className="mt-1.5 text-small text-secondary">{site.address}</p>
-            <p className="mt-5 text-small font-medium">Phone</p>
-            <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="mt-1.5 inline-block text-small text-aqua hover:text-mist">
+          <div className="mt-5 flex flex-col gap-2 text-[15px]">
+            <a href={`mailto:${site.email}`} className="text-[#E8EDF5] no-underline hover:underline">
+              {site.email}
+            </a>
+            <a href={site.phoneHref} className="text-[#E8EDF5] no-underline hover:underline">
               {site.phone}
             </a>
-          </address>
-        </div>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:contents">
-          {footerColumns.map((col) => (
-            <nav key={col.label} aria-label={col.label}>
-              <p className="text-small font-medium">{col.label}</p>
-              <ul className="mt-4 space-y-3">
-                {col.items.map((item) => (
-                  <li key={item.href}>
-                    <SmartLink href={item.href} className="text-small text-secondary transition-colors hover:text-mist">
-                      {item.label}
-                    </SmartLink>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-        </div>
-      </Container>
-      <Container>
-        <div className="flex flex-col gap-4 border-t border-line py-8 text-small text-secondary sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href={site.privacy} className="hover:text-mist">Privacy Policy</a>
-            <a href={site.terms} className="hover:text-mist">Terms of Service</a>
           </div>
         </div>
-      </Container>
+
+        {footerColumns.map((col) => (
+          <nav key={col.label} aria-label={col.label} className="flex flex-col gap-3 text-[15px]">
+            <strong className="mb-1 text-white">{col.label}</strong>
+            {col.items.map((item) => (
+              <Link key={item.href} href={item.href} className="text-on-navy-muted no-underline hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        ))}
+      </div>
+
+      <div className="border-t border-navy-rule">
+        <div className="mx-auto flex max-w-[1280px] flex-wrap justify-between gap-4 px-6 py-6 text-[13px]">
+          <span>© {new Date().getFullYear()} Brain Interacts. All rights reserved.</span>
+          <span className="flex flex-wrap gap-6">
+            {legalLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="text-on-navy-muted no-underline hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+            {/* Opens the cookie preferences panel once the consent banner is added (round 4). */}
+            <Link href={routes.cookies} className="text-on-navy-muted no-underline hover:text-white">
+              Cookie settings
+            </Link>
+            {site.linkedIn && (
+              <a href={site.linkedIn} className="text-on-navy-muted no-underline hover:text-white">
+                LinkedIn
+              </a>
+            )}
+          </span>
+        </div>
+      </div>
     </footer>
   );
 }
