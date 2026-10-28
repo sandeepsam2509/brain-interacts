@@ -11,6 +11,18 @@ const paths = [
   "/services/custom-assessment-systems",
   "/services/corporate-culture-study",
   "/services/root-cause-analytics",
+  "/science",
+  "/science/validity",
+  "/science/frameworks",
+  "/science/methodology",
+  "/resources",
+  "/resources/blog",
+  "/customer-stories",
+  "/pricing",
+  "/security",
+  "/integrations",
+  "/careers",
+  "/for-ceos",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

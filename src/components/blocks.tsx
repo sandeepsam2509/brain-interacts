@@ -230,6 +230,9 @@ export function CompareTable({
   headings,
   rows,
   highlightLast = true,
+  template,
+  intro,
+  footnote,
 }: {
   tone: Tone;
   label?: SectionLabel;
@@ -237,13 +240,18 @@ export function CompareTable({
   headings: string[];
   rows: string[][];
   highlightLast?: boolean;
+  /** Tailwind grid-template class for desktop, e.g. "md:grid-cols-[1fr_2fr]". */
+  template?: string;
+  intro?: ReactNode;
+  footnote?: ReactNode;
 }) {
-  const cols = headings.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3";
+  const cols = template ?? { 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[headings.length] ?? "md:grid-cols-3";
   const muted = tone === "dark" ? "text-on-navy-soft" : "text-ink-muted";
   const lastHead = tone === "dark" ? "text-lime" : "text-ink-link";
   return (
     <Section tone={tone}>
-      <SectionHead label={label} title={title} tone={tone} />
+      <SectionHead label={label} title={title} tone={tone} className={intro ? "mb-5" : undefined} />
+      {intro && <p className={`mb-10 max-w-[760px] text-[17px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
       <div role="table" aria-label={typeof title === "string" ? title : undefined}>
         <div role="row" className={`hidden gap-6 border-b-2 pb-3 font-mono text-[13px] uppercase md:grid ${cols} ${tone === "dark" ? "border-white text-on-navy-muted" : "border-navy text-ink-muted"}`}>
           {headings.map((h, i) => (
@@ -267,6 +275,7 @@ export function CompareTable({
           </div>
         ))}
       </div>
+      {footnote && <p className={`mt-8 text-[15px] leading-[1.7] ${bodyText(tone)}`}>{footnote}</p>}
     </Section>
   );
 }
@@ -398,6 +407,75 @@ export function CtaBlock({
         {text && <p className={`mx-auto mt-5 max-w-[600px] text-lg leading-[1.7] ${bodyText(tone)}`}>{text}</p>}
         <Actions actions={actions} className="mt-8 justify-center" />
       </div>
+    </Section>
+  );
+}
+
+/** Row of big numbers with a short caption under each. */
+export function Stats({
+  tone,
+  label,
+  title,
+  intro,
+  stats,
+  footnote,
+}: {
+  tone: Tone;
+  label: SectionLabel;
+  title: ReactNode;
+  intro?: ReactNode;
+  stats: { value: string; unit?: string; text?: string; accent: Accent; small?: boolean }[];
+  footnote?: ReactNode;
+}) {
+  const cols = stats.length > 4 ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-6" : "sm:grid-cols-2 lg:grid-cols-4";
+  return (
+    <Section tone={tone}>
+      <SectionHead label={label} title={title} className={intro ? "mb-5" : undefined} />
+      {intro && <p className={`mb-10 max-w-[760px] text-[17px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
+      <dl className={`m-0 grid gap-10 md:gap-8 ${cols}`}>
+        {stats.map((s) => (
+          <div key={s.value + (s.text ?? "")} className={`border-t pt-6 ${ruleColor(tone)}`}>
+            <dt className={`leading-none font-extrabold tracking-[-0.03em] ${s.small ? "text-[22px]" : "text-[clamp(52px,5vw,72px)]"} ${textFor(s.accent)}`}>
+              {s.value}
+              {s.unit && <span className="text-[0.4em]">{s.unit}</span>}
+            </dt>
+            {s.text && <dd className={`m-0 mt-3 leading-[1.7] ${bodyText(tone)}`}>{s.text}</dd>}
+          </div>
+        ))}
+      </dl>
+      {footnote && <p className={`mt-12 border-t pt-6 text-[15px] leading-[1.7] ${ruleColor(tone)} ${tone === "dark" ? "text-on-navy-muted" : "text-ink-muted"}`}>{footnote}</p>}
+    </Section>
+  );
+}
+
+/** Expandable questions and answers. Works without JavaScript. */
+export function FaqList({ tone, label, title, items }: { tone: Tone; label: SectionLabel; title: ReactNode; items: { q: string; a: ReactNode }[] }) {
+  return (
+    <Section tone={tone}>
+      <SectionHead label={label} title={title} />
+      <div className="max-w-[860px]">
+        {items.map((item) => (
+          <details key={item.q} className={`group border-b py-5 ${ruleColor(tone)}`}>
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold [&::-webkit-details-marker]:hidden">
+              {item.q}
+              <span aria-hidden="true" className={`text-2xl leading-none transition-transform group-open:rotate-45 ${tone === "dark" ? "text-lime" : "text-ink-link"}`}>
+                +
+              </span>
+            </summary>
+            <div className={`mt-3 leading-[1.75] ${bodyText(tone)}`}>{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/** Label, heading and a paragraph or two, with no grid. */
+export function TextBlock({ tone, label, title, children }: { tone: Tone; label: SectionLabel; title: ReactNode; children: ReactNode }) {
+  return (
+    <Section tone={tone}>
+      <SectionHead label={label} title={title} className="mb-6" />
+      <div className={`flex max-w-[760px] flex-col gap-5 text-[17px] leading-[1.75] ${bodyText(tone)}`}>{children}</div>
     </Section>
   );
 }
