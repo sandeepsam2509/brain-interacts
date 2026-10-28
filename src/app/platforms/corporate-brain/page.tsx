@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CardGrid, CompareTable, CtaBlock, FeatureSplit, PageHero, ScreenshotPlaceholder } from "@/components/blocks";
+import { Hero3D, Render3D, renders } from "@/components/Hero3D";
+import { CardGrid, CompareTable, CtaBlock, FeatureSplit, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { routes } from "@/lib/site";
 
@@ -25,6 +26,7 @@ export default function CorporateBrainPage() {
           { label: "Get a demo", href: routes.demo },
           { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
+        aside={<Hero3D render={renders.home} priority />}
       />
 
       <CompareTable
@@ -50,7 +52,7 @@ export default function CorporateBrainPage() {
           { title: "People analytics", text: "Working-style and skills patterns across the whole company." },
           { title: "Reports you can share", text: "Progress, teams and behavioral analysis — exported to PDF or Excel." },
         ]}
-        visual={<ScreenshotPlaceholder tone="dark" title="Leadership View" caption="Organization-wide team mix against the six company goals" />}
+        visual={<Hero3D render={renders.leadership} tint="gold" />}
       />
 
       <FeatureSplit
@@ -64,7 +66,7 @@ export default function CorporateBrainPage() {
           { title: "Brain suggests", text: "The best and second-best person for every task, with reasons. You decide." },
           { title: "Remarks", text: "Feedback, recognition or development notes the employee sees in My progress." },
         ]}
-        visual={<ScreenshotPlaceholder tone="light" title="Task Suggestion with reasoning" caption="Best and second-best person for a task, with the reasons" />}
+        visual={<Render3D render={renders.manager} tone="light" />}
       />
 
       <FeatureSplit
@@ -77,7 +79,7 @@ export default function CorporateBrainPage() {
           { title: "Workload planner", text: "The next 8 weeks at a glance, with private calendar entries." },
           { title: "Find a teammate & Time away", text: "Search across teams by skill, and see who could cover open tasks." },
         ]}
-        visual={<ScreenshotPlaceholder tone="dark" title="Archetype Profile" caption="An employee's working style, trait bars and strengths" />}
+        visual={<Hero3D render={renders.employee} tint="sky" />}
       />
 
       <CardGrid

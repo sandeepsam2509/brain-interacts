@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CompareTable, CtaBlock, FaqList, FeatureSplit, PageHero, ScreenshotPlaceholder, SplitIntro } from "@/components/blocks";
+import { Hero3D, renders } from "@/components/Hero3D";
+import { CompareTable, CtaBlock, FaqList, FeatureSplit, PageHero, SplitIntro } from "@/components/blocks";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function CeoPage() {
           { label: "Get a demo", href: routes.demo },
           { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
+        aside={<Hero3D render={renders.leadership} tint="gold" priority />}
       />
 
       <SplitIntro
@@ -44,7 +46,7 @@ export default function CeoPage() {
           { title: "Who should lead what?", text: "Explainable project-lead suggestions from working style, skills and workload." },
           { title: "Who is ready to step up?", text: "A clear view of leadership potential for succession planning." },
         ]}
-        visual={<ScreenshotPlaceholder tone="dark" title="Leadership View" caption="Organization-wide team mix against the six company goals" />}
+        visual={<Hero3D render={renders.reports} tint="lime" />}
       />
 
       <CompareTable

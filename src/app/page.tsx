@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Hero3D, renders } from "@/components/Hero3D";
 import { ArrowLink, ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
 import { audiences, hero, products, snapshot, stories, tasks, team } from "@/content/home";
 import { routes } from "@/lib/site";
@@ -90,11 +91,7 @@ export default function HomePage() {
               How archetypes work
             </ArrowLink>
           </div>
-          {/* Placeholder until the real product screenshot is supplied. */}
-          <div className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-navy-line p-6 text-center text-on-navy-muted">
-            <strong className="text-base text-white">[SCREENSHOT: Archetype Profile]</strong>
-            <span className="text-sm">One employee&apos;s main and secondary working style, trait bars and strengths</span>
-          </div>
+          <Hero3D render={renders.employee} />
         </div>
       </Section>
 

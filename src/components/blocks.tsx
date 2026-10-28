@@ -399,8 +399,13 @@ export function CtaBlock({
   actions: Action[];
 }) {
   return (
-    <Section tone={tone} className={tone === "light" ? "border-t border-rule" : ""} innerClassName="py-16 md:py-[104px]">
-      <div className="text-center">
+    <Section tone={tone} className={tone === "light" ? "border-t border-rule" : "relative overflow-hidden"} innerClassName="relative py-16 md:py-[104px]">
+      {tone === "dark" && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">
+          <div className="cta-aurora aspect-square w-[min(900px,140%)] rounded-full" />
+        </div>
+      )}
+      <div className="relative text-center">
         <h2 className="mx-auto max-w-[860px] text-[clamp(32px,4vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
           {title} {accent && <span className={textFor(accentColor ?? (tone === "dark" ? "gold" : "link"))}>{accent}</span>}
         </h2>
