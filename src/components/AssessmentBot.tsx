@@ -244,7 +244,7 @@ export function AssessmentBot() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-label={open ? "Close the free assessment" : "Open the free assessment"}
-        className={`fixed right-4 bottom-4 z-[60] flex h-14 items-center gap-2.5 rounded-full bg-navy pr-5 pl-3 text-[15px] font-bold text-white shadow-[0_10px_28px_rgba(10,22,40,0.35)] sm:right-5 sm:bottom-5 sm:h-[60px] ${open ? "max-sm:hidden" : ""}`}
+        className={`bot-launcher fixed right-4 bottom-4 z-[60] flex h-14 items-center gap-2.5 rounded-full bg-navy pr-5 pl-3 text-[15px] font-bold text-white shadow-[0_10px_28px_rgba(10,22,40,0.35)] sm:right-5 sm:bottom-5 sm:h-[60px] ${open ? "max-sm:hidden" : ""}`}
       >
         <BrandMark size={30} />
         {open ? "Close" : "Free assessment"}

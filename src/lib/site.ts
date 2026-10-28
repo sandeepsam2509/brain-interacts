@@ -46,11 +46,49 @@ export const routes = {
   snapshot: "/#snapshot",
 } as const;
 
-export const mainNav: NavLink[] = [
-  { label: "Products", href: routes.corporateBrain },
-  { label: "Solutions", href: routes.customAssessments },
-  { label: "Science", href: routes.science },
-  { label: "Resources", href: routes.resources },
+export type MenuItem = { label: string; href: string; description?: string; badge?: string };
+export type MainNavItem = { label: string; href: string; children?: MenuItem[] };
+
+/** Top menu. Items with children open a dropdown on desktop and a sub-list on phones. */
+export const mainNav: MainNavItem[] = [
+  {
+    label: "Products",
+    href: routes.corporateBrain,
+    children: [
+      { label: "Corporate Brain", href: routes.corporateBrain, description: "People analytics and task intelligence for every level" },
+      { label: "Gamified Assessments", href: routes.gamified, description: "Simulations that show how people decide" },
+      { label: "FinCheck", href: routes.finCheck, description: "Behavioral risk intelligence for lenders", badge: "Soon" },
+    ],
+  },
+  {
+    label: "Solutions",
+    href: routes.customAssessments,
+    children: [
+      { label: "Custom Psychological Assessment Systems", href: routes.customAssessments, description: "Assessments built around your roles" },
+      { label: "Corporate Culture Study", href: routes.cultureStudy, description: "Make culture something you can measure" },
+      { label: "Root Cause Analytics", href: routes.rootCause, description: "Find the causes behind the symptoms" },
+    ],
+  },
+  {
+    label: "Science",
+    href: routes.science,
+    children: [
+      { label: "The Science", href: routes.science, description: "The research behind Corporate Brain" },
+      { label: "Scientific validity", href: routes.scienceValidity, description: "What the research supports, and its limits" },
+      { label: "Research frameworks", href: routes.scienceFrameworks, description: "The Big Five, the item pool and company goals" },
+      { label: "Psychometric methodologies", href: routes.scienceMethodology, description: "How answers become scores and suggestions" },
+    ],
+  },
+  {
+    label: "Resources",
+    href: routes.resources,
+    children: [
+      { label: "Resources", href: routes.resources, description: "Research, articles and stories" },
+      { label: "Blogs & Whitepapers", href: routes.blog, description: "Articles and in-depth papers" },
+      { label: "FAQ", href: routes.faq, description: "Answers buyers ask before a demo" },
+      { label: "For CEOs", href: routes.ceo, description: "Your whole organization at a glance" },
+    ],
+  },
   { label: "Customer Stories", href: routes.stories },
   { label: "Pricing", href: routes.pricing },
   { label: "About", href: routes.about },
