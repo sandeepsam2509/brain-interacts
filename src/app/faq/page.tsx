@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaBlock, FaqList, PageHero } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ const groups: Group[] = [
       { q: "How does AI task allocation work?", a: "For each task, Brain suggests ranks the best and second-best person by skill fit, working style and current workload, and shows the reasons. A manager always decides." },
       { q: "Can we use Corporate Brain for hiring?", a: "Yes. Create an opening, send matching assessments, move candidates from Applied to Hired and compare fit." },
       { q: "Can we export reports?", a: "Yes. Reports export to PDF or Excel, and every Excel file includes a Read me sheet." },
-      { q: "Does it integrate with our ATS or HRMS?", a: "Corporate Brain connects to other systems through its API. Get a demo to check your tools." },
+      { q: "Does it integrate with our ATS or HRMS?", a: "Corporate Brain connects to other systems through its API. Ask us and we'll check your tools." },
     ],
   },
   {
@@ -58,7 +59,7 @@ const groups: Group[] = [
     title: "Pricing",
     items: [
       { q: "How much does Corporate Brain cost?", a: "₹10,000 per Leadership seat, ₹5,000 per Manager seat and ₹2,000 per Employee seat, per month, plus optional credits." },
-      { q: "Is there a free version?", a: "You can take the free 4-minute working-style snapshot on our website. For your team, get a demo." },
+      { q: "Is there a free version?", a: "You can take the free 4-minute working-style snapshot on our website. For your team, ask us for a custom quote." },
     ],
   },
 ];
@@ -96,7 +97,7 @@ export default function FaqPage() {
           <FaqList tone={i % 2 === 0 ? "light" : "dark"} label={{ icon: "target", text: g.label, color: i % 2 === 0 ? "link" : "lime" }} title={g.title} items={g.items} />
         </div>
       ))}
-      <CtaBlock tone="dark" title="Still have a question?" text="Our team will answer it on a short call." actions={[{ label: "Get a demo", href: routes.demo }]} />
+      <CtaBlock tone="dark" title="Still have a question?" text="Our team will answer it on a short call." actions={[{ label: "Ask us a question", href: enquiryHref("question") }]} />
     </>
   );
 }

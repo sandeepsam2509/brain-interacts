@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CardGrid, CompareTable, CtaBlock, PageHero } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -71,7 +72,7 @@ export default function RootCausePage() {
         accentColor="lime"
         lead="Turnover, delays and dips in productivity are symptoms. Root Cause Analytics finds the behavioral, skill and structural issues underneath."
         actions={[
-          { label: "Get a demo", href: routes.demo },
+          { label: "Book a diagnostic consultation", href: enquiryHref("diagnostic") },
           { label: "Explore the platform", href: routes.corporateBrain, variant: "outlineDark" },
         ]}
         aside={<RiskHeatmap />}
@@ -108,7 +109,7 @@ export default function RootCausePage() {
         title="Stop treating symptoms."
         accent="Start fixing causes."
         text="Book a confidential walkthrough of Root Cause Analytics with our workforce experts."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "Book a diagnostic consultation", href: enquiryHref("diagnostic"), variant: "navy" }]}
       />
     </>
   );

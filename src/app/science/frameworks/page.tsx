@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CompareTable, CtaBlock, PageHero, SplitIntro, Stats } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -66,8 +67,8 @@ export default function FrameworksPage() {
       <CtaBlock
         tone="dark"
         title="See how it all fits together."
-        text="Read how answers become scores and archetypes."
-        actions={[{ label: "Psychometric methodologies", href: routes.scienceMethodology }]}
+        text="Get the frameworks brief, or read how answers become scores and archetypes."
+        actions={[{ label: "Request the frameworks brief", href: enquiryHref("frameworks-brief") }, { label: "Read the methodologies", href: routes.scienceMethodology, variant: "outlineDark" }]}
       />
     </>
   );

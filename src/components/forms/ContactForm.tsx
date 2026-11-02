@@ -76,7 +76,7 @@ export function ContactForm() {
       </label>
       <div className="md:col-span-2">
         <button type="submit" disabled={sending} className="rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1e3a66] disabled:opacity-60 max-md:w-full">
-          {sending ? "Sending…" : "Send message"}
+          {sending ? "Sending…" : "Send your enquiry"}
         </button>
         <FormStatus status={status} sentText="Thanks — your message is with our team. We'll reply within one working day." />
       </div>

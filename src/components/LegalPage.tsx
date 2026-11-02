@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { PageHero } from "./blocks";
+import { CtaBlock, PageHero } from "./blocks";
 import { Section } from "./ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 // Fill in before launch: the legal pages show these in brackets until then.
@@ -24,6 +25,12 @@ export function LegalPage({ title, label, lead, children }: { title: string; lab
           {children}
         </div>
       </Section>
+      <CtaBlock
+        tone="dark"
+        title="Questions about your data?"
+        text="Ask what we hold, or request access, correction or erasure. Our Data Protection team will reply by email."
+        actions={[{ label: "Contact our Data Protection team", href: enquiryHref("data-protection") }]}
+      />
     </>
   );
 }

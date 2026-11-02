@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/blocks";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { DemoForm } from "@/components/forms/DemoForm";
-import { ArrowLink, Eyebrow, H2, Section } from "@/components/ui";
+import { EnquiryForm } from "@/components/forms/EnquiryForm";
+import { Eyebrow, H2, Section } from "@/components/ui";
+import { enquiries, isEnquiryKey } from "@/lib/enquiries";
 import { routes, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Questions about a product, a consulting engagement or joining the team? Contact Brain Interacts or book a demo.",
+  description: "Questions about a product, a consulting engagement or joining the team? Contact Brain Interacts.",
   alternates: { canonical: routes.contact },
 };
 
-export default function ContactPage() {
+type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
+
+export default async function ContactPage({ searchParams }: Props) {
+  // Enquiry buttons open a pop-up; without JavaScript they land here with ?enquiry=… instead.
+  const params = await searchParams;
+  const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
+  const key = one(params.enquiry);
+  const enquiryKey = isEnquiryKey(key) ? key : null;
+  const enquiry = enquiryKey ? enquiries[enquiryKey] : null;
+  const context = Object.entries(params)
+    .filter(([k]) => k !== "enquiry" && k !== "email")
+    .map(([k, v]) => `${k}: ${one(v)}`)
+    .join(" · ");
+
   return (
     <>
       <PageHero
@@ -20,6 +34,28 @@ export default function ContactPage() {
         title="Let's talk about your people."
         lead="Questions about a product, a consulting engagement or joining the team — tell us what you need and the right person will get back to you."
       />
+
+      {enquiry && enquiryKey && (
+        <Section tone="dark" id="enquiry" className="scroll-mt-20 border-t border-navy-rule">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+            <div>
+              <Eyebrow icon="spark" color="lime">
+                {enquiry.eyebrow}
+              </Eyebrow>
+              <H2>{enquiry.title}</H2>
+              <p className="mt-5 text-[17px] leading-[1.75] text-on-navy">{enquiry.intro}</p>
+            </div>
+            <EnquiryForm
+              enquiryKey={enquiryKey}
+              tone="dark"
+              idPrefix="pg"
+              email={one(params.email)}
+              context={context}
+              preselect={one(params.interest) || "Corporate Brain"}
+            />
+          </div>
+        </Section>
+      )}
 
       <Section tone="light">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
@@ -47,32 +83,16 @@ export default function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div className="border-t border-rule pt-6">
-                <dt className="font-bold">Want to see it live?</dt>
-                <dd className="m-0 mt-1 text-ink-body">
-                  Book a walkthrough with our team.{" "}
-                  <ArrowLink href="#demo" tone="light">
-                    Get a demo
-                  </ArrowLink>
+              <div>
+                <dt className="font-mono text-xs text-ink-muted uppercase">Data protection</dt>
+                <dd className="m-0 mt-1">
+                  <a href="mailto:privacy@braininteracts.com" className="text-lg font-bold text-ink-link">
+                    privacy@braininteracts.com
+                  </a>
                 </dd>
               </div>
             </dl>
           </aside>
-        </div>
-      </Section>
-
-      <Section tone="dark" id="demo" className="scroll-mt-20">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-          <div>
-            <Eyebrow icon="spark" color="lime">
-              Get a demo
-            </Eyebrow>
-            <H2>See Brain Interacts in action</H2>
-            <p className="mt-5 text-[17px] leading-[1.75] text-on-navy">
-              Tell us a little about your team and we&apos;ll set up a walkthrough built around your org structure.
-            </p>
-          </div>
-          <DemoForm tone="dark" idPrefix="pg" />
         </div>
       </Section>
     </>

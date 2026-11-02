@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CtaBlock, PageHero, Stats } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,8 +35,10 @@ export default function SciencePage() {
         title="Built on research."
         accent="Honest about limits."
         lead="Corporate Brain rests on the Big Five — the most widely studied model of personality — and on decades of research into what predicts performance at work."
-        // Points at the research brief PDF once it is supplied.
-        actions={[{ label: "Read the research brief", href: routes.resources }]}
+        actions={[
+          { label: "Request the validation report", href: enquiryHref("validation-report") },
+          { label: "Talk to our research team", href: enquiryHref("research-team"), variant: "outlineDark" },
+        ]}
         aside={<Hero3D render={renders.flow} tint="brand" priority />}
       />
 
@@ -103,10 +106,10 @@ export default function SciencePage() {
       <CtaBlock
         tone="dark"
         title="Want the full picture?"
-        text="Download our research brief on archetypes and the research behind them."
+        text="Get our report on how the assessments are built, scored and validated, or put your questions to our research team."
         actions={[
-          { label: "Download the brief", href: routes.resources },
-          { label: "Talk to our team", href: routes.contact, variant: "outlineDark" },
+          { label: "Request the validation report", href: enquiryHref("validation-report") },
+          { label: "Talk to our research team", href: enquiryHref("research-team"), variant: "outlineDark" },
         ]}
       />
     </>

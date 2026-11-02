@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CardGrid, CtaBlock, PageHero, SplitIntro } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
-import { routes, site } from "@/lib/site";
+import { enquiryHref } from "@/lib/enquiries";
+import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -109,7 +110,7 @@ export default function AboutPage() {
               </>
             ),
             text: "Behavioral analysis for neo-banks, NBFCs and banks.",
-            link: { label: "Join the waitlist", href: `${routes.finCheck}#early-access`, accent: "sky" },
+            link: { label: "Explore FinCheck", href: routes.finCheck, accent: "sky" },
           },
           {
             title: "Gamified Assessments",
@@ -119,7 +120,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <Section tone="light">
+      <Section tone="light" id="team" className="scroll-mt-20">
         <Eyebrow icon="people" color="goldInk">
           The team
         </Eyebrow>
@@ -148,10 +149,10 @@ export default function AboutPage() {
         tone="dark"
         title="Let's build teams that"
         accent="fit the work."
-        text="See how Corporate Brain reads your team — and what it suggests next."
+        text="Consultancies, HR tech platforms and research partners: let's talk about building better teams together."
         actions={[
-          { label: "Get a demo", href: routes.demo },
-          { label: site.email, href: `mailto:${site.email}`, variant: "outlineDark" },
+          { label: "Partner with us", href: enquiryHref("partnership") },
+          { label: "Meet the founders", href: "#team", variant: "outlineDark" },
         ]}
       />
     </>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CardGrid, CompareTable, CtaBlock, PageHero } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,9 +20,8 @@ export default function IntegrationsPage() {
         accentColor="sky"
         lead="Brain Interacts connects to your hiring, HR and lending systems through APIs — so insight shows up where decisions happen."
         actions={[
-          { label: "Get a demo", href: routes.demo },
-          // API docs aren't public yet.
-          { label: "API documentation", href: routes.contact, variant: "outlineDark" },
+          { label: "Request an integration", href: enquiryHref("integration") },
+          { label: "Check compatibility with your stack", href: enquiryHref("compatibility"), variant: "outlineDark" },
         ]}
       />
 
@@ -55,7 +55,7 @@ export default function IntegrationsPage() {
         tone="light"
         title="Don't see your system?"
         text="Tell us what you use and we'll talk through the options."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "Request an integration", href: enquiryHref("integration"), variant: "navy" }]}
       />
     </>
   );

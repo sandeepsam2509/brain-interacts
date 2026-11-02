@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBlock, PageHero } from "@/components/blocks";
 import { Section, type Tone } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -110,7 +111,7 @@ export default function CustomerStoriesPage() {
         accent="with evidence."
         accentColor="lime"
         lead="How facilities, manufacturing, IT and automation companies use Brain products to align teams and assign work. Client names are kept confidential."
-        actions={[{ label: "Get a demo", href: routes.demo }]}
+        actions={[{ label: "See results like these for your team", href: enquiryHref("results") }]}
       />
       {stories.map((story, i) => (
         <StoryBlock key={story.title} story={story} tone={i % 2 === 0 ? "light" : "dark"} />
@@ -119,7 +120,7 @@ export default function CustomerStoriesPage() {
         tone="light"
         title="Want results like these?"
         text="See how Corporate Brain would read your teams."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "See results like these for your team", href: enquiryHref("results"), variant: "navy" }]}
       />
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CtaBlock, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ export default function GamifiedPage() {
         accent="See how they act."
         lead="Short, game-based simulations that show how people think, recover and solve problems — not just what they say about themselves."
         actions={[
-          { label: "Get a demo", href: routes.demo, variant: "gold" },
+          { label: "Try a sample assessment", href: enquiryHref("sample-assessment"), variant: "gold" },
           { label: "See the science", href: routes.science, variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.hiring} tint="gold" priority />}
@@ -144,7 +145,7 @@ export default function GamifiedPage() {
         title="Stop guessing who your candidates are."
         accent="Let them show you."
         actions={[
-          { label: "Get a demo", href: routes.demo },
+          { label: "Try a sample assessment", href: enquiryHref("sample-assessment") },
           { label: "See the science", href: routes.science, variant: "outlineDark" },
         ]}
       />

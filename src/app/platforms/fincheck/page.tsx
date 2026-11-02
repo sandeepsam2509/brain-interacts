@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CardGrid, PageHero, SplitIntro, SplitList, Steps } from "@/components/blocks";
 import { Section } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function FinCheckPage() {
         accentColor="sky"
         lead="FinCheck integrates behavioral psychology, real-time repayment indexes and traditional credit checks into one multi-layered risk assessment engine for banks, NBFCs and neobanks."
         actions={[
-          { label: "Get a demo", href: routes.demo, variant: "sky" },
+          { label: "Request a FinCheck pilot", href: enquiryHref("fincheck-pilot"), variant: "sky" },
           // API docs aren't public yet; this goes to the contact page for now.
           { label: "Explore API documentation", href: routes.contact, variant: "outlineDark" },
         ]}
@@ -115,8 +116,8 @@ export default function FinCheckPage() {
             We&apos;re talking to a small group of financial institutions ahead of launch.
           </p>
           {/* Takes the visitor to the demo form on the Contact page with their email and FinCheck already filled in. */}
-          <form action={routes.demo} method="get" className="mx-auto mt-8 flex max-w-[520px] flex-col gap-3 sm:flex-row">
-            <input type="hidden" name="interest" value="FinCheck" />
+          <form action="/contact#enquiry" method="get" className="mx-auto mt-8 flex max-w-[520px] flex-col gap-3 sm:flex-row">
+            <input type="hidden" name="enquiry" value="fincheck-pilot" />
             <label htmlFor="fc-early" className="sr-only">
               Work email
             </label>
@@ -130,7 +131,7 @@ export default function FinCheckPage() {
               className="min-w-0 flex-1 rounded-lg border border-navy-line bg-navy-raised px-4 py-4 text-base text-white placeholder:text-on-navy-muted"
             />
             <button type="submit" className="rounded-lg bg-sky px-6 py-4 text-base font-bold text-navy hover:bg-[#82cbf8]">
-              Get a demo
+              Request a pilot
             </button>
           </form>
         </div>

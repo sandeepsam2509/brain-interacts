@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CardGrid, CompareTable, CtaBlock, PageHero, SplitIntro } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function ValidityPage() {
         tone="dark"
         title="Questions about our methods?"
         text="Our team is happy to walk you through the research."
-        actions={[{ label: "Get a demo", href: routes.demo }]}
+        actions={[{ label: "Request the validation report", href: enquiryHref("validation-report") }, { label: "Talk to our research team", href: enquiryHref("research-team"), variant: "outlineDark" }]}
       />
     </>
   );
