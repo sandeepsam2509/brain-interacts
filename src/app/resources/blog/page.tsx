@@ -3,7 +3,10 @@ import { PageHero } from "@/components/blocks";
 import { ArticleList, type ArticleSummary } from "@/components/ArticleList";
 import { SignupForm } from "@/components/SignupForm";
 import { Eyebrow, H2, Section } from "@/components/ui";
-import { whitepapers } from "@/content/whitepapers";
+import { WhitepaperLibrary } from "@/components/WhitepaperLibrary";
+import { downloadable, whitepapers } from "@/content/whitepapers";
+
+const upcoming = whitepapers.filter((w) => !w.file);
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -44,26 +47,12 @@ export default function BlogPage() {
           The Behavioral Enterprise Series: papers on one idea. Most business problems that look like strategy, technology or people
           problems are really behavior problems, and behavior responds to design more reliably than to instructions.
         </p>
-        <ul className="m-0 list-none border-t border-navy-line p-0">
-          {whitepapers.map((w) => (
-            <li key={w.title} className="grid gap-2 border-b border-navy-line py-6 md:grid-cols-[1.1fr_1.7fr_0.6fr] md:items-center md:gap-6">
-              <strong className="text-lg">{w.title}</strong>
-              <span className="leading-[1.7] text-on-navy">
-                {w.summary}
-                <span className="mt-1 block text-sm text-on-navy-muted">
-                  For {w.audience} · {w.pages} pages
-                </span>
-              </span>
-              {w.file ? (
-                <a href={w.file} download className="font-bold text-lime no-underline hover:underline md:text-right">
-                  Download PDF <span aria-hidden="true">→</span>
-                </a>
-              ) : (
-                <span className="font-bold text-on-navy-muted md:text-right">Coming soon</span>
-              )}
-            </li>
-          ))}
-        </ul>
+        <WhitepaperLibrary papers={downloadable} />
+        {upcoming.length > 0 && (
+          <p className="mt-14 border-t border-navy-line pt-6 text-on-navy-muted">
+            Coming soon: {upcoming.map((w) => w.title).join(", ")}.
+          </p>
+        )}
       </Section>
 
       <Section tone="light">
