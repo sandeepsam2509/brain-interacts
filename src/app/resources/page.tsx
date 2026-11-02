@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { CardGrid, PageHero } from "@/components/blocks";
 import { SignupForm } from "@/components/SignupForm";
 import { ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
+import { whitepapers } from "@/content/whitepapers";
 import { routes } from "@/lib/site";
+
+const featured = whitepapers.filter((w) => w.file);
 
 export const metadata: Metadata = {
   title: "Resources",
@@ -36,20 +39,30 @@ export default function ResourcesPage() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow icon="spark" color="gold">
-              Featured whitepaper
+              Featured · The Behavioral Enterprise Series
             </Eyebrow>
-            <H2>Archetypes and the Research Behind Them</H2>
-          </div>
-          <div>
-            <p className="text-[17px] leading-[1.75] text-on-navy">
-              How the assessments work, what each working style means, and how to use results fairly — written for the people who
-              read them.
+            <H2>{featured.length} whitepapers for leaders who shape teams.</H2>
+            <p className="mt-5 text-[17px] leading-[1.75] text-on-navy">
+              Most business problems that look like strategy, technology or people problems are really behavior problems. Each paper
+              takes one and shows how to redesign it.
             </p>
-            {/* Becomes a gated download (work email) once the PDF is supplied. */}
-            <ButtonLink href={routes.blog} className="mt-6">
-              Download the whitepaper
+            <ButtonLink href={`${routes.blog}#whitepapers`} className="mt-6">
+              Browse all whitepapers
             </ButtonLink>
           </div>
+          <ul className="m-0 list-none border-t border-navy-line p-0">
+            {featured.map((w) => (
+              <li key={w.title} className="flex items-center justify-between gap-4 border-b border-navy-line py-4">
+                <span>
+                  <strong className="block">{w.title}</strong>
+                  <span className="text-sm text-on-navy-muted">{w.pages} pages</span>
+                </span>
+                <a href={w.file} download className="shrink-0 font-bold text-lime no-underline hover:underline">
+                  PDF <span aria-hidden="true">↓</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 
