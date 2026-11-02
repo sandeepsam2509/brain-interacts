@@ -1,4 +1,5 @@
 import { emailConfig, fieldsTable, sendEmail } from "@/lib/email";
+import { passesTurnstile, TURNSTILE_ERROR } from "@/lib/turnstile";
 import { clean, clientKey, EMAIL_RE, HONEYPOT, rateLimited } from "@/lib/forms";
 import { findWhitepaper } from "@/content/whitepapers";
 
@@ -19,6 +20,7 @@ export async function POST(req: Request): Promise<Response> {
   if (!paper) return reply({ ok: false, error: "We couldn't find that whitepaper." }, 404);
   if (clean(data[HONEYPOT])) return reply({ ok: true, url: paper.file });
   if (rateLimited(clientKey(req), 10)) return reply({ ok: false, error: "Too many attempts. Please wait a minute and try again." }, 429);
+  if (!(await passesTurnstile(req))) return reply({ ok: false, error: TURNSTILE_ERROR }, 403);
 
   const name = clean(data.name, 120);
   const email = clean(data.email, 200);

@@ -49,6 +49,7 @@ export default function PrivacyPage() {
         <li>Microsoft Clarity (behavior analytics, only if you accept cookies)</li>
         <li>Sanity (content management)</li>
         <li>n8n (workflow automation)</li>
+        <li>Cloudflare (Turnstile spam protection on our forms)</li>
         <li>Resend (sending emails such as your snapshot report)</li>
       </ul>
 

@@ -3,6 +3,7 @@ import { JetBrains_Mono, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { AssessmentBot } from "@/components/AssessmentBot";
 import { CookieConsent } from "@/components/CookieConsent";
+import { TurnstileHost } from "@/components/Turnstile";
 import { EnquiryDialog } from "@/components/EnquiryDialog";
 import { LogoIntro } from "@/components/LogoIntro";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <EnquiryDialog />
         <AssessmentBot />
         <CookieConsent />
+        <TurnstileHost />
         <LogoIntro />
         <ScrollReveal />
         {/* Cookieless page-view counts; switch on Web Analytics in the Vercel project. */}

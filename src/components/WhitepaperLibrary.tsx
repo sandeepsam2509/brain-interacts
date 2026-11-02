@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { TURNSTILE_HEADER } from "@/lib/turnstile";
+import { getTurnstileToken } from "./Turnstile";
 import { useEffect, useRef, useState } from "react";
 import type { Whitepaper } from "@/content/whitepapers";
 import { routes } from "@/lib/site";
@@ -54,9 +56,10 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
   async function submit(paper: Paper, lead: Lead, extra: Record<string, unknown> = {}) {
     setState({ status: "sending" });
     try {
+      const token = await getTurnstileToken();
       const res = await fetch("/api/whitepaper", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...(token ? { [TURNSTILE_HEADER]: token } : {}) },
         body: JSON.stringify({ ...lead, ...extra, consent: true, slug: paper.slug, page: window.location.pathname }),
       });
       const data = (await res.json().catch(() => null)) as { ok: boolean; url?: string; error?: string } | null;

@@ -1,5 +1,6 @@
 import { enquiries, isEnquiryKey } from "@/lib/enquiries";
 import { emailConfig, fieldsTable, sendEmail } from "@/lib/email";
+import { passesTurnstile, TURNSTILE_ERROR } from "@/lib/turnstile";
 import { clean, clientKey, EMAIL_RE, type FormResponse, HONEYPOT, rateLimited } from "@/lib/forms";
 
 // Handles the Contact page message form ("message") and every enquiry pop-up ("enquiry"),
@@ -18,6 +19,7 @@ export async function POST(req: Request): Promise<Response> {
   // Bots that fill the hidden field get a quiet "success" and nothing is sent.
   if (clean(data[HONEYPOT])) return reply({ ok: true, delivered: false });
   if (rateLimited(clientKey(req))) return reply({ ok: false, error: "Too many attempts. Please wait a minute and try again." }, 429);
+  if (!(await passesTurnstile(req))) return reply({ ok: false, error: TURNSTILE_ERROR }, 403);
 
   const name = clean(data.name, 120);
   const email = clean(data.email, 200);

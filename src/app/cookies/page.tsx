@@ -19,6 +19,7 @@ export default function CookiesPage() {
           ["Essential site functions", "Remembers your cookie choice and keeps forms working", "No"],
           ["Vercel Web Analytics", "Counts page views, referrers, country, device and browser in aggregate. Uses no cookies and does not identify you.", "No"],
           ["Microsoft Clarity", "Records anonymized clicks, scrolling and navigation (heatmaps and session replays) with form fields masked. Cookies: _clck, _clsk, CLID, MUID, MR, SM, ANONCHK.", "Yes — only after you click Accept"],
+          ["Cloudflare Turnstile", "Checks that forms are sent by a person, not a bot, when you submit one. Most visitors never see it. Used only for security, not tracking.", "No"],
         ]}
       />
       <h2>No advertising cookies</h2>
