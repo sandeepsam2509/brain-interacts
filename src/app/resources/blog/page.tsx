@@ -3,6 +3,10 @@ import { PageHero } from "@/components/blocks";
 import { ArticleList, type ArticleSummary } from "@/components/ArticleList";
 import { SignupForm } from "@/components/SignupForm";
 import { Eyebrow, H2, Section } from "@/components/ui";
+import { WhitepaperLibrary } from "@/components/WhitepaperLibrary";
+import { downloadable, whitepapers } from "@/content/whitepapers";
+
+const upcoming = whitepapers.filter((w) => !w.file);
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,24 +38,21 @@ export default function BlogPage() {
         lead="Practical articles and in-depth papers on behavior, team performance, culture and risk."
       />
 
-      <Section tone="dark" className="border-t border-navy-rule">
+      <Section tone="dark" id="whitepapers" className="scroll-mt-20 border-t border-navy-rule">
         <Eyebrow icon="spark" color="gold">
           Whitepapers
         </Eyebrow>
-        <H2 className="mb-10">In-depth papers.</H2>
-        <ul className="m-0 list-none border-t border-navy-line p-0">
-          <li className="grid gap-2 border-b border-navy-line py-6 md:grid-cols-[1.2fr_1.6fr_0.6fr] md:gap-6">
-            <strong className="text-lg">Archetypes and the Research Behind Them</strong>
-            <span className="leading-[1.7] text-on-navy">The Big Five, the ten archetypes, scoring, and responsible use. · 12 pages</span>
-            {/* Gated download once the PDF is supplied. */}
-            <span className="font-bold text-on-navy-muted md:text-right">Coming soon</span>
-          </li>
-          <li className="grid gap-2 border-b border-navy-line py-6 md:grid-cols-[1.2fr_1.6fr_0.6fr] md:gap-6">
-            <strong className="text-lg">[UPCOMING WHITEPAPER]</strong>
-            <span className="leading-[1.7] text-on-navy">[Short description]</span>
-            <span className="text-on-navy-muted md:text-right">Coming soon</span>
-          </li>
-        </ul>
+        <H2 className="mb-4">In-depth papers.</H2>
+        <p className="mb-10 max-w-[720px] text-[17px] leading-[1.75] text-on-navy">
+          The Behavioral Enterprise Series: papers on one idea. Most business problems that look like strategy, technology or people
+          problems are really behavior problems, and behavior responds to design more reliably than to instructions.
+        </p>
+        <WhitepaperLibrary papers={downloadable} />
+        {upcoming.length > 0 && (
+          <p className="mt-14 border-t border-navy-line pt-6 text-on-navy-muted">
+            Coming soon: {upcoming.map((w) => w.title).join(", ")}.
+          </p>
+        )}
       </Section>
 
       <Section tone="light">

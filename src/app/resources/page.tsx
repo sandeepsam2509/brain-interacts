@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { CardGrid, PageHero } from "@/components/blocks";
 import { SignupForm } from "@/components/SignupForm";
 import { ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
+import { WhitepaperLibrary } from "@/components/WhitepaperLibrary";
+import { downloadable } from "@/content/whitepapers";
 import { routes } from "@/lib/site";
+
 
 export const metadata: Metadata = {
   title: "Resources",
@@ -36,20 +39,18 @@ export default function ResourcesPage() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow icon="spark" color="gold">
-              Featured whitepaper
+              Featured · The Behavioral Enterprise Series
             </Eyebrow>
-            <H2>Archetypes and the Research Behind Them</H2>
-          </div>
-          <div>
-            <p className="text-[17px] leading-[1.75] text-on-navy">
-              How the assessments work, what each working style means, and how to use results fairly — written for the people who
-              read them.
+            <H2>{downloadable.length} whitepapers for leaders who shape teams.</H2>
+            <p className="mt-5 text-[17px] leading-[1.75] text-on-navy">
+              Most business problems that look like strategy, technology or people problems are really behavior problems. Each paper
+              takes one and shows how to redesign it.
             </p>
-            {/* Becomes a gated download (work email) once the PDF is supplied. */}
-            <ButtonLink href={routes.blog} className="mt-6">
-              Download the whitepaper
+            <ButtonLink href={`${routes.blog}#whitepapers`} className="mt-6">
+              Browse all whitepapers
             </ButtonLink>
           </div>
+          <WhitepaperLibrary papers={downloadable} variant="compact" />
         </div>
       </Section>
 
