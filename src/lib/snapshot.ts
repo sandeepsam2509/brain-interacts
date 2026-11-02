@@ -105,3 +105,12 @@ export function archetypes(scores: Scores): { main: string; secondary: string; p
 }
 
 export const traitOrder = ORDER;
+
+/** How each trait tends to show up in leadership, for the executive report. */
+export const TRAIT_LEADERSHIP: Record<keyof Scores, { high: string; low: string }> = {
+  O: { high: "Sets direction through new ideas and is quick to question how things are done.", low: "Leads through proven methods and keeps the organization focused on what already works." },
+  C: { high: "Builds discipline: clear plans, follow-through and high standards.", low: "Stays flexible and improvises well, but may need others to drive structure and follow-up." },
+  E: { high: "Leads from the front: visible, energizing and comfortable owning the room.", low: "Leads quietly: reflects before deciding and gives others space to speak." },
+  A: { high: "Builds trust and cooperation; may avoid hard conversations.", low: "Challenges directly and makes tough calls; may need to invest more in relationships." },
+  ES: { high: "Stays steady under pressure, which calms the people around them.", low: "Feels pressure strongly; benefits from routines that protect decision quality under stress." },
+};
