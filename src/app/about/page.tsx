@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CardGrid, CtaBlock, PageHero, SplitIntro } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { routes, site } from "@/lib/site";
@@ -25,12 +26,9 @@ const principles = [
   { title: "Your people's data stays yours", text: "A separate database for every customer, results shown by role, and data that can be corrected or deleted on request.", color: "text-green-ink" },
 ];
 
-// Photos and names still to be supplied; placeholders mirror the design.
 const team = [
-  { name: "[Name]", role: "[Founder & CEO]" },
-  { name: "[Name]", role: "[Role]" },
-  { name: "Sandeep Kumar", role: "VP of Sales & Marketing" },
-  { name: "[Name]", role: "[Role]" },
+  { name: "Srishti Sharma", role: "Co-Founder and Chief Research Officer", photo: "/team/srishti-sharma.webp" },
+  { name: "Sandeep Kumar", role: "Co-Founder and VP of Sales and Marketing", photo: "/team/sandeep-kumar.webp" },
 ];
 
 export default function AboutPage() {
@@ -126,11 +124,20 @@ export default function AboutPage() {
           The team
         </Eyebrow>
         <H2 className="mb-10 md:mb-14">The people behind Brain Interacts.</H2>
-        <ul className="m-0 grid list-none grid-cols-2 gap-6 p-0 md:gap-8 lg:grid-cols-4">
-          {team.map((person, i) => (
-            <li key={i}>
-              <div className="flex aspect-square items-center justify-center rounded-2xl bg-[#E7EBF1] text-sm text-ink-muted">[PHOTO]</div>
-              <h3 className="mt-4 text-[19px] font-bold">{person.name}</h3>
+        <ul className="m-0 grid max-w-[720px] list-none grid-cols-1 gap-10 p-0 sm:grid-cols-2 md:gap-8">
+          {team.map((person) => (
+            <li key={person.name}>
+              <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-rule">
+                <Image
+                  src={person.photo}
+                  alt={`${person.name}, ${person.role}`}
+                  width={800}
+                  height={1000}
+                  sizes="(min-width: 640px) 340px, 100vw"
+                  className="h-auto w-full"
+                />
+              </div>
+              <h3 className="mt-5 text-[21px] font-bold">{person.name}</h3>
               <p className="mt-1 text-[15px] text-ink-muted">{person.role}</p>
             </li>
           ))}
