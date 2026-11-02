@@ -1,4 +1,5 @@
 import { emailConfig, fieldsTable, sendEmail } from "@/lib/email";
+import { passesTurnstile, TURNSTILE_ERROR } from "@/lib/turnstile";
 import { clean, clientKey, EMAIL_RE, type FormResponse, HONEYPOT, rateLimited } from "@/lib/forms";
 
 // Newsletter sign-ups. The team inbox receives each new subscriber to add to the mailing list.
@@ -12,6 +13,7 @@ export async function POST(req: Request): Promise<Response> {
   }
   if (clean(data[HONEYPOT])) return reply({ ok: true, delivered: false });
   if (rateLimited(clientKey(req))) return reply({ ok: false, error: "Too many attempts. Please wait a minute and try again." }, 429);
+  if (!(await passesTurnstile(req))) return reply({ ok: false, error: TURNSTILE_ERROR }, 403);
 
   const email = clean(data.email, 200);
   if (!EMAIL_RE.test(email)) return reply({ ok: false, error: "Please enter a valid work email." }, 400);
