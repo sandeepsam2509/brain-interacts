@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { AttritionCalculator } from "@/components/widgets/AttritionCalculator";
+import { WidgetSection } from "@/components/widgets/WidgetSection";
 import { CardGrid, CompareTable, CtaBlock, PageHero } from "@/components/blocks";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
@@ -103,6 +105,16 @@ export default function RootCausePage() {
           ["Falling productivity", "Clashing thinking styles and unclear team roles"],
         ]}
       />
+
+      <WidgetSection
+        id="attrition-cost"
+        icon="chart"
+        label="Attrition cost calculator"
+        title="What is turnover costing you?"
+        intro="Enter your headcount, attrition and average salary to see the yearly cost — and how much of it is likely preventable."
+      >
+        <AttritionCalculator />
+      </WidgetSection>
 
       <CtaBlock
         tone="light"

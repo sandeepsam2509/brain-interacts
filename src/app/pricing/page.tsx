@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PriceEstimator } from "@/components/widgets/PriceEstimator";
+import { WidgetSection } from "@/components/widgets/WidgetSection";
 import { CtaBlock, FaqList, PageHero } from "@/components/blocks";
 import { ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
 import { enquiryHref } from "@/lib/enquiries";
@@ -111,6 +113,16 @@ export default function PricingPage() {
           your organization.
         </p>
       </Section>
+
+      <WidgetSection
+        id="estimator"
+        icon="chart"
+        label="Price & payback estimator"
+        title="Estimate your price and payback."
+        intro="Move the slider to your team size for an estimated monthly price, then see how quickly fewer regretted leavers could pay for it."
+      >
+        <PriceEstimator />
+      </WidgetSection>
 
       <FaqList
         tone="dark"

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { RoleFitQuiz } from "@/components/widgets/RoleFitQuiz";
+import { WidgetSection } from "@/components/widgets/WidgetSection";
 import { CardGrid, CtaBlock, PageHero, SplitIntro } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { ApplicationForm } from "@/components/forms/ApplicationForm";
@@ -89,6 +91,16 @@ export default function CareersPage() {
         </ul>
         <p className="mt-6 text-on-navy">Don&apos;t see your role? Send a general application below.</p>
       </Section>
+
+      <WidgetSection
+        id="role-fit"
+        icon="spark"
+        label="Which role fits you?"
+        title="See where you'd fit."
+        intro="Six quick questions, built on the same idea as our product: how you like to work, matched to what a role needs."
+      >
+        <RoleFitQuiz />
+      </WidgetSection>
 
       <Section tone="light" id="apply" className="scroll-mt-20">
         <Eyebrow icon="spark" color="goldInk">

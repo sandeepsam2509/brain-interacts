@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { LeadershipAssessment } from "@/components/widgets/LeadershipAssessment";
+import { WidgetSection } from "@/components/widgets/WidgetSection";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CompareTable, CtaBlock, FaqList, FeatureSplit, PageHero, SplitIntro } from "@/components/blocks";
 import { enquiryHref } from "@/lib/enquiries";
@@ -49,6 +51,16 @@ export default function CeoPage() {
         ]}
         visual={<Hero3D render={renders.reports} tint="lime" />}
       />
+
+      <WidgetSection
+        id="leadership-style"
+        icon="people"
+        label="Free executive report"
+        title="What's your leadership working style?"
+        intro="Twenty statements, about four minutes. See your style straight away and get a free executive report by email."
+      >
+        <LeadershipAssessment />
+      </WidgetSection>
 
       <CompareTable
         tone="light"

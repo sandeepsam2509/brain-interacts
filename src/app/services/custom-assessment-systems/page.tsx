@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { AssessmentFinder } from "@/components/widgets/AssessmentFinder";
+import { WidgetSection } from "@/components/widgets/WidgetSection";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CompareTable, CtaBlock, PageHero, SplitIntro, Steps } from "@/components/blocks";
 import { enquiryHref } from "@/lib/enquiries";
@@ -55,6 +57,16 @@ export default function CustomAssessmentsPage() {
           { tag: "Organization", title: "Role benchmarks & talent reviews", rule: "white", text: "Success profiles for each key role, used to compare candidates and current staff." },
         ]}
       />
+
+      <WidgetSection
+        id="needs-finder"
+        icon="target"
+        label="Assessment needs finder"
+        title="Which assessment setup fits you?"
+        intro="Answer four quick questions and we'll recommend the building blocks for your roles and decisions."
+      >
+        <AssessmentFinder />
+      </WidgetSection>
 
       <CompareTable
         tone="light"
