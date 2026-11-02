@@ -73,7 +73,6 @@ export const mainNav: MainNavItem[] = [
     label: "Science",
     href: routes.science,
     children: [
-      { label: "The Science", href: routes.science, description: "The research behind Corporate Brain" },
       { label: "Scientific validity", href: routes.scienceValidity, description: "What the research supports, and its limits" },
       { label: "Research frameworks", href: routes.scienceFrameworks, description: "The Big Five, the item pool and company goals" },
       { label: "Psychometric methodologies", href: routes.scienceMethodology, description: "How answers become scores and suggestions" },
