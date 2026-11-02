@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero3D, Render3D, renders } from "@/components/Hero3D";
 import { CardGrid, CompareTable, CtaBlock, FeatureSplit, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function CorporateBrainPage() {
         accent="who should do what next."
         lead="Corporate Brain joins working-style and skills data, projects and tasks, and hiring in one platform — with three portals so every level of your company sees exactly what it needs."
         actions={[
-          { label: "Get a demo", href: routes.demo },
+          { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo") },
           { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.home} priority />}
@@ -112,7 +113,7 @@ export default function CorporateBrainPage() {
         title="See it on your own teams."
         text="A live walkthrough of Corporate Brain, built around your org structure."
         actions={[
-          { label: "Get a demo", href: routes.demo, variant: "navy" },
+          { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo"), variant: "navy" },
           { label: "Download a sample working-style report", href: routes.resources, variant: "outlineLight" },
         ]}
       />

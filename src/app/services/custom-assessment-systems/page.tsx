@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CompareTable, CtaBlock, PageHero, SplitIntro, Steps } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function CustomAssessmentsPage() {
         accent="your roles, not a catalogue."
         lead="Our experts design assessment systems around the roles, culture and decisions specific to your organization — so every hire, promotion and team change rests on evidence you can trust."
         actions={[
-          { label: "Get a demo", href: routes.demo, variant: "gold" },
+          { label: "Discuss your assessment requirements", href: enquiryHref("assessment-requirements"), variant: "gold" },
           { label: "See how it works", href: "#how-we-work", variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.assessments} tint="gold" priority />}
@@ -87,7 +88,7 @@ export default function CustomAssessmentsPage() {
         title="Build an assessment system"
         accent="that fits your organization."
         text="Talk to our experts about the roles and decisions you want to get right."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "Discuss your assessment requirements", href: enquiryHref("assessment-requirements"), variant: "navy" }]}
       />
     </>
   );

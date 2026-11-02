@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CardGrid, CompareTable, CtaBlock, PageHero } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -20,8 +21,8 @@ export default function SecurityPage() {
         accentColor="lime"
         lead="Behavioral data is personal. We designed Brain Interacts so it stays isolated, visible only to the right people, and always under your control."
         actions={[
-          { label: "Get a demo", href: routes.demo },
-          { label: "Contact the team", href: routes.contact, variant: "outlineDark" },
+          { label: "Submit a Security & Privacy Enquiry", href: enquiryHref("security") },
+          { label: "Request our security documentation", href: enquiryHref("security-docs"), variant: "outlineDark" },
         ]}
       />
 
@@ -72,7 +73,7 @@ export default function SecurityPage() {
         tone="dark"
         title="Have a security question?"
         text="Our team can walk your IT and legal reviewers through how Brain Interacts handles data."
-        actions={[{ label: "Get a demo", href: routes.demo }]}
+        actions={[{ label: "Submit a Security & Privacy Enquiry", href: enquiryHref("security") }]}
       />
     </>
   );

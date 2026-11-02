@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBlock, FaqList, PageHero } from "@/components/blocks";
 import { ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -72,8 +73,8 @@ function PlanCard({ plan }: { plan: Plan }) {
           </li>
         ))}
       </ul>
-      <ButtonLink href={`${routes.contact}?interest=${encodeURIComponent(`Corporate Brain – ${plan.name}`)}#demo`} variant={dark ? "lime" : "navy"} className="w-full">
-        Get a demo
+      <ButtonLink href={enquiryHref("quote", { plan: plan.name })} variant={dark ? "lime" : "navy"} className="w-full">
+        Get a custom quote
       </ButtonLink>
     </div>
   );
@@ -118,7 +119,7 @@ export default function PricingPage() {
         items={[
           { q: "Do all employees need the same seat?", a: "No. Most organizations combine a few Leadership seats, Manager seats for team leads, and Employee seats for everyone else." },
           { q: "What are credits?", a: "Each assessment sent — to an employee or a job candidate — uses credits from your company's balance. Admins see the balance and usage in Settings and can top up anytime." },
-          { q: "Is there a minimum number of users?", a: "Get a demo and we'll confirm the right starting size for your organization." },
+          { q: "Is there a minimum number of users?", a: "Ask for a custom quote and we'll confirm the right starting size for your organization." },
           { q: "Is our data kept separate?", a: "Yes. Every customer gets a separate database." },
         ]}
       />
@@ -127,7 +128,7 @@ export default function PricingPage() {
         tone="light"
         title="Not sure which mix fits?"
         text="Tell us your team structure and we'll recommend the right seats."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "Get a custom quote", href: enquiryHref("quote"), variant: "navy" }, { label: "Talk to sales about pricing", href: enquiryHref("quote"), variant: "outlineLight" }]}
       />
     </>
   );

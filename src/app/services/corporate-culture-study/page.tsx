@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CardGrid, CompareTable, CtaBlock, PageHero, SplitIntro, Steps } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function CultureStudyPage() {
         accentColor="sky"
         lead="Go beyond engagement surveys. We measure your real values, working dynamics and hidden silos — and show how they help or hold back execution."
         actions={[
-          { label: "Get a demo", href: routes.demo, variant: "sky" },
+          { label: "Request a culture study proposal", href: enquiryHref("culture-proposal"), variant: "sky" },
           { label: "View our methodology", href: "#how-we-work", variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.analytics} tint="sky" priority />}
@@ -84,7 +85,7 @@ export default function CultureStudyPage() {
         title="Build a culture designed"
         accent="for execution."
         text="Talk to our experts about diagnosing your culture."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "Request a culture study proposal", href: enquiryHref("culture-proposal"), variant: "navy" }]}
       />
     </>
   );

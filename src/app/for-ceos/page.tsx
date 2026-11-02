@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero3D, renders } from "@/components/Hero3D";
 import { CompareTable, CtaBlock, FaqList, FeatureSplit, PageHero, SplitIntro } from "@/components/blocks";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function CeoPage() {
         accent="at a glance."
         lead="Your strategy is only as strong as the people carrying it out. Corporate Brain gives you a live, behavioral view of every team — who is aligned, where friction is building, and which leaders to back next."
         actions={[
-          { label: "Get a demo", href: routes.demo },
+          { label: "Book an executive briefing", href: enquiryHref("executive-briefing") },
           { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.leadership} tint="gold" priority />}
@@ -80,7 +81,7 @@ export default function CeoPage() {
         tone="light"
         title="Lead with evidence, not instinct."
         text="A live walkthrough built around your organization."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        actions={[{ label: "Book an executive briefing", href: enquiryHref("executive-briefing"), variant: "navy" }]}
       />
     </>
   );

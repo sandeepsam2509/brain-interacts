@@ -67,7 +67,7 @@ export default function BlogPage() {
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[clamp(32px,4vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em]">Get new articles by email.</h2>
           <p className="mt-4 mb-8 text-lg text-on-navy">One email a month. No spam.</p>
-          <SignupForm tone="dark" id="blog-signup" />
+          <SignupForm tone="dark" id="blog-signup" button="Subscribe for new insights" />
         </div>
       </Section>
     </>

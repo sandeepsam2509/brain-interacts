@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CardGrid, CompareTable, CtaBlock, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -101,9 +102,9 @@ export default function MethodologyPage() {
 
       <CtaBlock
         tone="light"
-        title="See it on your own team."
-        text="Book a walkthrough of Corporate Brain."
-        actions={[{ label: "Get a demo", href: routes.demo, variant: "navy" }]}
+        title="Want the full method?"
+        text="Get the validation report, or ask our research team how any step works."
+        actions={[{ label: "Request the validation report", href: enquiryHref("validation-report"), variant: "navy" }, { label: "Talk to our research team", href: enquiryHref("research-team"), variant: "outlineLight" }]}
       />
     </>
   );

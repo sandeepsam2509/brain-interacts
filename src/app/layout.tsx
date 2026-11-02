@@ -3,7 +3,7 @@ import { JetBrains_Mono, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { AssessmentBot } from "@/components/AssessmentBot";
 import { CookieConsent } from "@/components/CookieConsent";
-import { DemoDialog } from "@/components/DemoDialog";
+import { EnquiryDialog } from "@/components/EnquiryDialog";
 import { LogoIntro } from "@/components/LogoIntro";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
-        <DemoDialog />
+        <EnquiryDialog />
         <AssessmentBot />
         <CookieConsent />
         <LogoIntro />
