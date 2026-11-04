@@ -35,7 +35,7 @@ export default function FrameworksPage() {
           ["Conscientiousness", "Organisation and follow-through", "Plan, finish, keep standards", "Work flexibly, improvise"],
           ["Extraversion", "Energy from people and activity", "Speak up, take the lead", "Reflect first, work independently"],
           ["Agreeableness", "Concern for others and harmony", "Cooperate, support", "Challenge, give blunt feedback"],
-          ["Emotional stability", "Calm under pressure", "Stay steady when things go wrong", "React strongly to stress"],
+          ["Neuroticism", "Sensitivity to stress and pressure", "React strongly to stress", "Stay steady when things go wrong"],
         ]}
       />
 

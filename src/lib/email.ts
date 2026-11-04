@@ -13,6 +13,26 @@ export const emailConfig = {
 
 const isProduction = process.env.VERCEL_ENV === "production";
 
+// Public address for images in emails (brain-interacts.vercel.app now, braininteracts.com once connected).
+export const publicBase = () =>
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : (process.env.NEXT_PUBLIC_SITE_URL ?? "https://braininteracts.com");
+
+/** Brand signature with the logo, added to the end of every email unless the email has its own footer. */
+export function signatureHtml() {
+  const base = publicBase();
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:28px;border-top:1px solid #E1E6EE;font-family:Arial,sans-serif">
+  <tr><td style="padding-top:18px">
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="#0A1628" style="background:#0A1628;border-radius:8px;padding:10px 14px">
+      <img src="${base}/email/brain-interacts-logo.png" width="120" height="30" alt="Brain Interacts" style="display:block;border:0;width:120px;height:30px">
+    </td></tr></table>
+  </td></tr>
+  <tr><td style="padding-top:10px;font-size:12px;line-height:1.7;color:#45556E">
+    <strong style="color:#0A1628">Brain Interacts</strong> · Corporate Brain<br>
+    <a href="mailto:support@braininteracts.com" style="color:#1B5F96;text-decoration:none">support@braininteracts.com</a> · +91 72760 69027 · <a href="${base}" style="color:#1B5F96;text-decoration:none">braininteracts.com</a>
+  </td></tr>
+</table>`;
+}
+
 /** True when the site can actually send email. */
 export const emailReady = () => Boolean(emailConfig.apiKey && emailConfig.to);
 
@@ -22,6 +42,8 @@ export async function sendEmail(message: {
   html: string;
   replyTo?: string;
   attachments?: Attachment[];
+  /** Set false for emails that already end with their own branded footer. */
+  signature?: boolean;
 }): Promise<SendResult> {
   if (!emailConfig.apiKey) {
     // On preview links without a key, report success without sending so the forms can be tried out.
@@ -40,7 +62,7 @@ export async function sendEmail(message: {
       from: emailConfig.from,
       to: message.to,
       subject: message.subject,
-      html: message.html,
+      html: message.signature === false ? message.html : `${message.html}${signatureHtml()}`,
       reply_to: message.replyTo,
       attachments: message.attachments,
     }),

@@ -57,7 +57,7 @@ export default function MethodologyPage() {
         <H2 className="mb-5">Ten archetypes, matched by distance.</H2>
         <p className="mb-6 max-w-[760px] text-[17px] leading-[1.75] text-on-navy">
           Each of the ten core archetypes has a reference profile across Openness, Conscientiousness, Extraversion, Agreeableness and
-          Emotional stability, where High is 75 and Low is 25. We measure how far a person&apos;s five scores sit from each profile,
+          Neuroticism, where High is 75 and Low is 25. All ten archetypes sit low on neuroticism. We measure how far a person&apos;s five scores sit from each profile,
           turn that distance into a match score from 0 to 100, and rank all ten.
         </p>
         <ol className="mb-10 grid max-w-[900px] list-none gap-4 p-0 text-[15px] leading-[1.65] text-on-navy md:grid-cols-3">

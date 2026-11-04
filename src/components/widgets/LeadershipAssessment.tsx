@@ -110,7 +110,7 @@ export function LeadershipAssessment() {
             <p className="font-mono text-xs text-ink-muted uppercase">Your primary archetype</p>
             <p className="mt-2 text-[clamp(26px,3vw,34px)] leading-tight font-extrabold tracking-[-0.02em]">
               {styles.main}{" "}
-              {styles.secondary && <span className="text-lg font-bold text-ink-muted">with a {styles.secondary} side</span>}
+              {styles.secondary && <span className="text-lg font-bold text-ink-muted">with {/^[AEIOU]/.test(styles.secondary) ? "an" : "a"} {styles.secondary} side</span>}
             </p>
             <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{archetypeInfo(styles.main).how}</p>
             <p className="mt-1 font-mono text-xs text-ink-muted">{styles.ranked[0].similarity.toFixed(1)} / 100 match with the {styles.main} archetype</p>
