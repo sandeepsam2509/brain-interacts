@@ -180,10 +180,12 @@ export function CardGrid({
   cards,
   columns = 3,
   footnote,
+  intro,
 }: {
   tone: Tone;
   label?: SectionLabel;
   title?: ReactNode;
+  intro?: ReactNode;
   cards: Card[];
   columns?: 2 | 3 | 4 | 5;
   footnote?: ReactNode;
@@ -191,7 +193,8 @@ export function CardGrid({
   const cols = { 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "sm:grid-cols-2 lg:grid-cols-4", 5: "sm:grid-cols-2 lg:grid-cols-5" }[columns];
   return (
     <Section tone={tone}>
-      {title && <SectionHead label={label} title={title} tone={tone} />}
+      {title && <SectionHead label={label} title={title} tone={tone} className={intro ? "mb-5" : undefined} />}
+      {intro && <p className={`mb-10 max-w-[760px] text-[17px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
       <div className={`grid gap-10 md:gap-8 ${cols}`}>
         {cards.map((card, i) => (
           <div key={i} className={card.rule ? `border-t-[3px] pt-6 ${accentBorder[card.rule]}` : `border-t pt-6 ${ruleColor(tone)}`}>

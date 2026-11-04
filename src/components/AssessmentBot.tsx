@@ -10,7 +10,7 @@ type Step = "intro" | "quiz" | "email" | "done";
 type Msg = { id: number; from: "bot" | "me"; text: string };
 
 const INTRO =
-  "Hi! This free assessment shows your working style across the Big Five personality traits.\n\nRate how well each of the 20 statements describes you. There are no right or wrong answers.";
+  "Hi! This free assessment shows your working style across the Big Five traits and matches you to your closest Corporate Brain archetypes.\n\nRate how well each of the 20 statements describes you. There are no right or wrong answers.";
 
 const question = (i: number) => `Question ${i + 1} of ${QUESTIONS.length}\n${QUESTIONS[i][0]}`;
 
@@ -96,7 +96,7 @@ export function AssessmentBot() {
     const ok = await submit({ email: address, answers });
     if (ok) {
       setStep("done");
-      add({ from: "me", text: address }, { from: "bot", text: `Thanks! Your report is on its way.\n\nYou'll receive it at ${address} within 24 hours.` });
+      add({ from: "me", text: address }, { from: "bot", text: `Thanks! Your report is on its way.\n\nIt's been sent to ${address} with your archetype and all five trait scores. It should arrive within a few minutes; check your spam folder if you can't see it.` });
     }
   }
 

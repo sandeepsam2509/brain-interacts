@@ -53,18 +53,39 @@ export const CUTOFF = 60;
 export const BORDERLINE = 7;
 const ORDER: (keyof Scores)[] = ["O", "C", "E", "A", "ES"];
 
-/** The ten base archetypes, as High/Low on O-C-E-A-ES (see Psychometric methodologies). */
-export const ARCHETYPES: [string, string][] = [
-  ["Driver", "HHHHH"],
-  ["Operator", "LHHHH"],
-  ["Integrator", "HHLHH"],
-  ["Dominant", "HHHLH"],
-  ["Builder", "HHLLH"],
-  ["Visionary", "HLHHH"],
-  ["Rainmaker", "HLHLH"],
-  ["Creator", "HLLHH"],
-  ["Supporter", "LHLHH"],
-  ["Executor", "LHLLH"],
+// Corporate Brain archetype scoring (see "Corporate Brain Archetypes: Scoring, Primary and
+// Secondary"). Each archetype has a reference profile where High = 75 and Low = 25 on
+// O-C-E-A-ES. The person's distance to each profile becomes a 0-100 similarity score.
+const HIGH_REF = 75;
+const LOW_REF = 25;
+const MAX_DISTANCE = Math.sqrt(5 * 100 * 100); // 223.6: every trait 100 points away
+/** The secondary archetype is shown only when it is this close to the primary (similarity points). */
+export const SECONDARY_GAP = 5;
+
+export type ArchetypeName =
+  | "Elite"
+  | "Operator"
+  | "Integrator"
+  | "Dominant"
+  | "Builder"
+  | "Visionary"
+  | "Rainmaker"
+  | "Creator"
+  | "Supporter"
+  | "Executor";
+
+/** The ten core archetypes as High/Low on O-C-E-A-ES, with plain guidance from the model. */
+export const ARCHETYPES: { name: ArchetypeName; code: string; how: string; watch: string; manage: string }[] = [
+  { name: "Elite", code: "HHHHH", how: "High energy, capable and disciplined. Drives complex initiatives.", watch: "Overcommitment and burnout", manage: "Set ambitious outcomes, avoid micromanaging and keep an eye on workload." },
+  { name: "Operator", code: "LHHHH", how: "Structured and execution-focused. Turns plans into delivery.", watch: "Process rigidity and resisting ambiguity", manage: "Give clear objectives and a steady cadence, with freedom to optimise." },
+  { name: "Integrator", code: "HHLHH", how: "Thinks and delivers, and coordinates people and priorities.", watch: "Avoiding confrontation and too much consensus", manage: "Give ownership of coordination and encourage open disagreement." },
+  { name: "Dominant", code: "HHHLH", how: "Assertive, competitive and results-driven.", watch: "Intimidation, impatience and conflict", manage: "Set ambitious targets with clear interpersonal boundaries." },
+  { name: "Builder", code: "HHLLH", how: "An independent deep worker who builds solutions.", watch: "Working in silos and under-communicating", manage: "Give independence, plus regular stakeholder checkpoints." },
+  { name: "Visionary", code: "HLHHH", how: "Spots opportunities and future directions.", watch: "Too many ideas and weak follow-through", manage: "Give problems rather than instructions, with validation milestones." },
+  { name: "Rainmaker", code: "HLHLH", how: "Persuasive and commercially driven. Opens markets.", watch: "Overpromising and short-termism", manage: "Set aggressive targets with quality guardrails." },
+  { name: "Creator", code: "HLLHH", how: "Quietly creative. Generates original ideas.", watch: "Ideas left unimplemented and low visibility", manage: "Protect thinking time, ask for ideas and add structure to deliver them." },
+  { name: "Supporter", code: "LHLHH", how: "Reliable and cooperative. Strengthens the team.", watch: "Passivity and waiting for instructions", manage: "Set clear expectations, give recognition and build ownership step by step." },
+  { name: "Executor", code: "LHLLH", how: "Quiet, dependable and focused on defined tasks.", watch: "Narrow focus and reluctance to escalate", manage: "Define success clearly and give autonomy within that scope." },
 ];
 
 export function isValidAnswers(answers: unknown): answers is number[] {
@@ -86,22 +107,49 @@ export function pattern(scores: Scores): string {
   return ORDER.map((k) => (scores[k] >= CUTOFF ? "H" : "L")).join("");
 }
 
-/** Main archetype = closest base pattern; secondary = next closest. */
-export function archetypes(scores: Scores): { main: string; secondary: string; pattern: string } {
-  const p = pattern(scores);
-  // Distance counts mismatched traits; ties broken by how far the mismatched scores sit from the cut-off.
-  const ranked = ARCHETYPES.map(([name, code]) => {
-    let distance = 0;
-    let margin = 0;
-    ORDER.forEach((k, i) => {
-      if (code[i] !== p[i]) {
-        distance += 1;
-        margin += Math.abs(scores[k] - CUTOFF);
-      }
-    });
-    return { name, distance, margin };
-  }).sort((a, b) => a.distance - b.distance || a.margin - b.margin);
-  return { main: ranked[0].name, secondary: ranked[1].name, pattern: p };
+export type RankedArchetype = { name: ArchetypeName; distance: number; similarity: number };
+
+/** Steps 3 and 4: Euclidean distance to each reference profile, turned into a similarity score and ranked. */
+export function rankArchetypes(scores: Scores): RankedArchetype[] {
+  return ARCHETYPES.map(({ name, code }) => {
+    // Distance is rounded to one decimal first, as in the model's worked example.
+    const distance = round1(Math.sqrt(ORDER.reduce((sum, k, i) => sum + (scores[k] - (code[i] === "H" ? HIGH_REF : LOW_REF)) ** 2, 0)));
+    return { name, distance, similarity: round1(100 * (1 - distance / MAX_DISTANCE)) };
+  }).sort((a, b) => b.similarity - a.similarity);
+}
+
+function round1(n: number) {
+  return Math.round(n * 10) / 10;
+}
+
+/** Primary = most similar archetype; secondary = next one, if it is within SECONDARY_GAP points. */
+export function archetypes(scores: Scores): { main: ArchetypeName; secondary: ArchetypeName | null; pattern: string; ranked: RankedArchetype[] } {
+  const ranked = rankArchetypes(scores);
+  const close = ranked[0].similarity - ranked[1].similarity <= SECONDARY_GAP;
+  return { main: ranked[0].name, secondary: close ? ranked[1].name : null, pattern: pattern(scores), ranked };
+}
+
+export function archetypeInfo(name: ArchetypeName) {
+  return ARCHETYPES.find((a) => a.name === name)!;
+}
+
+// Step 5: management modifiers. Neuroticism = 100 - emotional stability. The model's
+// "low confidence" modifier also needs a technical score, which a self-assessment doesn't have.
+export const MODIFIERS: { name: string; effect: string; on: (s: Scores & { N: number }) => boolean }[] = [
+  { name: "High pressure sensitivity", effect: "More support and check-ins", on: (s) => s.N >= 70 },
+  { name: "Low execution orientation", effect: "More milestones and accountability", on: (s) => s.C <= 45 },
+  { name: "High social drive", effect: "More collaboration opportunities", on: (s) => s.E >= 75 },
+  { name: "Low social drive", effect: "Fewer unnecessary meetings", on: (s) => s.E <= 45 },
+  { name: "High openness", effect: "More room to experiment", on: (s) => s.O >= 75 },
+  { name: "Low openness", effect: "More structure", on: (s) => s.O <= 45 },
+  { name: "High conflict risk", effect: "Explicit behavioural boundaries", on: (s) => s.A <= 45 && s.N >= 60 },
+  { name: "High autonomy preference", effect: "Less micromanagement", on: (s) => s.C >= 75 && s.E <= 55 },
+  { name: "High overcommitment risk", effect: "Workload controls", on: (s) => s.C >= 75 && s.N >= 60 },
+];
+
+export function activeModifiers(scores: Scores) {
+  const s = { ...scores, N: 100 - scores.ES };
+  return MODIFIERS.filter((m) => m.on(s));
 }
 
 export const traitOrder = ORDER;

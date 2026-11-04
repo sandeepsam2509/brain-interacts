@@ -69,9 +69,9 @@ export default function AboutPage() {
         label={{ icon: "flow", text: "How we do it", color: "sky" }}
         title="Grounded in research, written for the people who use it."
         cards={[
-          { title: "Working style", rule: "gold", text: "A short assessment built on the Big Five — the most widely studied model of personality — gives every person a main and secondary archetype." },
+          { title: "Working style", rule: "gold", text: "A short assessment built on the Big Five — the most widely studied model of personality — gives every person a primary and secondary archetype, matched to ten Corporate Brain archetypes." },
           { title: "Skills", rule: "sky", text: "A foundation-level technical check for each function shows where knowledge is strong, working or needs development." },
-          { title: "Company goals", rule: "lime", text: "Each archetype links to the goals it tends to serve best — financial, growth, customer, operational, innovation and capability." },
+          { title: "Company goals", rule: "lime", text: "Leadership picks a goal — financial, growth, customer, operational, innovation or capability — and the platform recommends how each team and person should pursue it." },
         ]}
       />
 

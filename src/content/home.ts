@@ -5,15 +5,15 @@ export const hero = {
   title: "See how your people really work",
   titleAccent: "— and who should do what next.",
   lead:
-    "Corporate Brain is a behavioral analytics platform for every department. It maps working styles and skills against your goals, then suggests who should lead, who should take each task, and how to support each person.",
+    "Corporate Brain is a behavioral analytics platform for every department. It connects your company goal to each team and each person's working style, then suggests who should lead, who should take each task, and how to support each person.",
   note: "Built on the Big Five, the most widely researched model of working style.",
 };
 
 export const snapshot = {
   eyebrow: "Free working-style snapshot",
   title: "Discover your working style in 4 minutes.",
-  text: "Twenty quick statements. A personal working-style report in your inbox. Free.",
-  points: ["Your main and secondary working style", "Your five trait scores, explained", "Strengths and how you work best"],
+  text: "Twenty quick statements. Your scored report in your inbox within minutes. Free.",
+  points: ["Your primary and secondary Corporate Brain archetype", "Your five trait scores and archetype match scores", "How you work best, and what to watch for"],
   cta: "Take the free snapshot",
 };
 

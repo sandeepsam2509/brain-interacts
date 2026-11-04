@@ -84,8 +84,8 @@ export default function SciencePage() {
         title="Three ways into the science."
         cards={[
           { tag: "01", title: "Scientific validity", rule: "gold", text: "What the research supports, how reliable a short form is, and the limits we ask you to respect.", link: { label: "Read more", href: routes.scienceValidity, accent: "gold" } },
-          { tag: "02", title: "Research frameworks", rule: "sky", text: "The Big Five, the International Personality Item Pool, and how archetypes link to company goals.", link: { label: "Read more", href: routes.scienceFrameworks, accent: "sky" } },
-          { tag: "03", title: "Psychometric methodologies", rule: "lime", text: "How answers become scores, scores become archetypes, and archetypes become suggestions.", link: { label: "Read more", href: routes.scienceMethodology, accent: "lime" } },
+          { tag: "02", title: "Research frameworks", rule: "sky", text: "The Big Five, the International Personality Item Pool, and the Corporate Brain model: six goals, five functions, ten archetypes, 300 strategies.", link: { label: "Read more", href: routes.scienceFrameworks, accent: "sky" } },
+          { tag: "03", title: "Psychometric methodologies", rule: "lime", text: "How answers become scores, scores are matched to archetypes, and modifiers fine-tune the suggestions.", link: { label: "Read more", href: routes.scienceMethodology, accent: "lime" } },
         ]}
       />
 

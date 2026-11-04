@@ -84,8 +84,8 @@ export default function HomePage() {
             </Eyebrow>
             <H2 className="mb-5">Ten working styles. One clear picture of your team.</H2>
             <p className="text-[17px] leading-[1.7] text-on-navy">
-              Every person gets a main and a secondary working style — from Driver and Integrator to Builder and Executor. See
-              where your team is strong, where it is crowded, and what is missing.
+              Every person gets a primary and a secondary archetype — from Elite and Integrator to Builder and Executor — matched from
+              their Big Five scores. See where your team is strong, where it is crowded, and what is missing.
             </p>
             <ArrowLink href={routes.science} tone="dark" className="mt-5 inline-block">
               How archetypes work
