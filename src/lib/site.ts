@@ -38,6 +38,8 @@ export const routes = {
   about: "/about",
   contact: "/contact",
   unlock: "/unlock",
+  sampleDashboard: "/samples/sample-team-dashboard.pdf",
+  sampleReport: "/samples/sample-working-style-report.pdf",
   demo: "/contact?enquiry=demo#enquiry",
   security: "/security",
   integrations: "/integrations",

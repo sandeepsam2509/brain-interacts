@@ -25,7 +25,7 @@ export default function CorporateBrainPage() {
         lead="Corporate Brain joins working-style and skills data, projects and tasks, and hiring in one platform — with three portals so every level of your company sees exactly what it needs."
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo") },
-          { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
+          { label: "Download a sample team dashboard", href: routes.sampleDashboard, variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.home} priority />}
       />
@@ -117,7 +117,7 @@ export default function CorporateBrainPage() {
         text="A live walkthrough of Corporate Brain, built around your org structure."
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo"), variant: "navy" },
-          { label: "Download a sample working-style report", href: routes.resources, variant: "outlineLight" },
+          { label: "Download a sample working-style report", href: routes.sampleReport, variant: "outlineLight" },
         ]}
       />
     </>
