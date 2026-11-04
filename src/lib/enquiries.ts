@@ -21,6 +21,7 @@ export type EnquiryKey =
   | "frameworks-brief"
   | "question"
   | "executive-briefing"
+  | "full-report"
   | "results"
   | "partnership";
 
@@ -231,6 +232,16 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     messageLabel: "What would you like to cover?",
     submit: "Book a briefing",
     thanks: "Thanks — we'll be in touch within one working day to schedule your briefing.",
+  },
+  "full-report": {
+    label: "Unlock the full report and action framework",
+    eyebrow: "Full report · INR 999",
+    title: "Unlock your full report and action framework",
+    intro: "Your detailed Corporate Brain report and a personal action framework, for INR 999. Leave your details and we'll send you the payment link and next steps.",
+    subject: "Full report request (INR 999)",
+    messageLabel: "Anything you'd like the report to focus on? (optional)",
+    submit: "Request my full report",
+    thanks: "Thanks — we'll email you the payment link and next steps within one working day.",
   },
   results: {
     label: "See results like these for your team",
