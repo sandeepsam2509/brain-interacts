@@ -74,19 +74,8 @@ export const mainNav: MainNavItem[] = [
     ],
   },
 
-  {
-    label: "Resources",
-    href: routes.resources,
-    children: [
-      { label: "Resource library", href: routes.resources, description: "Everything in one place" },
-      { label: "Articles", href: routes.blog, description: "Short reads on behavior and teams" },
-      { label: "Whitepapers", href: routes.whitepapers, description: "In-depth papers, free to download" },
-      { label: "Research", href: routes.research, description: "Our research monograph and papers" },
-      { label: "Science", href: routes.scienceLibrary, description: "The model, scoring and evidence" },
-      { label: "FAQ", href: routes.faq, description: "Answers buyers ask before a demo" },
-      { label: "For CEOs", href: routes.ceo, description: "Your whole organization at a glance" },
-    ],
-  },
+  { label: "Resources", href: routes.resources },
+
   { label: "Customer Stories", href: routes.stories },
   { label: "Pricing", href: routes.pricing },
   { label: "About", href: routes.about },
