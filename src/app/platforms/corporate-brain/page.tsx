@@ -98,10 +98,13 @@ export default function CorporateBrainPage() {
         <Eyebrow icon="people" color="lime">
           Built for every department
         </Eyebrow>
-        <H2 className="mb-6 max-w-[820px]">Goal-linked guidance for every team.</H2>
+        <H2 className="mb-6 max-w-[820px]">From one company goal to 300 tailored strategies.</H2>
         <p className="max-w-[760px] text-[17px] leading-[1.75] text-on-navy">
-          Corporate Brain links each working style to six company goals — financial, growth, customer, operational, innovation and
-          capability — and gives each department guidance on who to put on which objective and how to manage them.
+          Leadership picks one of six company goals for the quarter — financial, growth, customer, operational, innovation or
+          capability. Corporate Brain combines it with each team&apos;s function (marketing, sales, IT, HR or leadership) and each
+          person&apos;s archetype to point to one of 300 strategies: the objective, how to manage and communicate, how much
+          autonomy to give, the check-in rhythm, the main risk and the KPIs to track. Ten modifiers then fine-tune it for the
+          individual, and people are re-assessed every 3 to 6 months.
         </p>
         <p className="mt-6 text-[15px] text-on-navy-soft">
           Role-based access · Two-step sign-in · Admin-controlled backups · Employees can request correction or deletion

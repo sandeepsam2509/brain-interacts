@@ -22,7 +22,7 @@ const groups: Group[] = [
       { q: "What is people analytics?", a: "People analytics is the use of data about how people work — their skills, working styles, workload and collaboration — to make better decisions about teams, hiring and leadership." },
       { q: "How is Corporate Brain different from a psychometric test?", a: "A test gives a one-off score. Corporate Brain uses working-style data as one input into ongoing workforce intelligence: team composition, task allocation, leadership insights and progress over time." },
       { q: "Which departments can use Corporate Brain?", a: "All of them. Sales, operations, engineering, HR, finance and leadership teams each get views suited to how they work." },
-      { q: "What is a working-style archetype?", a: "An archetype is a short name for how someone tends to work, such as Driver, Integrator or Executor. Every person gets a main and a secondary one." },
+      { q: "What is a working-style archetype?", a: "An archetype is a short name for how someone tends to work, such as Elite, Integrator or Executor. There are ten. Every person gets a primary archetype, the closest match to their Big Five scores, and a secondary one when the next match is close. It's a starting point for a conversation, never a label." },
     ],
   },
   {

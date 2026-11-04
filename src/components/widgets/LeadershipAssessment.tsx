@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
-import { ANSWER_LABELS, archetypes, CUTOFF, QUESTIONS, scoreAnswers, TRAIT_LEADERSHIP, TRAIT_NAMES, traitOrder } from "@/lib/snapshot";
+import { ANSWER_LABELS, archetypeInfo, archetypes, CUTOFF, QUESTIONS, scoreAnswers, TRAIT_LEADERSHIP, TRAIT_NAMES, traitOrder } from "@/lib/snapshot";
 import { useSubmit } from "../forms/useSubmit";
 import { WidgetShell } from "./WidgetShell";
 
@@ -56,8 +56,8 @@ export function LeadershipAssessment() {
           <div>
             <h3 className="text-2xl font-extrabold tracking-[-0.02em]">How do you lead when it matters?</h3>
             <p className="mt-3 leading-[1.7] text-ink-body">
-              Rate 20 short statements about how you usually work. You&apos;ll see your leadership working style straight away, and get
-              a free executive report by email: your main and secondary style, your five trait scores, and how each one tends to show
+              Rate 20 short statements about how you usually work. You&apos;ll see your primary archetype straight away, and get
+              a free executive report by email: your primary and secondary archetype with match scores, your five trait scores, and how each one tends to show
               up in the way you lead.
             </p>
             <button type="button" onClick={() => setStep("quiz")} className="mt-6 rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1e3a66]">
@@ -66,7 +66,7 @@ export function LeadershipAssessment() {
             <p className="mt-3 text-xs text-ink-muted">Built on the Big Five, the most widely researched model of personality.</p>
           </div>
           <ul className="m-0 list-none self-center rounded-xl bg-[#F6F7F9] p-5 text-[15px] text-ink-body">
-            {["Your main and secondary leadership style", "Five trait scores, each explained for leaders", "Where your style helps — and where to watch out", "No sign-up needed to start"].map((t) => (
+            {["Your primary and secondary Corporate Brain archetype", "Five trait scores, each explained for leaders", "Where your style helps — and where to watch out", "Your full report by email in minutes"].map((t) => (
               <li key={t} className="flex gap-3 py-2">
                 <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
                   ✓
@@ -107,10 +107,13 @@ export function LeadershipAssessment() {
       {(step === "email" || step === "done") && scores && styles && (
         <div className="grid lg:grid-cols-[1.3fr_1fr]" aria-live="polite">
           <div className="p-5 md:p-7">
-            <p className="font-mono text-xs text-ink-muted uppercase">Your leadership working style</p>
+            <p className="font-mono text-xs text-ink-muted uppercase">Your primary archetype</p>
             <p className="mt-2 text-[clamp(26px,3vw,34px)] leading-tight font-extrabold tracking-[-0.02em]">
-              {styles.main} <span className="text-lg font-bold text-ink-muted">with a {styles.secondary} side</span>
+              {styles.main}{" "}
+              {styles.secondary && <span className="text-lg font-bold text-ink-muted">with a {styles.secondary} side</span>}
             </p>
+            <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{archetypeInfo(styles.main).how}</p>
+            <p className="mt-1 font-mono text-xs text-ink-muted">{styles.ranked[0].similarity.toFixed(1)} / 100 match with the {styles.main} archetype</p>
             <ul className="m-0 mt-5 list-none p-0">
               {traitOrder.map((k) => {
                 const v = scores[k];
@@ -134,7 +137,7 @@ export function LeadershipAssessment() {
             {step === "email" ? (
               <form onSubmit={send}>
                 <p className="text-lg font-extrabold">Get your full executive report</p>
-                <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">We&apos;ll email it within 24 hours, with what each trait means for how you lead.</p>
+                <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">We&apos;ll email it straight away: your archetype match scores, your five trait scores, what each means for how you lead, and what adjusts the guidance.</p>
                 <label htmlFor="la-email" className="mt-5 mb-1.5 block text-sm font-bold">
                   Work email
                 </label>
@@ -171,11 +174,11 @@ export function LeadershipAssessment() {
               <div role="status">
                 <p className="text-lg font-extrabold text-green-ink">Your report is on its way.</p>
                 <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">
-                  You&apos;ll receive it at <strong className="text-ink">{email}</strong> within 24 hours.
+                  It&apos;s been sent to <strong className="text-ink">{email}</strong> and should arrive within a few minutes. Check your spam folder if you can&apos;t see it.
                   {status.state === "sent" && !status.delivered && " (Preview link: email sending isn't connected here, so nothing was sent.)"}
                 </p>
                 <Link
-                  href={enquiryHref("executive-briefing", { "self-assessment": `${styles.main} / ${styles.secondary}` })}
+                  href={enquiryHref("executive-briefing", { "self-assessment": `${styles.main}${styles.secondary ? ` / ${styles.secondary}` : ""}` })}
                   className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1e3a66]"
                 >
                   See your whole leadership team

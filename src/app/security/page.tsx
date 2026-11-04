@@ -65,7 +65,7 @@ export default function SecurityPage() {
           { title: "Never personality alone", text: "Results support decisions about hiring or promotion — they never make them." },
           { title: "Same process for everyone", text: "Apply the same assessments to everyone in the same decision." },
           { title: "People hear their results first", text: "Share results in a conversation, with a chance to comment or correct." },
-          { title: "Retake and review", text: "Results change. Re-assess after a year or a major role change." },
+          { title: "Retake and review", text: "Results change. Re-assess every 3 to 6 months, or after a major role change." },
         ]}
       />
 
