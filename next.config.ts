@@ -21,6 +21,7 @@ const legacyRedirects: [string, string][] = [
   ["/for/employees", "/platforms/corporate-brain"],
   ["/diagnostic", "/contact"],
   ["/demo", "/contact"],
+  ["/resources/blog", "/resources"],
 ];
 
 const nextConfig: NextConfig = {
