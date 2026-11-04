@@ -30,14 +30,14 @@ export const QUESTIONS: [string, Trait, boolean][] = [
 
 export const ANSWER_LABELS = ["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree"];
 
-export type Scores = { O: number; C: number; E: number; A: number; ES: number };
+export type Scores = { O: number; C: number; E: number; A: number; N: number };
 
 export const TRAIT_NAMES: Record<keyof Scores, string> = {
   O: "Openness",
   C: "Conscientiousness",
   E: "Extraversion",
   A: "Agreeableness",
-  ES: "Emotional stability",
+  N: "Neuroticism",
 };
 
 /** Plain descriptions, matching the Research frameworks page. */
@@ -46,16 +46,16 @@ export const TRAIT_TEXT: Record<keyof Scores, { high: string; low: string }> = {
   C: { high: "Plan, finish, keep standards", low: "Work flexibly, improvise" },
   E: { high: "Speak up, take the lead", low: "Reflect first, work independently" },
   A: { high: "Cooperate, support", low: "Challenge, give blunt feedback" },
-  ES: { high: "Stay steady when things go wrong", low: "React strongly to stress" },
+  N: { high: "React strongly to stress", low: "Stay steady when things go wrong" },
 };
 
 export const CUTOFF = 60;
 export const BORDERLINE = 7;
-const ORDER: (keyof Scores)[] = ["O", "C", "E", "A", "ES"];
+const ORDER: (keyof Scores)[] = ["O", "C", "E", "A", "N"];
 
 // Corporate Brain archetype scoring (see "Corporate Brain Archetypes: Scoring, Primary and
 // Secondary"). Each archetype has a reference profile where High = 75 and Low = 25 on
-// O-C-E-A-ES. The person's distance to each profile becomes a 0-100 similarity score.
+// O-C-E-A-N. The person's distance to each profile becomes a 0-100 similarity score.
 const HIGH_REF = 75;
 const LOW_REF = 25;
 const MAX_DISTANCE = Math.sqrt(5 * 100 * 100); // 223.6: every trait 100 points away
@@ -74,18 +74,18 @@ export type ArchetypeName =
   | "Supporter"
   | "Executor";
 
-/** The ten core archetypes as High/Low on O-C-E-A-ES, with plain guidance from the model. */
+/** The ten core archetypes as High/Low on O-C-E-A-N (all ten have low neuroticism), with plain guidance from the model. */
 export const ARCHETYPES: { name: ArchetypeName; code: string; how: string; watch: string; manage: string }[] = [
-  { name: "Elite", code: "HHHHH", how: "High energy, capable and disciplined. Drives complex initiatives.", watch: "Overcommitment and burnout", manage: "Set ambitious outcomes, avoid micromanaging and keep an eye on workload." },
-  { name: "Operator", code: "LHHHH", how: "Structured and execution-focused. Turns plans into delivery.", watch: "Process rigidity and resisting ambiguity", manage: "Give clear objectives and a steady cadence, with freedom to optimise." },
-  { name: "Integrator", code: "HHLHH", how: "Thinks and delivers, and coordinates people and priorities.", watch: "Avoiding confrontation and too much consensus", manage: "Give ownership of coordination and encourage open disagreement." },
-  { name: "Dominant", code: "HHHLH", how: "Assertive, competitive and results-driven.", watch: "Intimidation, impatience and conflict", manage: "Set ambitious targets with clear interpersonal boundaries." },
-  { name: "Builder", code: "HHLLH", how: "An independent deep worker who builds solutions.", watch: "Working in silos and under-communicating", manage: "Give independence, plus regular stakeholder checkpoints." },
-  { name: "Visionary", code: "HLHHH", how: "Spots opportunities and future directions.", watch: "Too many ideas and weak follow-through", manage: "Give problems rather than instructions, with validation milestones." },
-  { name: "Rainmaker", code: "HLHLH", how: "Persuasive and commercially driven. Opens markets.", watch: "Overpromising and short-termism", manage: "Set aggressive targets with quality guardrails." },
-  { name: "Creator", code: "HLLHH", how: "Quietly creative. Generates original ideas.", watch: "Ideas left unimplemented and low visibility", manage: "Protect thinking time, ask for ideas and add structure to deliver them." },
-  { name: "Supporter", code: "LHLHH", how: "Reliable and cooperative. Strengthens the team.", watch: "Passivity and waiting for instructions", manage: "Set clear expectations, give recognition and build ownership step by step." },
-  { name: "Executor", code: "LHLLH", how: "Quiet, dependable and focused on defined tasks.", watch: "Narrow focus and reluctance to escalate", manage: "Define success clearly and give autonomy within that scope." },
+  { name: "Elite", code: "HHHHL", how: "High energy, capable and disciplined. Drives complex initiatives.", watch: "Overcommitment and burnout", manage: "Set ambitious outcomes, avoid micromanaging and keep an eye on workload." },
+  { name: "Operator", code: "LHHHL", how: "Structured and execution-focused. Turns plans into delivery.", watch: "Process rigidity and resisting ambiguity", manage: "Give clear objectives and a steady cadence, with freedom to optimise." },
+  { name: "Integrator", code: "HHLHL", how: "Thinks and delivers, and coordinates people and priorities.", watch: "Avoiding confrontation and too much consensus", manage: "Give ownership of coordination and encourage open disagreement." },
+  { name: "Dominant", code: "HHHLL", how: "Assertive, competitive and results-driven.", watch: "Intimidation, impatience and conflict", manage: "Set ambitious targets with clear interpersonal boundaries." },
+  { name: "Builder", code: "HHLLL", how: "An independent deep worker who builds solutions.", watch: "Working in silos and under-communicating", manage: "Give independence, plus regular stakeholder checkpoints." },
+  { name: "Visionary", code: "HLHHL", how: "Spots opportunities and future directions.", watch: "Too many ideas and weak follow-through", manage: "Give problems rather than instructions, with validation milestones." },
+  { name: "Rainmaker", code: "HLHLL", how: "Persuasive and commercially driven. Opens markets.", watch: "Overpromising and short-termism", manage: "Set aggressive targets with quality guardrails." },
+  { name: "Creator", code: "HLLHL", how: "Quietly creative. Generates original ideas.", watch: "Ideas left unimplemented and low visibility", manage: "Protect thinking time, ask for ideas and add structure to deliver them." },
+  { name: "Supporter", code: "LHLHL", how: "Reliable and cooperative. Strengthens the team.", watch: "Passivity and waiting for instructions", manage: "Set clear expectations, give recognition and build ownership step by step." },
+  { name: "Executor", code: "LHLLL", how: "Quiet, dependable and focused on defined tasks.", watch: "Narrow focus and reluctance to escalate", manage: "Define success clearly and give autonomy within that scope." },
 ];
 
 export function isValidAnswers(answers: unknown): answers is number[] {
@@ -100,7 +100,7 @@ export function scoreAnswers(answers: number[]): Scores {
     sums[trait] += reverse ? 6 - v : v;
   });
   const scale = (sum: number) => Math.round(((sum / 4 - 1) / 4) * 100);
-  return { O: scale(sums.O), C: scale(sums.C), E: scale(sums.E), A: scale(sums.A), ES: 100 - scale(sums.N) };
+  return { O: scale(sums.O), C: scale(sums.C), E: scale(sums.E), A: scale(sums.A), N: scale(sums.N) };
 }
 
 export function pattern(scores: Scores): string {
@@ -133,9 +133,9 @@ export function archetypeInfo(name: ArchetypeName) {
   return ARCHETYPES.find((a) => a.name === name)!;
 }
 
-// Step 5: management modifiers. Neuroticism = 100 - emotional stability. The model's
+// Step 5: management modifiers. The model's
 // "low confidence" modifier also needs a technical score, which a self-assessment doesn't have.
-export const MODIFIERS: { name: string; effect: string; on: (s: Scores & { N: number }) => boolean }[] = [
+export const MODIFIERS: { name: string; effect: string; on: (s: Scores) => boolean }[] = [
   { name: "High pressure sensitivity", effect: "More support and check-ins", on: (s) => s.N >= 70 },
   { name: "Low execution orientation", effect: "More milestones and accountability", on: (s) => s.C <= 45 },
   { name: "High social drive", effect: "More collaboration opportunities", on: (s) => s.E >= 75 },
@@ -148,8 +148,7 @@ export const MODIFIERS: { name: string; effect: string; on: (s: Scores & { N: nu
 ];
 
 export function activeModifiers(scores: Scores) {
-  const s = { ...scores, N: 100 - scores.ES };
-  return MODIFIERS.filter((m) => m.on(s));
+  return MODIFIERS.filter((m) => m.on(scores));
 }
 
 export const traitOrder = ORDER;
@@ -160,5 +159,5 @@ export const TRAIT_LEADERSHIP: Record<keyof Scores, { high: string; low: string 
   C: { high: "Builds discipline: clear plans, follow-through and high standards.", low: "Stays flexible and improvises well, but may need others to drive structure and follow-up." },
   E: { high: "Leads from the front: visible, energizing and comfortable owning the room.", low: "Leads quietly: reflects before deciding and gives others space to speak." },
   A: { high: "Builds trust and cooperation; may avoid hard conversations.", low: "Challenges directly and makes tough calls; may need to invest more in relationships." },
-  ES: { high: "Stays steady under pressure, which calms the people around them.", low: "Feels pressure strongly; benefits from routines that protect decision quality under stress." },
+  N: { high: "Feels pressure strongly; benefits from routines that protect decision quality under stress.", low: "Stays steady under pressure, which calms the people around them." },
 };

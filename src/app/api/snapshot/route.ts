@@ -115,7 +115,7 @@ export async function POST(req: Request): Promise<Response> {
         ["Secondary archetype", secondary ? `${secondary} (${ranked[1].similarity})` : `None (next is more than ${SECONDARY_GAP} points behind)`],
         ["Top 5 matches", ranked.slice(0, 5).map((r) => `${r.name} ${r.similarity}`).join(", ")],
         ["Modifiers", modifiers.map((m) => m.name).join(", ") || "None"],
-        ["Pattern (O-C-E-A-ES)", pattern],
+        ["Pattern (O-C-E-A-N)", pattern],
         ...traitOrder.map((k) => [TRAIT_NAMES[k], scores[k]] as [string, number]),
       ]),
     }).catch(() => undefined);
