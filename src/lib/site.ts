@@ -73,15 +73,7 @@ export const mainNav: MainNavItem[] = [
       { label: "Root Cause Analytics", href: routes.rootCause, description: "Find the causes behind the symptoms" },
     ],
   },
-  {
-    label: "Science",
-    href: routes.science,
-    children: [
-      { label: "Scientific validity", href: routes.scienceValidity, description: "What the research supports, and its limits" },
-      { label: "Research frameworks", href: routes.scienceFrameworks, description: "The Big Five, the item pool and company goals" },
-      { label: "Psychometric methodologies", href: routes.scienceMethodology, description: "How answers become scores and suggestions" },
-    ],
-  },
+
   {
     label: "Resources",
     href: routes.resources,
