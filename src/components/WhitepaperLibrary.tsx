@@ -175,7 +175,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
             <div className="p-6 md:p-8">
               <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[13px] text-ink-link">Free whitepaper</p>
+                  <p className="font-mono text-[13px] text-ink-link">{active.kind === "research" ? "Free research monograph" : "Free whitepaper"}</p>
                   <h2 id="wp-dialog-title" className="mt-1.5 text-2xl leading-tight font-extrabold tracking-[-0.02em]">
                     {active.title}
                   </h2>

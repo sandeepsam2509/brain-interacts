@@ -15,10 +15,11 @@ const tone: Record<ResourceType, { label: string; bg: string; a: string; b: stri
   whitepapers: { label: "text-ink-link", bg: "#E3F1FC", a: "#5BB8F5", b: "#0A1628" },
   research: { label: "text-green-ink", bg: "#EDF7DC", a: "#B8E05A", b: "#0A1628" },
   articles: { label: "text-gold-ink", bg: "#FCEFC9", a: "#F2C14E", b: "#0A1628" },
+  science: { label: "text-ink", bg: "#E6EAF1", a: "#5BB8F5", b: "#0A1628" },
 };
 
 /** Abstract brand artwork for items without a cover image. */
-function Art({ r, seed }: { r: Resource; seed: number }) {
+export function Art({ r, seed }: { r: Resource; seed: number }) {
   const t = tone[r.type];
   const v = seed % 3;
   return (
@@ -81,7 +82,7 @@ function Thumb({ r, seed, large = false }: { r: Resource; seed: number; large?: 
 function action(r: Resource) {
   if (r.comingSoon) return { label: "Coming soon", arrow: "" };
   if (r.whitepaper) return { label: "Download PDF", arrow: "↓" };
-  return { label: r.type === "research" ? "Read the research" : "Read article", arrow: "→" };
+  return { label: r.type === "science" ? "Explore the science" : r.type === "research" ? "Read the research" : "Read article", arrow: "→" };
 }
 
 /** The whole card is one link or button, so it's easy to hit on a phone. */
@@ -256,7 +257,7 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search articles, whitepapers and research"
+              placeholder="Search articles, whitepapers, research and science"
               className="w-full rounded-full border border-rule-strong bg-white py-3 pr-4 pl-11 text-[15px] text-ink placeholder:text-ink-muted"
             />
           </label>

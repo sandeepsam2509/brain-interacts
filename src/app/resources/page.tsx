@@ -11,10 +11,11 @@ import { routes } from "@/lib/site";
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 const intro: Record<string, { title: string; lead: string }> = {
-  all: { title: "Resource library", lead: "Articles, whitepapers and research on behavior, teams and the science behind Corporate Brain." },
+  all: { title: "Resource library", lead: "Articles, whitepapers, research and the science behind Corporate Brain, on behavior and teams at work." },
   articles: { title: "Articles", lead: "Short, practical reads on behavior, team performance, hiring and risk." },
   whitepapers: { title: "Whitepapers", lead: "The Behavioral Enterprise Series: in-depth papers for leaders who shape teams, free to download." },
-  research: { title: "Research", lead: "The model, the scoring and the evidence behind every Corporate Brain result." },
+  research: { title: "Research", lead: "Original research from Brain Interacts, including our monograph The Behavioral Enterprise." },
+  science: { title: "Science", lead: "The model, the scoring and the evidence behind every Corporate Brain result." },
 };
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {

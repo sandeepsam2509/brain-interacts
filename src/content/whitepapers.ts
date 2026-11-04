@@ -1,7 +1,28 @@
 // Whitepapers in The Behavioral Enterprise Series. PDFs live in public/whitepapers.
-export type Whitepaper = { slug: string; title: string; summary: string; audience: string; pages: number; file?: string; cover?: string };
+export type Whitepaper = {
+  slug: string;
+  title: string;
+  summary: string;
+  audience: string;
+  pages: number;
+  file?: string;
+  cover?: string;
+  /** "research" documents are listed under Research in the Resource Library. */
+  kind?: "whitepaper" | "research";
+};
 
 export const whitepapers: Whitepaper[] = [
+  {
+    slug: "the-behavioral-enterprise",
+    kind: "research",
+    title: "The Behavioral Enterprise",
+    summary:
+      "Our research monograph on trait interaction, the Big Five and workforce intelligence: the science behind THE BRAIN and Corporate Brain, what the evidence supports, and what we are still testing.",
+    audience: "By Srishti Sharma and Sandeep Kumar",
+    pages: 104,
+    file: "/whitepapers/the-behavioral-enterprise.pdf",
+    cover: "/whitepapers/covers/the-behavioral-enterprise.webp",
+  },
   {
     slug: "the-sunk-cost-trap",
     title: "The Sunk Cost Trap",
@@ -67,6 +88,7 @@ export const whitepapers: Whitepaper[] = [
   },
   {
     slug: "archetypes-research",
+    kind: "research",
     title: "Archetypes and the Research Behind Them",
     summary: "The Big Five, the ten archetypes, scoring, and responsible use.",
     audience: "HR leaders and managers",
