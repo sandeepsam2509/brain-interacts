@@ -45,13 +45,28 @@ function Cover({ paper, priority = false, sizes }: { paper: Paper; priority?: bo
  * company and mobile number (sent to the team as a lead); later downloads in the same
  * browser start straight away.
  */
-export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[]; variant?: "grid" | "compact" }) {
+/** Opens the download form for a whitepaper from anywhere on the page (used by the Resource Library). */
+export const openWhitepaper = (slug: string) => window.dispatchEvent(new CustomEvent("bi:whitepaper", { detail: slug }));
+
+export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[]; variant?: "grid" | "compact" | "dialog" }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState<Paper | null>(null);
   const [saved, setSaved] = useState<Lead | null>(null);
   const [state, setState] = useState<{ status: "idle" | "sending" | "done" | "error"; message?: string }>({ status: "idle" });
 
   useEffect(() => setSaved(readLead()), []);
+
+  // "dialog" variant: no list of its own; other components open it with openWhitepaper(slug).
+  useEffect(() => {
+    if (variant !== "dialog") return;
+    const onOpen = (e: Event) => {
+      const paper = papers.find((p) => p.slug === (e as CustomEvent<string>).detail);
+      if (paper) open(paper);
+    };
+    window.addEventListener("bi:whitepaper", onOpen);
+    return () => window.removeEventListener("bi:whitepaper", onOpen);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [variant, papers]);
 
   async function submit(paper: Paper, lead: Lead, extra: Record<string, unknown> = {}) {
     setState({ status: "sending" });
@@ -108,7 +123,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
 
   return (
     <>
-      {variant === "grid" ? (
+      {variant === "dialog" ? null : variant === "grid" ? (
         <ul className="m-0 grid list-none grid-cols-1 gap-x-8 gap-y-14 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {papers.map((p, i) => (
             <li key={p.slug} className="group flex flex-col">
@@ -160,7 +175,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
             <div className="p-6 md:p-8">
               <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[13px] text-ink-link">Free whitepaper</p>
+                  <p className="font-mono text-[13px] text-ink-link">{active.kind === "research" ? "Free research monograph" : "Free whitepaper"}</p>
                   <h2 id="wp-dialog-title" className="mt-1.5 text-2xl leading-tight font-extrabold tracking-[-0.02em]">
                     {active.title}
                   </h2>

@@ -29,7 +29,10 @@ export const routes = {
   scienceFrameworks: "/science/frameworks",
   scienceMethodology: "/science/methodology",
   resources: "/resources",
-  blog: "/resources/blog",
+  blog: "/resources?category=articles",
+  whitepapers: "/resources?category=whitepapers",
+  research: "/resources?category=research",
+  scienceLibrary: "/resources?category=science",
   stories: "/customer-stories",
   pricing: "/pricing",
   about: "/about",
@@ -70,25 +73,9 @@ export const mainNav: MainNavItem[] = [
       { label: "Root Cause Analytics", href: routes.rootCause, description: "Find the causes behind the symptoms" },
     ],
   },
-  {
-    label: "Science",
-    href: routes.science,
-    children: [
-      { label: "Scientific validity", href: routes.scienceValidity, description: "What the research supports, and its limits" },
-      { label: "Research frameworks", href: routes.scienceFrameworks, description: "The Big Five, the item pool and company goals" },
-      { label: "Psychometric methodologies", href: routes.scienceMethodology, description: "How answers become scores and suggestions" },
-    ],
-  },
-  {
-    label: "Resources",
-    href: routes.resources,
-    children: [
-      { label: "Resources", href: routes.resources, description: "Research, articles and stories" },
-      { label: "Blogs & Whitepapers", href: routes.blog, description: "Articles and in-depth papers" },
-      { label: "FAQ", href: routes.faq, description: "Answers buyers ask before a demo" },
-      { label: "For CEOs", href: routes.ceo, description: "Your whole organization at a glance" },
-    ],
-  },
+
+  { label: "Resources", href: routes.resources },
+
   { label: "Customer Stories", href: routes.stories },
   { label: "Pricing", href: routes.pricing },
   { label: "About", href: routes.about },
@@ -116,7 +103,8 @@ export const footerColumns: NavGroup[] = [
     label: "Resources",
     items: [
       { label: "The Science", href: routes.science },
-      { label: "Blogs & Whitepapers", href: routes.blog },
+      { label: "Resource library", href: routes.resources },
+      { label: "Whitepapers", href: routes.whitepapers },
       { label: "Customer Stories", href: routes.stories },
       { label: "Pricing", href: routes.pricing },
       { label: "FAQ", href: routes.faq },
