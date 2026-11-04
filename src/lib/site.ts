@@ -34,6 +34,7 @@ export const routes = {
   pricing: "/pricing",
   about: "/about",
   contact: "/contact",
+  unlock: "/unlock",
   demo: "/contact?enquiry=demo#enquiry",
   security: "/security",
   integrations: "/integrations",

@@ -1,4 +1,4 @@
-import { emailConfig, esc, fieldsTable, sendEmail } from "@/lib/email";
+import { emailConfig, esc, fieldsTable, publicBase, sendEmail } from "@/lib/email";
 import { passesTurnstile, TURNSTILE_ERROR } from "@/lib/turnstile";
 import { clean, clientKey, EMAIL_RE, type FormResponse, HONEYPOT, rateLimited } from "@/lib/forms";
 import { activeModifiers, archetypeInfo, archetypes, BORDERLINE, SECONDARY_GAP, CUTOFF, isValidAnswers, scoreAnswers, TRAIT_LEADERSHIP, TRAIT_NAMES, TRAIT_TEXT, traitOrder } from "@/lib/snapshot";
@@ -35,7 +35,7 @@ export async function POST(req: Request): Promise<Response> {
 
   // Absolute base for links and images in the email. On Vercel this is the production domain
   // (brain-interacts.vercel.app today, braininteracts.com once the domain is connected).
-  const base = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : site.url;
+  const base = publicBase();
 
   // Brand palette (matches the website).
   const NAVY = "#0A1628";
@@ -115,7 +115,7 @@ export async function POST(req: Request): Promise<Response> {
     : `<tr><td style="font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">None of your scores crossed a modifier threshold, so the archetype guidance applies as it is.</td></tr>`;
 
   const ctaHref = `${base}/contact?enquiry=${leadership ? "executive-briefing" : "demo"}#enquiry`;
-  const unlockHref = `${base}/contact?enquiry=full-report&${new URLSearchParams({ archetype: styleLabel, assessment: leadership ? "Leadership self-assessment" : "Working-style assessment" })}#enquiry`;
+  const unlockHref = `${base}/unlock?${new URLSearchParams({ archetype: styleLabel, assessment: leadership ? "Leadership self-assessment" : "Working-style assessment", email })}`;
   const ctaLabel = leadership ? "Book an executive briefing" : "Get a demo of Corporate Brain";
   const ctaLead = leadership ? "See how your whole leadership team fits together." : "See how your whole team fits together.";
 
@@ -212,7 +212,7 @@ export async function POST(req: Request): Promise<Response> {
     console.error("[snapshot] PDF failed", err);
   }
 
-  const toVisitor = await sendEmail({ attachments: pdf ? [pdf] : undefined, to: email, subject: leadership ? `Your executive working-style report: ${styleLabel}` : `Your Brain Interacts working-style report: ${styleLabel}`, html: report });
+  const toVisitor = await sendEmail({ signature: false, attachments: pdf ? [pdf] : undefined, to: email, subject: leadership ? `Your executive working-style report: ${styleLabel}` : `Your Brain Interacts working-style report: ${styleLabel}`, html: report });
   if (!toVisitor.ok) return reply(toVisitor, 502);
 
   // Team copy is best-effort: the visitor already has their report.
