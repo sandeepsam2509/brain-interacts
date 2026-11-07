@@ -7,7 +7,7 @@ import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gamified Assessments — Game-Based Hiring Simulations",
+  title: "Gamified Assessments, Game-Based Hiring Simulations",
   description:
     "Short, game-based simulations that show how candidates think, recover and solve problems, not just what they say about themselves.",
   alternates: { canonical: routes.gamified },
@@ -22,9 +22,9 @@ const questionnaires = [
   "Answer keys leak online",
 ];
 const games = [
-  "Harder to fake — we watch what people do",
+  "Harder to fake, we watch what people do",
   "Measure the process: hesitation, pathing, recovery",
-  "Visual and engaging — candidates want to finish",
+  "Visual and engaging, candidates want to finish",
   "Scenarios vary, so there's nothing to memorize",
 ];
 
@@ -43,7 +43,7 @@ export default function GamifiedPage() {
         label={{ icon: "grid", text: "Gamified assessments", color: "gold" }}
         title="Stop testing how candidates answer."
         accent="See how they act."
-        lead="Short, game-based simulations that show how people think, recover and solve problems — not just what they say about themselves."
+        lead="Short, game-based simulations that show how people think, recover and solve problems, not just what they say about themselves."
         actions={[
           { label: "Try a sample assessment", href: enquiryHref("sample-assessment"), variant: "gold" },
           { label: "See the science", href: routes.science, variant: "outlineDark" },
@@ -88,8 +88,8 @@ export default function GamifiedPage() {
         title="Three stages. About 20 minutes."
         cards={[
           { tag: "Stage 01", title: "Baseline", rule: "gold", text: "Candidates explore a low-stakes digital world while the engine maps their Big Five traits from small decisions." },
-          { tag: "Stage 02", title: "Role simulation", rule: "sky", text: "They move into a scenario built for the role you're hiring for — see the four tracks below." },
-          { tag: "Stage 03", title: "Profile", rule: "lime", text: "Recruiters get a clear behavioral profile in Corporate Brain — no spreadsheets." },
+          { tag: "Stage 02", title: "Role simulation", rule: "sky", text: "They move into a scenario built for the role you're hiring for, see the four tracks below." },
+          { tag: "Stage 03", title: "Profile", rule: "lime", text: "Recruiters get a clear behavioral profile in Corporate Brain, no spreadsheets." },
         ]}
       />
 
@@ -136,7 +136,7 @@ export default function GamifiedPage() {
           ))}
         </dl>
         <p className="mt-12 border-t border-rule pt-6 text-[14px] leading-[1.7] text-ink-muted">
-          Results are one input to a hiring decision — best used alongside interviews, work samples and references. Profiles sync to
+          Results are one input to a hiring decision, best used alongside interviews, work samples and references. Profiles sync to
           your ATS through the Corporate Brain API.
         </p>
       </Section>

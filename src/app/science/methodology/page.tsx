@@ -34,7 +34,7 @@ export default function MethodologyPage() {
         title="From answers"
         accent="to suggestions."
         accentColor="lime"
-        lead="Exactly how Corporate Brain turns a few minutes of answers into scores, archetypes and recommendations — with people reviewing every step."
+        lead="Exactly how Corporate Brain turns a few minutes of answers into scores, archetypes and recommendations, with people reviewing every step."
       />
 
       <CardGrid
@@ -110,7 +110,7 @@ export default function MethodologyPage() {
         rows={[
           ["Strong", "75 or more", "Confident on the foundations; can guide others"],
           ["Working", "50 to 74", "Knows the basics; benefits from practice"],
-          ["Gap", "Below 50", "A clear development need — a training signal, not a verdict"],
+          ["Gap", "Below 50", "A clear development need, a training signal, not a verdict"],
         ]}
       />
 

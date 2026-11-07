@@ -37,7 +37,7 @@ export async function POST(req: Request): Promise<Response> {
   const result = await sendEmail({
     to: emailConfig.to ?? "",
     replyTo: email,
-    subject: `Job application: ${role} — ${name}`,
+    subject: `Job application: ${role}, ${name}`,
     html: fieldsTable([
       ["Name", name],
       ["Email", email],

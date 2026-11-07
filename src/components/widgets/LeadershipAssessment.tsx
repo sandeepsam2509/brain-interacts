@@ -66,7 +66,7 @@ export function LeadershipAssessment() {
             <p className="mt-3 text-xs text-ink-muted">Built on the Big Five, the most widely researched model of personality.</p>
           </div>
           <ul className="m-0 list-none self-center rounded-xl bg-[#F6F7F9] p-5 text-[14px] text-ink-body">
-            {["Your primary and secondary Corporate Brain archetype", "Five trait scores, each explained for leaders", "Where your style helps — and where to watch out", "Your full report by email in minutes"].map((t) => (
+            {["Your primary and secondary Corporate Brain archetype", "Five trait scores, each explained for leaders", "Where your style helps, and where to watch out", "Your full report by email in minutes"].map((t) => (
               <li key={t} className="flex gap-3 py-2">
                 <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
                   ✓

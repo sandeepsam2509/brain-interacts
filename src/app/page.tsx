@@ -6,7 +6,7 @@ import { audiences, hero, products, stories, tasks, team } from "@/content/home"
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "People Analytics & Behavioral Insights Platform — Brain Interacts" },
+  title: { absolute: "People Analytics & Behavioral Insights Platform, Brain Interacts" },
   description:
     "Corporate Brain maps working styles and skills against your goals, then suggests who should lead, who should take each task, and how to support each person.",
   alternates: { canonical: "/" },
@@ -69,7 +69,7 @@ export default function HomePage() {
             </Eyebrow>
             <H2 className="mb-5">Ten working styles. One clear picture of your team.</H2>
             <p className="text-[15px] leading-[1.7] text-on-navy">
-              Every person gets a primary and a secondary archetype — from Elite and Integrator to Builder and Executor — matched from
+              Every person gets a primary and a secondary archetype, from Elite and Integrator to Builder and Executor, matched from
               their Big Five scores. See where your team is strong, where it is crowded, and what is missing.
             </p>
             <ArrowLink href={routes.science} tone="dark" className="mt-5 inline-block">
@@ -91,7 +91,7 @@ export default function HomePage() {
           </h2>
           <p className="text-[15px] leading-[1.7] text-ink-body">
             Every employee&apos;s behavioral archetype sits right beside the task board, so managers assign work by strengths
-            and work style — not just availability.
+            and work style, not just availability.
           </p>
         </div>
         <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">

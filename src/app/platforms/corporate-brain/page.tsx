@@ -8,7 +8,7 @@ import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Corporate Brain — People Analytics Platform",
+  title: "Corporate Brain, People Analytics Platform",
   description:
     "Corporate Brain joins working-style and skills data, projects, tasks and hiring in one platform, with Leadership, Manager and Employee portals.",
   alternates: { canonical: routes.corporateBrain },
@@ -24,7 +24,7 @@ export default function CorporateBrainPage() {
         label={{ icon: "grid", text: "Corporate Brain", color: "gold" }}
         title="People analytics that tells you"
         accent="who should do what next."
-        lead="Corporate Brain joins working-style and skills data, projects and tasks, and hiring in one platform — with three portals so every level of your company sees exactly what it needs."
+        lead="Corporate Brain joins working-style and skills data, projects and tasks, and hiring in one platform, with three portals so every level of your company sees exactly what it needs."
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo") },
           { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
@@ -48,12 +48,12 @@ export default function CorporateBrainPage() {
       <FeatureSplit
         tone="dark"
         label={{ icon: "people", text: "Leadership portal", color: "gold" }}
-        title="Know where you stand — and where to step in."
+        title="Know where you stand, and where to step in."
         features={[
           { title: "Needs your attention", text: "Delayed projects and work awaiting approval, each with its next step." },
           { title: "Team analytics", text: "Compare teams on work finished, overdue tasks, people free for work and assessments completed." },
           { title: "People analytics", text: "Working-style and skills patterns across the whole company." },
-          { title: "Reports you can share", text: "Progress, teams and behavioral analysis — exported to PDF or Excel." },
+          { title: "Reports you can share", text: "Progress, teams and behavioral analysis, exported to PDF or Excel." },
         ]}
         visual={<Hero3D render={renders.leadership} tint="gold" />}
       />
@@ -102,7 +102,7 @@ export default function CorporateBrainPage() {
         </Eyebrow>
         <H2 className="mb-6 max-w-[820px]">From one company goal to 300 tailored strategies.</H2>
         <p className="max-w-[760px] text-[15px] leading-[1.75] text-on-navy">
-          Leadership picks one of six company goals for the quarter — financial, growth, customer, operational, innovation or
+          Leadership picks one of six company goals for the quarter, financial, growth, customer, operational, innovation or
           capability. Corporate Brain combines it with each team&apos;s function (marketing, sales, IT, HR or leadership) and each
           person&apos;s archetype to point to one of 300 strategies: the objective, how to manage and communicate, how much
           autonomy to give, the check-in rhythm, the main risk and the KPIs to track. Ten modifiers then fine-tune it for the

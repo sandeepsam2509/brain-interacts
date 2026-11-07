@@ -22,7 +22,7 @@ export default function CultureStudyPage() {
         title="Make culture something"
         accent="you can measure."
         accentColor="sky"
-        lead="Go beyond engagement surveys. We measure your real values, working dynamics and hidden silos — and show how they help or hold back execution."
+        lead="Go beyond engagement surveys. We measure your real values, working dynamics and hidden silos, and show how they help or hold back execution."
         actions={[
           { label: "Request a culture study proposal", href: enquiryHref("culture-proposal"), variant: "sky" },
           { label: "View our methodology", href: "#how-we-work", variant: "outlineDark" },
@@ -46,10 +46,10 @@ export default function CultureStudyPage() {
         label={{ icon: "grid", text: "What we study", color: "lime" }}
         title="Four lenses on your culture."
         cards={[
-          { tag: "People", title: "Values & traits", rule: "gold", text: "The gap between stated values and real behavior — safety, accountability, risk-taking." },
+          { tag: "People", title: "Values & traits", rule: "gold", text: "The gap between stated values and real behavior, safety, accountability, risk-taking." },
           { tag: "People", title: "Leadership alignment", rule: "sky", text: "How leaders and managers shape norms, trust and the speed of execution." },
           { tag: "Structure", title: "Network analytics", rule: "lime", text: "Formal and informal communication paths, silos, bottlenecks and key-person dependencies." },
-          { tag: "Structure", title: "Subcultures & M&A", rule: "white", text: "Differences between offices, functions or acquired teams — before they cause friction." },
+          { tag: "Structure", title: "Subcultures & M&A", rule: "white", text: "Differences between offices, functions or acquired teams, before they cause friction." },
         ]}
       />
 

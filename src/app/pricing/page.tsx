@@ -90,7 +90,7 @@ export default function PricingPage() {
         label={{ icon: "chart", text: "Pricing", color: "gold" }}
         title="Simple pricing"
         accent="for every seat."
-        lead="Pay for the view each person needs. Mix seats across your organization — a few leaders, your managers, and every employee."
+        lead="Pay for the view each person needs. Mix seats across your organization, a few leaders, your managers, and every employee."
       />
 
       <Section tone="light">
@@ -130,7 +130,7 @@ export default function PricingPage() {
         title="Common questions."
         items={[
           { q: "Do all employees need the same seat?", a: "No. Most organizations combine a few Leadership seats, Manager seats for team leads, and Employee seats for everyone else." },
-          { q: "What are credits?", a: "Each assessment sent — to an employee or a job candidate — uses credits from your company's balance. Admins see the balance and usage in Settings and can top up anytime." },
+          { q: "What are credits?", a: "Each assessment sent, to an employee or a job candidate, uses credits from your company's balance. Admins see the balance and usage in Settings and can top up anytime." },
           { q: "Is there a minimum number of users?", a: "Ask for a custom quote and we'll confirm the right starting size for your organization." },
           { q: "Is our data kept separate?", a: "Yes. Every customer gets a separate database." },
         ]}

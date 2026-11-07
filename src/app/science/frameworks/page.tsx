@@ -26,7 +26,7 @@ export default function FrameworksPage() {
         tone="light"
         label={{ icon: "grid", text: "Framework 01 · The Big Five", color: "goldInk" }}
         title="Five broad dimensions of personality."
-        intro="Decades of research found that people describe each other along five broad dimensions. None is good or bad on its own — each has strengths in some work and costs in other work."
+        intro="Decades of research found that people describe each other along five broad dimensions. None is good or bad on its own, each has strengths in some work and costs in other work."
         headings={["Trait", "What it describes", "High scorers tend to", "Low scorers tend to"]}
         template="md:grid-cols-[1fr_1.2fr_1.2fr_1.2fr]"
         highlightLast={false}
@@ -44,7 +44,7 @@ export default function FrameworksPage() {
         label={{ icon: "grid", text: "Framework 02 · The item pool", color: "sky" }}
         title="Public-domain, research-maintained questions."
         paragraphs={[
-          "Our questions come from the Mini-IPIP, a 20-statement short form drawn from the International Personality Item Pool — a public collection of personality items maintained by researchers.",
+          "Our questions come from the Mini-IPIP, a 20-statement short form drawn from the International Personality Item Pool, a public collection of personality items maintained by researchers.",
           "Each trait is measured by four statements, some worded in reverse so that agreeing with everything doesn't inflate a score.",
         ]}
       />

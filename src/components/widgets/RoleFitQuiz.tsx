@@ -73,7 +73,7 @@ const questions: { q: string; options: { label: string; points: Partial<Record<R
     q: "Pick the sentence that sounds most like you.",
     options: [
       { label: "\"Let me prototype it and we'll see.\"", points: { eng: 2 } },
-      { label: "\"Interesting — but how do we know?\"", points: { ds: 2, eng: 1 } },
+      { label: "\"Interesting, but how do we know?\"", points: { ds: 2, eng: 1 } },
       { label: "\"Let me introduce you to someone.\"", points: { ae: 2 } },
     ],
   },

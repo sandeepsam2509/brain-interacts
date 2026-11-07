@@ -7,7 +7,7 @@ import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FinCheck — Behavioral Credit Risk for Lenders",
+  title: "FinCheck, Behavioral Credit Risk for Lenders",
   description:
     "FinCheck combines behavioral psychology, real-time repayment indexes and traditional credit checks into one risk assessment engine for banks, NBFCs and neobanks.",
   alternates: { canonical: routes.finCheck },
@@ -46,7 +46,7 @@ export default function FinCheckPage() {
       <CardGrid
         tone="dark"
         label={{ icon: "grid", text: "Three layers", color: "gold" }}
-        title="Behavior, repayment and credit — in one risk view."
+        title="Behavior, repayment and credit, in one risk view."
         cards={[
           {
             title: "Behavioral intent & psychometric risk",

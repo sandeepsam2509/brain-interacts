@@ -43,7 +43,7 @@ export default function ValidityPage() {
         title="A short form trades some precision for practicality."
         paragraphs={[
           "Twenty statements take a few minutes, which makes it practical to assess a whole team.",
-          "Four statements per trait are less reliable than a full-length inventory, so we mark scores within 7 points of the cut-off as borderline — and treat every result as an informed starting point for a conversation, not a fixed measurement.",
+          "Four statements per trait are less reliable than a full-length inventory, so we mark scores within 7 points of the cut-off as borderline, and treat every result as an informed starting point for a conversation, not a fixed measurement.",
         ]}
       />
 
@@ -54,7 +54,7 @@ export default function ValidityPage() {
         title="Using results fairly."
         cards={[
           { title: "Self-report can be shaded", rule: "amber", text: "Someone who wants a job may answer as they think you want. Treat results as prompts for interview questions." },
-          { title: "Traits are tendencies", rule: "blue", text: "They describe how someone usually works — not what they can learn or do." },
+          { title: "Traits are tendencies", rule: "blue", text: "They describe how someone usually works, not what they can learn or do." },
           { title: "Archetypes are shorthand", rule: "green", text: "Ten types can't describe everyone. The five trait scores are the more accurate picture." },
           { title: "Never the only input", rule: "navy", text: "Don't select, promote or dismiss on personality alone. Use interviews, work samples and records too." },
         ]}

@@ -84,7 +84,7 @@ export default function RootCausePage() {
         tone="light"
         columns={5}
         label={{ icon: "grid", text: "Five dimensions", color: "link" }}
-        title="We diagnose across five layers — from the individual to the enterprise."
+        title="We diagnose across five layers, from the individual to the enterprise."
         cards={[
           { title: "Behavioral", rule: "amber", text: "Work-style archetypes, stress triggers and decision patterns." },
           { title: "Technical", rule: "blue", text: "Role skills, gaps and readiness to deliver." },
@@ -111,7 +111,7 @@ export default function RootCausePage() {
         icon="chart"
         label="Attrition cost calculator"
         title="What is turnover costing you?"
-        intro="Enter your headcount, attrition and average salary to see the yearly cost — and how much of it is likely preventable."
+        intro="Enter your headcount, attrition and average salary to see the yearly cost, and how much of it is likely preventable."
       >
         <AttritionCalculator />
       </WidgetSection>

@@ -80,13 +80,13 @@ type Block = { title: string; why: string };
 
 /** Turns the four answers into a recommended set of building blocks. */
 function recommend(a: Answers): { blocks: Block[]; delivery: string } {
-  const blocks: Block[] = [{ title: "Working-style profiles", why: "Motivators, communication style and how people respond under pressure — the base layer for every decision." }];
+  const blocks: Block[] = [{ title: "Working-style profiles", why: "Motivators, communication style and how people respond under pressure, the base layer for every decision." }];
   if (a.goal === "hiring" || a.goal === "promotion")
     blocks.push({ title: "Role benchmarks", why: "A success profile for each role, so every candidate is compared against the same bar." });
   if (a.goal === "hiring" && (a.who === "tech" || a.who === "sales" || a.who === "frontline"))
     blocks.push({ title: "Role-specific aptitude tests", why: "Reasoning and job-relevant problem solving, set to the level the role demands." });
   if (a.who === "leadership" || a.who === "managers" || a.goal === "promotion")
-    blocks.push({ title: "Leadership readiness", why: "Decision-making, delegation and leadership potential, checked before a promotion — not after." });
+    blocks.push({ title: "Leadership readiness", why: "Decision-making, delegation and leadership potential, checked before a promotion, not after." });
   if (a.goal === "development" || a.goal === "culture")
     blocks.push({ title: "Team mix review", why: "Which working styles each team has too much of, and which it's missing." });
   if (a.format === "games" || (a.format === "unsure" && a.volume === "large" && a.goal === "hiring"))

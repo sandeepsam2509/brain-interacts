@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const roles = [
   { team: "Engineering", title: "Full-Stack Engineer (Next.js, Node)", value: "Full-Stack Engineer" },
   { team: "Science", title: "Behavioral Data Scientist", value: "Behavioral Data Scientist" },
-  { team: "Sales", title: "Enterprise Account Executive — People Analytics", value: "Enterprise Account Executive" },
+  { team: "Sales", title: "Enterprise Account Executive, People Analytics", value: "Enterprise Account Executive" },
 ];
 
 export default function CareersPage() {
@@ -40,7 +40,7 @@ export default function CareersPage() {
         label={{ icon: "target", text: "Why join us", color: "link" }}
         title="Small team. Big problem. Real science."
         paragraphs={[
-          "Most workplace problems are really fit problems — and we're building the platform that helps companies see them.",
+          "Most workplace problems are really fit problems, and we're building the platform that helps companies see them.",
           "You'll work across products used by HR leaders, founders and lenders, with a team that cares about getting the science right and using it fairly.",
         ]}
       />
@@ -53,7 +53,7 @@ export default function CareersPage() {
         cards={[
           { title: "Evidence over opinion", rule: "gold", text: "We test ideas, cite our sources and change our minds when the data says so." },
           { title: "Fair by default", rule: "sky", text: "We hold our own hiring to the standards we ask of our customers." },
-          { title: "Explain the why", rule: "lime", text: "Every decision — like every recommendation in our product — comes with its reasons." },
+          { title: "Explain the why", rule: "lime", text: "Every decision, like every recommendation in our product, comes with its reasons." },
           { title: "Grow on purpose", rule: "white", text: "Strengths and development areas are things we talk about openly." },
         ]}
       />
@@ -69,7 +69,7 @@ export default function CareersPage() {
           { tag: "Step 03", title: "Assess", rule: "green", text: "A working-style assessment and a role-relevant task." },
           { tag: "Step 04", title: "Meet the team", rule: "navy", text: "Structured interviews, then a decision with reasons." },
         ]}
-        footnote="Our process is structured and the same for every candidate. Assessments are one input — never the only one."
+        footnote="Our process is structured and the same for every candidate. Assessments are one input, never the only one."
       />
 
       <Section tone="dark" id="open-roles" className="scroll-mt-20">

@@ -32,7 +32,7 @@ export default async function ContactPage({ searchParams }: Props) {
         trail={[{ label: "Home", href: routes.home }, { label: "Contact" }]}
         label={{ icon: "people", text: "Contact us", color: "lime" }}
         title="Let's talk about your people."
-        lead="Questions about a product, a consulting engagement or joining the team — tell us what you need and the right person will get back to you."
+        lead="Questions about a product, a consulting engagement or joining the team, tell us what you need and the right person will get back to you."
       />
 
       {enquiry && enquiryKey && (

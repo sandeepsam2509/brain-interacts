@@ -85,7 +85,7 @@ export function AssessmentBot() {
       setStep("email");
       add(
         { from: "me", text: ANSWER_LABELS[value - 1] },
-        { from: "bot", text: "That's all 20 — thank you!\n\nWhat's your work email? We'll send your personalized working-style report there." },
+        { from: "bot", text: "That's all 20, thank you!\n\nWhat's your work email? We'll send your personalized working-style report there." },
       );
     }
   }
