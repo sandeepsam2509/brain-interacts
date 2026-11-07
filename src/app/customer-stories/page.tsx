@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { CtaBlock, PageHero } from "@/components/blocks";
-import { Section, type Tone } from "@/components/ui";
+import Link from "next/link";
+import { StoryArt, StoryLibrary } from "@/components/StoryLibrary";
+import { ButtonLink, Section } from "@/components/ui";
+import { allProducts, featuredStorySlug, findStory, industries, stories, storyHref } from "@/content/stories";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
@@ -11,117 +13,126 @@ export const metadata: Metadata = {
   alternates: { canonical: routes.stories },
 };
 
-type Story = { industry: string; color: string; title: string; who: string; challenge: string; how: string; result: string };
-
-// Clients are anonymised. Each result is confirmed with the client before it is published.
-const PENDING = "[To be confirmed with the client before publishing]";
-const stories: Story[] = [
-  {
-    industry: "Facilities management",
-    color: "text-gold-ink",
-    title: "Staffing large, distributed teams around strengths",
-    who: "A leading national facilities management firm with a large frontline and supervisory workforce across many client sites.",
-    challenge: "Site supervisors were promoted for reliability, not leadership, and team performance varied widely from site to site.",
-    how: "Corporate Brain mapped working styles across supervisors and site managers; Root Cause Analytics compared high- and low-performing sites.",
-    result: PENDING,
-  },
-  {
-    industry: "Manufacturing",
-    color: "text-sky",
-    title: "Building balanced plant leadership teams",
-    who: "A global automotive manufacturer's India operations.",
-    challenge: "Plant and project teams were stacked with similar, execution-heavy profiles, and change initiatives stalled.",
-    how: "The team composition view showed which working styles each leadership team was missing; managers used task suggestions to staff improvement projects.",
-    result: PENDING,
-  },
-  {
-    industry: "Manufacturing",
-    color: "text-green-ink",
-    title: "Promoting the right people into supervision",
-    who: "A large Indian manufacturing group with multiple plants.",
-    challenge: "Strong operators were being promoted into supervisor roles that did not suit them.",
-    how: "Gamified Assessments and Corporate Brain profiles gave HR a structured view of leadership potential, alongside interviews and performance records.",
-    result: PENDING,
-  },
-  {
-    industry: "IT services",
-    color: "text-gold",
-    title: "Assigning work by strengths across delivery teams",
-    who: "A top-tier global IT services enterprise.",
-    challenge: "Project allocation relied on availability, leaving specialists on generalist work and key people overloaded.",
-    how: "Brain suggests ranked the best and second-best person for each workstream by skills, working style and workload, with reasons managers reviewed.",
-    result: PENDING,
-  },
-  {
-    industry: "IT",
-    color: "text-ink-link",
-    title: "Understanding why a high-growth team lost momentum",
-    who: "A fast-growing technology services company.",
-    challenge: "Delivery slipped after rapid hiring, and exit interviews gave no clear reason.",
-    how: "A Corporate Culture Study and Root Cause Analytics traced the slowdown to manager–team style mismatches and unclear handoffs.",
-    result: PENDING,
-  },
-  {
-    industry: "Industrial automation",
-    color: "text-lime",
-    title: "Aligning engineering and customer teams",
-    who: "An industrial automation and smart-infrastructure company.",
-    challenge: "Engineering and customer-facing teams worked in silos, slowing installations and handovers.",
-    how: "Corporate Brain mapped both teams' working styles, and Leadership seats tracked alignment against operational and customer goals.",
-    result: PENDING,
-  },
-];
-
-function StoryBlock({ story, tone }: { story: Story; tone: Tone }) {
-  const body = tone === "dark" ? "text-on-navy" : "text-ink-body";
-  const rule = tone === "dark" ? "border-navy-line" : "border-rule";
-  const rows = [
-    ["Challenge", story.challenge],
-    ["How they used Brain", story.how],
-    ["Result", story.result],
-  ];
-  return (
-    <Section tone={tone}>
-      <article className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-        <div>
-          <p className={`font-mono text-[13px] uppercase ${story.color}`}>{story.industry}</p>
-          <h2 className="mt-3 text-[clamp(28px,3vw,40px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{story.title}</h2>
-          <p className={`mt-4 leading-[1.7] ${body}`}>{story.who}</p>
-        </div>
-        <dl className="m-0">
-          {rows.map(([label, text]) => (
-            <div key={label} className={`grid gap-1 border-b py-5 md:grid-cols-[200px_1fr] md:gap-6 ${rule}`}>
-              <dt className="font-bold">{label}</dt>
-              <dd className={`m-0 leading-[1.7] ${body} ${text === PENDING ? "italic" : ""}`}>{text}</dd>
-            </div>
-          ))}
-        </dl>
-      </article>
-    </Section>
-  );
-}
-
 export default function CustomerStoriesPage() {
+  const featured = findStory(featuredStorySlug)!;
+
   return (
     <>
-      <PageHero
-        trail={[{ label: "Home", href: routes.home }, { label: "Customer Stories" }]}
-        label={{ icon: "quote", text: "Customer stories", color: "lime" }}
-        title="Teams making people decisions"
-        accent="with evidence."
-        accentColor="lime"
-        lead="How facilities, manufacturing, IT and automation companies use Brain products to align teams and assign work. Client names are kept confidential."
-        actions={[{ label: "See results like these for your team", href: enquiryHref("results") }]}
-      />
-      {stories.map((story, i) => (
-        <StoryBlock key={story.title} story={story} tone={i % 2 === 0 ? "light" : "dark"} />
-      ))}
-      <CtaBlock
-        tone="light"
-        title="Want results like these?"
-        text="See how Corporate Brain would read your teams."
-        actions={[{ label: "See results like these for your team", href: enquiryHref("results"), variant: "navy" }]}
-      />
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-navy text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute -top-40 -right-32 h-[460px] w-[460px] rounded-full bg-sky/20 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-56 left-1/4 h-[420px] w-[420px] rounded-full bg-lime/15 blur-3xl" />
+        <div className="relative mx-auto max-w-[1280px] px-4 pt-14 pb-12 text-center md:px-8 md:pt-20 md:pb-16">
+          <p className="font-mono text-[12px] tracking-[0.14em] text-lime uppercase">Customer stories</p>
+          <h1 className="mx-auto mt-4 max-w-[900px] text-[clamp(40px,6vw,80px)] leading-[1.02] font-extrabold tracking-[-0.035em]">
+            Teams making people decisions <span className="text-lime">with evidence.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-[640px] text-[18px] leading-[1.65] text-on-navy md:text-[20px]">
+            How facilities, manufacturing, IT and automation companies use Brain Interacts to align teams and assign work.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <ButtonLink href={enquiryHref("results")}>See results like these for your team</ButtonLink>
+            <ButtonLink href="#stories" variant="outlineDark">
+              Browse stories
+            </ButtonLink>
+          </div>
+        </div>
+
+        {/* "Trusted by" strip: anonymised client descriptions instead of logos */}
+        <div className="relative border-t border-navy-line">
+          <div className="mx-auto max-w-[1280px] px-4 py-8 md:px-8">
+            <p className="mb-5 text-center text-sm text-on-navy-muted">Trusted by teams across India. Client names are kept confidential.</p>
+            <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-3 lg:grid-cols-6">
+              {stories.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={storyHref(s)}
+                    className="flex h-full flex-col justify-center rounded-xl border border-navy-line px-4 py-3 text-center text-white no-underline transition-colors hover:border-lime hover:bg-navy-raised"
+                  >
+                    <span className="text-[13px] leading-snug font-bold">{s.client}</span>
+                    <span className="mt-1 font-mono text-[10px] tracking-[0.1em] text-on-navy-muted uppercase">{s.industry}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured story */}
+      <Section tone="light" innerClassName="pt-14 pb-4 md:pt-20">
+        <p className="mb-5 font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">Featured story</p>
+        <Link
+          href={storyHref(featured)}
+          className="group grid overflow-hidden rounded-[20px] border border-rule bg-white text-ink no-underline transition-shadow duration-300 hover:shadow-[0_22px_54px_rgba(10,22,40,0.14)] lg:grid-cols-[1.05fr_1fr]"
+        >
+          <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
+            <StoryArt story={featured} seed={1} />
+            <span className="absolute bottom-4 left-4 rounded-lg bg-white/95 px-3 py-1.5 text-[13px] font-bold shadow-sm">{featured.client}</span>
+          </div>
+          <div className="flex flex-col justify-center p-6 md:p-10">
+            <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">{featured.industry}</p>
+            <h2 className="mt-3 text-[clamp(26px,2.8vw,40px)] leading-[1.1] font-extrabold tracking-[-0.02em]">{featured.title}</h2>
+            <dl className="m-0 mt-6 grid gap-5 sm:grid-cols-2">
+              <div>
+                <dt className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">The challenge</dt>
+                <dd className="m-0 mt-1.5 text-[15px] leading-[1.6] text-ink-body">{featured.challenge}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">How they used Brain</dt>
+                <dd className="m-0 mt-1.5 text-[15px] leading-[1.6] text-ink-body">{featured.how}</dd>
+              </div>
+            </dl>
+            <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[15px] font-bold text-white transition-colors group-hover:bg-[#1e3a66]">
+              Read the story <span aria-hidden="true">→</span>
+            </span>
+          </div>
+        </Link>
+      </Section>
+
+      {/* All stories with filters */}
+      <Section tone="light" innerClassName="pt-12 pb-16 md:pb-24">
+        <div id="stories" className="scroll-mt-24">
+          <h2 className="mb-6 text-[clamp(28px,3vw,40px)] leading-[1.1] font-extrabold tracking-[-0.02em]">All customer stories</h2>
+          <StoryLibrary items={stories} industries={industries} products={allProducts} />
+        </div>
+      </Section>
+
+      {/* Industries */}
+      <Section tone="dark" innerClassName="py-16 md:py-20">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <div>
+            <p className="font-mono text-[12px] tracking-[0.14em] text-lime uppercase">Industries</p>
+            <h2 className="mt-3 text-[clamp(28px,3.4vw,44px)] leading-[1.08] font-extrabold tracking-[-0.02em]">Built for teams where people decisions carry weight.</h2>
+          </div>
+          <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
+            {industries.map((i) => {
+              const n = stories.filter((s) => s.industry === i).length;
+              return (
+                <li key={i} className="rounded-2xl border border-navy-line p-5">
+                  <p className="text-lg font-bold">{i}</p>
+                  <p className="mt-1 text-sm text-on-navy">
+                    {n} {n === 1 ? "story" : "stories"}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </Section>
+
+      {/* CTA */}
+      <Section tone="light" innerClassName="py-16 md:py-24">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-[24px] bg-[#EEF1F6] p-8 md:flex-row md:items-center md:p-12">
+          <div>
+            <h2 className="text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-extrabold tracking-[-0.02em]">Want results like these?</h2>
+            <p className="mt-3 text-lg text-ink-body">See how Corporate Brain would read your teams.</p>
+          </div>
+          <ButtonLink href={enquiryHref("results")} variant="navy">
+            See results like these for your team
+          </ButtonLink>
+        </div>
+      </Section>
     </>
   );
 }
