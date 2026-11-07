@@ -27,7 +27,6 @@ export default function CorporateBrainPage() {
         lead="Corporate Brain joins working-style and skills data, projects and tasks, and hiring in one platform, with three portals so every level of your company sees exactly what it needs."
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo") },
-          { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
         aside={<HeroRings items={ringSets.corporateBrain} />}
       />

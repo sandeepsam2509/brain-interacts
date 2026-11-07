@@ -24,7 +24,6 @@ export default function CeoPage() {
         lead="Your strategy is only as strong as the people carrying it out. Corporate Brain gives you a live, behavioral view of every team, who is aligned, where friction is building, and which leaders to back next."
         actions={[
           { label: "Book an executive briefing", href: enquiryHref("executive-briefing") },
-          { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
         aside={<Hero3D render={renders.leadership} tint="gold" priority />}
       />

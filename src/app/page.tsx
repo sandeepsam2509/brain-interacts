@@ -178,10 +178,6 @@ export default function HomePage() {
             <ButtonLink href={routes.demo} variant="navy">
               Get a demo
             </ButtonLink>
-            {/* Points at the sample dashboard PDF once it is supplied. */}
-            <ButtonLink href={routes.resources} variant="outlineLight">
-              Download a sample team dashboard
-            </ButtonLink>
           </div>
         </div>
       </Section>
