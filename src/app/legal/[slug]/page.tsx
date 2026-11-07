@@ -33,7 +33,7 @@ export default async function LegalDocPage({ params }: Props) {
         lead={doc.summary}
       />
       <Section tone="light">
-        <div className="max-w-[780px] text-[17px] leading-[1.75] text-ink-body [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-ink [&_li]:mt-2 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
+        <div className="max-w-[780px] text-[15px] leading-[1.75] text-ink-body [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-ink [&_li]:mt-2 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
           <p className="font-mono text-sm text-ink-muted">Effective: {doc.effective}</p>
           {doc.intro?.map((t) => <p key={t}>{fillLegal(t)}</p>)}
           {doc.sections.map((s) => (

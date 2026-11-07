@@ -12,10 +12,10 @@ export function SiteFooter() {
             <BrandMark size={36} />
             <Wordmark height={20} />
           </Link>
-          <p className="mt-[18px] max-w-[340px] text-[15px] leading-[1.7]">
+          <p className="mt-[18px] max-w-[340px] text-[14px] leading-[1.7]">
             Team analytics, behavioral analysis and workforce analytics for organizations that build on evidence.
           </p>
-          <div className="mt-5 flex flex-col gap-2 text-[15px]">
+          <div className="mt-5 flex flex-col gap-2 text-[14px]">
             <a href={`mailto:${site.email}`} className="text-[#E8EDF5] no-underline hover:underline">
               {site.email}
             </a>
@@ -26,7 +26,7 @@ export function SiteFooter() {
         </div>
 
         {footerColumns.map((col) => (
-          <nav key={col.label} aria-label={col.label} className="flex flex-col gap-3 text-[15px]">
+          <nav key={col.label} aria-label={col.label} className="flex flex-col gap-3 text-[14px]">
             <strong className="mb-1 text-white">{col.label}</strong>
             {col.items.map((item) => (
               <Link key={item.href} href={item.href} className="text-on-navy-muted no-underline hover:text-white">

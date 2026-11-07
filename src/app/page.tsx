@@ -16,16 +16,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero with the 3D rings graphic */}
-      <Section tone="dark" innerClassName="pt-12 pb-16 md:pt-[72px] md:pb-24">
+      <Section tone="dark" innerClassName="pt-10 pb-12 md:pt-14 md:pb-16">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div>
             <Eyebrow icon="people" color="lime">
               {hero.eyebrow}
             </Eyebrow>
-            <h1 className="text-[clamp(36px,5vw,64px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
+            <h1 className="text-[clamp(29px,4.0vw,51px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
               {hero.title} <span className="text-gold">{hero.titleAccent}</span>
             </h1>
-            <p className="mt-7 max-w-[560px] text-[17px] leading-[1.7] text-on-navy md:text-[19px]">{hero.lead}</p>
+            <p className="mt-7 max-w-[560px] text-[15px] leading-[1.7] text-on-navy md:text-[17px]">{hero.lead}</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <ButtonLink href={routes.demo}>Get a demo</ButtonLink>
             </div>
@@ -68,7 +68,7 @@ export default function HomePage() {
               Ten working styles
             </Eyebrow>
             <H2 className="mb-5">Ten working styles. One clear picture of your team.</H2>
-            <p className="text-[17px] leading-[1.7] text-on-navy">
+            <p className="text-[15px] leading-[1.7] text-on-navy">
               Every person gets a primary and a secondary archetype — from Elite and Integrator to Builder and Executor — matched from
               their Big Five scores. See where your team is strong, where it is crowded, and what is missing.
             </p>
@@ -86,10 +86,10 @@ export default function HomePage() {
           Archetypes × tasks
         </Eyebrow>
         <div className="grid items-end gap-6 lg:grid-cols-2 lg:gap-16">
-          <h2 className="text-[clamp(32px,3.8vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
+          <h2 className="text-[clamp(26px,3.0vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
             Know who people are. <span className="text-ink-link">Give them work that fits.</span>
           </h2>
-          <p className="text-[17px] leading-[1.7] text-ink-body">
+          <p className="text-[15px] leading-[1.7] text-ink-body">
             Every employee&apos;s behavioral archetype sits right beside the task board, so managers assign work by strengths
             and work style — not just availability.
           </p>
@@ -149,7 +149,7 @@ export default function HomePage() {
         <Eyebrow icon="people" color="goldInk">
           Who it&apos;s for
         </Eyebrow>
-        <h2 className="mb-10 text-[clamp(32px,3.8vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em] md:mb-14">
+        <h2 className="mb-10 text-[clamp(26px,3.0vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em] md:mb-14">
           Built for the people who shape teams.
         </h2>
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
@@ -168,7 +168,7 @@ export default function HomePage() {
       {/* Closing call to action */}
       <Section tone="light" className="border-t border-rule" innerClassName="py-16 md:py-[104px]">
         <div className="text-center">
-          <h2 className="mx-auto max-w-[780px] text-[clamp(32px,4vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
+          <h2 className="mx-auto max-w-[780px] text-[clamp(26px,3.2vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
             Build teams on evidence, not instinct.
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-lg leading-[1.7] text-ink-body">

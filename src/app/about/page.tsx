@@ -48,7 +48,7 @@ export default function AboutPage() {
             </p>
           ))}
         </div>
-        <p className="mt-10 max-w-[680px] text-[17px] leading-[1.7] font-semibold text-white md:text-[19px]">
+        <p className="mt-10 max-w-[680px] text-[15px] leading-[1.7] font-semibold text-white md:text-[17px]">
           We started Brain Interacts because these problems are fixable — once you can actually see them.
         </p>
       </PageHero>
@@ -138,8 +138,8 @@ export default function AboutPage() {
                   className="h-auto w-full"
                 />
               </div>
-              <h3 className="mt-5 text-[21px] font-bold">{person.name}</h3>
-              <p className="mt-1 text-[15px] text-ink-muted">{person.role}</p>
+              <h3 className="mt-5 text-[17px] font-bold">{person.name}</h3>
+              <p className="mt-1 text-[14px] text-ink-muted">{person.role}</p>
             </li>
           ))}
         </ul>

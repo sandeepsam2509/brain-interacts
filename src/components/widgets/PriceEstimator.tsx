@@ -91,7 +91,7 @@ export function PriceEstimator() {
 
         <div className="flex flex-col border-t border-rule bg-navy p-5 text-white md:p-7 lg:border-t-0" aria-live="polite">
           <p className="font-mono text-xs text-on-navy-muted uppercase">Estimated price per month</p>
-          <p className="mt-2 text-[clamp(30px,3.6vw,42px)] leading-tight font-extrabold tracking-[-0.03em]">
+          <p className="mt-2 text-[clamp(24px,2.9vw,34px)] leading-tight font-extrabold tracking-[-0.03em]">
             {inr(low)} <span className="text-on-navy-muted">–</span> {inr(high)}
           </p>
           <p className="mt-1 text-sm text-on-navy">excluding GST · about {inr(annual)} a year for a typical mix</p>

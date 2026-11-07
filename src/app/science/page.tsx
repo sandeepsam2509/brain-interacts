@@ -61,7 +61,7 @@ export default function SciencePage() {
               The BRAIN framework · coming to Corporate Brain
             </Eyebrow>
             <H2 className="mb-6">Traits don&apos;t act alone. Behavior lives in how they interact.</H2>
-            <p className="text-[17px] leading-[1.75] text-ink-body">
+            <p className="text-[15px] leading-[1.75] text-ink-body">
               High ambition means one thing next to strong self-regulation and something very different next to weak
               self-regulation. BRAIN — the Behavioural Reasoning and Interaction Network — is Brain Interacts&apos; architecture
               for reading those combinations systematically.

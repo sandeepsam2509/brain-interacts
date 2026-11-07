@@ -28,7 +28,7 @@ export function WidgetShell({
         <div className="relative flex items-center gap-3">
           <BrandMark size={34} />
           <div className="min-w-0 flex-1">
-            <p className="font-extrabold md:text-[17px]">{title}</p>
+            <p className="font-extrabold md:text-[15px]">{title}</p>
             <p className="mt-0.5 text-[13px] text-on-navy">{subtitle}</p>
           </div>
           {badge && <span className="hidden rounded-full bg-lime/15 px-3 py-1 font-mono text-[11px] font-medium text-lime uppercase sm:inline">{badge}</span>}
@@ -73,7 +73,7 @@ export function Slider({
         <label htmlFor={id} className="text-sm font-bold">
           {label}
         </label>
-        <output htmlFor={id} className="font-mono text-[15px] font-medium text-ink-link">
+        <output htmlFor={id} className="font-mono text-[14px] font-medium text-ink-link">
           {display}
         </output>
       </div>
@@ -131,7 +131,7 @@ export function ChoiceGroup<T extends string>({
                 {on && <span className="h-2 w-2 rounded-full bg-navy" />}
               </span>
               <span>
-                <span className="block text-[15px] font-semibold">{o.label}</span>
+                <span className="block text-[14px] font-semibold">{o.label}</span>
                 {o.hint && <span className={`mt-0.5 block text-[13px] ${on ? "text-on-navy" : "text-ink-muted"}`}>{o.hint}</span>}
               </span>
             </label>

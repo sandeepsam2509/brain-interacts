@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Hero3D, renders } from "@/components/Hero3D";
+import { HeroRings } from "@/components/HeroRings";
+import { ringSets } from "@/content/rings";
 import { CardGrid, CtaBlock, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { enquiryHref } from "@/lib/enquiries";
@@ -47,7 +48,7 @@ export default function GamifiedPage() {
           { label: "Try a sample assessment", href: enquiryHref("sample-assessment"), variant: "gold" },
           { label: "See the science", href: routes.science, variant: "outlineDark" },
         ]}
-        aside={<Hero3D render={renders.hiring} tint="gold" priority />}
+        aside={<HeroRings items={ringSets.gamified} />}
       />
 
       <Section tone="light">
@@ -126,7 +127,7 @@ export default function GamifiedPage() {
         <dl className="m-0 grid gap-10 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
           {stats.map((s) => (
             <div key={s.text} className="border-t border-rule pt-6">
-              <dt className={`text-[clamp(52px,5vw,72px)] leading-none font-extrabold tracking-[-0.03em] ${s.color}`}>
+              <dt className={`text-[clamp(42px,4.0vw,58px)] leading-none font-extrabold tracking-[-0.03em] ${s.color}`}>
                 {s.value}
                 {s.unit && <span className="text-[0.4em]">{s.unit}</span>}
               </dt>
@@ -134,7 +135,7 @@ export default function GamifiedPage() {
             </div>
           ))}
         </dl>
-        <p className="mt-12 border-t border-rule pt-6 text-[15px] leading-[1.7] text-ink-muted">
+        <p className="mt-12 border-t border-rule pt-6 text-[14px] leading-[1.7] text-ink-muted">
           Results are one input to a hiring decision — best used alongside interviews, work samples and references. Profiles sync to
           your ATS through the Corporate Brain API.
         </p>

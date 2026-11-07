@@ -153,8 +153,8 @@ export function AssessmentFinder() {
                   <li key={b.title} className="flex gap-4 border-b border-rule py-4 last:border-b-0">
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lime font-mono text-sm font-medium text-navy">{i + 1}</span>
                     <span>
-                      <strong className="block text-[17px]">{b.title}</strong>
-                      <span className="mt-1 block text-[15px] leading-[1.6] text-ink-body">{b.why}</span>
+                      <strong className="block text-[15px]">{b.title}</strong>
+                      <span className="mt-1 block text-[14px] leading-[1.6] text-ink-body">{b.why}</span>
                     </span>
                   </li>
                 ))}
@@ -170,7 +170,7 @@ export function AssessmentFinder() {
                 ))}
               </ul>
               <p className="mt-6 font-mono text-xs text-ink-muted uppercase">How it would run</p>
-              <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{result.delivery}</p>
+              <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{result.delivery}</p>
               <div className="mt-auto pt-6">
                 <Link
                   href={enquiryHref("assessment-requirements", context)}

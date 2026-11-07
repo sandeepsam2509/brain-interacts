@@ -65,7 +65,7 @@ export function LeadershipAssessment() {
             </button>
             <p className="mt-3 text-xs text-ink-muted">Built on the Big Five, the most widely researched model of personality.</p>
           </div>
-          <ul className="m-0 list-none self-center rounded-xl bg-[#F6F7F9] p-5 text-[15px] text-ink-body">
+          <ul className="m-0 list-none self-center rounded-xl bg-[#F6F7F9] p-5 text-[14px] text-ink-body">
             {["Your primary and secondary Corporate Brain archetype", "Five trait scores, each explained for leaders", "Where your style helps — and where to watch out", "Your full report by email in minutes"].map((t) => (
               <li key={t} className="flex gap-3 py-2">
                 <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
@@ -81,7 +81,7 @@ export function LeadershipAssessment() {
       {step === "quiz" && (
         <div className="p-5 md:p-7">
           <p className="font-mono text-xs text-ink-muted uppercase">How well does this describe you?</p>
-          <p key={q} className="mt-3 min-h-[3.5em] text-[clamp(20px,2.4vw,26px)] leading-snug font-bold tracking-[-0.01em]">
+          <p key={q} className="mt-3 min-h-[3.5em] text-[clamp(16px,1.9vw,21px)] leading-snug font-bold tracking-[-0.01em]">
             {QUESTIONS[q][0]}
           </p>
           <div role="group" aria-label="Your answer" className="mt-6 grid gap-2 sm:grid-cols-5">
@@ -108,11 +108,11 @@ export function LeadershipAssessment() {
         <div className="grid lg:grid-cols-[1.3fr_1fr]" aria-live="polite">
           <div className="p-5 md:p-7">
             <p className="font-mono text-xs text-ink-muted uppercase">Your primary archetype</p>
-            <p className="mt-2 text-[clamp(26px,3vw,34px)] leading-tight font-extrabold tracking-[-0.02em]">
+            <p className="mt-2 text-[clamp(21px,2.4vw,27px)] leading-tight font-extrabold tracking-[-0.02em]">
               {styles.main}{" "}
               {styles.secondary && <span className="text-lg font-bold text-ink-muted">with {/^[AEIOU]/.test(styles.secondary) ? "an" : "a"} {styles.secondary} side</span>}
             </p>
-            <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{archetypeInfo(styles.main).how}</p>
+            <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{archetypeInfo(styles.main).how}</p>
             <p className="mt-1 font-mono text-xs text-ink-muted">{styles.ranked[0].similarity.toFixed(1)} / 100 match with the {styles.main} archetype</p>
             <ul className="m-0 mt-5 list-none p-0">
               {traitOrder.map((k) => {
@@ -137,7 +137,7 @@ export function LeadershipAssessment() {
             {step === "email" ? (
               <form onSubmit={send}>
                 <p className="text-lg font-extrabold">Get your full executive report</p>
-                <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">We&apos;ll email it straight away: your archetype match scores, your five trait scores, what each means for how you lead, and what adjusts the guidance.</p>
+                <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">We&apos;ll email it straight away: your archetype match scores, your five trait scores, what each means for how you lead, and what adjusts the guidance.</p>
                 <label htmlFor="la-email" className="mt-5 mb-1.5 block text-sm font-bold">
                   Work email
                 </label>
@@ -173,7 +173,7 @@ export function LeadershipAssessment() {
             ) : (
               <div role="status">
                 <p className="text-lg font-extrabold text-green-ink">Your report is on its way.</p>
-                <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">
+                <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">
                   It&apos;s been sent to <strong className="text-ink">{email}</strong> and should arrive within a few minutes. Check your spam folder if you can&apos;t see it.
                   {status.state === "sent" && !status.delivered && " (Preview link: email sending isn't connected here, so nothing was sent.)"}
                 </p>

@@ -28,19 +28,19 @@ function Body({ blocks }: { blocks: Block[] }) {
         switch (b.t) {
           case "p":
             return (
-              <p key={i} className="mb-6 text-[18px] leading-[1.8] text-ink-body">
+              <p key={i} className="mb-6 text-[16px] leading-[1.8] text-ink-body">
                 {b.text}
               </p>
             );
           case "h2":
             return (
-              <h2 key={i} id={anchor(b.text)} className="mt-12 mb-4 scroll-mt-24 text-[clamp(24px,2.4vw,30px)] leading-[1.2] font-extrabold tracking-[-0.02em] text-ink">
+              <h2 key={i} id={anchor(b.text)} className="mt-12 mb-4 scroll-mt-24 text-[clamp(19px,1.9vw,24px)] leading-[1.2] font-extrabold tracking-[-0.02em] text-ink">
                 {b.text}
               </h2>
             );
           case "quote":
             return (
-              <blockquote key={i} className="my-10 border-y border-rule py-8 text-[clamp(22px,2.4vw,28px)] leading-[1.35] font-bold tracking-[-0.01em] text-ink">
+              <blockquote key={i} className="my-10 border-y border-rule py-8 text-[clamp(18px,1.9vw,22px)] leading-[1.35] font-bold tracking-[-0.01em] text-ink">
                 <span aria-hidden="true" className="mr-1 text-green-ink">“</span>
                 {b.text}
                 <span aria-hidden="true" className="text-green-ink">”</span>
@@ -50,7 +50,7 @@ function Body({ blocks }: { blocks: Block[] }) {
             return (
               <ul key={i} className="mb-6 list-none space-y-3 p-0">
                 {b.items.map((it) => (
-                  <li key={it} className="flex gap-3 text-[17px] leading-[1.7] text-ink-body">
+                  <li key={it} className="flex gap-3 text-[15px] leading-[1.7] text-ink-body">
                     <span aria-hidden="true" className="mt-[11px] h-2 w-2 shrink-0 rounded-full bg-sky" />
                     {it}
                   </li>
@@ -64,8 +64,8 @@ function Body({ blocks }: { blocks: Block[] }) {
                   <li key={s.title} className="grid grid-cols-[44px_1fr] gap-4 border-b border-rule py-5">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy font-mono text-sm text-lime">{String(n + 1).padStart(2, "0")}</span>
                     <span>
-                      <strong className="block text-[17px] text-ink">{s.title}</strong>
-                      <span className="mt-1 block text-[16px] leading-[1.65] text-ink-body">{s.text}</span>
+                      <strong className="block text-[15px] text-ink">{s.title}</strong>
+                      <span className="mt-1 block text-[15px] leading-[1.65] text-ink-body">{s.text}</span>
                     </span>
                   </li>
                 ))}
@@ -75,7 +75,7 @@ function Body({ blocks }: { blocks: Block[] }) {
             return (
               <aside key={i} className="my-8 rounded-2xl bg-[#EEF1F6] p-6 md:p-7">
                 <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">{b.title}</p>
-                <p className="mt-2 text-[17px] leading-[1.7] text-ink">{b.text}</p>
+                <p className="mt-2 text-[15px] leading-[1.7] text-ink">{b.text}</p>
               </aside>
             );
           case "compare":
@@ -89,7 +89,7 @@ function Body({ blocks }: { blocks: Block[] }) {
                   ))}
                 </div>
                 {b.rows.map(([l, r]) => (
-                  <div key={l} className="grid grid-cols-2 border-t border-rule text-[15px] leading-[1.55]">
+                  <div key={l} className="grid grid-cols-2 border-t border-rule text-[14px] leading-[1.55]">
                     <p className="border-r border-rule px-4 py-3 text-ink-body md:px-5">{l}</p>
                     <p className="px-4 py-3 text-ink md:px-5">{r}</p>
                   </div>
@@ -123,8 +123,8 @@ export default async function ArticlePage({ params }: Props) {
             </Link>
           </nav>
           <p className="font-mono text-[11px] tracking-[0.12em] text-gold-ink uppercase">Article · {a.topic}</p>
-          <h1 className="mt-3 max-w-[920px] text-[clamp(34px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-0.03em] text-ink">{a.title}</h1>
-          <p className="mt-5 max-w-[760px] text-[19px] leading-[1.6] text-ink-body md:text-[21px]">{a.dek}</p>
+          <h1 className="mt-3 max-w-[920px] text-[clamp(27px,3.7vw,48px)] leading-[1.05] font-extrabold tracking-[-0.03em] text-ink">{a.title}</h1>
+          <p className="mt-5 max-w-[760px] text-[17px] leading-[1.6] text-ink-body md:text-[17px]">{a.dek}</p>
           <p className="mt-6 text-sm text-ink-muted">
             Brain Interacts Research · {a.minutes} min read
           </p>
@@ -141,7 +141,7 @@ export default async function ArticlePage({ params }: Props) {
             <p className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">Key takeaways</p>
             <ul className="m-0 mt-3 list-none space-y-3 p-0">
               {a.takeaways.map((t) => (
-                <li key={t} className="flex gap-3 text-[16px] leading-[1.6] text-ink">
+                <li key={t} className="flex gap-3 text-[15px] leading-[1.6] text-ink">
                   <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
                     ✓
                   </span>
@@ -181,7 +181,7 @@ export default async function ArticlePage({ params }: Props) {
             )}
             <div className="mt-10 rounded-2xl bg-navy p-6 text-white">
               <p className="text-lg font-extrabold">Discover your working style</p>
-              <p className="mt-2 text-[15px] leading-[1.6] text-on-navy">Twenty statements. Your archetype and scored report in your inbox within minutes. Free.</p>
+              <p className="mt-2 text-[14px] leading-[1.6] text-on-navy">Twenty statements. Your archetype and scored report in your inbox within minutes. Free.</p>
               <ButtonLink href={routes.snapshot} className="mt-4">
                 Take the free assessment
               </ButtonLink>
@@ -198,9 +198,9 @@ export default async function ArticlePage({ params }: Props) {
               <li key={r.slug}>
                 <Link href={`/resources/articles/${r.slug}`} className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)] md:p-7">
                   <p className="font-mono text-[11px] tracking-[0.12em] text-gold-ink uppercase">Article · {r.topic}</p>
-                  <p className="mt-2.5 text-[21px] leading-snug font-bold">{r.title}</p>
-                  <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{r.dek}</p>
-                  <span className="mt-4 inline-block text-[15px] font-bold group-hover:text-ink-link">Read article →</span>
+                  <p className="mt-2.5 text-[17px] leading-snug font-bold">{r.title}</p>
+                  <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{r.dek}</p>
+                  <span className="mt-4 inline-block text-[14px] font-bold group-hover:text-ink-link">Read article →</span>
                 </Link>
               </li>
             ))}
@@ -211,7 +211,7 @@ export default async function ArticlePage({ params }: Props) {
       <Section tone="dark" innerClassName="py-16 md:py-20">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
-            <h2 className="text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-extrabold tracking-[-0.02em]">See it on your own teams.</h2>
+            <h2 className="text-[clamp(22px,2.7vw,34px)] leading-[1.1] font-extrabold tracking-[-0.02em]">See it on your own teams.</h2>
             <p className="mt-3 text-lg text-on-navy">A live walkthrough of Corporate Brain, built around your org structure.</p>
           </div>
           <ButtonLink href={routes.demo}>Get a demo</ButtonLink>

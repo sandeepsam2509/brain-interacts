@@ -85,7 +85,7 @@ function StoryBlock({ story, tone }: { story: Story; tone: Tone }) {
       <article className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
         <div>
           <p className={`font-mono text-[13px] uppercase ${story.color}`}>{story.industry}</p>
-          <h2 className="mt-3 text-[clamp(28px,3vw,40px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{story.title}</h2>
+          <h2 className="mt-3 text-[clamp(22px,2.4vw,32px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{story.title}</h2>
           <p className={`mt-4 leading-[1.7] ${body}`}>{story.who}</p>
         </div>
         <dl className="m-0">

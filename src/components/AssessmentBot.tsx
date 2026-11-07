@@ -153,11 +153,11 @@ export function AssessmentBot() {
           <div ref={logRef} role="log" aria-live="polite" className="flex flex-1 flex-col gap-2.5 overflow-y-auto bg-[#F6F7F9] p-4">
             {msgs.map((m) =>
               m.from === "bot" ? (
-                <p key={m.id} className="max-w-[85%] self-start rounded-[14px_14px_14px_4px] border border-rule bg-white px-3.5 py-3 text-[15px] leading-normal whitespace-pre-line">
+                <p key={m.id} className="max-w-[85%] self-start rounded-[14px_14px_14px_4px] border border-rule bg-white px-3.5 py-3 text-[14px] leading-normal whitespace-pre-line">
                   {m.text}
                 </p>
               ) : (
-                <p key={m.id} className="max-w-[85%] self-end rounded-[14px_14px_4px_14px] bg-navy px-3.5 py-2.5 text-[15px] leading-normal text-white">
+                <p key={m.id} className="max-w-[85%] self-end rounded-[14px_14px_4px_14px] bg-navy px-3.5 py-2.5 text-[14px] leading-normal text-white">
                   {m.text}
                 </p>
               ),
@@ -167,7 +167,7 @@ export function AssessmentBot() {
           <div className="border-t border-rule bg-white px-4 pt-3.5 pb-4">
             {step === "intro" && (
               <>
-                <button type="button" onClick={start} className="w-full rounded-[10px] bg-navy p-3.5 text-[15px] font-bold text-white">
+                <button type="button" onClick={start} className="w-full rounded-[10px] bg-navy p-3.5 text-[14px] font-bold text-white">
                   Start the assessment
                 </button>
                 <p className="mt-2.5 text-center text-xs text-ink-muted">Free · No sign-up needed to start</p>
@@ -204,9 +204,9 @@ export function AssessmentBot() {
                       setEmail(e.target.value);
                       if (status.state === "error") reset();
                     }}
-                    className="min-w-0 flex-1 rounded-[10px] border border-rule-strong px-3.5 py-3 text-[15px]"
+                    className="min-w-0 flex-1 rounded-[10px] border border-rule-strong px-3.5 py-3 text-[14px]"
                   />
-                  <button type="submit" disabled={status.state === "sending"} className="rounded-[10px] bg-lime px-[18px] py-3 text-[15px] font-bold text-navy disabled:opacity-60">
+                  <button type="submit" disabled={status.state === "sending"} className="rounded-[10px] bg-lime px-[18px] py-3 text-[14px] font-bold text-navy disabled:opacity-60">
                     {status.state === "sending" ? "…" : "Send"}
                   </button>
                 </div>
@@ -229,7 +229,7 @@ export function AssessmentBot() {
                 {status.state === "sent" && !status.delivered && (
                   <p className="mb-2.5 text-xs text-ink-muted">Preview link: email sending isn&apos;t connected yet, so no report was sent.</p>
                 )}
-                <button type="button" onClick={restart} className="w-full rounded-[10px] border border-rule-strong bg-white p-3.5 text-[15px] font-bold">
+                <button type="button" onClick={restart} className="w-full rounded-[10px] border border-rule-strong bg-white p-3.5 text-[14px] font-bold">
                   Take it again
                 </button>
               </>
@@ -244,7 +244,7 @@ export function AssessmentBot() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-label={open ? "Close the free assessment" : "Open the free assessment"}
-        className={`bot-launcher fixed right-4 bottom-4 z-[60] flex h-14 items-center gap-2.5 rounded-full bg-navy pr-5 pl-3 text-[15px] font-bold text-white shadow-[0_10px_28px_rgba(10,22,40,0.35)] sm:right-5 sm:bottom-5 sm:h-[60px] ${open ? "max-sm:hidden" : ""}`}
+        className={`bot-launcher fixed right-4 bottom-4 z-[60] flex h-14 items-center gap-2.5 rounded-full bg-navy pr-5 pl-3 text-[14px] font-bold text-white shadow-[0_10px_28px_rgba(10,22,40,0.35)] sm:right-5 sm:bottom-5 sm:h-[60px] ${open ? "max-sm:hidden" : ""}`}
       >
         <BrandMark size={30} />
         {open ? "Close" : "Free assessment"}

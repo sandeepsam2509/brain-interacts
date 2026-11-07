@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Hero3D, Render3D, renders } from "@/components/Hero3D";
+import { HeroRings } from "@/components/HeroRings";
+import { ringSets } from "@/content/rings";
 import { CardGrid, CompareTable, CtaBlock, FeatureSplit, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { enquiryHref } from "@/lib/enquiries";
@@ -27,7 +29,7 @@ export default function CorporateBrainPage() {
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo") },
           { label: "Download a sample team dashboard", href: routes.resources, variant: "outlineDark" },
         ]}
-        aside={<Hero3D render={renders.home} priority />}
+        aside={<HeroRings items={ringSets.corporateBrain} />}
       />
 
       <CompareTable
@@ -99,14 +101,14 @@ export default function CorporateBrainPage() {
           Built for every department
         </Eyebrow>
         <H2 className="mb-6 max-w-[820px]">From one company goal to 300 tailored strategies.</H2>
-        <p className="max-w-[760px] text-[17px] leading-[1.75] text-on-navy">
+        <p className="max-w-[760px] text-[15px] leading-[1.75] text-on-navy">
           Leadership picks one of six company goals for the quarter — financial, growth, customer, operational, innovation or
           capability. Corporate Brain combines it with each team&apos;s function (marketing, sales, IT, HR or leadership) and each
           person&apos;s archetype to point to one of 300 strategies: the objective, how to manage and communicate, how much
           autonomy to give, the check-in rhythm, the main risk and the KPIs to track. Ten modifiers then fine-tune it for the
           individual, and people are re-assessed every 3 to 6 months.
         </p>
-        <p className="mt-6 text-[15px] text-on-navy-soft">
+        <p className="mt-6 text-[14px] text-on-navy-soft">
           Role-based access · Two-step sign-in · Admin-controlled backups · Employees can request correction or deletion
         </p>
       </Section>

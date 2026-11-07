@@ -3,13 +3,16 @@ import { useEffect, useRef } from "react";
 
 // Three interlocking rings in the brand colours, drawn in 3D on a canvas and turning slowly.
 // A labelled point travels on each ring: Leadership, Managers, Employees.
-const RINGS = [
-  { color: "59,181,232", tiltX: 0.35, tiltZ: 0.0, speed: 0.22, label: "Leadership", text: "A 360° view of the whole company" },
-  { color: "154,215,81", tiltX: 0.35, tiltZ: 2.094, speed: -0.18, label: "Managers", text: "Team analytics for every team" },
-  { color: "234,210,95", tiltX: 0.35, tiltZ: 4.189, speed: 0.15, label: "Employees", text: "Relief: the right work, the right support" },
+import { ringSets, type RingItem } from "@/content/rings";
+
+const GEOMETRY = [
+  { color: "59,181,232", tiltX: 0.35, tiltZ: 0.0, speed: 0.22 },
+  { color: "154,215,81", tiltX: 0.35, tiltZ: 2.094, speed: -0.18 },
+  { color: "234,210,95", tiltX: 0.35, tiltZ: 4.189, speed: 0.15 },
 ];
 
-export function HeroRings() {
+export function HeroRings({ items = ringSets.corporateBrain }: { items?: RingItem[] }) {
+  const RINGS = GEOMETRY.map((g, i) => ({ ...g, ...items[i] }));
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const tags = useRef<(HTMLDivElement | null)[]>([]);
@@ -127,9 +130,9 @@ export function HeroRings() {
 
   const spots = ["sm:top-[6%] sm:left-0", "sm:top-[42%] sm:right-0", "sm:bottom-[6%] sm:left-[4%]"];
   return (
-    <div className="relative w-full max-w-[560px] justify-self-center">
+    <div className="relative w-full max-w-[480px] justify-self-center">
     <div ref={wrap} className="relative aspect-square w-full" role="img"
-      aria-label="Leadership gets a 360° view of the company, managers get team analytics, employees get relief.">
+      aria-label={RINGS.map((r) => `${r.label}: ${r.text}`).join(". ")}>
       <canvas ref={canvas} className="absolute inset-0 h-full w-full" />
     </div>
     <div className="relative mt-4 grid gap-2.5 sm:absolute sm:inset-0 sm:mt-0 sm:block">

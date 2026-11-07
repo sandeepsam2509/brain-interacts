@@ -55,12 +55,12 @@ export default function MethodologyPage() {
           Archetypes
         </Eyebrow>
         <H2 className="mb-5">Ten archetypes, matched by distance.</H2>
-        <p className="mb-6 max-w-[760px] text-[17px] leading-[1.75] text-on-navy">
+        <p className="mb-6 max-w-[760px] text-[15px] leading-[1.75] text-on-navy">
           Each of the ten core archetypes has a reference profile across Openness, Conscientiousness, Extraversion, Agreeableness and
           Neuroticism, where High is 75 and Low is 25. All ten archetypes sit low on neuroticism. We measure how far a person&apos;s five scores sit from each profile,
           turn that distance into a match score from 0 to 100, and rank all ten.
         </p>
-        <ol className="mb-10 grid max-w-[900px] list-none gap-4 p-0 text-[15px] leading-[1.65] text-on-navy md:grid-cols-3">
+        <ol className="mb-10 grid max-w-[900px] list-none gap-4 p-0 text-[14px] leading-[1.65] text-on-navy md:grid-cols-3">
           <li className="border-t border-navy-line pt-4">
             <strong className="block text-white">Primary archetype</strong>The closest match: the main lens for how someone works and
             how to manage them.
@@ -83,7 +83,7 @@ export default function MethodologyPage() {
             </div>
           ))}
         </dl>
-        <p className="mt-10 max-w-[760px] text-[15px] leading-[1.7] text-on-navy-muted">
+        <p className="mt-10 max-w-[760px] text-[14px] leading-[1.7] text-on-navy-muted">
           Archetypes are Corporate Brain&apos;s own working model, built from Big Five scores. They are not an independently validated
           typology: use them to start a conversation about how someone likes to work, never as a label, a ranking or a permanent
           identity.

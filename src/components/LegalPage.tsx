@@ -20,7 +20,7 @@ export function LegalPage({ title, label, lead, children }: { title: string; lab
     <>
       <PageHero trail={[{ label: "Home", href: routes.home }, { label: title }]} label={{ icon: "grid", text: label, color: "gold" }} title={title} lead={lead} />
       <Section tone="light">
-        <div className="max-w-[780px] text-[17px] leading-[1.75] text-ink-body [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-ink [&_li]:mt-2 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
+        <div className="max-w-[780px] text-[15px] leading-[1.75] text-ink-body [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-ink [&_li]:mt-2 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
           <p className="font-mono text-sm text-ink-muted">Last updated: {legal.lastUpdated}</p>
           {children}
         </div>
@@ -38,7 +38,7 @@ export function LegalPage({ title, label, lead, children }: { title: string; lab
 /** A small table inside legal text; stacks into labelled rows on phones. */
 export function LegalTable({ headings, rows }: { headings: string[]; rows: string[][] }) {
   return (
-    <div role="table" className="mt-6 border-t-2 border-navy text-[15px]">
+    <div role="table" className="mt-6 border-t-2 border-navy text-[14px]">
       <div role="row" className="hidden gap-4 border-b border-rule py-3 font-mono text-xs text-ink-muted uppercase md:grid md:grid-cols-[1.2fr_1fr_1.4fr]">
         {headings.map((h) => (
           <span key={h} role="columnheader">
