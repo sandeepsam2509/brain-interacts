@@ -1,3 +1,4 @@
+import { legalDocs } from "@/content/legal";
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
@@ -19,17 +20,16 @@ const paths = [
   "/resources/blog",
   "/customer-stories",
   "/pricing",
-  "/security",
+  "/legal",
   "/integrations",
   "/careers",
   "/for-ceos",
   "/contact",
   "/faq",
   "/privacy",
-  "/terms",
   "/cookies",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return paths.map((path) => ({ url: `${site.url}${path}`, changeFrequency: "monthly", priority: path === "/" ? 1 : 0.7 }));
+  return [...paths, ...legalDocs.map((d) => `/legal/${d.slug}`)].map((path) => ({ url: `${site.url}${path}`, changeFrequency: "monthly", priority: path === "/" ? 1 : 0.7 }));
 }

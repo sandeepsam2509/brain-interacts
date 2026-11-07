@@ -68,7 +68,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     thanks: "Thanks — we'll be in touch within one working day to book your walkthrough.",
   },
   security: {
-    label: "Submit a Security & Privacy Enquiry",
+    label: "Submit a Data Protection Enquiry",
     eyebrow: "Security & privacy",
     title: "Submit a security & privacy enquiry",
     intro: "Tell us what your IT, security or legal reviewers need to know. Our team will respond directly.",

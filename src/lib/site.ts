@@ -39,13 +39,13 @@ export const routes = {
   contact: "/contact",
   unlock: "/unlock",
   demo: "/contact?enquiry=demo#enquiry",
-  security: "/security",
+  legal: "/legal",
   integrations: "/integrations",
   careers: "/careers",
   ceo: "/for-ceos",
   faq: "/faq",
   privacy: "/privacy",
-  terms: "/terms",
+  terms: "/legal/terms-of-service",
   cookies: "/cookies",
   snapshot: "/#snapshot",
 } as const;
@@ -116,7 +116,7 @@ export const footerColumns: NavGroup[] = [
     items: [
       { label: "About", href: routes.about },
       { label: "Contact", href: routes.contact },
-      { label: "Security & Privacy", href: routes.security },
+      { label: "Legal", href: routes.legal },
       { label: "Integrations", href: routes.integrations },
       { label: "Careers", href: routes.careers },
     ],
@@ -127,4 +127,5 @@ export const legalLinks: NavLink[] = [
   { label: "Privacy", href: routes.privacy },
   { label: "Terms", href: routes.terms },
   { label: "Cookies", href: routes.cookies },
+  { label: "Legal", href: routes.legal },
 ];
