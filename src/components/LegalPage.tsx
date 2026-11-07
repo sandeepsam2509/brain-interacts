@@ -8,7 +8,7 @@ import { routes } from "@/lib/site";
 export const legal = {
   entity: "[Legal entity name]",
   address: "[Registered address]",
-  grievanceOfficer: "[Name]",
+  grievanceOfficer: "Srishti Sharma, Chief Research & Privacy Control Officer",
   city: "[city of registered office]",
   lastUpdated: "[date of publication]",
   privacyEmail: "privacy@braininteracts.com",
