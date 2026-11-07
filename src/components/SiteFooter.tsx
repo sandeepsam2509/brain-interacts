@@ -55,6 +55,15 @@ export function SiteFooter() {
           </span>
         </div>
       </div>
+      {/* Oversized sign-off below the footer, edge to edge. */}
+      <div aria-hidden="true" className="mx-auto max-w-[1440px] overflow-hidden px-6 pt-4 pb-8 md:pb-12">
+        <div className="flex items-center gap-[2.5%] opacity-90 select-none">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/brain-interacts-mark.svg" alt="" className="h-auto w-[13%] shrink-0" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/brain-interacts-wordmark.svg" alt="" className="h-auto w-[84.5%] shrink-0" />
+        </div>
+      </div>
     </footer>
   );
 }
