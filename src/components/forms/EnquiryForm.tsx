@@ -87,7 +87,7 @@ export function EnquiryForm({
           </legend>
           <div className="grid gap-2 sm:grid-cols-2">
             {products.map((o) => (
-              <label key={o} className={`flex min-h-11 items-center gap-3 rounded-lg border px-4 py-2 text-[15px] ${tone === "dark" ? "border-navy-line" : "border-rule-strong"}`}>
+              <label key={o} className={`flex min-h-11 items-center gap-3 rounded-lg border px-4 py-2 text-[14px] ${tone === "dark" ? "border-navy-line" : "border-rule-strong"}`}>
                 <input type="checkbox" name="interests" value={o} defaultChecked={o === preselect} className="h-4 w-4" />
                 {o}
               </label>

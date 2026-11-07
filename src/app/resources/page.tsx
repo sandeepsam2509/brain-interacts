@@ -57,8 +57,8 @@ export default async function ResourcesPage({ searchParams }: Props) {
               </>
             )}
           </nav>
-          <h1 className="text-[clamp(40px,5.6vw,76px)] leading-[1.02] font-extrabold tracking-[-0.035em] text-ink">{head.title}</h1>
-          <p className="mt-5 max-w-[640px] text-[18px] leading-[1.65] text-ink-body md:text-[20px]">{head.lead}</p>
+          <h1 className="text-[clamp(32px,4.5vw,61px)] leading-[1.02] font-extrabold tracking-[-0.035em] text-ink">{head.title}</h1>
+          <p className="mt-5 max-w-[640px] text-[16px] leading-[1.65] text-ink-body md:text-[16px]">{head.lead}</p>
           <ul className="m-0 mt-8 flex list-none flex-wrap gap-x-8 gap-y-2 p-0 text-sm text-ink-body">
             {resourceTypes.map((t) => (
               <li key={t.key}>
@@ -75,10 +75,10 @@ export default async function ResourcesPage({ searchParams }: Props) {
 
       <WhitepaperLibrary papers={downloadable} variant="dialog" />
 
-      <Section tone="dark" innerClassName="py-16 md:py-24">
+      <Section tone="dark" innerClassName="py-12 md:py-16">
         <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
-            <h2 className="text-[clamp(30px,3.6vw,46px)] leading-[1.08] font-extrabold tracking-[-0.02em]">New research, once a month.</h2>
+            <h2 className="text-[clamp(24px,2.9vw,37px)] leading-[1.08] font-extrabold tracking-[-0.02em]">New research, once a month.</h2>
             <p className="mt-4 text-lg text-on-navy">New articles, whitepapers and research in your inbox. No spam.</p>
           </div>
           <SignupForm tone="dark" id="resources-signup" button="Subscribe" />

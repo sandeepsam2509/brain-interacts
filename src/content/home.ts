@@ -2,8 +2,8 @@ import { routes } from "@/lib/site";
 
 export const hero = {
   eyebrow: "People analytics · workforce intelligence",
-  title: "See how your people really work",
-  titleAccent: "— and who should do what next.",
+  title: "See how your people really work,",
+  titleAccent: "and who should do what next.",
   lead:
     "Corporate Brain is a behavioral analytics platform for every department. It connects your company goal to each team and each person's working style, then suggests who should lead, who should take each task, and how to support each person.",
   note: "Built on the Big Five, the most widely researched model of working style.",

@@ -138,7 +138,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
               <button
                 type="button"
                 onClick={() => open(p)}
-                className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-lime px-5 py-3 text-[15px] font-bold text-navy transition-colors hover:bg-[#c7ea72]"
+                className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-lime px-5 py-3 text-[14px] font-bold text-navy transition-colors hover:bg-[#c7ea72]"
               >
                 Download PDF <span aria-hidden="true">↓</span>
               </button>
@@ -242,7 +242,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
               ) : (
                 <form onSubmit={onSubmit} className="relative grid gap-4 sm:grid-cols-2">
                   <Honeypot />
-                  <p className="text-[15px] leading-[1.6] text-ink-body sm:col-span-2">Tell us where to send updates, and your download starts right away.</p>
+                  <p className="text-[14px] leading-[1.6] text-ink-body sm:col-span-2">Tell us where to send updates, and your download starts right away.</p>
                   <Field id="wp-name" label="Full name" required>
                     <input id="wp-name" name="name" required autoComplete="name" className={inputClass()} />
                   </Field>

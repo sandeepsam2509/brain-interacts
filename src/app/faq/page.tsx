@@ -5,7 +5,7 @@ import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FAQ — People Analytics and Corporate Brain",
+  title: "FAQ, People Analytics and Corporate Brain",
   description:
     "Answers to common questions about people analytics and Corporate Brain: how the science works, accuracy, using it in your organization, data privacy and pricing.",
   alternates: { canonical: routes.faq },
@@ -19,7 +19,7 @@ const groups: Group[] = [
     title: "About Corporate Brain",
     items: [
       { q: "What is Corporate Brain?", a: "Corporate Brain is a behavioral analytics and people management platform. It maps each person's working style and skills against company goals, then suggests who should lead projects, who should take tasks, and how managers can support each person." },
-      { q: "What is people analytics?", a: "People analytics is the use of data about how people work — their skills, working styles, workload and collaboration — to make better decisions about teams, hiring and leadership." },
+      { q: "What is people analytics?", a: "People analytics is the use of data about how people work, their skills, working styles, workload and collaboration, to make better decisions about teams, hiring and leadership." },
       { q: "How is Corporate Brain different from a psychometric test?", a: "A test gives a one-off score. Corporate Brain uses working-style data as one input into ongoing workforce intelligence: team composition, task allocation, leadership insights and progress over time." },
       { q: "Which departments can use Corporate Brain?", a: "All of them. Sales, operations, engineering, HR, finance and leadership teams each get views suited to how they work." },
       { q: "What is a working-style archetype?", a: "An archetype is a short name for how someone tends to work, such as Elite, Integrator or Executor. There are ten. Every person gets a primary archetype, the closest match to their Big Five scores, and a secondary one when the next match is close. It's a starting point for a conversation, never a label." },
@@ -29,7 +29,7 @@ const groups: Group[] = [
     label: "Results and accuracy",
     title: "Results and accuracy",
     items: [
-      { q: "Is the Big Five reliable for workplace decisions?", a: "The Big Five is the most widely researched model of personality. Corporate Brain treats results as one input alongside interviews, work samples and performance records — never the only one." },
+      { q: "Is the Big Five reliable for workplace decisions?", a: "The Big Five is the most widely researched model of personality. Corporate Brain treats results as one input alongside interviews, work samples and performance records, never the only one." },
       { q: "Can employees fake their answers?", a: "Self-reported answers can be shaded, especially in hiring. Corporate Brain marks borderline scores and offers Gamified Assessments, which observe behavior directly." },
       { q: "How long does the questionnaire take?", a: "About 4 minutes: 20 short statements rated from very inaccurate to very accurate." },
       { q: "Do results change over time?", a: "Yes. Employees can retake the questionnaire and see what changed." },
@@ -78,7 +78,7 @@ export default function FaqPage() {
         label={{ icon: "target", text: "Frequently asked questions", color: "gold" }}
         title="Answers about people analytics and"
         accent="Corporate Brain."
-        lead="Everything buyers usually ask before a demo — from how the science works to pricing and data privacy."
+        lead="Everything buyers usually ask before a demo, from how the science works to pricing and data privacy."
       >
         <p className="mt-6 text-on-navy-muted">
           Jump to:{" "}

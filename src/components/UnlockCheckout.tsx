@@ -81,7 +81,7 @@ export function UnlockCheckout({ email: initialEmail, archetype, assessment }: {
     return (
       <div role="status">
         <p className="text-2xl font-extrabold text-green-ink">Payment received. Thank you!</p>
-        <p className="mt-3 text-[15px] leading-[1.65] text-ink-body">
+        <p className="mt-3 text-[14px] leading-[1.65] text-ink-body">
           We&apos;ve emailed a confirmation to <strong className="text-ink">{email}</strong>. Our experts will prepare your full
           report and action framework and send it to you.
         </p>

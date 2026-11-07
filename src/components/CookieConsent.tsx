@@ -76,7 +76,7 @@ export function CookieConsent() {
       <p id="cookie-title" className="font-extrabold">
         Cookies on braininteracts.com
       </p>
-      <p id="cookie-text" className="mt-2 text-[15px] leading-[1.6] text-on-navy">
+      <p id="cookie-text" className="mt-2 text-[14px] leading-[1.6] text-on-navy">
         We count visits without cookies. With your OK, we also use Microsoft Clarity to see anonymised clicks and scrolling, so we
         can improve the site. No advertising cookies.{" "}
         <Link href={routes.cookies} className="text-on-navy-soft underline">

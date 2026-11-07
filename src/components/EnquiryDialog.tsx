@@ -67,7 +67,7 @@ export function EnquiryDialog() {
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[13px] text-lime">{enquiry.eyebrow}</p>
-              <h2 id="enquiry-dialog-title" className="mt-2 text-2xl font-extrabold tracking-[-0.02em] md:text-[28px]">
+              <h2 id="enquiry-dialog-title" className="mt-2 text-2xl font-extrabold tracking-[-0.02em] md:text-[23px]">
                 {enquiry.title}
               </h2>
               <p className="mt-2 text-on-navy">{enquiry.intro}</p>

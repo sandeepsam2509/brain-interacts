@@ -121,16 +121,16 @@ export function PageHero({
           {label.text}
         </Eyebrow>
       )}
-      <h1 className="max-w-[980px] text-[clamp(36px,5vw,66px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
+      <h1 className="max-w-[980px] text-[clamp(29px,4.0vw,53px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
         {title} {accent && <span className={textFor(accentColor)}>{accent}</span>}
       </h1>
-      {lead && <p className="mt-7 max-w-[680px] text-[17px] leading-[1.7] text-on-navy md:text-[19px]">{lead}</p>}
+      {lead && <p className="mt-7 max-w-[680px] text-[15px] leading-[1.7] text-on-navy md:text-[17px]">{lead}</p>}
       {children}
       {actions.length > 0 && <Actions actions={actions} className="mt-9" />}
     </div>
   );
   return (
-    <Section tone="dark" innerClassName="pt-10 pb-16 md:pt-14 md:pb-24">
+    <Section tone="dark" innerClassName="pt-8 pb-12 md:pt-12 md:pb-16">
       <Breadcrumbs trail={trail} />
       {aside ? <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">{text}{aside}</div> : text}
     </Section>
@@ -148,9 +148,9 @@ export function SplitIntro({ tone, label, title, paragraphs, emphasis }: { tone:
               {label.text}
             </Eyebrow>
           )}
-          <h2 className="text-[clamp(30px,3.4vw,46px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{title}</h2>
+          <h2 className="text-[clamp(24px,2.7vw,37px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{title}</h2>
         </div>
-        <div className={`flex flex-col gap-5 text-[17px] leading-[1.75] md:text-lg ${tone === "dark" ? "text-on-navy" : "text-[#3A4A63]"}`}>
+        <div className={`flex flex-col gap-5 text-[15px] leading-[1.75] md:text-lg ${tone === "dark" ? "text-on-navy" : "text-[#3A4A63]"}`}>
           {paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -194,7 +194,7 @@ export function CardGrid({
   return (
     <Section tone={tone}>
       {title && <SectionHead label={label} title={title} tone={tone} className={intro ? "mb-5" : undefined} />}
-      {intro && <p className={`mb-10 max-w-[760px] text-[17px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
+      {intro && <p className={`mb-10 max-w-[760px] text-[15px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
       <div className={`grid gap-10 md:gap-8 ${cols}`}>
         {cards.map((card, i) => (
           <div key={i} className={card.rule ? `border-t-[3px] pt-6 ${accentBorder[card.rule]}` : `border-t pt-6 ${ruleColor(tone)}`}>
@@ -208,7 +208,7 @@ export function CardGrid({
             {card.text && <p className={`mt-2.5 leading-[1.7] ${bodyText(tone)}`}>{card.text}</p>}
             {card.details?.map((d) => (
               <div key={d.heading} className="mt-4">
-                <p className={`text-[15px] font-bold ${card.rule ? textFor(card.rule) : ""}`}>{d.heading}</p>
+                <p className={`text-[14px] font-bold ${card.rule ? textFor(card.rule) : ""}`}>{d.heading}</p>
                 <p className={`mt-1 leading-[1.7] ${bodyText(tone)}`}>{d.text}</p>
               </div>
             ))}
@@ -220,7 +220,7 @@ export function CardGrid({
           </div>
         ))}
       </div>
-      {footnote && <p className={`mt-12 border-t pt-6 text-[15px] leading-[1.7] ${ruleColor(tone)} ${tone === "dark" ? "text-on-navy-muted" : "text-ink-muted"}`}>{footnote}</p>}
+      {footnote && <p className={`mt-12 border-t pt-6 text-[14px] leading-[1.7] ${ruleColor(tone)} ${tone === "dark" ? "text-on-navy-muted" : "text-ink-muted"}`}>{footnote}</p>}
     </Section>
   );
 }
@@ -254,7 +254,7 @@ export function CompareTable({
   return (
     <Section tone={tone}>
       <SectionHead label={label} title={title} tone={tone} className={intro ? "mb-5" : undefined} />
-      {intro && <p className={`mb-10 max-w-[760px] text-[17px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
+      {intro && <p className={`mb-10 max-w-[760px] text-[15px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
       <div role="table" aria-label={typeof title === "string" ? title : undefined}>
         <div role="row" className={`hidden gap-6 border-b-2 pb-3 font-mono text-[13px] uppercase md:grid ${cols} ${tone === "dark" ? "border-white text-on-navy-muted" : "border-navy text-ink-muted"}`}>
           {headings.map((h, i) => (
@@ -269,7 +269,7 @@ export function CompareTable({
               <div key={i} role="cell">
                 <span className={`mb-1 block font-mono text-[11px] uppercase md:hidden ${highlightLast && i === row.length - 1 ? lastHead : muted}`}>{headings[i]}</span>
                 {i === 0 ? (
-                  <strong className="text-[17px]">{cell}</strong>
+                  <strong className="text-[15px]">{cell}</strong>
                 ) : (
                   <span className={i === row.length - 1 && highlightLast ? "" : muted}>{cell}</span>
                 )}
@@ -278,7 +278,7 @@ export function CompareTable({
           </div>
         ))}
       </div>
-      {footnote && <p className={`mt-8 text-[15px] leading-[1.7] ${bodyText(tone)}`}>{footnote}</p>}
+      {footnote && <p className={`mt-8 text-[14px] leading-[1.7] ${bodyText(tone)}`}>{footnote}</p>}
     </Section>
   );
 }
@@ -374,8 +374,8 @@ export function Steps({
       <ol className={`m-0 grid list-none gap-10 p-0 md:gap-8 ${cols}`}>
         {steps.map((s, i) => (
           <li key={s.title} className={large ? "" : `border-t pt-6 ${ruleColor(tone)}`}>
-            <span className={`font-mono font-medium ${large ? "text-[40px]" : "text-[32px]"} ${textFor(s.accent)}`}>{String(i + 1).padStart(2, "0")}</span>
-            <h3 className={`mt-2 font-bold ${large ? "text-[22px]" : "text-[19px]"}`}>{s.title}</h3>
+            <span className={`font-mono font-medium ${large ? "text-[33px]" : "text-[26px]"} ${textFor(s.accent)}`}>{String(i + 1).padStart(2, "0")}</span>
+            <h3 className={`mt-2 font-bold ${large ? "text-[18px]" : "text-[17px]"}`}>{s.title}</h3>
             {s.subtitle && <p className={`mt-1 text-sm font-semibold ${s.accent === "amber" ? "text-gold-ink" : textFor(s.accent)}`}>{s.subtitle}</p>}
             <p className={`mt-2.5 leading-[1.7] ${bodyText(tone)}`}>{s.text}</p>
           </li>
@@ -402,14 +402,14 @@ export function CtaBlock({
   actions: Action[];
 }) {
   return (
-    <Section tone={tone} className={tone === "light" ? "border-t border-rule" : "relative overflow-hidden"} innerClassName="relative py-16 md:py-[104px]">
+    <Section tone={tone} className={tone === "light" ? "border-t border-rule" : "relative overflow-hidden"} innerClassName="relative py-12 md:py-20">
       {tone === "dark" && (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">
           <div className="cta-aurora aspect-square w-[min(900px,140%)] rounded-full" />
         </div>
       )}
       <div className="relative text-center">
-        <h2 className="mx-auto max-w-[860px] text-[clamp(32px,4vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
+        <h2 className="mx-auto max-w-[860px] text-[clamp(26px,3.2vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
           {title} {accent && <span className={textFor(accentColor ?? (tone === "dark" ? "gold" : "link"))}>{accent}</span>}
         </h2>
         {text && <p className={`mx-auto mt-5 max-w-[600px] text-lg leading-[1.7] ${bodyText(tone)}`}>{text}</p>}
@@ -439,11 +439,11 @@ export function Stats({
   return (
     <Section tone={tone}>
       <SectionHead label={label} title={title} className={intro ? "mb-5" : undefined} />
-      {intro && <p className={`mb-10 max-w-[760px] text-[17px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
+      {intro && <p className={`mb-10 max-w-[760px] text-[15px] leading-[1.75] md:mb-14 ${bodyText(tone)}`}>{intro}</p>}
       <dl className={`m-0 grid gap-10 md:gap-8 ${cols}`}>
         {stats.map((s) => (
           <div key={s.value + (s.text ?? "")} className={`border-t pt-6 ${ruleColor(tone)}`}>
-            <dt className={`leading-none font-extrabold tracking-[-0.03em] ${s.small ? "text-[22px]" : "text-[clamp(52px,5vw,72px)]"} ${textFor(s.accent)}`}>
+            <dt className={`leading-none font-extrabold tracking-[-0.03em] ${s.small ? "text-[18px]" : "text-[clamp(42px,4.0vw,58px)]"} ${textFor(s.accent)}`}>
               {s.value}
               {s.unit && <span className="text-[0.4em]">{s.unit}</span>}
             </dt>
@@ -451,7 +451,7 @@ export function Stats({
           </div>
         ))}
       </dl>
-      {footnote && <p className={`mt-12 border-t pt-6 text-[15px] leading-[1.7] ${ruleColor(tone)} ${tone === "dark" ? "text-on-navy-muted" : "text-ink-muted"}`}>{footnote}</p>}
+      {footnote && <p className={`mt-12 border-t pt-6 text-[14px] leading-[1.7] ${ruleColor(tone)} ${tone === "dark" ? "text-on-navy-muted" : "text-ink-muted"}`}>{footnote}</p>}
     </Section>
   );
 }
@@ -483,7 +483,7 @@ export function TextBlock({ tone, label, title, children }: { tone: Tone; label:
   return (
     <Section tone={tone}>
       <SectionHead label={label} title={title} className="mb-6" />
-      <div className={`flex max-w-[760px] flex-col gap-5 text-[17px] leading-[1.75] ${bodyText(tone)}`}>{children}</div>
+      <div className={`flex max-w-[760px] flex-col gap-5 text-[15px] leading-[1.75] ${bodyText(tone)}`}>{children}</div>
     </Section>
   );
 }

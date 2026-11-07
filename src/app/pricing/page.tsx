@@ -65,7 +65,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </div>
       <h3 className={`text-2xl font-extrabold ${plan.tag ? "mt-4" : "md:mt-4"}`}>{plan.name}</h3>
       <p className={`mt-1 ${dark ? "text-on-navy" : "text-ink-body"}`}>{plan.who}</p>
-      <p className="mt-6 text-[44px] leading-none font-extrabold tracking-[-0.03em]">{plan.price}</p>
+      <p className="mt-6 text-[36px] leading-none font-extrabold tracking-[-0.03em]">{plan.price}</p>
       <p className={`mt-2 text-sm ${dark ? "text-on-navy" : "text-ink-body"}`}>per user / month</p>
       <ul className={`m-0 mt-6 mb-8 flex-1 list-none p-0 ${dark ? "text-on-navy" : "text-ink-body"}`}>
         {plan.features.map((f) => (
@@ -90,7 +90,7 @@ export default function PricingPage() {
         label={{ icon: "chart", text: "Pricing", color: "gold" }}
         title="Simple pricing"
         accent="for every seat."
-        lead="Pay for the view each person needs. Mix seats across your organization — a few leaders, your managers, and every employee."
+        lead="Pay for the view each person needs. Mix seats across your organization, a few leaders, your managers, and every employee."
       />
 
       <Section tone="light">
@@ -130,7 +130,7 @@ export default function PricingPage() {
         title="Common questions."
         items={[
           { q: "Do all employees need the same seat?", a: "No. Most organizations combine a few Leadership seats, Manager seats for team leads, and Employee seats for everyone else." },
-          { q: "What are credits?", a: "Each assessment sent — to an employee or a job candidate — uses credits from your company's balance. Admins see the balance and usage in Settings and can top up anytime." },
+          { q: "What are credits?", a: "Each assessment sent, to an employee or a job candidate, uses credits from your company's balance. Admins see the balance and usage in Settings and can top up anytime." },
           { q: "Is there a minimum number of users?", a: "Ask for a custom quote and we'll confirm the right starting size for your organization." },
           { q: "Is our data kept separate?", a: "Yes. Every customer gets a separate database." },
         ]}

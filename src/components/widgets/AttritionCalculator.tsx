@@ -54,10 +54,10 @@ export function AttritionCalculator() {
 
         <div className="border-t border-rule bg-[#F6F7F9] p-5 md:p-7 lg:border-t-0 lg:border-l" aria-live="polite">
           <p className="font-mono text-xs text-ink-muted uppercase">Estimated cost of turnover per year</p>
-          <p className="mt-2 text-[clamp(30px,3.6vw,42px)] leading-tight font-extrabold tracking-[-0.03em]">
+          <p className="mt-2 text-[clamp(24px,2.9vw,34px)] leading-tight font-extrabold tracking-[-0.03em]">
             {inr(low)} <span className="text-ink-muted">–</span> {inr(high)}
           </p>
-          <p className="mt-2 text-[15px] text-ink-body">
+          <p className="mt-2 text-[14px] text-ink-body">
             About <strong className="text-ink">{num(leavers)} people</strong> leave each year.
           </p>
 

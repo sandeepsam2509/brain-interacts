@@ -43,7 +43,7 @@ export type Enquiry = {
   thanks: string;
 };
 
-const THANKS = "Thanks — we'll get back to you within one working day.";
+const THANKS = "Thanks, we'll get back to you within one working day.";
 
 export const enquiries: Record<EnquiryKey, Enquiry> = {
   demo: {
@@ -55,7 +55,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     messageLabel: "Anything we should know?",
     products: true,
     submit: "Get a demo",
-    thanks: "Thanks — we'll be in touch within one working day to set up your walkthrough.",
+    thanks: "Thanks, we'll be in touch within one working day to set up your walkthrough.",
   },
   "corporate-brain-demo": {
     label: "Book a Corporate Brain demo",
@@ -65,7 +65,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Corporate Brain demo request",
     messageLabel: "Anything we should know about your teams?",
     submit: "Book a demo",
-    thanks: "Thanks — we'll be in touch within one working day to book your walkthrough.",
+    thanks: "Thanks, we'll be in touch within one working day to book your walkthrough.",
   },
   security: {
     label: "Submit a Data Protection Enquiry",
@@ -97,7 +97,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     messageLabel: "Your request",
     messageRequired: true,
     submit: "Send request",
-    thanks: "Thanks — our Data Protection team has your request and will reply by email.",
+    thanks: "Thanks, our Data Protection team has your request and will reply by email.",
   },
   quote: {
     label: "Get a custom quote",
@@ -107,7 +107,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Custom quote request",
     messageLabel: "Team size and seats you're considering",
     submit: "Get my quote",
-    thanks: "Thanks — we'll send your quote within one working day.",
+    thanks: "Thanks, we'll send your quote within one working day.",
   },
   integration: {
     label: "Request an integration",
@@ -139,7 +139,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "FinCheck pilot request",
     messageLabel: "Loan products and monthly application volume",
     submit: "Request a pilot",
-    thanks: "Thanks — our FinCheck team will be in touch within one working day.",
+    thanks: "Thanks, our FinCheck team will be in touch within one working day.",
   },
   "sample-assessment": {
     label: "Try a sample assessment",
@@ -149,7 +149,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Sample assessment request",
     messageLabel: "Which roles are you hiring for?",
     submit: "Send me a sample",
-    thanks: "Thanks — we'll email your sample assessment within one working day.",
+    thanks: "Thanks, we'll email your sample assessment within one working day.",
   },
   "assessment-requirements": {
     label: "Discuss your assessment requirements",
@@ -169,7 +169,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Culture study proposal request",
     messageLabel: "What's prompting the study?",
     submit: "Request a proposal",
-    thanks: "Thanks — we'll be in touch within one working day to scope your proposal.",
+    thanks: "Thanks, we'll be in touch within one working day to scope your proposal.",
   },
   diagnostic: {
     label: "Book a diagnostic consultation",
@@ -189,7 +189,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Validation report request",
     messageLabel: "Anything specific you'd like covered?",
     submit: "Request the report",
-    thanks: "Thanks — we'll email the validation report within one working day.",
+    thanks: "Thanks, we'll email the validation report within one working day.",
   },
   "research-team": {
     label: "Talk to our research team",
@@ -210,7 +210,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Frameworks brief request",
     messageLabel: "Anything specific you'd like covered?",
     submit: "Request the brief",
-    thanks: "Thanks — we'll email the frameworks brief within one working day.",
+    thanks: "Thanks, we'll email the frameworks brief within one working day.",
   },
   question: {
     label: "Ask us a question",
@@ -231,7 +231,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Executive briefing request",
     messageLabel: "What would you like to cover?",
     submit: "Book a briefing",
-    thanks: "Thanks — we'll be in touch within one working day to schedule your briefing.",
+    thanks: "Thanks, we'll be in touch within one working day to schedule your briefing.",
   },
   "full-report": {
     label: "Unlock the full report and action framework",
@@ -241,7 +241,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     subject: "Full report request (INR 999)",
     messageLabel: "Anything you'd like the report to focus on? (optional)",
     submit: "Request my full report",
-    thanks: "Thanks — we'll email you the payment link and next steps within one working day.",
+    thanks: "Thanks, we'll email you the payment link and next steps within one working day.",
   },
   results: {
     label: "See results like these for your team",

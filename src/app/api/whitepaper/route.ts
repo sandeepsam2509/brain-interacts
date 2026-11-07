@@ -37,7 +37,7 @@ export async function POST(req: Request): Promise<Response> {
   const result = await sendEmail({
     to: emailConfig.to ?? "",
     replyTo: email,
-    subject: `Whitepaper download: ${paper.title} — ${name}, ${company}`,
+    subject: `Whitepaper download: ${paper.title}, ${name}, ${company}`,
     html: `<p style="font-family:Arial,sans-serif">New whitepaper download from braininteracts.com</p>${fieldsTable([
       ["Whitepaper", paper.title],
       ["Name", name],

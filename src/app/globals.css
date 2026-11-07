@@ -27,6 +27,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Site-wide scale: everything sized in rem (text-base, spacing) runs 6% smaller. */
+  font-size: 93.75%;
 }
 
 body {

@@ -32,7 +32,7 @@ export default async function ContactPage({ searchParams }: Props) {
         trail={[{ label: "Home", href: routes.home }, { label: "Contact" }]}
         label={{ icon: "people", text: "Contact us", color: "lime" }}
         title="Let's talk about your people."
-        lead="Questions about a product, a consulting engagement or joining the team — tell us what you need and the right person will get back to you."
+        lead="Questions about a product, a consulting engagement or joining the team, tell us what you need and the right person will get back to you."
       />
 
       {enquiry && enquiryKey && (
@@ -43,7 +43,7 @@ export default async function ContactPage({ searchParams }: Props) {
                 {enquiry.eyebrow}
               </Eyebrow>
               <H2>{enquiry.title}</H2>
-              <p className="mt-5 text-[17px] leading-[1.75] text-on-navy">{enquiry.intro}</p>
+              <p className="mt-5 text-[15px] leading-[1.75] text-on-navy">{enquiry.intro}</p>
             </div>
             <EnquiryForm
               enquiryKey={enquiryKey}
@@ -60,7 +60,7 @@ export default async function ContactPage({ searchParams }: Props) {
       <Section tone="light">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
           <div>
-            <h2 className="text-[28px] font-extrabold tracking-[-0.02em]">Send us a message</h2>
+            <h2 className="text-[23px] font-extrabold tracking-[-0.02em]">Send us a message</h2>
             <p className="mt-2 mb-8 text-ink-muted">Fields marked * are required.</p>
             <ContactForm />
           </div>

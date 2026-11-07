@@ -86,7 +86,7 @@ export function SiteHeader() {
         </Link>
 
         <nav ref={navRef} aria-label="Main" className="hidden xl:block">
-          <ul className="m-0 flex list-none items-center gap-0.5 p-0 text-[15px] font-semibold whitespace-nowrap">
+          <ul className="m-0 flex list-none items-center gap-0.5 p-0 text-[14px] font-semibold whitespace-nowrap">
             {mainNav.map((item) => {
               const active = groupActive(item);
               if (!item.children) {
@@ -130,7 +130,7 @@ export function SiteHeader() {
                             aria-current={pathname === child.href ? "page" : undefined}
                             className={`block rounded-xl px-4 py-3 no-underline transition-colors hover:bg-navy ${pathname === child.href ? "bg-navy" : ""}`}
                           >
-                            <span className="flex items-center gap-2 text-[15px] font-bold text-white">
+                            <span className="flex items-center gap-2 text-[14px] font-bold text-white">
                               {child.label}
                               {child.badge && <span className="rounded-full bg-sky/15 px-2 py-0.5 text-[11px] font-semibold text-sky">{child.badge}</span>}
                             </span>
@@ -147,10 +147,10 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <a href={site.signIn} className="hidden px-2 py-3 text-[15px] font-semibold whitespace-nowrap text-white no-underline xl:inline-block">
+          <a href={site.signIn} className="hidden px-2 py-3 text-[14px] font-semibold whitespace-nowrap text-white no-underline xl:inline-block">
             Sign in
           </a>
-          <Link href={routes.demo} className="rounded-lg bg-lime px-3.5 py-2.5 text-[15px] font-bold whitespace-nowrap text-navy no-underline hover:bg-[#c7ea72] md:px-5 md:py-3">
+          <Link href={routes.demo} className="rounded-lg bg-lime px-3.5 py-2.5 text-[14px] font-bold whitespace-nowrap text-navy no-underline hover:bg-[#c7ea72] md:px-5 md:py-3">
             Get a demo
           </Link>
           <button
@@ -175,7 +175,7 @@ export function SiteHeader() {
               if (!item.children) {
                 return (
                   <li key={item.label} className="border-b border-navy-rule">
-                    <Link href={item.href} className="block py-4 text-[17px] font-semibold text-white no-underline">
+                    <Link href={item.href} className="block py-4 text-[15px] font-semibold text-white no-underline">
                       {item.label}
                     </Link>
                   </li>
@@ -188,7 +188,7 @@ export function SiteHeader() {
                     type="button"
                     aria-expanded={open}
                     onClick={() => setMobileSection(open ? null : item.label)}
-                    className="flex w-full items-center justify-between py-4 text-left text-[17px] font-semibold text-white"
+                    className="flex w-full items-center justify-between py-4 text-left text-[15px] font-semibold text-white"
                   >
                     {item.label}
                     <Chevron open={open} />
@@ -197,7 +197,7 @@ export function SiteHeader() {
                     <ul className="m-0 mb-3 list-none border-l border-navy-line p-0 pl-4">
                       {item.children.map((child) => (
                         <li key={child.href}>
-                          <Link href={child.href} className="block py-2.5 text-[16px] text-on-navy-soft no-underline">
+                          <Link href={child.href} className="block py-2.5 text-[15px] text-on-navy-soft no-underline">
                             {child.label}
                             {child.badge && <span className="ml-2 text-[13px] text-sky">{child.badge}</span>}
                           </Link>

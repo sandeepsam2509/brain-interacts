@@ -117,9 +117,9 @@ function Card({ r, seed }: { r: Resource; seed: number }) {
           <p className={`font-mono text-[11px] tracking-[0.12em] uppercase ${tone[r.type].label}`}>
             {typeLabel(r.type)} · {r.topic}
           </p>
-          <h3 className="mt-2.5 text-[19px] leading-snug font-bold tracking-[-0.01em]">{r.title}</h3>
-          <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{r.summary}</p>
-          <span className={`mt-auto pt-5 text-[15px] font-bold ${r.comingSoon ? "text-ink-muted" : "text-ink group-hover:text-ink-link"}`}>
+          <h3 className="mt-2.5 text-[17px] leading-snug font-bold tracking-[-0.01em]">{r.title}</h3>
+          <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{r.summary}</p>
+          <span className={`mt-auto pt-5 text-[14px] font-bold ${r.comingSoon ? "text-ink-muted" : "text-ink group-hover:text-ink-link"}`}>
             {a.label} {a.arrow && <span aria-hidden="true">{a.arrow}</span>}
           </span>
         </div>
@@ -135,10 +135,10 @@ function Featured({ r }: { r: Resource }) {
       <Thumb r={r} seed={0} large />
       <div className="flex flex-col justify-center p-6 md:p-10">
         <p className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">Featured · {typeLabel(r.type)}</p>
-        <h2 className="mt-3 text-[clamp(26px,2.8vw,38px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{r.title}</h2>
-        <p className="mt-4 text-[17px] leading-[1.65] text-ink-body">{r.summary}</p>
+        <h2 className="mt-3 text-[clamp(21px,2.2vw,30px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{r.title}</h2>
+        <p className="mt-4 text-[15px] leading-[1.65] text-ink-body">{r.summary}</p>
         {r.meta && <p className="mt-3 text-sm text-ink-muted">{r.meta}</p>}
-        <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[15px] font-bold text-white transition-colors group-hover:bg-[#1e3a66]">
+        <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[14px] font-bold text-white transition-colors group-hover:bg-[#1e3a66]">
           {a.label} <span aria-hidden="true">{a.arrow}</span>
         </span>
       </div>
@@ -214,7 +214,7 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
                     type="button"
                     aria-pressed={on}
                     onClick={() => setCategory(c.key)}
-                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[15px] transition-colors ${on ? "bg-navy font-bold text-white" : "font-semibold text-ink hover:bg-[#EEF1F6]"}`}
+                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[14px] transition-colors ${on ? "bg-navy font-bold text-white" : "font-semibold text-ink hover:bg-[#EEF1F6]"}`}
                   >
                     {c.label}
                     <span className={`font-mono text-xs ${on ? "text-lime" : "text-ink-muted"}`}>{counts[c.key]}</span>
@@ -230,7 +230,7 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
               .filter((t) => available.has(t))
               .map((t) => (
                 <li key={t}>
-                  <label className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-[15px] text-ink hover:bg-[#EEF1F6]">
+                  <label className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-[14px] text-ink hover:bg-[#EEF1F6]">
                     <input type="checkbox" checked={chosenTopics.includes(t)} onChange={() => toggleTopic(t)} className="h-4 w-4 accent-[#0A1628]" />
                     {t}
                   </label>
@@ -258,7 +258,7 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search articles, whitepapers, research and science"
-              className="w-full rounded-full border border-rule-strong bg-white py-3 pr-4 pl-11 text-[15px] text-ink placeholder:text-ink-muted"
+              className="w-full rounded-full border border-rule-strong bg-white py-3 pr-4 pl-11 text-[14px] text-ink placeholder:text-ink-muted"
             />
           </label>
           <p className="text-sm text-ink-muted" aria-live="polite">
@@ -294,7 +294,7 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
 
         {list.length > limit && (
           <div className="mt-10 text-center">
-            <button type="button" onClick={() => setLimit((l) => l + PAGE)} className="rounded-lg border border-navy px-6 py-3 text-[15px] font-bold text-ink hover:bg-navy hover:text-white">
+            <button type="button" onClick={() => setLimit((l) => l + PAGE)} className="rounded-lg border border-navy px-6 py-3 text-[14px] font-bold text-ink hover:bg-navy hover:text-white">
               Load more
             </button>
           </div>

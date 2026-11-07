@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 const fitProblems = [
   { lead: "The right person", rest: "on the wrong work.", color: "text-gold" },
-  { lead: "The same strength", rest: "three times in one team — and a missing one.", color: "text-sky" },
+  { lead: "The same strength", rest: "three times in one team, and a missing one.", color: "text-sky" },
   { lead: "A great specialist", rest: "managed like a generalist.", color: "text-lime" },
 ];
 
 const principles = [
-  { title: "Archetypes are shorthand, not labels", text: "They describe how someone usually works — not what they can learn or do.", color: "text-gold-ink" },
+  { title: "Archetypes are shorthand, not labels", text: "They describe how someone usually works, not what they can learn or do.", color: "text-gold-ink" },
   { title: "Look at the mix, not just the individual", text: "Seeing a team's make-up lets managers add what's missing instead of hiring more of the same.", color: "text-ink-link" },
   { title: "Every suggestion shows its reasons", text: "So it can be understood, questioned and overruled.", color: "text-green-ink" },
   { title: "Development, not only selection", text: "Results guide growth and coaching, and people can retake assessments to see how they've changed.", color: "text-gold-ink" },
@@ -48,8 +48,8 @@ export default function AboutPage() {
             </p>
           ))}
         </div>
-        <p className="mt-10 max-w-[680px] text-[17px] leading-[1.7] font-semibold text-white md:text-[19px]">
-          We started Brain Interacts because these problems are fixable — once you can actually see them.
+        <p className="mt-10 max-w-[680px] text-[15px] leading-[1.7] font-semibold text-white md:text-[17px]">
+          We started Brain Interacts because these problems are fixable, once you can actually see them.
         </p>
       </PageHero>
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
         title="How people work and what they can do are both measurable."
         paragraphs={[
           "And a company makes better decisions when it can see both, side by side with its goals.",
-          "So we built a behavioral layer that connects leadership, managers and employees. It turns working style, skills and everyday interactions into clear suggestions — who should lead a project, who could take a task, and how to support each person.",
+          "So we built a behavioral layer that connects leadership, managers and employees. It turns working style, skills and everyday interactions into clear suggestions, who should lead a project, who could take a task, and how to support each person.",
         ]}
         emphasis="The software ranks and explains. People decide."
       />
@@ -69,9 +69,9 @@ export default function AboutPage() {
         label={{ icon: "flow", text: "How we do it", color: "sky" }}
         title="Grounded in research, written for the people who use it."
         cards={[
-          { title: "Working style", rule: "gold", text: "A short assessment built on the Big Five — the most widely studied model of personality — gives every person a primary and secondary archetype, matched to ten Corporate Brain archetypes." },
+          { title: "Working style", rule: "gold", text: "A short assessment built on the Big Five, the most widely studied model of personality, gives every person a primary and secondary archetype, matched to ten Corporate Brain archetypes." },
           { title: "Skills", rule: "sky", text: "A foundation-level technical check for each function shows where knowledge is strong, working or needs development." },
-          { title: "Company goals", rule: "lime", text: "Leadership picks a goal — financial, growth, customer, operational, innovation or capability — and the platform recommends how each team and person should pursue it." },
+          { title: "Company goals", rule: "lime", text: "Leadership picks a goal, financial, growth, customer, operational, innovation or capability, and the platform recommends how each team and person should pursue it." },
         ]}
       />
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
         cards={[
           {
             title: "Corporate Brain",
-            text: "Working style, skills, projects and tasks in one place — for HR, founders and executive teams.",
+            text: "Working style, skills, projects and tasks in one place, for HR, founders and executive teams.",
             link: { label: "Explore", href: routes.corporateBrain },
           },
           {
@@ -138,8 +138,8 @@ export default function AboutPage() {
                   className="h-auto w-full"
                 />
               </div>
-              <h3 className="mt-5 text-[21px] font-bold">{person.name}</h3>
-              <p className="mt-1 text-[15px] text-ink-muted">{person.role}</p>
+              <h3 className="mt-5 text-[17px] font-bold">{person.name}</h3>
+              <p className="mt-1 text-[14px] text-ink-muted">{person.role}</p>
             </li>
           ))}
         </ul>

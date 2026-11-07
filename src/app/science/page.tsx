@@ -34,7 +34,7 @@ export default function SciencePage() {
         label={{ icon: "grid", text: "The science behind Corporate Brain", color: "gold" }}
         title="Built on research."
         accent="Honest about limits."
-        lead="Corporate Brain rests on the Big Five — the most widely studied model of personality — and on decades of research into what predicts performance at work."
+        lead="Corporate Brain rests on the Big Five, the most widely studied model of personality, and on decades of research into what predicts performance at work."
         actions={[
           { label: "Request the validation report", href: enquiryHref("validation-report") },
           { label: "Talk to our research team", href: enquiryHref("research-team"), variant: "outlineDark" },
@@ -61,9 +61,9 @@ export default function SciencePage() {
               The BRAIN framework · coming to Corporate Brain
             </Eyebrow>
             <H2 className="mb-6">Traits don&apos;t act alone. Behavior lives in how they interact.</H2>
-            <p className="text-[17px] leading-[1.75] text-ink-body">
+            <p className="text-[15px] leading-[1.75] text-ink-body">
               High ambition means one thing next to strong self-regulation and something very different next to weak
-              self-regulation. BRAIN — the Behavioural Reasoning and Interaction Network — is Brain Interacts&apos; architecture
+              self-regulation. BRAIN, the Behavioural Reasoning and Interaction Network, is Brain Interacts&apos; architecture
               for reading those combinations systematically.
             </p>
           </div>

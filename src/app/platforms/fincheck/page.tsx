@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { HeroRings } from "@/components/HeroRings";
+import { ringSets } from "@/content/rings";
 import { CardGrid, PageHero, SplitIntro, SplitList, Steps } from "@/components/blocks";
 import { Section } from "@/components/ui";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "FinCheck — Behavioral Credit Risk for Lenders",
+  title: "FinCheck, Behavioral Credit Risk for Lenders",
   description:
     "FinCheck combines behavioral psychology, real-time repayment indexes and traditional credit checks into one risk assessment engine for banks, NBFCs and neobanks.",
   alternates: { canonical: routes.finCheck },
@@ -28,6 +30,7 @@ export default function FinCheckPage() {
           // API docs aren't public yet; this goes to the contact page for now.
           { label: "Explore API documentation", href: routes.contact, variant: "outlineDark" },
         ]}
+        aside={<HeroRings items={ringSets.finCheck} />}
       />
 
       <SplitIntro
@@ -43,7 +46,7 @@ export default function FinCheckPage() {
       <CardGrid
         tone="dark"
         label={{ icon: "grid", text: "Three layers", color: "gold" }}
-        title="Behavior, repayment and credit — in one risk view."
+        title="Behavior, repayment and credit, in one risk view."
         cards={[
           {
             title: "Behavioral intent & psychometric risk",
@@ -109,7 +112,7 @@ export default function FinCheckPage() {
       <Section tone="dark" id="early-access" className="scroll-mt-20" innerClassName="py-16 md:py-[104px]">
         <div className="text-center">
           <p className="inline-block rounded-full border border-sky px-3 py-1 font-mono text-xs text-sky">EARLY ACCESS</p>
-          <h2 className="mt-5 text-[clamp(32px,4vw,52px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
+          <h2 className="mt-5 text-[clamp(26px,3.2vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
             Want <span className="text-sky">early access?</span>
           </h2>
           <p className="mx-auto mt-5 max-w-[560px] text-lg leading-[1.7] text-on-navy">

@@ -74,7 +74,7 @@ export const articles: Article[] = [
   },
   {
     slug: "what-the-big-five-can-and-cant-tell-you-about-a-hire",
-    title: "What the Big Five can — and can't — tell you about a hire",
+    title: "What the Big Five can, and can't, tell you about a hire",
     dek: "A plain guide to using personality data in hiring: what the evidence supports, where it stops, and the rules that keep it fair.",
     topic: "Hiring",
     minutes: 8,

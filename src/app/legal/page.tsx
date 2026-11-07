@@ -29,13 +29,13 @@ export default function LegalHub() {
       />
       {legalGroups.map((group) => (
         <Section key={group} tone="light">
-          <h2 className="text-[clamp(26px,2.6vw,34px)] font-extrabold tracking-[-0.02em]">{group}</h2>
+          <h2 className="text-[clamp(21px,2.1vw,27px)] font-extrabold tracking-[-0.02em]">{group}</h2>
           <ul className="mt-8 grid list-none gap-5 p-0 md:grid-cols-2 lg:grid-cols-3">
             {items.filter((it) => it.group === group).map((it) => (
               <li key={it.href} className="min-w-0">
                 <Link href={it.href} className="group flex h-full flex-col rounded-2xl border border-rule bg-white p-6 transition hover:border-ink-link hover:shadow-md">
                   <span className="text-lg font-bold text-ink group-hover:text-ink-link">{it.title}</span>
-                  <span className="mt-2 text-[15px] leading-[1.6] text-ink-body">{it.summary}</span>
+                  <span className="mt-2 text-[14px] leading-[1.6] text-ink-body">{it.summary}</span>
                   <span className="mt-auto pt-5 text-sm font-semibold text-ink-link">Read →</span>
                 </Link>
               </li>

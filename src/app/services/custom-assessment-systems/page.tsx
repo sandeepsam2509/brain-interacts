@@ -27,7 +27,7 @@ export default function CustomAssessmentsPage() {
         label={{ icon: "grid", text: "Custom assessment systems", color: "gold" }}
         title="Assessments built around"
         accent="your roles, not a catalogue."
-        lead="Our experts design assessment systems around the roles, culture and decisions specific to your organization — so every hire, promotion and team change rests on evidence you can trust."
+        lead="Our experts design assessment systems around the roles, culture and decisions specific to your organization, so every hire, promotion and team change rests on evidence you can trust."
         actions={[
           { label: "Discuss your assessment requirements", href: enquiryHref("assessment-requirements"), variant: "gold" },
           { label: "See how it works", href: "#how-we-work", variant: "outlineDark" },
@@ -88,7 +88,7 @@ export default function CustomAssessmentsPage() {
           title="Four steps, from design to rollout."
           steps={[
             { title: "Discover", accent: "gold", text: "Our experts study your top performers, roles and culture to define what success looks like." },
-            { title: "Design", accent: "sky", text: "We build the assessment around those success profiles — questionnaire or game-based." },
+            { title: "Design", accent: "sky", text: "We build the assessment around those success profiles, questionnaire or game-based." },
             { title: "Deploy", accent: "lime", text: "Candidates and teams take it, and results flow into clear individual and team reports." },
             { title: "Refine", accent: "white", text: "We review outcomes with you and adjust the system as your roles and teams change." },
           ]}

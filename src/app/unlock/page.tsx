@@ -30,10 +30,10 @@ export default async function UnlockPage({ searchParams }: Props) {
           <Eyebrow icon="spark" color="gold">
             Full report · {FULL_REPORT.label}
           </Eyebrow>
-          <h1 className="text-[clamp(34px,4.4vw,56px)] leading-[1.06] font-extrabold tracking-[-0.03em]">
+          <h1 className="text-[clamp(27px,3.5vw,45px)] leading-[1.06] font-extrabold tracking-[-0.03em]">
             Unlock your full report <span className="text-lime">and action framework.</span>
           </h1>
-          <p className="mt-6 max-w-[540px] text-[17px] leading-[1.7] text-on-navy">
+          <p className="mt-6 max-w-[540px] text-[15px] leading-[1.7] text-on-navy">
             Go deeper than your free snapshot. Our experts prepare your detailed Corporate Brain report and a personal action
             framework, and email it to you.
           </p>
@@ -42,7 +42,7 @@ export default async function UnlockPage({ searchParams }: Props) {
               Your archetype: <strong className="ml-1.5 text-white">{archetype}</strong>
             </p>
           )}
-          <ul className="mt-8 list-none p-0 text-[15px] leading-[1.6] text-on-navy-soft">
+          <ul className="mt-8 list-none p-0 text-[14px] leading-[1.6] text-on-navy-soft">
             {["Prepared by our experts from your assessment", "A personal action framework you can use straight away", "Secure payment by Razorpay: UPI, cards and net banking"].map((t) => (
               <li key={t} className="flex gap-3 py-1.5">
                 <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
@@ -59,7 +59,7 @@ export default async function UnlockPage({ searchParams }: Props) {
           ) : (
             <div>
               <p className="text-lg font-extrabold">Online payment is coming soon</p>
-              <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">Leave your details and we&apos;ll send you a payment link and next steps.</p>
+              <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">Leave your details and we&apos;ll send you a payment link and next steps.</p>
               <a
                 href={enquiryHref("full-report", { archetype, assessment })}
                 className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1e3a66]"

@@ -73,7 +73,7 @@ const questions: { q: string; options: { label: string; points: Partial<Record<R
     q: "Pick the sentence that sounds most like you.",
     options: [
       { label: "\"Let me prototype it and we'll see.\"", points: { eng: 2 } },
-      { label: "\"Interesting — but how do we know?\"", points: { ds: 2, eng: 1 } },
+      { label: "\"Interesting, but how do we know?\"", points: { ds: 2, eng: 1 } },
       { label: "\"Let me introduce you to someone.\"", points: { ae: 2 } },
     ],
   },
@@ -106,14 +106,14 @@ export function RoleFitQuiz() {
     >
       {!done ? (
         <div className="p-5 md:p-7">
-          <p className="text-[clamp(20px,2.4vw,26px)] leading-snug font-bold tracking-[-0.01em]">{questions[step].q}</p>
+          <p className="text-[clamp(16px,1.9vw,21px)] leading-snug font-bold tracking-[-0.01em]">{questions[step].q}</p>
           <div role="group" aria-label="Your answer" className="mt-5 grid gap-2">
             {questions[step].options.map((o, i) => (
               <button
                 key={o.label}
                 type="button"
                 onClick={() => setPicks((p) => [...p, i])}
-                className="flex min-h-12 items-center gap-3 rounded-xl border border-rule-strong bg-white px-4 py-3 text-left text-[15px] font-semibold transition-colors hover:border-navy hover:bg-navy hover:text-white"
+                className="flex min-h-12 items-center gap-3 rounded-xl border border-rule-strong bg-white px-4 py-3 text-left text-[14px] font-semibold transition-colors hover:border-navy hover:bg-navy hover:text-white"
               >
                 <span aria-hidden="true" className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F6F7F9] font-mono text-xs text-ink">
                   {String.fromCharCode(65 + i)}
@@ -132,7 +132,7 @@ export function RoleFitQuiz() {
         <div className="grid lg:grid-cols-[1.3fr_1fr]" aria-live="polite">
           <div className="p-5 md:p-7">
             <p className="font-mono text-xs text-ink-muted uppercase">Your best fit · {best.team}</p>
-            <p className="mt-2 text-[clamp(26px,3vw,34px)] leading-tight font-extrabold tracking-[-0.02em]">{best.title}</p>
+            <p className="mt-2 text-[clamp(21px,2.4vw,27px)] leading-tight font-extrabold tracking-[-0.02em]">{best.title}</p>
             <p className="mt-3 leading-[1.7] text-ink-body">{best.pitch}</p>
             <ul className="m-0 mt-6 list-none p-0">
               {ranked.map((r) => (
@@ -150,7 +150,7 @@ export function RoleFitQuiz() {
           </div>
           <div className="flex flex-col border-t border-rule bg-[#F6F7F9] p-5 md:p-7 lg:border-t-0 lg:border-l">
             <p className="text-lg font-extrabold">Sound like you?</p>
-            <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">This is how we think about fit: how you like to work, matched to what a role needs.</p>
+            <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">This is how we think about fit: how you like to work, matched to what a role needs.</p>
             <button
               type="button"
               onClick={() => pickRoleInForm(best.value)}

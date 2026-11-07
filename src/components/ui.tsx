@@ -10,7 +10,7 @@ export function Section({
   children,
   id,
   className = "",
-  innerClassName = "py-16 md:py-24",
+  innerClassName = "py-12 md:py-16",
 }: {
   tone: Tone;
   children: ReactNode;
@@ -57,7 +57,7 @@ export function Eyebrow({
 
 export function H2({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <h2 className={`text-[clamp(30px,3.4vw,44px)] leading-[1.12] font-extrabold tracking-[-0.02em] ${className}`}>
+    <h2 className={`text-[clamp(24px,2.7vw,35px)] leading-[1.12] font-extrabold tracking-[-0.02em] ${className}`}>
       {children}
     </h2>
   );

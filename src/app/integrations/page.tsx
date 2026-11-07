@@ -18,7 +18,7 @@ export default function IntegrationsPage() {
         title="Fits into the tools"
         accent="you already use."
         accentColor="sky"
-        lead="Brain Interacts connects to your hiring, HR and lending systems through APIs — so insight shows up where decisions happen."
+        lead="Brain Interacts connects to your hiring, HR and lending systems through APIs, so insight shows up where decisions happen."
         actions={[
           { label: "Request an integration", href: enquiryHref("integration") },
           { label: "Check compatibility with your stack", href: enquiryHref("compatibility"), variant: "outlineDark" },
