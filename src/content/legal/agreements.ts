@@ -5,7 +5,7 @@ export const mainServiceAgreement: LegalDoc = {
   title: "Main Service Agreement",
   group: "Customer agreements",
   summary: "The agreement that governs paid subscriptions to Brain Interacts services, together with each Order Form.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "This Main Service Agreement (\"MSA\") governs the Customer's use of the Services provided by {{entity}} (\"Brain Interacts\", \"we\" or \"us\"). The Customer accepts this MSA by signing an Order Form that refers to it. The MSA takes effect on the date the Customer accepts it (the \"Agreement Date\").",
   ],
@@ -137,7 +137,7 @@ export const termsOfService: LegalDoc = {
   title: "Terms of Service",
   group: "Customer agreements",
   summary: "The terms for using braininteracts.com, the free assessments and free trials. Paid subscriptions follow the Main Service Agreement.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "These Terms of Service (\"Terms\") apply when you use braininteracts.com, the free Working-Style Assessment, the Leadership Self-Assessment, other free tools, or a free trial of our services, provided by {{entity}} (\"Brain Interacts\", \"we\" or \"us\"). They include our Acceptable Use Policy and, where you submit data about others, our Data Processing Addendum.",
     "By using the website or free services, creating an account or clicking \"I agree\", you accept these Terms. If you accept on behalf of an organisation, you confirm you have authority to bind it. If your organisation has a signed agreement with us for paid services, that agreement governs those services instead.",
@@ -221,7 +221,7 @@ export const subscriptionAddendum: LegalDoc = {
   title: "Self-Serve Subscription Addendum",
   group: "Customer agreements",
   summary: "Additional terms for subscriptions bought online by card or UPI: seats, fees, renewals and cancellation.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "This Addendum supplements the Terms of Service for customers who buy a Brain Interacts subscription online (a \"Self-Serve Subscription\"). If it conflicts with the Terms of Service, this Addendum prevails. You accept it by completing the online purchase, on the date of purchase.",
   ],

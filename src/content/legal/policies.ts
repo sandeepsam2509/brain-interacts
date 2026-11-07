@@ -5,7 +5,7 @@ export const acceptableUsePolicy: LegalDoc = {
   title: "Acceptable Use Policy",
   group: "Policies",
   summary: "What you may not do with Brain Interacts services, assessments and results.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "This Acceptable Use Policy applies to everyone who uses the services of {{entity}} (\"Brain Interacts\"), including the website, free assessments and the platform. It forms part of your agreement with us. If you breach it, we may suspend or end access. Please report suspected misuse to {{email}}.",
   ],
@@ -61,7 +61,7 @@ export const eventTerms: LegalDoc = {
   title: "Event Terms",
   group: "Events and careers",
   summary: "Terms for attending Brain Interacts events, workshops and webinars, in person or online.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "These terms apply when you register for or attend an event, workshop, roundtable or webinar organised by {{entity}} (\"Brain Interacts\"), whether in person or online (an \"Event\"). By registering, you accept them.",
   ],
@@ -106,7 +106,7 @@ export const applicantPrivacyNotice: LegalDoc = {
   title: "Applicant Privacy Notice",
   group: "Events and careers",
   summary: "How we collect and use personal data when you apply for a job or internship at Brain Interacts.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "This notice explains how {{entity}} (\"Brain Interacts\", \"we\") processes your personal data when you apply for a job or internship with us, as a Data Fiduciary under the Digital Personal Data Protection Act, 2023 (\"DPDP Act\").",
   ],
@@ -158,7 +158,7 @@ export const humanRightsPolicy: LegalDoc = {
   title: "Human Rights Policy",
   group: "Policies",
   summary: "Our commitment to respecting human rights across our workplace, products and suppliers.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "Brain Interacts helps organisations understand and support their people. We believe that work should respect the dignity of every person. This policy sets out how {{entity}} respects human rights, guided by the Constitution of India, the laws of India and the UN Guiding Principles on Business and Human Rights. It applies to our employees, contractors and directors, and we expect our suppliers and partners to share these commitments.",
   ],
@@ -203,7 +203,7 @@ export const securityAwareness: LegalDoc = {
   title: "Security Awareness: Recruitment and Investment Fraud",
   group: "Policies",
   summary: "How to recognise scams that misuse the Brain Interacts name, and how to report them.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "Fraudsters sometimes pretend to be from well-known companies to trick people with fake job offers or investment schemes. This page explains how to recognise those scams when they misuse the Brain Interacts name, and what to do.",
   ],

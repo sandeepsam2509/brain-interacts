@@ -5,7 +5,7 @@ export const dataProcessingAddendum: LegalDoc = {
   title: "Data Processing Addendum",
   group: "Privacy and data",
   summary: "How we process personal data on a customer's behalf as a Data Processor under the Digital Personal Data Protection Act, 2023.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "This Data Processing Addendum (\"DPA\") forms part of the agreement between {{entity}} (\"Brain Interacts\") and the Customer for the Services (the Main Service Agreement or the Terms of Service, the \"Agreement\"). It applies when Brain Interacts processes Personal Data on the Customer's behalf. Terms not defined here have the meaning given in the Agreement or the Digital Personal Data Protection Act, 2023 and the rules made under it (together, \"DPDP Law\").",
   ],
@@ -88,7 +88,7 @@ export const regulatedEntitiesFaq: LegalDoc = {
   title: "Regulated Financial Entities FAQ",
   group: "Customer agreements",
   summary: "How Brain Interacts supports banks, NBFCs, insurers and capital-market entities with their technology outsourcing obligations in India.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "Banks, non-banking financial companies, insurers, stock-market intermediaries and other regulated entities in India must manage the risks of outsourcing technology services. This page explains how we support customers in that position. It is general information, not legal advice; each regulated entity should take its own advice on its obligations.",
   ],
@@ -137,7 +137,7 @@ export const regulatedEntitiesAddendum: LegalDoc = {
   title: "Regulated Entities Addendum",
   group: "Customer agreements",
   summary: "Extra contract terms for customers regulated by the RBI, SEBI or IRDAI, covering audit, incident reporting, continuity and exit.",
-  effective: "[date of publication]",
+  effective: "26 November 2026",
   intro: [
     "This Addendum supplements the Main Service Agreement (the \"Agreement\") between {{entity}} (\"Brain Interacts\") and a Customer that is a regulated entity under the Reserve Bank of India (Outsourcing of Information Technology Services) Directions, 2023, the SEBI Cybersecurity and Cyber Resilience Framework, the IRDAI Information and Cyber Security Guidelines, 2023, or similar rules (the \"Applicable Rules\"). It applies only once signed by both parties. If it conflicts with the Agreement, this Addendum prevails for the matters it covers.",
   ],
