@@ -6,11 +6,11 @@ import { routes } from "@/lib/site";
 
 // Fill in before launch: the legal pages show these in brackets until then.
 export const legal = {
-  entity: "[Legal entity name]",
-  address: "[Registered address]",
-  grievanceOfficer: "[Name]",
-  city: "[city of registered office]",
-  lastUpdated: "[date of publication]",
+  entity: "Brain Interacts LLP",
+  address: "Smartworks 43EQ, Survey No. 43, Opp. Bharati Vidyapeeth School, Balewadi / Baner, Pune – 411045, Maharashtra, India",
+  grievanceOfficer: "Srishti Sharma, Chief Research & Privacy Control Officer",
+  city: "Pune, India",
+  lastUpdated: "26 November 2026",
   privacyEmail: "privacy@braininteracts.com",
 };
 

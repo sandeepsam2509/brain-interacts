@@ -22,6 +22,8 @@ const legacyRedirects: [string, string][] = [
   ["/diagnostic", "/contact"],
   ["/demo", "/contact"],
   ["/resources/blog", "/resources"],
+  ["/security", "/legal"],
+  ["/terms", "/legal/terms-of-service"],
 ];
 
 const nextConfig: NextConfig = {
