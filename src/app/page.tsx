@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Hero3D, renders } from "@/components/Hero3D";
+import { HeroRings } from "@/components/HeroRings";
 import { ArrowLink, ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
-import { audiences, hero, products, snapshot, stories, tasks, team } from "@/content/home";
+import { audiences, hero, products, stories, tasks, team } from "@/content/home";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Hero with the free snapshot panel */}
+      {/* Hero with the 3D rings graphic */}
       <Section tone="dark" innerClassName="pt-12 pb-16 md:pt-[72px] md:pb-24">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div>
@@ -31,24 +32,8 @@ export default function HomePage() {
             <p className="mt-[18px] text-sm text-on-navy-muted">{hero.note}</p>
           </div>
 
-          <div id="snapshot" className="scroll-mt-24 rounded-[20px] border border-navy-line bg-navy-raised p-6 md:p-9">
-            <Eyebrow icon="spark" color="lime">
-              {snapshot.eyebrow}
-            </Eyebrow>
-            <h2 className="text-[26px] leading-[1.15] font-extrabold tracking-[-0.02em] md:text-[30px]">{snapshot.title}</h2>
-            <p className="mt-4 text-[17px] leading-[1.7] text-on-navy">{snapshot.text}</p>
-            <ul className="mt-5 list-none p-0 text-[15px] leading-[1.6] text-on-navy-soft">
-              {snapshot.points.map((point) => (
-                <li key={point} className="flex gap-2.5 py-1.5">
-                  <span aria-hidden="true" className="text-lime">✓</span>
-                  {point}
-                </li>
-              ))}
-            </ul>
-            {/* Opens the assessment bot once it is built (round 4). */}
-            <ButtonLink href={routes.snapshot} className="mt-6 w-full">
-              {snapshot.cta}
-            </ButtonLink>
+          <div id="snapshot" className="scroll-mt-24">
+            <HeroRings />
           </div>
         </div>
       </Section>
