@@ -217,7 +217,7 @@ export function AssessmentBot() {
                 )}
                 <p className="mt-2.5 text-xs leading-normal text-ink-muted">
                   We&apos;ll use your email to send your report. See our{" "}
-                  <a href={routes.privacy} className="underline">
+                  <a href={routes.privacy} target="_blank" rel="noopener noreferrer" className="underline">
                     Privacy Policy
                   </a>
                   .

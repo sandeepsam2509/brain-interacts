@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Hero3D, Render3D, renders } from "@/components/Hero3D";
 import { HeroRings } from "@/components/HeroRings";
+import { WorkPeople } from "@/components/WorkPeople";
 import { ringSets } from "@/content/rings";
-import { CardGrid, CompareTable, CtaBlock, FeatureSplit, PageHero } from "@/components/blocks";
+import { CompareTable, CtaBlock, FeatureSplit, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
@@ -84,16 +85,7 @@ export default function CorporateBrainPage() {
         visual={<Hero3D render={renders.employee} tint="sky" />}
       />
 
-      <CardGrid
-        tone="light"
-        label={{ icon: "briefcase", text: "Projects, tasks and hiring", color: "goldInk" }}
-        title="Work and people decisions in the same place."
-        cards={[
-          { title: "Projects", rule: "amber", text: "Milestones, timelines and dashboards, with the best-fitting lead and team recommended from working style, skills and workload." },
-          { title: "Tasks with review", rule: "blue", text: "Finished work is reviewed and approved before it counts as done." },
-          { title: "Hiring", rule: "green", text: "Openings linked to projects, matching assessments, stages from Applied to Hired, and fit comparison." },
-        ]}
-      />
+      <WorkPeople />
 
       <Section tone="dark">
         <Eyebrow icon="people" color="lime">
@@ -118,7 +110,6 @@ export default function CorporateBrainPage() {
         text="A live walkthrough of Corporate Brain, built around your org structure."
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo"), variant: "navy" },
-          { label: "Download a sample working-style report", href: routes.resources, variant: "outlineLight" },
         ]}
       />
     </>

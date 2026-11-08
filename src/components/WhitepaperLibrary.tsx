@@ -270,7 +270,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
                     <input type="checkbox" name="consent" required className="mt-1 h-4 w-4 shrink-0" />
                     <span>
                       I agree to Brain Interacts storing my details and contacting me about this whitepaper and related services. See our{" "}
-                      <a href={routes.privacy} className="text-ink-link underline">
+                      <a href={routes.privacy} target="_blank" rel="noopener noreferrer" className="text-ink-link underline">
                         Privacy Policy
                       </a>
                       .

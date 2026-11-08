@@ -21,7 +21,7 @@ export function Section({
   const toneClass = tone === "dark" ? "bg-navy text-white" : "bg-white text-ink";
   return (
     <section id={id} className={`${toneClass} ${className}`}>
-      <div className={`mx-auto max-w-[1280px] px-6 ${innerClassName}`}>{children}</div>
+      <div className={`mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12 ${innerClassName}`}>{children}</div>
     </section>
   );
 }

@@ -71,23 +71,25 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-text"
-      className="fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-[720px] rounded-2xl border border-navy-line bg-navy p-5 text-white shadow-[0_16px_48px_rgba(10,22,40,0.4)] sm:inset-x-6 sm:bottom-6 md:p-6"
+      className="fixed inset-x-0 bottom-0 z-[80] border-t border-navy-line bg-navy px-6 py-4 text-white shadow-[0_-8px_32px_rgba(10,22,40,0.35)] md:flex md:items-center md:gap-8 md:px-10"
     >
+      <div className="min-w-0 flex-1">
       <p id="cookie-title" className="font-extrabold">
         Cookies on braininteracts.com
       </p>
-      <p id="cookie-text" className="mt-2 text-[14px] leading-[1.6] text-on-navy">
+      <p id="cookie-text" className="mt-1 text-[13px] leading-[1.55] text-on-navy">
         We count visits without cookies. With your OK, we also use Microsoft Clarity to see anonymised clicks and scrolling, so we
         can improve the site. No advertising cookies.{" "}
         <Link href={routes.cookies} className="text-on-navy-soft underline">
           Cookie Notice
         </Link>
       </p>
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-        <button type="button" onClick={() => choose("accepted")} className="rounded-lg bg-lime px-5 py-3 font-bold text-navy">
+      </div>
+      <div className="mt-3 flex shrink-0 flex-col gap-2 sm:flex-row md:mt-0">
+        <button type="button" onClick={() => choose("accepted")} className="rounded-lg bg-lime px-5 py-2.5 font-bold text-navy">
           Accept
         </button>
-        <button type="button" onClick={() => choose("declined")} className="rounded-lg border border-navy-line px-5 py-3 font-bold text-white">
+        <button type="button" onClick={() => choose("declined")} className="rounded-lg border border-navy-line px-5 py-2.5 font-bold text-white">
           Decline
         </button>
       </div>

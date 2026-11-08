@@ -41,6 +41,7 @@ export default function GamifiedPage() {
       <PageHero
         trail={trail}
         label={{ icon: "grid", text: "Gamified assessments", color: "gold" }}
+        badge="Coming soon"
         title="Stop testing how candidates answer."
         accent="See how they act."
         lead="Short, game-based simulations that show how people think, recover and solve problems, not just what they say about themselves."
@@ -143,10 +144,10 @@ export default function GamifiedPage() {
 
       <CtaBlock
         tone="dark"
-        title="Stop guessing who your candidates are."
-        accent="Let them show you."
+        title="Coming soon. Want early access?"
+        accent="Be among the first to use it."
         actions={[
-          { label: "Try a sample assessment", href: enquiryHref("sample-assessment") },
+          { label: "Get early access", href: enquiryHref("early-access") },
           { label: "See the science", href: routes.science, variant: "outlineDark" },
         ]}
       />

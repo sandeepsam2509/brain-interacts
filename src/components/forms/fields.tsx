@@ -5,7 +5,7 @@ import type { Status } from "./useSubmit";
 export type FieldTone = "light" | "dark";
 
 export const inputClass = (tone: FieldTone = "light") =>
-  `w-full rounded-lg border px-4 py-3.5 text-base ${
+  `w-full rounded-lg border px-3.5 py-2.5 text-[15px] ${
     tone === "dark"
       ? "border-navy-line bg-navy-raised text-white placeholder:text-on-navy-muted"
       : "border-rule-strong bg-white text-ink placeholder:text-ink-muted"

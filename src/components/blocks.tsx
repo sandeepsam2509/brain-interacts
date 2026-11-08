@@ -95,13 +95,15 @@ export function Breadcrumbs({ trail }: { trail: { label: string; href?: string }
 /** Dark opening section of every inner page. */
 export function PageHero({
   trail,
-  label,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  label: _label,
   title,
   accent,
   accentColor = "gold",
   lead,
   actions = [],
   aside,
+  badge,
   children,
 }: {
   trail: { label: string; href?: string }[];
@@ -112,16 +114,14 @@ export function PageHero({
   lead?: ReactNode;
   actions?: Action[];
   aside?: ReactNode;
+  badge?: string;
   children?: ReactNode;
 }) {
   const text = (
     <div>
-      {label && (
-        <Eyebrow icon={label.icon} color={label.color}>
-          {label.text}
-        </Eyebrow>
-      )}
-      <h1 className="max-w-[980px] text-[clamp(29px,4.0vw,53px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
+      {/* Hero tags (label) are no longer shown, by request. */}
+      {badge && <span className="mb-4 inline-block rounded-full bg-sky/15 px-3 py-1 text-[13px] font-semibold text-sky">{badge}</span>}
+      <h1 className="max-w-[980px] text-[clamp(26px,3.3vw,44px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
         {title} {accent && <span className={textFor(accentColor)}>{accent}</span>}
       </h1>
       {lead && <p className="mt-7 max-w-[680px] text-[15px] leading-[1.7] text-on-navy md:text-[17px]">{lead}</p>}
