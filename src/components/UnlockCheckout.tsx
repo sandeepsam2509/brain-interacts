@@ -124,7 +124,7 @@ export function UnlockCheckout({ email: initialEmail, archetype, assessment }: {
           Terms
         </a>{" "}
         and{" "}
-        <a href={routes.privacy} className="underline">
+        <a href={routes.privacy} target="_blank" rel="noopener noreferrer" className="underline">
           Privacy Policy
         </a>
         .

@@ -60,17 +60,17 @@ export function EnquiryDialog() {
       aria-labelledby="enquiry-dialog-title"
       onClose={() => setOpen(null)}
       onClick={(e) => e.target === ref.current && ref.current?.close()}
-      className="m-auto max-h-[92dvh] w-[min(640px,calc(100vw-24px))] overflow-y-auto rounded-[20px] bg-navy p-0 text-white shadow-[0_24px_64px_rgba(10,22,40,0.45)] backdrop:bg-navy/60 backdrop:backdrop-blur-sm"
+      className="m-auto max-h-[92dvh] w-[min(820px,calc(100vw-24px))] overflow-y-auto rounded-[20px] bg-navy p-0 text-white shadow-[0_24px_64px_rgba(10,22,40,0.45)] backdrop:bg-navy/60 backdrop:backdrop-blur-sm"
     >
       {open && enquiry && (
-        <div className="p-6 md:p-8">
-          <div className="mb-6 flex items-start justify-between gap-4">
+        <div className="p-5 md:px-7 md:py-6">
+          <div className="mb-4 flex items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[13px] text-lime">{enquiry.eyebrow}</p>
-              <h2 id="enquiry-dialog-title" className="mt-2 text-2xl font-extrabold tracking-[-0.02em] md:text-[23px]">
+              <h2 id="enquiry-dialog-title" className="mt-1 text-xl font-extrabold tracking-[-0.02em] md:text-[23px]">
                 {enquiry.title}
               </h2>
-              <p className="mt-2 text-on-navy">{enquiry.intro}</p>
+              <p className="mt-1 text-[14px] text-on-navy">{enquiry.intro}</p>
             </div>
             <button
               type="button"
@@ -84,7 +84,7 @@ export function EnquiryDialog() {
             </button>
           </div>
           <EnquiryForm enquiryKey={open.key} tone="dark" idPrefix="dlg" context={open.context} />
-          <p className="mt-4 text-center text-sm text-on-navy-muted">
+          <p className="mt-3 text-center text-[13px] text-on-navy-muted">
             Prefer email?{" "}
             <a href={`mailto:${site.email}`} className="text-on-navy-soft underline">
               {site.email}

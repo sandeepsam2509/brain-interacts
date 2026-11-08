@@ -13,6 +13,8 @@ export type EnquiryKey =
   | "compatibility"
   | "fincheck-pilot"
   | "sample-assessment"
+  | "early-access"
+  | "technical-assessment"
   | "assessment-requirements"
   | "culture-proposal"
   | "diagnostic"
@@ -150,6 +152,27 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
     messageLabel: "Which roles are you hiring for?",
     submit: "Send me a sample",
     thanks: "Thanks, we'll email your sample assessment within one working day.",
+  },
+  "early-access": {
+    label: "Get early access",
+    eyebrow: "Gamified Assessments · Coming soon",
+    title: "Get early access",
+    intro: "Gamified Assessments is launching soon. Tell us about your hiring and we'll invite you to the early access programme.",
+    subject: "Gamified Assessments early access",
+    messageLabel: "Which roles are you hiring for?",
+    submit: "Request early access",
+    thanks: "Thanks, you're on the early access list. We'll be in touch within one working day.",
+  },
+  "technical-assessment": {
+    label: "Free technical assessment",
+    eyebrow: "Free technical assessment",
+    title: "Get a free technical assessment",
+    intro: "Tell us the role and skills you want to test. We'll set up a free technical assessment for one of your openings.",
+    subject: "Free technical assessment request",
+    messageLabel: "Which role and skills should we assess?",
+    messageRequired: true,
+    submit: "Request my free assessment",
+    thanks: "Thanks, we'll email you within one working day to set up your free technical assessment.",
   },
   "assessment-requirements": {
     label: "Discuss your assessment requirements",

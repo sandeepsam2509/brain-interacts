@@ -164,7 +164,7 @@ export function LeadershipAssessment() {
                 )}
                 <p className="mt-3 text-xs leading-[1.5] text-ink-muted">
                   We&apos;ll use your email to send your report. See our{" "}
-                  <a href={routes.privacy} className="underline">
+                  <a href={routes.privacy} target="_blank" rel="noopener noreferrer" className="underline">
                     Privacy Policy
                   </a>
                   .

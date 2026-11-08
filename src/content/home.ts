@@ -27,7 +27,7 @@ export const products = [
     tagColor: "text-gold-ink",
   },
   {
-    tag: "Assessments",
+    tag: "Assessments · Coming soon",
     name: "Gamified Assessments",
     text: "Short simulations that show how people decide under pressure.",
     href: routes.gamified,
@@ -44,16 +44,50 @@ export const products = [
   },
 ];
 
-export const team = [
-  { initial: "A", name: "Priya Sharma", style: "Integrator", dot: "bg-gold", color: "text-gold-ink" },
-  { initial: "B", name: "Rahul Mehta", style: "Rainmaker", dot: "bg-sky", color: "text-ink-link" },
-  { initial: "C", name: "Ananya Iyer", style: "Executor", dot: "bg-lime", color: "text-green-ink" },
+// Illustrative example for the "Know who people are" section. Names and numbers are made up.
+export const matches = [
+  {
+    task: "Plan Q1 product roadmap",
+    person: "Priya Sharma",
+    initial: "P",
+    style: "Integrator",
+    fit: 92,
+    why: "Connects teams and weighs trade-offs well",
+    next: "Rahul Mehta · 74%",
+    dot: "bg-gold",
+    ink: "text-gold-ink",
+    bar: "bg-gold",
+  },
+  {
+    task: "Open new client accounts",
+    person: "Rahul Mehta",
+    initial: "R",
+    style: "Rainmaker",
+    fit: 89,
+    why: "Energised by new people, persuasive",
+    next: "Priya Sharma · 68%",
+    dot: "bg-sky",
+    ink: "text-ink-link",
+    bar: "bg-sky",
+  },
+  {
+    task: "Ship release checklist",
+    person: "Ananya Iyer",
+    initial: "A",
+    style: "Executor",
+    fit: 94,
+    why: "Detail-focused, finishes what she starts",
+    next: "Priya Sharma · 71%",
+    dot: "bg-lime",
+    ink: "text-green-ink",
+    bar: "bg-lime",
+  },
 ];
 
-export const tasks = [
-  { task: "Plan Q1 product roadmap", style: "Integrator", pill: "bg-[#FCEFC9] text-gold-ink" },
-  { task: "Open new client accounts", style: "Rainmaker", pill: "bg-[#E3F1FC] text-ink-link" },
-  { task: "Ship release checklist", style: "Executor", pill: "bg-[#EDF7DC] text-green-ink" },
+export const matchSteps = [
+  { n: "1", title: "Profile", text: "Each person takes a short assessment and gets a primary and secondary archetype." },
+  { n: "2", title: "Match", text: "Brain Suggests ranks the best and second-best person for each task, with reasons." },
+  { n: "3", title: "Decide", text: "A manager reviews the suggestion and assigns. Nothing is automatic." },
 ];
 
 export const stories = [
@@ -85,15 +119,15 @@ export const audiences = [
     href: routes.ceo,
   },
   {
-    title: "Team Managers",
+    title: "Managers",
     text: "Assign work by strengths, spot friction early and coach each person with context.",
     link: "For managers",
     href: routes.corporateBrain,
   },
   {
-    title: "Executives",
-    text: "Track team health across departments and make structural calls with evidence.",
-    link: "For executives",
-    href: routes.corporateBrain,
+    title: "Employees",
+    text: "Understand your own working style, get work that fits your strengths, and know where to grow.",
+    link: "Take the free assessment",
+    href: routes.snapshot,
   },
 ];

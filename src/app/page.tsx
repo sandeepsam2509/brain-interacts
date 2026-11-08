@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { HeroRings } from "@/components/HeroRings";
 import { WorkPeople } from "@/components/WorkPeople";
 import { ArrowLink, ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
-import { audiences, hero, products, stories, tasks, team } from "@/content/home";
+import { audiences, hero, matches, matchSteps, products, stories } from "@/content/home";
+import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,15 +20,15 @@ export default function HomePage() {
       <Section tone="dark" innerClassName="pt-10 pb-12 md:pt-14 md:pb-16">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div>
-            <Eyebrow icon="people" color="lime">
-              {hero.eyebrow}
-            </Eyebrow>
-            <h1 className="text-[clamp(29px,4.0vw,51px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
+            <h1 className="text-[clamp(26px,3.3vw,42px)] leading-[1.05] font-extrabold tracking-[-0.03em]">
               {hero.title} <span className="text-gold">{hero.titleAccent}</span>
             </h1>
-            <p className="mt-7 max-w-[560px] text-[15px] leading-[1.7] text-on-navy md:text-[17px]">{hero.lead}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <p className="mt-5 max-w-[560px] text-[15px] leading-[1.7] text-on-navy md:text-[16px]">{hero.lead}</p>
+            <div className="mt-7 flex flex-wrap gap-3">
               <ButtonLink href={routes.demo}>Get a demo</ButtonLink>
+              <ButtonLink href={enquiryHref("technical-assessment")} variant="outlineDark">
+                Free technical assessment
+              </ButtonLink>
             </div>
             <p className="mt-[18px] text-sm text-on-navy-muted">{hero.note}</p>
           </div>
@@ -64,45 +65,64 @@ export default function HomePage() {
       <WorkPeople tone="dark" />
 
       {/* Archetypes × tasks */}
-      <Section tone="light" >
-        <Eyebrow icon="people" color="link">
-          Archetypes × tasks
-        </Eyebrow>
-        <div className="grid items-end gap-6 lg:grid-cols-2 lg:gap-16">
-          <h2 className="text-[clamp(26px,3.0vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
-            Know who people are. <span className="text-ink-link">Give them work that fits.</span>
-          </h2>
-          <p className="text-[15px] leading-[1.7] text-ink-body">
-            Every employee&apos;s behavioral archetype sits right beside the task board, so managers assign work by strengths
-            and work style, not just availability.
-          </p>
-        </div>
-        <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12">
+      <Section tone="light">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
           <div>
-            <p className="mb-2 text-[13px] tracking-[0.1em] text-ink-muted uppercase">Team archetypes</p>
-            {team.map((person) => (
-              <div key={person.name} className="flex items-center gap-3.5 border-b border-rule py-3">
-                <span className={`flex h-10 w-10 items-center justify-center rounded-full font-extrabold text-navy ${person.dot}`}>
-                  {person.initial}
-                </span>
-                <div>
-                  <strong className="block">{person.name}</strong>
-                  <span className={`text-sm font-semibold ${person.color}`}>{person.style}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div>
-            <p className="mb-2 text-[13px] tracking-[0.1em] text-ink-muted uppercase">Task assignment</p>
-            {tasks.map((t) => (
-              <div key={t.task} className="flex items-center justify-between gap-4 border-b border-rule py-3.5">
-                <span>{t.task}</span>
-                <span className={`shrink-0 rounded-full px-2.5 py-1.5 text-[13px] font-bold ${t.pill}`}>→ {t.style}</span>
-              </div>
-            ))}
-            <p className="mt-[18px] text-[13px] text-ink-muted">
-              With Brain Suggests, every recommendation shows its reasons. A manager decides.
+            <Eyebrow icon="people" color="link">
+              Brain Suggests
+            </Eyebrow>
+            <H2 className="mb-4">
+              Know who people are. <span className="text-ink-link">Give them work that fits.</span>
+            </H2>
+            <p className="text-[15px] leading-[1.7] text-ink-body">
+              Every person&apos;s working style sits beside the task board, so managers assign work by strengths, not just by who is free.
             </p>
+            <ol className="mt-7 grid list-none gap-4 p-0">
+              {matchSteps.map((st) => (
+                <li key={st.n} className="flex gap-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-[14px] font-extrabold text-lime">{st.n}</span>
+                  <div>
+                    <p className="font-bold">{st.title}</p>
+                    <p className="text-[14px] leading-[1.6] text-ink-body">{st.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Product-style panel; illustrative example */}
+          <div className="rounded-2xl border border-rule bg-white p-4 shadow-[0_18px_48px_rgba(10,22,40,0.10)] md:p-5" aria-label="Example of Brain Suggests task matching">
+            <div className="mb-3 flex items-center justify-between px-1">
+              <p className="text-[13px] font-bold">Task board · Suggested owners</p>
+              <span className="rounded-full bg-[#EDF7DC] px-2.5 py-1 text-[11px] font-semibold text-green-ink">Example</span>
+            </div>
+            <div className="grid gap-3">
+              {matches.map((m) => (
+                <div key={m.task} className="rounded-xl border border-rule p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="font-bold">{m.task}</p>
+                    <span className="rounded-md bg-navy px-2.5 py-1 text-[11px] font-bold text-white">Assign</span>
+                  </div>
+                  <div className="mt-3 flex items-center gap-3">
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[14px] font-extrabold text-navy ${m.dot}`}>{m.initial}</span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[14px] font-semibold">
+                        {m.person} <span className={`font-bold ${m.ink}`}>· {m.style}</span>
+                      </p>
+                      <div className="mt-1.5 flex items-center gap-2">
+                        <span className="h-1.5 flex-1 rounded-full bg-rule">
+                          <span className={`block h-1.5 rounded-full ${m.bar}`} style={{ width: `${m.fit}%` }} />
+                        </span>
+                        <span className="text-[12px] font-bold">{m.fit}% fit</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-2.5 text-[12px] leading-[1.5] text-ink-muted">
+                    Why: {m.why} · Next best: {m.next}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>

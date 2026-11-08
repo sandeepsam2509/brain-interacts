@@ -56,7 +56,7 @@ export function EnquiryForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="relative grid gap-5 sm:grid-cols-2" key={enquiryKey + email}>
+    <form onSubmit={onSubmit} className="relative grid gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3" key={enquiryKey + email}>
       <Honeypot />
       <Field id={id("name")} label="Full name" required>
         <input id={id("name")} name="name" required autoComplete="name" className={inputClass(tone)} />
@@ -81,13 +81,13 @@ export function EnquiryForm({
         <input id={id("phone")} name="phone" type="tel" autoComplete="tel" className={inputClass(tone)} />
       </Field>
       {enquiry.products && (
-        <fieldset className="m-0 border-0 p-0 sm:col-span-2">
+        <fieldset className="m-0 border-0 p-0 sm:col-span-2 md:col-span-3">
           <legend className="mb-2 text-sm font-bold">
             What would you like to see?<span aria-hidden="true"> *</span>
           </legend>
-          <div className="grid gap-2 sm:grid-cols-2">
+          <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
             {products.map((o) => (
-              <label key={o} className={`flex min-h-11 items-center gap-3 rounded-lg border px-4 py-2 text-[14px] ${tone === "dark" ? "border-navy-line" : "border-rule-strong"}`}>
+              <label key={o} className={`flex min-h-9 items-center gap-2.5 rounded-lg border px-3 py-1.5 text-[13px] ${tone === "dark" ? "border-navy-line" : "border-rule-strong"}`}>
                 <input type="checkbox" name="interests" value={o} defaultChecked={o === preselect} className="h-4 w-4" />
                 {o}
               </label>
@@ -95,18 +95,18 @@ export function EnquiryForm({
           </div>
         </fieldset>
       )}
-      <Field id={id("notes")} label={enquiry.messageLabel} required={enquiry.messageRequired} className="sm:col-span-2">
-        <textarea id={id("notes")} name="notes" rows={3} required={enquiry.messageRequired} className={inputClass(tone)} />
+      <Field id={id("notes")} label={enquiry.messageLabel} required={enquiry.messageRequired} className="sm:col-span-2 md:col-span-3">
+        <textarea id={id("notes")} name="notes" rows={2} required={enquiry.messageRequired} className={inputClass(tone)} />
       </Field>
-      <div className="sm:col-span-2">
-        <p className={`mb-4 text-sm ${muted}`}>
+      <div className="sm:col-span-2 md:col-span-3">
+        <p className={`mb-3 text-[13px] ${muted}`}>
           By submitting, you agree to our{" "}
-          <a href={routes.privacy} className="underline">
+          <a href={routes.privacy} target="_blank" rel="noopener noreferrer" className="underline">
             Privacy Policy
           </a>
           .
         </p>
-        <button type="submit" disabled={sending} className="w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#c7ea72] disabled:opacity-60">
+        <button type="submit" disabled={sending} className="w-full rounded-lg bg-lime px-6 py-3 text-base font-bold text-navy hover:bg-[#c7ea72] disabled:opacity-60">
           {sending ? "Sending…" : enquiry.submit}
         </button>
         <FormStatus status={status} tone={tone} sentText={enquiry.thanks} />

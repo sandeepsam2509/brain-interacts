@@ -60,7 +60,7 @@ export const mainNav: MainNavItem[] = [
     href: routes.corporateBrain,
     children: [
       { label: "Corporate Brain", href: routes.corporateBrain, description: "People analytics and task intelligence for every level" },
-      { label: "Gamified Assessments", href: routes.gamified, description: "Simulations that show how people decide" },
+      { label: "Gamified Assessments", href: routes.gamified, description: "Simulations that show how people decide", badge: "Soon" },
       { label: "FinCheck", href: routes.finCheck, description: "Behavioral risk intelligence for lenders", badge: "Soon" },
     ],
   },

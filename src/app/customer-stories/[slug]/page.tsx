@@ -85,17 +85,13 @@ export default async function StoryPage({ params }: Props) {
               <p className="mt-3 text-[16px] leading-[1.8] text-ink-body">{x.t}</p>
             </section>
           ))}
-          <section className="mb-10">
-            <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">The result</h2>
-            {s.result ? (
+          {/* The result section appears only once the client has approved a published outcome. */}
+          {s.result && (
+            <section className="mb-10">
+              <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">The result</h2>
               <p className="mt-3 text-[16px] leading-[1.8] text-ink-body">{s.result}</p>
-            ) : (
-              <div className="mt-4 rounded-2xl bg-[#EEF1F6] p-6">
-                <p className="font-bold">Results are being confirmed with the client.</p>
-                <p className="mt-1 text-[14px] leading-[1.6] text-ink-body">We publish outcomes only once the client has reviewed and approved them.</p>
-              </div>
-            )}
-          </section>
+            </section>
+          )}
           <div className="rounded-2xl bg-navy p-7 text-white md:p-8">
             <p className="text-xl font-extrabold">Facing a similar challenge?</p>
             <p className="mt-2 text-on-navy">See how {s.products.join(" and ")} would read your teams.</p>

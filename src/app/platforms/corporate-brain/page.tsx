@@ -110,7 +110,6 @@ export default function CorporateBrainPage() {
         text="A live walkthrough of Corporate Brain, built around your org structure."
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo"), variant: "navy" },
-          { label: "Download a sample working-style report", href: routes.resources, variant: "outlineLight" },
         ]}
       />
     </>
