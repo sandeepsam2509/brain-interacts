@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Hero3D, renders } from "@/components/Hero3D";
 import { HeroRings } from "@/components/HeroRings";
+import { WorkPeople } from "@/components/WorkPeople";
 import { ArrowLink, ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
 import { audiences, hero, products, stories, tasks, team } from "@/content/home";
 import { routes } from "@/lib/site";
@@ -43,10 +43,10 @@ export default function HomePage() {
         <Eyebrow icon="grid" color="link">
           Products
         </Eyebrow>
-        <H2 className="mb-10 max-w-[780px] md:mb-14">One behavioral layer. Three products.</H2>
-        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+        <H2 className="mb-8 max-w-[780px]">One behavioral layer. Three products.</H2>
+        <div className="grid gap-5 md:grid-cols-3">
           {products.map((p) => (
-            <div key={p.name} className={`border-t-[3px] pt-6 ${p.rule}`}>
+            <div key={p.name} className={`rounded-2xl border border-rule border-t-[3px] bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg ${p.rule}`}>
               <span className={`font-mono text-xs uppercase ${p.tagColor}`}>{p.tag}</span>
               <h3 className="mt-2.5 mb-2.5 text-xl font-bold">{p.name}</h3>
               <p className="leading-[1.7] text-ink-body">
@@ -60,28 +60,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Ten working styles */}
-      <Section tone="dark">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <Eyebrow icon="spark" color="gold">
-              Ten working styles
-            </Eyebrow>
-            <H2 className="mb-5">Ten working styles. One clear picture of your team.</H2>
-            <p className="text-[15px] leading-[1.7] text-on-navy">
-              Every person gets a primary and a secondary archetype, from Elite and Integrator to Builder and Executor, matched from
-              their Big Five scores. See where your team is strong, where it is crowded, and what is missing.
-            </p>
-            <ArrowLink href={routes.science} tone="dark" className="mt-5 inline-block">
-              How archetypes work
-            </ArrowLink>
-          </div>
-          <Hero3D render={renders.employee} />
-        </div>
-      </Section>
+      {/* Projects, tasks and hiring */}
+      <WorkPeople tone="dark" />
 
       {/* Archetypes × tasks */}
-      <Section tone="light" innerClassName="py-16 md:py-[104px]">
+      <Section tone="light" >
         <Eyebrow icon="people" color="link">
           Archetypes × tasks
         </Eyebrow>
@@ -94,11 +77,11 @@ export default function HomePage() {
             and work style, not just availability.
           </p>
         </div>
-        <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
             <p className="mb-2 text-[13px] tracking-[0.1em] text-ink-muted uppercase">Team archetypes</p>
             {team.map((person) => (
-              <div key={person.name} className="flex items-center gap-3.5 border-b border-rule py-[18px]">
+              <div key={person.name} className="flex items-center gap-3.5 border-b border-rule py-3">
                 <span className={`flex h-10 w-10 items-center justify-center rounded-full font-extrabold text-navy ${person.dot}`}>
                   {person.initial}
                 </span>
@@ -112,7 +95,7 @@ export default function HomePage() {
           <div>
             <p className="mb-2 text-[13px] tracking-[0.1em] text-ink-muted uppercase">Task assignment</p>
             {tasks.map((t) => (
-              <div key={t.task} className="flex items-center justify-between gap-4 border-b border-rule py-[22px]">
+              <div key={t.task} className="flex items-center justify-between gap-4 border-b border-rule py-3.5">
                 <span>{t.task}</span>
                 <span className={`shrink-0 rounded-full px-2.5 py-1.5 text-[13px] font-bold ${t.pill}`}>→ {t.style}</span>
               </div>
@@ -129,10 +112,10 @@ export default function HomePage() {
         <Eyebrow icon="quote" color="sky">
           Customer stories
         </Eyebrow>
-        <H2 className="mb-10 max-w-[780px]">Trusted across facilities, manufacturing and IT.</H2>
-        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+        <H2 className="mb-8 max-w-[780px]">Trusted across facilities, manufacturing and IT.</H2>
+        <div className="grid gap-5 md:grid-cols-3">
           {stories.map((s) => (
-            <div key={s.title} className="border-t border-navy-line pt-6">
+            <div key={s.title} className="rounded-2xl border border-navy-line bg-navy-raised p-6">
               <span className={`font-mono text-xs uppercase ${s.color}`}>{s.industry}</span>
               <h3 className="mt-2.5 mb-2.5 text-xl font-bold">{s.title}</h3>
               <p className="leading-[1.7] text-on-navy">{s.text}</p>
@@ -145,17 +128,17 @@ export default function HomePage() {
       </Section>
 
       {/* Who it's for */}
-      <Section tone="light" innerClassName="py-16 md:py-[104px]">
+      <Section tone="light" >
         <Eyebrow icon="people" color="goldInk">
           Who it&apos;s for
         </Eyebrow>
-        <h2 className="mb-10 text-[clamp(26px,3.0vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em] md:mb-14">
+        <h2 className="mb-8 text-[clamp(26px,3.0vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
           Built for the people who shape teams.
         </h2>
-        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="grid gap-5 md:grid-cols-3">
           {audiences.map((a) => (
-            <div key={a.title} className="border-t border-rule pt-7">
-              <h3 className="mb-2.5 text-2xl font-extrabold">{a.title}</h3>
+            <div key={a.title} className="rounded-2xl border border-rule bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
+              <h3 className="mb-2 text-xl font-extrabold">{a.title}</h3>
               <p className="mb-4 leading-[1.7] text-ink-body">{a.text}</p>
               <ArrowLink href={a.href} tone="light">
                 {a.link}
@@ -166,16 +149,16 @@ export default function HomePage() {
       </Section>
 
       {/* Closing call to action */}
-      <Section tone="light" className="border-t border-rule" innerClassName="py-16 md:py-[104px]">
+      <Section tone="dark">
         <div className="text-center">
           <h2 className="mx-auto max-w-[780px] text-[clamp(26px,3.2vw,42px)] leading-[1.08] font-extrabold tracking-[-0.02em]">
             Build teams on evidence, not instinct.
           </h2>
-          <p className="mx-auto mt-5 max-w-[560px] text-lg leading-[1.7] text-ink-body">
+          <p className="mx-auto mt-4 max-w-[560px] text-[16px] leading-[1.7] text-on-navy">
             See Corporate Brain on your own org structure in a live walkthrough.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href={routes.demo} variant="navy">
+            <ButtonLink href={routes.demo} variant="lime">
               Get a demo
             </ButtonLink>
           </div>
