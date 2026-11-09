@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Hero3D, Render3D, renders } from "@/components/Hero3D";
-import { HeroRings } from "@/components/HeroRings";
+import Image from "next/image";
+import { ProductTour } from "@/components/ProductTour";
 import { WorkPeople } from "@/components/WorkPeople";
-import { ringSets } from "@/content/rings";
 import { CompareTable, CtaBlock, FeatureSplit, PageHero } from "@/components/blocks";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { enquiryHref } from "@/lib/enquiries";
@@ -29,8 +29,21 @@ export default function CorporateBrainPage() {
         actions={[
           { label: "Book a Corporate Brain demo", href: enquiryHref("corporate-brain-demo") },
         ]}
-        aside={<HeroRings items={ringSets.corporateBrain} />}
+        aside={
+          <figure className="m-0 overflow-hidden rounded-2xl border border-navy-line shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
+            <Image src="/product/dashboard.webp" alt="Corporate Brain dashboard, example workspace" width={1522} height={670} priority className="block h-auto w-full" />
+            <figcaption className="bg-navy-raised px-4 py-2 text-[11px] font-semibold text-on-navy-muted">Example workspace</figcaption>
+          </figure>
+        }
       />
+
+      <Section tone="dark" className="border-t border-navy-line">
+        <Eyebrow icon="grid" color="lime">
+          Product tour
+        </Eyebrow>
+        <H2 className="mb-8 max-w-[820px]">See Corporate Brain in action.</H2>
+        <ProductTour />
+      </Section>
 
       <CompareTable
         tone="light"
