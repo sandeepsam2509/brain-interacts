@@ -33,7 +33,7 @@ const principles = [
   { title: "People decide, not the game", text: "Results are one input alongside interviews, work samples and references. No candidate is accepted or rejected automatically." },
   { title: "Clear consent", text: "Candidates are told what is measured and why before they start, in line with India's Digital Personal Data Protection Act, 2023." },
   { title: "Built to be fair", text: "Scenarios avoid trivia, cultural in-jokes and heavy reading, so results reflect behaviour rather than background." },
-  { title: "Works on any device", text: "Designed for phones as well as laptops, so candidates can take part wherever they are." },
+  { title: "Works on any device", text: "Designed for phones, tablets and laptops, so candidates can take part wherever they are." },
 ];
 
 const earlyAccess = [
@@ -110,7 +110,7 @@ export default function GamifiedPage() {
         label={{ icon: "flow", text: "How it works", color: "lime" }}
         title="Three steps, from invite to insight."
         cards={[
-          { tag: "Step 1", title: "Invite", rule: "gold", text: "Send candidates a link from Corporate Brain. They play on a phone or laptop, with no download and no long instructions." },
+          { tag: "Step 1", title: "Invite", rule: "gold", text: "Send candidates a link from Corporate Brain. They play on a phone, tablet or laptop, with no download and no long instructions." },
           { tag: "Step 2", title: "Play", rule: "sky", text: "A warm-up scenario builds a working-style baseline, then a short scenario matched to the role shows how they handle real situations." },
           { tag: "Step 3", title: "Review", rule: "lime", text: "You get a clear profile: their archetype, the strengths they showed and what to explore in the interview." },
         ]}
