@@ -69,7 +69,7 @@ const articles: Resource[] = articleContent.map((a) => ({
   title: a.title,
   summary: a.dek,
   topic: a.topic as Topic,
-  meta: `${a.minutes} min read`,
+  meta: a.number ? `Article ${a.number} · ${a.minutes} min read` : `${a.minutes} min read`,
   href: `/resources/articles/${a.slug}`,
 }));
 
