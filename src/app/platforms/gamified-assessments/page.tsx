@@ -7,32 +7,59 @@ import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gamified Assessments, Game-Based Hiring Simulations",
+  title: "Gamified Assessments (Coming Soon), Game-Based Hiring Assessments",
   description:
-    "Short, game-based simulations that show how candidates think, recover and solve problems, not just what they say about themselves.",
+    "Short, game-based assessments that show how candidates think, decide and recover, built on the Big Five and the Corporate Brain model. Coming soon; join the early access programme.",
   alternates: { canonical: routes.gamified },
 };
 
 const trail = [{ label: "Home", href: routes.home }, { label: "Products", href: routes.corporateBrain }, { label: "Gamified Assessments" }];
 
-const questionnaires = [
-  'Easy to answer the "right" way',
-  "Score the final answer, not the thinking",
-  "Text-heavy and stressful for many candidates",
-  "Answer keys leak online",
-];
-const games = [
-  "Harder to fake, we watch what people do",
-  "Measure the process: hesitation, pathing, recovery",
-  "Visual and engaging, candidates want to finish",
-  "Scenarios vary, so there's nothing to memorize",
+const compare = [
+  { q: "Candidates can guess the answer you want", g: "Candidates show you what they do, choice by choice" },
+  { q: "Only the final answer is scored", g: "The path matters: how they plan, adjust and recover" },
+  { q: "Long, text-heavy and tiring", g: "Short, visual and designed to be finished" },
+  { q: "The same questions for every role", g: "Scenarios matched to the job you are hiring for" },
 ];
 
-const stats = [
-  { value: "~20", unit: "min", text: "One simulation, instead of long screening questionnaires", color: "text-[#B07F0E]" },
-  { value: "3", text: "Kinds of evidence: personality, skills and behavior", color: "text-ink-link" },
-  { value: "4", text: "Role tracks: sales, HR, tech and operations", color: "text-green-ink" },
-  { value: "5", text: "Big Five traits mapped from play", color: "text-navy" },
+const signals = [
+  { title: "Planning", trait: "Conscientiousness", accent: "text-gold", text: "Do they map out a route before acting, or work it out as they go?" },
+  { title: "Recovery", trait: "Emotional steadiness", accent: "text-sky", text: "After a setback, how quickly and calmly do they get back on track?" },
+  { title: "Exploration", trait: "Openness", accent: "text-lime", text: "Do they try new options and test limits, or stick to what they know?" },
+  { title: "Collaboration", trait: "Agreeableness", accent: "text-white", text: "When others are involved, do they hold their ground or look for a shared outcome?" },
+];
+
+const principles = [
+  { title: "People decide, not the game", text: "Results are one input alongside interviews, work samples and references. No candidate is accepted or rejected automatically." },
+  { title: "Clear consent", text: "Candidates are told what is measured and why before they start, in line with India's Digital Personal Data Protection Act, 2023." },
+  { title: "Built to be fair", text: "Scenarios avoid trivia, cultural in-jokes and heavy reading, so results reflect behaviour rather than background." },
+  { title: "Works on any device", text: "Designed for phones as well as laptops, so candidates can take part wherever they are." },
+];
+
+const earlyAccess = [
+  "Pilot the assessment on one or two of your real openings",
+  "Help shape the first role tracks and what the report shows",
+  "Work directly with our research team on how to read the results",
+  "Be first to know the launch date and pricing",
+];
+
+const faqs = [
+  {
+    q: "When will Gamified Assessments launch?",
+    a: "We are finalising the first role tracks with early access partners. Join the programme and we will share the timeline with you directly.",
+  },
+  {
+    q: "Does it replace interviews?",
+    a: "No. It gives you a clearer picture of how a candidate works before you meet them, so interviews can go deeper. The hiring decision stays with your team.",
+  },
+  {
+    q: "How does it connect to Corporate Brain?",
+    a: "Results use the same working-style model as Corporate Brain, so a new hire's profile sits alongside their future team's from day one.",
+  },
+  {
+    q: "Can we try it before it launches?",
+    a: "Yes. Request a sample and we will send you a preview, or join early access to pilot it with real candidates.",
+  },
 ];
 
 export default function GamifiedPage() {
@@ -40,106 +67,146 @@ export default function GamifiedPage() {
     <>
       <PageHero
         trail={trail}
-        label={{ icon: "grid", text: "Gamified assessments", color: "gold" }}
         badge="Coming soon"
-        title="Stop testing how candidates answer."
-        accent="See how they act."
-        lead="Short, game-based simulations that show how people think, recover and solve problems, not just what they say about themselves."
+        title="Hiring assessments candidates"
+        accent="actually want to finish."
+        lead="Short, game-based scenarios that show how people think, decide and bounce back, so you hire for how someone works, not just how well they answer a questionnaire."
         actions={[
-          { label: "Try a sample assessment", href: enquiryHref("sample-assessment"), variant: "gold" },
-          { label: "See the science", href: routes.science, variant: "outlineDark" },
+          { label: "Get early access", href: enquiryHref("early-access"), variant: "gold" },
+          { label: "Request a sample", href: enquiryHref("sample-assessment"), variant: "outlineDark" },
         ]}
         aside={<HeroRings items={ringSets.gamified} />}
       />
 
+      {/* Why games */}
       <Section tone="light">
         <Eyebrow icon="target" color="link">
-          Why games
+          Why a game
         </Eyebrow>
-        <H2 className="mb-10 max-w-[820px] md:mb-14">Questionnaires capture answers. Games capture behavior.</H2>
-        <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-          <div>
-            <h3 className="mb-2 font-mono text-sm font-medium text-ink-muted uppercase">Static questionnaires</h3>
-            <ul className="m-0 list-none p-0">
-              {questionnaires.map((item) => (
-                <li key={item} className="flex gap-3 border-b border-rule py-4 text-ink-body">
-                  <span aria-hidden="true" className="text-ink-muted">✕</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+        <H2 className="mb-8 max-w-[820px]">Questionnaires record what people say. A game shows what they do.</H2>
+        <div className="overflow-hidden rounded-2xl border border-rule bg-white">
+          <div className="hidden grid-cols-2 border-b border-rule bg-[#F4F6F9] md:grid">
+            <p className="px-6 py-3 font-mono text-[12px] text-ink-muted uppercase">Traditional questionnaire</p>
+            <p className="px-6 py-3 font-mono text-[12px] text-ink-link uppercase">Gamified assessment</p>
           </div>
-          <div>
-            <h3 className="mb-2 font-mono text-sm font-medium text-ink-link uppercase">Gamified assessments</h3>
-            <ul className="m-0 list-none p-0">
-              {games.map((item) => (
-                <li key={item} className="flex gap-3 border-b border-rule py-4 font-semibold">
-                  <span aria-hidden="true" className="text-green-ink">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {compare.map((row) => (
+            <div key={row.q} className="grid border-b border-rule last:border-b-0 md:grid-cols-2">
+              <p className="flex gap-3 px-6 pt-4 text-[15px] text-ink-body md:py-4">
+                <span aria-hidden="true" className="text-ink-muted">✕</span>
+                {row.q}
+              </p>
+              <p className="flex gap-3 px-6 pt-2 pb-4 text-[15px] font-semibold md:py-4">
+                <span aria-hidden="true" className="text-green-ink">✓</span>
+                {row.g}
+              </p>
+            </div>
+          ))}
         </div>
       </Section>
 
+      {/* How it works */}
       <CardGrid
         tone="dark"
-        label={{ icon: "flow", text: "The candidate journey", color: "lime" }}
-        title="Three stages. About 20 minutes."
+        label={{ icon: "flow", text: "How it works", color: "lime" }}
+        title="Three steps, from invite to insight."
         cards={[
-          { tag: "Stage 01", title: "Baseline", rule: "gold", text: "Candidates explore a low-stakes digital world while the engine maps their Big Five traits from small decisions." },
-          { tag: "Stage 02", title: "Role simulation", rule: "sky", text: "They move into a scenario built for the role you're hiring for, see the four tracks below." },
-          { tag: "Stage 03", title: "Profile", rule: "lime", text: "Recruiters get a clear behavioral profile in Corporate Brain, no spreadsheets." },
+          { tag: "Step 1", title: "Invite", rule: "gold", text: "Send candidates a link from Corporate Brain. They play on a phone or laptop, with no download and no long instructions." },
+          { tag: "Step 2", title: "Play", rule: "sky", text: "A warm-up scenario builds a working-style baseline, then a short scenario matched to the role shows how they handle real situations." },
+          { tag: "Step 3", title: "Review", rule: "lime", text: "You get a clear profile: their archetype, the strengths they showed and what to explore in the interview." },
         ]}
       />
 
+      {/* Role tracks */}
       <CardGrid
         tone="light"
         columns={4}
-        label={{ icon: "briefcase", text: "Role tracks", color: "goldInk" }}
-        title="A simulation for every function."
+        label={{ icon: "briefcase", text: "First role tracks", color: "goldInk" }}
+        title="Scenarios built around the job."
         cards={[
-          { title: "Sales & BD", text: "Negotiate with AI personas. Measures concessions, leverage and listening." },
-          { title: "HR & management", text: "Handle team burnout and resourcing. Measures empathy and efficiency." },
-          { title: "Tech & engineering", text: "Debug visual logic. Measures systematic vs trial-and-error problem-solving." },
-          { title: "Operations", text: "Run high-pressure logistics. Measures crisis handling and priority switching." },
+          { title: "Sales & business development", text: "A client conversation where they must listen, persuade and decide what to give away." },
+          { title: "People management", text: "A stretched team, competing deadlines and someone close to burnout. What do they prioritise?" },
+          { title: "Technology", text: "A puzzle that rewards tracing the cause over guessing at fixes." },
+          { title: "Operations", text: "Shifting priorities under time pressure, where calm and order matter." },
         ]}
       />
 
-      <CardGrid
-        tone="dark"
-        columns={4}
-        label={{ icon: "chart", text: "Under the hood", color: "sky" }}
-        title="We score the process, not the final click."
-        cards={[
-          { title: "Recovery latency", subtitle: "Resilience", subtitleAccent: "gold", text: "How fast they get back on track after a setback." },
-          { title: "Concession pacing", subtitle: "Influence", subtitleAccent: "sky", text: "Whether they give value away early or hold ground." },
-          { title: "Exploration", subtitle: "Curiosity & risk", subtitleAccent: "lime", text: "Whether they test a system's limits or follow the path." },
-          { title: "Debugging method", subtitle: "Conscientiousness", subtitleAccent: "white", text: "Whether they guess at fixes or trace the root cause." },
-        ]}
-      />
-
-      <Section tone="light">
-        <Eyebrow icon="chart" color="green">
-          By the numbers
+      {/* What we measure */}
+      <Section tone="dark">
+        <Eyebrow icon="chart" color="sky">
+          What we measure
         </Eyebrow>
-        <H2 className="mb-10 md:mb-14">Fast for candidates. Deep for recruiters.</H2>
-        <dl className="m-0 grid gap-10 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.text} className="border-t border-rule pt-6">
-              <dt className={`text-[clamp(42px,4.0vw,58px)] leading-none font-extrabold tracking-[-0.03em] ${s.color}`}>
-                {s.value}
-                {s.unit && <span className="text-[0.4em]">{s.unit}</span>}
-              </dt>
-              <dd className="m-0 mt-3 leading-[1.7] text-ink-body">{s.text}</dd>
+        <H2 className="mb-3 max-w-[820px]">We look at how they play, not just the final score.</H2>
+        <p className="mb-8 max-w-[680px] text-[15px] leading-[1.7] text-on-navy">
+          Each choice adds to a picture of working style, mapped to the Big Five and the Corporate Brain archetypes.
+        </p>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {signals.map((s) => (
+            <div key={s.title} className="rounded-2xl border border-navy-line bg-navy-raised p-6">
+              <p className={`font-mono text-[12px] uppercase ${s.accent}`}>{s.trait}</p>
+              <h3 className="mt-2 text-lg font-extrabold text-white">{s.title}</h3>
+              <p className="mt-2 text-[14px] leading-[1.6] text-on-navy">{s.text}</p>
             </div>
           ))}
-        </dl>
-        <p className="mt-12 border-t border-rule pt-6 text-[14px] leading-[1.7] text-ink-muted">
-          Results are one input to a hiring decision, best used alongside interviews, work samples and references. Profiles sync to
-          your ATS through the Corporate Brain API.
-        </p>
+        </div>
+      </Section>
+
+      {/* Principles */}
+      <Section tone="light">
+        <Eyebrow icon="people" color="green">
+          Built responsibly
+        </Eyebrow>
+        <H2 className="mb-8 max-w-[820px]">Fair to candidates. Useful to recruiters.</H2>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {principles.map((p) => (
+            <div key={p.title} className="rounded-2xl border border-rule bg-white p-6">
+              <h3 className="text-[17px] font-extrabold">{p.title}</h3>
+              <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Early access */}
+      <Section tone="dark">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <Eyebrow icon="spark" color="lime">
+              Early access programme
+            </Eyebrow>
+            <H2 className="mb-4">Help us shape it, and use it first.</H2>
+            <p className="text-[15px] leading-[1.7] text-on-navy">
+              We are working with a small group of organisations before launch. Early partners pilot the assessment on real hiring and
+              tell us what they need to see.
+            </p>
+          </div>
+          <ul className="m-0 grid list-none gap-3 p-0">
+            {earlyAccess.map((e) => (
+              <li key={e} className="flex gap-3 rounded-xl border border-navy-line bg-navy-raised px-5 py-4 text-[15px] text-white">
+                <span aria-hidden="true" className="text-lime">✓</span>
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section tone="light">
+        <Eyebrow icon="quote" color="link">
+          Questions
+        </Eyebrow>
+        <H2 className="mb-6">Common questions</H2>
+        <div className="max-w-[860px]">
+          {faqs.map((f) => (
+            <details key={f.q} className="group border-b border-rule py-4">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+                {f.q}
+                <span aria-hidden="true" className="text-ink-muted transition group-open:rotate-45">+</span>
+              </summary>
+              <p className="mt-2 text-[15px] leading-[1.7] text-ink-body">{f.a}</p>
+            </details>
+          ))}
+        </div>
       </Section>
 
       <CtaBlock
