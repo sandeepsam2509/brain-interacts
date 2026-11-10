@@ -71,6 +71,7 @@ const articles: Resource[] = articleContent.map((a) => ({
   topic: a.topic as Topic,
   meta: a.number ? `Article ${a.number} · ${a.minutes} min read` : `${a.minutes} min read`,
   href: `/resources/articles/${a.slug}`,
+  cover: a.number ? `/articles/covers/${a.slug}.webp` : undefined,
 }));
 
 /** Library order: available items first, coming-soon items last. */
