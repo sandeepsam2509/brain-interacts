@@ -895,10 +895,10 @@ export const seriesArticles: Article[] = [
    },
    {
     "t": "image",
-    "src": "https://images.unsplash.com/photo-1676276374803-36e48196d5ac",
-    "alt": "A planning board covered in sticky notes",
-    "credit": "Walls.io",
-    "creditUrl": "https://unsplash.com/@walls_io?utm_source=brain_interacts&utm_medium=referral"
+    "src": "https://images.unsplash.com/photo-1503551723145-6c040742065b-v2",
+    "alt": "Colourful sticky notes from a team brainstorm",
+    "credit": "Patrick Perkins",
+    "creditUrl": "https://unsplash.com/@patrickperkins?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -5456,8 +5456,8 @@ export const seriesArticles: Article[] = [
    },
    {
     "t": "image",
-    "src": "https://images.unsplash.com/photo-1758520144658-c87be518b87e",
-    "alt": "Colleagues celebrating together at work",
+    "src": "https://images.unsplash.com/photo-1758518729463-0bb73ed899ac",
+    "alt": "Colleagues in conversation in an office lobby",
     "credit": "Vitaly Gariev",
     "creditUrl": "https://unsplash.com/@silverkblack?utm_source=brain_interacts&utm_medium=referral"
    },
