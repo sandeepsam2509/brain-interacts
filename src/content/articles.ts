@@ -8,6 +8,7 @@ export type Block =
   | { t: "p"; text: string }
   | { t: "h2"; text: string }
   | { t: "h3"; text: string }
+  | { t: "image"; src: string; alt: string; credit: string; creditUrl: string }
   | { t: "quote"; text: string }
   | { t: "list"; items: string[]; ordered?: boolean }
   | { t: "steps"; items: { title: string; text: string }[] }

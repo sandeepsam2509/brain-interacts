@@ -21,6 +21,13 @@ export const seriesArticles: Article[] = [
     "text": "Gallup's State of the Global Workplace research puts the cost of low engagement at roughly $8.9 trillion a year, about 9% of global GDP. Most of that loss doesn't show up in a P&L line. It shows up as projects staffed with the wrong mix of people, managers guessing about team fit, and high performers quietly burning out. Behavioral analytics makes those patterns visible before they cost you."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    "alt": "Statistics on a laptop",
+    "credit": "Carlos Muza",
+    "creditUrl": "https://unsplash.com/@kmuza?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What Workplace Behavioral Analytics Actually Measures"
    },
@@ -119,6 +126,13 @@ export const seriesArticles: Article[] = [
     "text": "Don't try to instrument the whole organisation at once. Pick one high-stakes use case, such as staffing your next cross-functional program, and measure the difference against business-as-usual. A focused pilot builds credibility with your CHRO and with employees."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    "alt": "Colleagues working together around laptops",
+    "credit": "Annie Spratt",
+    "creditUrl": "https://unsplash.com/@anniespratt?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "A Simple Framework for Getting Started"
    },
@@ -207,6 +221,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gallup research shows managers account for around 70% of the variance in team engagement. Most HR systems track the manager as a name on an org chart, not as a driver of team dynamics. Seeing the difference is where better decisions start."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1791298042929-6d1751a0ee8d",
+    "alt": "Two colleagues looking at a laptop in a modern office",
+    "credit": "Centre for Ageing Better",
+    "creditUrl": "https://unsplash.com/@ageing_better?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -312,6 +333,13 @@ export const seriesArticles: Article[] = [
     ]
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1559523182-a284c3fb7cff",
+    "alt": "A team planning together on laptops",
+    "credit": "Austin Distel",
+    "creditUrl": "https://unsplash.com/@austindistel?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Choosing People Analytics Tools for Mid-Size Companies"
    },
@@ -414,6 +442,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "If you're making real decisions about teams, development or staffing, the science underneath matters. Here's why the Big Five has earned its place."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1622675363311-3e1904dc1885",
+    "alt": "Colleagues with different working styles in a meeting",
+    "credit": "Mapbox",
+    "creditUrl": "https://unsplash.com/@mapbox?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -631,6 +666,13 @@ export const seriesArticles: Article[] = [
     "text": "PMI's Pulse of the Profession research has repeatedly found that a significant share of project investment is wasted through poor performance. Staffing is rarely the only cause, but it's one of the most controllable."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa",
+    "alt": "A business leader reading the news",
+    "credit": "Adeolu Eletu",
+    "creditUrl": "https://unsplash.com/@adeolueletu?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Instinct Fails in Team Decisions"
    },
@@ -750,6 +792,13 @@ export const seriesArticles: Article[] = [
     "text": "This protocol takes an hour. It can save months."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1557804506-669a67965ba0",
+    "alt": "A team reviewing plans at a whiteboard",
+    "credit": "Austin Distel",
+    "creditUrl": "https://unsplash.com/@austindistel?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "How to Reduce Bias in Team Selection"
    },
@@ -843,6 +892,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Google's Project Aristotle, a multi-year study of its own teams, found that who was on a team mattered less than how the team worked together. Working styles are a big part of that \"how.\""
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1676276374803-36e48196d5ac",
+    "alt": "A planning board covered in sticky notes",
+    "credit": "Walls.io",
+    "creditUrl": "https://unsplash.com/@walls_io?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -1085,6 +1141,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gallup's research shows that people who use their strengths every day are significantly more engaged and productive than those who don't. Every task you assign is a chance to use those strengths, or to waste them."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1646066490251-1ec58df3d7f5",
+    "alt": "A team dividing up work around a table",
+    "credit": "Parabol",
+    "creditUrl": "https://unsplash.com/@parabol?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -1333,6 +1396,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "McKinsey research has long argued that a small number of critical roles drive a disproportionate share of a company's value. Yet most annual plans allocate headcount by department budget, not by which roles matter most to the goals."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1435527173128-983b87201f4d",
+    "alt": "An open planner on a desk",
+    "credit": "Eric Rothermel",
+    "creditUrl": "https://unsplash.com/@erothermel?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -1590,6 +1660,13 @@ export const seriesArticles: Article[] = [
     "text": "Microsoft's Work Trend Index found that most leaders struggle to feel confident their hybrid teams are productive, a phenomenon it called \"productivity paranoia.\" The fix isn't more surveillance. It's better staffing decisions grounded in how people actually work."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
+    "alt": "A distributed team on a video call",
+    "credit": "Chris Montgomery",
+    "creditUrl": "https://unsplash.com/@cwmonty?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What's Hard About Distributed Teams"
    },
@@ -1815,6 +1892,13 @@ export const seriesArticles: Article[] = [
     "text": "Decades of research on selection methods, including the widely cited meta-analyses by Schmidt and Hunter and later updates by Sackett and colleagues, show that years of experience and unstructured interviews are among the weaker predictors of job performance. Structured methods do much better."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1686771416282-3888ddaf249b",
+    "alt": "An interviewer and candidate shaking hands",
+    "credit": "Mina Rad",
+    "creditUrl": "https://unsplash.com/@miinrad?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What Is Role Fit?"
    },
@@ -2034,6 +2118,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "SHRM and US Department of Labor estimates have put the cost of a bad hire at up to 30% of the employee's first-year earnings. Many bad hires aren't bad candidates. They're good candidates hired into the wrong context."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1549637642-90187f64f420",
+    "alt": "Empty desks waiting for new hires",
+    "credit": "kate.sade",
+    "creditUrl": "https://unsplash.com/@kate_sade?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -2272,6 +2363,13 @@ export const seriesArticles: Article[] = [
     "text": "Research on selection methods, from Schmidt and Hunter's classic meta-analysis to more recent updates by Sackett and colleagues, consistently shows that work samples and structured evaluations predict performance far better than unstructured judgment. Yet many tech hiring processes still rely on brain-teasers and algorithm trivia with little link to the actual work."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1542831371-29b0f74f9713",
+    "alt": "Lines of code on a screen",
+    "credit": "Florian Olivo",
+    "creditUrl": "https://unsplash.com/@florianolv?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Most Technical Tests Miss the Mark"
    },
@@ -2464,6 +2562,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Research on hiring has shown for decades that structured evaluation beats unstructured judgment. Studies of interviewer behaviour also show that first impressions form within minutes and shape everything that follows. Without a consistent way to compare candidates, shortlists reflect memory and bias as much as merit."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1603796846097-bee99e4a601f",
+    "alt": "Reviewing paperwork at a desk",
+    "credit": "Romain Dancre",
+    "creditUrl": "https://unsplash.com/@romaindancre?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -2669,6 +2774,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Research from firms such as Korn Ferry and Harvard Business Review has repeatedly found that many companies have no formal succession plan for critical roles, even at the top. In India, where many companies are founder-led or family-run, the gap is often wider and the stakes higher."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793",
+    "alt": "Chess pieces on a board",
+    "credit": "Felix Mittermeier",
+    "creditUrl": "https://unsplash.com/@felix_mittermeier?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -2898,6 +3010,13 @@ export const seriesArticles: Article[] = [
     "text": "McKinsey research on talent allocation has argued that a small number of critical roles drive a large share of enterprise value, and that companies which match their best talent to those roles outperform those that don't. Yet in many organisations, senior placements still depend on availability, tenure and who the CEO knows best."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1764810815228-b7f9432eec5c",
+    "alt": "A modern boardroom",
+    "credit": "john renzzel",
+    "creditUrl": "https://unsplash.com/@johnrenzzel?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Placement Matters as Much as Talent"
    },
@@ -3110,6 +3229,13 @@ export const seriesArticles: Article[] = [
     "text": "Daniel Goleman's well-known research, published in Harvard Business Review as \"Leadership That Gets Results,\" found that the most effective leaders don't rely on one style. They switch between several depending on the situation, and that flexibility was linked to better organisational climate and performance."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    "alt": "A leader presenting to a team",
+    "credit": "Campaign Creators",
+    "creditUrl": "https://unsplash.com/@campaign_creators?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What a Leadership Archetype Is"
    },
@@ -3318,6 +3444,13 @@ export const seriesArticles: Article[] = [
     "text": "Gallup has found that companies pick the wrong person for the manager role a large share of the time, often promoting top individual performers without checking whether they have the talent for managing people. CEB (now part of Gartner) research has also found that many new managers struggle in their first year. The good news is that the struggles are predictable, which means they're avoidable."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1573497620053-ea5300f94f21",
+    "alt": "A manager in conversation with a team member",
+    "credit": "Christina @ wocintechchat.com",
+    "creditUrl": "https://unsplash.com/@wocintechchat?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What New Managers Struggle With"
    },
@@ -3511,6 +3644,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gallup research has found that only a small minority of employees strongly agree that their performance is managed in a way that motivates them to do outstanding work. Deloitte famously redesigned its own performance management after finding its traditional process consumed huge amounts of time while doing little to drive performance."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
+    "alt": "A review discussion around a table",
+    "credit": "Dylan Gillis",
+    "creditUrl": "https://unsplash.com/@mainermedia?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -3719,6 +3859,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "The cost of catching problems late is well documented. Research on software quality, including widely cited work from IBM and NIST, has found that defects get dramatically more expensive to fix the later they're discovered. The same principle applies far beyond code: a mistake caught in review is cheap, while one caught by a customer is not."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b",
+    "alt": "Ticking off a checklist",
+    "credit": "Glenn Carstens-Peters",
+    "creditUrl": "https://unsplash.com/@glenncarstenspeters?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -3936,6 +4083,13 @@ export const seriesArticles: Article[] = [
     "text": "Microsoft's Work Trend Index described a \"productivity paranoia\" gap, where most leaders said they struggled to feel confident their people were productive while most employees said they were. Gartner research has also found that monitoring can backfire, with tracked employees more likely to engage in counterproductive behaviours such as faking activity."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1499750310107-5fef28a66643",
+    "alt": "A tidy desk set up for focused work",
+    "credit": "Andrew Neel",
+    "creditUrl": "https://unsplash.com/@andrewtneel?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Surveillance Fails"
    },
@@ -4137,6 +4291,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gallup research on burnout has found that unmanageable workload is one of the top causes of employee burnout, alongside unfair treatment and lack of manager support. The World Health Organization recognises burnout as an occupational phenomenon resulting from chronic workplace stress that hasn't been successfully managed."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1713947503867-3b27964f042b",
+    "alt": "An overworked employee at his desk",
+    "credit": "Vitaly Gariev",
+    "creditUrl": "https://unsplash.com/@silverkblack?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -4367,6 +4528,13 @@ export const seriesArticles: Article[] = [
     "text": "Research from CPP Inc. (now The Myers-Briggs Company) found that US employees spend nearly three hours a week dealing with workplace conflict. Google's Project Aristotle found psychological safety was the strongest predictor of team effectiveness. Unresolved friction erodes exactly that."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a",
+    "alt": "A team meeting around a table",
+    "credit": "Mario Gogh",
+    "creditUrl": "https://unsplash.com/@mariogogh?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What Causes Team Friction"
    },
@@ -4592,6 +4760,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gallup research has found that employees whose managers hold regular, meaningful conversations with them are significantly more likely to be engaged. The frequency matters, but the quality matters more."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1",
+    "alt": "A one-on-one conversation over coffee",
+    "credit": "Priscilla Du Preez",
+    "creditUrl": "https://unsplash.com/@priscilladupreez?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -4828,6 +5003,13 @@ export const seriesArticles: Article[] = [
     "text": "Research from organisations such as The Economist Intelligence Unit has found that poor communication is widely blamed for delayed projects, missed goals and lost sales. Grammarly and Harris Poll research has estimated that ineffective communication costs US businesses over a trillion dollars a year. The cost is real, and much of it comes from style mismatches rather than lack of effort."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624",
+    "alt": "Paper shaped into a speech bubble",
+    "credit": "Volodymyr Hryshchenko",
+    "creditUrl": "https://unsplash.com/@lunarts?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Types of Communication Styles at Work"
    },
@@ -5027,6 +5209,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Organisational psychologist Tasha Eurich's research, published in Harvard Business Review, found that while most people believe they are self-aware, only a small minority, around 10 to 15 percent, actually are. That gap is a huge opportunity for anyone willing to look honestly at how they work."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1462642109801-4ac2971a3a51",
+    "alt": "A pen resting on a journal",
+    "credit": "Aaron Burden",
+    "creditUrl": "https://unsplash.com/@aaronburden?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -5266,6 +5455,13 @@ export const seriesArticles: Article[] = [
     "text": "Deloitte's Global Human Capital Trends research has repeatedly found that most executives see culture as critical to business success, yet far fewer believe their organisation has the right culture. The gap between ambition and evidence is where measurement helps."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1758520144658-c87be518b87e",
+    "alt": "Colleagues celebrating together at work",
+    "credit": "Vitaly Gariev",
+    "creditUrl": "https://unsplash.com/@silverkblack?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What Corporate Culture Actually Is"
    },
@@ -5486,6 +5682,13 @@ export const seriesArticles: Article[] = [
     "text": "McKinsey research has found that culture clashes are one of the most commonly cited reasons mergers fail to deliver their expected value. Other studies of M&A outcomes consistently put a large share of deals in the \"failed to meet expectations\" category, with people and culture issues near the top of the list."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13",
+    "alt": "Two people shaking hands on a deal",
+    "credit": "Radission US",
+    "creditUrl": "https://unsplash.com/@radission?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Mergers Fail on Culture"
    },
@@ -5684,6 +5887,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Research from MIT Sloan Management Review, analysing employee reviews across hundreds of large companies, found little correlation between the values companies officially list and how employees actually rate their culture on those values. Saying it doesn't make it so."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1774578342274-29121c889b01",
+    "alt": "A desk with framed art and office supplies",
+    "credit": "Franco Debartolo",
+    "creditUrl": "https://unsplash.com/@francotheshooter?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -5896,6 +6106,13 @@ export const seriesArticles: Article[] = [
     "text": "Geert Hofstede's well-known cultural research places India relatively high on power distance, meaning people tend to accept and expect hierarchy. That doesn't make honest feedback impossible. It means it has to be designed for, not assumed."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/flagged/photo-1576485436509-a7d286952b65",
+    "alt": "A team workshop in an Indian office",
+    "credit": "Smartworks Coworking",
+    "creditUrl": "https://unsplash.com/@smartworkscoworking?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Feedback Is Hard in Hierarchical Teams"
    },
@@ -6089,6 +6306,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gartner research has found that many HR leaders struggle to show the impact of their programs. One reason is simple: a lot of HR effort goes into treating symptoms rather than diagnosing causes."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6",
+    "alt": "A magnifying glass on a table",
+    "credit": "Markus Winkler",
+    "creditUrl": "https://unsplash.com/@markuswinkler?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -6298,6 +6522,13 @@ export const seriesArticles: Article[] = [
     "text": "Gallup research has estimated that replacing an employee can cost from one-half to two times their annual salary. Gallup has also found that a large share of employees who leave say their manager or organisation could have done something to keep them. Much attrition is preventable, if you find the cause early enough."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1758691737424-b0cdcfce9f66",
+    "alt": "An employee leaving the office with a box of belongings",
+    "credit": "Vitaly Gariev",
+    "creditUrl": "https://unsplash.com/@silverkblack?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Why Good Employees Leave"
    },
@@ -6488,6 +6719,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "PMI's Pulse of the Profession research has repeatedly found that a significant share of projects miss their original deadlines, with causes ranging from changing priorities to poor communication and inadequate resourcing. Few of those causes are fixed by sending people on a course."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1541480601022-2308c0f02487",
+    "alt": "An alarm clock",
+    "credit": "insung yoon",
+    "creditUrl": "https://unsplash.com/@insungpandora?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -6699,6 +6937,13 @@ export const seriesArticles: Article[] = [
     "text": "Gallup research has found that people who use their strengths every day are more engaged and less likely to leave. LinkedIn's Global Talent Trends and Workplace Learning reports have also highlighted that employees who make internal moves are significantly more likely to stay with their company than those who don't."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1758691737138-7b9b1884b1db",
+    "alt": "A team celebrating a success",
+    "credit": "Vitaly Gariev",
+    "creditUrl": "https://unsplash.com/@silverkblack?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Does Role Fit Affect Retention?"
    },
@@ -6904,6 +7149,13 @@ export const seriesArticles: Article[] = [
     "text": "This article is general information, not legal advice. Consult qualified counsel for your organisation's specific obligations."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1633265486064-086b219458ec",
+    "alt": "A padlock resting on a keyboard",
+    "credit": "Towfiqu barbhuiya",
+    "creditUrl": "https://unsplash.com/@towfiqu999999?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What the DPDP Act Is"
    },
@@ -7085,6 +7337,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "PwC and other researchers have repeatedly found that many employees are uneasy about how their employers use their data, and that trust drops sharply when people feel data is collected without their knowledge. Accenture research on workforce data has similarly found that responsible use of employee data can build trust, while misuse destroys it."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1638262052640-82e94d64664a",
+    "alt": "Two people shaking hands across a table",
+    "credit": "Rock Staar",
+    "creditUrl": "https://unsplash.com/@rockstaar_?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -7300,6 +7559,13 @@ export const seriesArticles: Article[] = [
     "text": "The risks are not hypothetical. Reuters reported in 2018 that Amazon scrapped an experimental AI recruiting tool after finding it penalised résumés that included the word \"women's.\" Regulators have taken notice: the EU AI Act classifies AI used in recruitment and employment decisions as high-risk, with strict requirements for human oversight, and New York City now requires bias audits for automated employment decision tools."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a",
+    "alt": "A close-up of a robotic arm",
+    "credit": "Franck V.",
+    "creditUrl": "https://unsplash.com/@possessedphotography?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "Should AI Make Hiring Decisions?"
    },
@@ -7499,6 +7765,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "This article is general information, not legal advice. Consult qualified counsel for your organisation's specific obligations."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1524661135-423995f22d0b",
+    "alt": "A world map with pinned locations",
+    "credit": "Andrew Stutesman",
+    "creditUrl": "https://unsplash.com/@drwmrk?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -7710,6 +7983,13 @@ export const seriesArticles: Article[] = [
     "text": "Deloitte and The Manufacturing Institute have projected large skills gaps in manufacturing over the coming decade, with millions of jobs at risk of going unfilled. In India, rapid expansion under programs such as Make in India and production-linked incentive schemes is adding pressure to find and develop capable plant leaders quickly."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1598299803204-b73796f43289",
+    "alt": "A worker operating factory machinery",
+    "credit": "Sam Moghadam",
+    "creditUrl": "https://unsplash.com/@sammoghadam?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "How Manufacturing People Analytics Is Different"
    },
@@ -7904,6 +8184,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "NASSCOM data shows India's technology industry employs several million people, and delivery models depend on moving those people efficiently across projects. Industry analysts have long tracked utilisation and bench as key margin drivers. Every week someone sits unallocated costs money, and every mismatched allocation costs client satisfaction."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1580983553600-c49a1d083f54",
+    "alt": "Engineers at work in a tech office",
+    "credit": "ThisisEngineering",
+    "creditUrl": "https://unsplash.com/@thisisengineering?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -8117,6 +8404,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "India's facilities management sector employs a very large frontline workforce and has historically seen high attrition, especially in entry-level roles. Industry reports regularly cite attrition, training costs and service consistency as the sector's biggest operational headaches."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f",
+    "alt": "A maintenance worker with a power tool",
+    "credit": "Jeriden Villegas",
+    "creditUrl": "https://unsplash.com/@jeriden94?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -8354,6 +8648,13 @@ export const seriesArticles: Article[] = [
     "text": "CB Insights' analysis of startup post-mortems has repeatedly found \"not the right team\" among the most commonly cited reasons for failure, alongside running out of cash and lack of market need. Team problems are rarely the headline, but they're often the root cause."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1670851050245-d861fd433d06",
+    "alt": "Two colleagues in a small office",
+    "credit": "Jotform",
+    "creditUrl": "https://unsplash.com/@jotform?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "When Should Startups Use People Analytics?"
    },
@@ -8555,6 +8856,13 @@ export const seriesArticles: Article[] = [
     "text": "TransUnion CIBIL and other bureaus have highlighted that a large share of Indian adults are new to credit or have limited credit histories. As lenders push into new segments such as small businesses, first-time borrowers and semi-urban markets, traditional scorecards alone leave significant blind spots."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f",
+    "alt": "The columns of a bank building",
+    "credit": "Etienne Martin",
+    "creditUrl": "https://unsplash.com/@etiennemartin?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What Behavioral Risk Intelligence Is"
    },
@@ -8743,6 +9051,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "India's credit bureaus and industry reports have repeatedly pointed out that a large number of Indians are new to credit. The World Bank's Global Findex data has also tracked the gap between account ownership and access to formal credit. Closing that gap responsibly is both a business opportunity and a financial inclusion goal."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1753164597612-5e71b83fda91",
+    "alt": "A small business owner working in her shop",
+    "credit": "Vitaly Gariev",
+    "creditUrl": "https://unsplash.com/@silverkblack?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -8937,6 +9252,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Industry reports and staffing firms such as TeamLease have repeatedly flagged very high attrition in frontline BFSI sales roles in India, often among the highest of any white-collar segment. Every early exit means lost training investment, disrupted customer relationships and pressure on the managers left behind."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1766066014237-00645c74e9c6",
+    "alt": "A smiling customer service agent with a headset",
+    "credit": "BaljkanN4",
+    "creditUrl": "https://unsplash.com/@baljkann4?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -9153,6 +9475,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "The Wells Fargo fake accounts scandal in the United States, where employees opened millions of unauthorised accounts under intense sales pressure, became a textbook case of how incentives and culture can drive misconduct at scale. Regulators worldwide, including the UK's Financial Conduct Authority, have since placed culture at the centre of conduct supervision. In India, RBI has also increasingly emphasised governance, mis-selling and fair treatment of customers."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1728341651771-49116b839d18",
+    "alt": "A financial district seen from afar",
+    "credit": "Rose Galloway Green",
+    "creditUrl": "https://unsplash.com/@rgreen?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -9378,6 +9707,13 @@ export const seriesArticles: Article[] = [
     "text": "Game-based and simulation assessments have grown quickly in graduate and volume hiring. Large employers such as Unilever have publicly described using game-based tools in early-career recruitment, and research in industrial-organisational psychology has explored how well these formats measure cognitive ability and behavioral traits."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8",
+    "alt": "Hands on game controllers",
+    "credit": "JESHOOTS.COM",
+    "creditUrl": "https://unsplash.com/@jeshoots?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What Are Game-Based Assessments?"
    },
@@ -9586,6 +9922,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Research on personality testing has long documented that candidates can and do inflate their self-reported answers when a job is on the line. Meta-analytic work on faking, including studies by Viswesvaran and Ones, found that people can substantially raise their scores on personality questionnaires when motivated to. That's a real limitation in high-stakes hiring."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b",
+    "alt": "Someone completing a written test",
+    "credit": "Nguyen Dang Hoang Nhu",
+    "creditUrl": "https://unsplash.com/@nguyendhn?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",
@@ -9819,6 +10162,13 @@ export const seriesArticles: Article[] = [
     "text": "Gartner has consistently ranked leader and manager effectiveness, change management and workforce planning among HR leaders' top priorities. McKinsey's research on generative AI suggests that a large share of work activities could be reshaped by automation over the coming years. As roles change faster, understanding how people work becomes as important as knowing what they know."
    },
    {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1535391879778-3bae11d29a24",
+    "alt": "A city skyline at night",
+    "credit": "Irina Iriser",
+    "creditUrl": "https://unsplash.com/@iriser?utm_source=brain_interacts&utm_medium=referral"
+   },
+   {
     "t": "h2",
     "text": "What a Behavioral Enterprise Is"
    },
@@ -10015,6 +10365,13 @@ export const seriesArticles: Article[] = [
    {
     "t": "p",
     "text": "Gartner and other analysts have noted that many HR technology investments fail to deliver expected value, often because of poor adoption, weak integration or a mismatch between the tool and the decisions it's meant to support. A structured evaluation reduces that risk."
+   },
+   {
+    "t": "image",
+    "src": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+    "alt": "Comparing options on a laptop",
+    "credit": "freestocks",
+    "creditUrl": "https://unsplash.com/@freestocks?utm_source=brain_interacts&utm_medium=referral"
    },
    {
     "t": "h2",

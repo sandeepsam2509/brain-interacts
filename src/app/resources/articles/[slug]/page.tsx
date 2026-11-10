@@ -65,6 +65,32 @@ function Body({ blocks }: { blocks: Block[] }) {
                 {b.text}
               </h2>
             );
+          case "image":
+            return (
+              <figure key={i} className="my-10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${b.src}?auto=format&fit=crop&w=1600&h=900&q=80`}
+                  srcSet={`${b.src}?auto=format&fit=crop&w=800&h=450&q=80 800w, ${b.src}?auto=format&fit=crop&w=1200&h=675&q=80 1200w, ${b.src}?auto=format&fit=crop&w=1600&h=900&q=80 1600w, ${b.src}?auto=format&fit=crop&w=2400&h=1350&q=80 2400w`}
+                  sizes="(min-width: 1024px) 720px, 100vw"
+                  alt={b.alt}
+                  width={1600}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-video w-full rounded-2xl object-cover"
+                />
+                <figcaption className="mt-2 text-[12px] text-ink-muted">
+                  Photo by{" "}
+                  <a href={b.creditUrl} target="_blank" rel="noopener noreferrer" className="underline">
+                    {b.credit}
+                  </a>{" "}
+                  on{" "}
+                  <a href="https://unsplash.com/?utm_source=brain_interacts&utm_medium=referral" target="_blank" rel="noopener noreferrer" className="underline">
+                    Unsplash
+                  </a>
+                </figcaption>
+              </figure>
+            );
           case "h3":
             return (
               <h3
