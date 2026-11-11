@@ -27,9 +27,11 @@ export function Art({ r, seed }: { r: Resource; seed: number }) {
       <rect width="320" height="200" fill="#0F172A" />
       {v === 0 && (
         <>
-          <circle cx="250" cy="40" r="110" fill={t.a} opacity="0.9" />
-          <circle cx="80" cy="190" r="80" fill="#CBD5E1" opacity="0.35" />
-          <circle cx="250" cy="40" r="52" fill="#0F172A" opacity="0.25" />
+          <g transform="translate(150 10) scale(2.3)">
+            <circle cx="36" cy="14" r="14" fill="#B91C1C" opacity="0.85" />
+            <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F4C20D" opacity="0.9" />
+            <path d="M22 40H50L36 64Z" fill="#FFFFFF" />
+          </g>
         </>
       )}
       {v === 1 && (
