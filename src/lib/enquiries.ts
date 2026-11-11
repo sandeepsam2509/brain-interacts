@@ -145,7 +145,7 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
   },
   "sample-assessment": {
     label: "Try a sample assessment",
-    eyebrow: "Gamified Assessments",
+    eyebrow: "Decode",
     title: "Try a sample assessment",
     intro: "We'll send you a sample simulation to play, so you can see what candidates experience.",
     subject: "Sample assessment request",
@@ -155,10 +155,10 @@ export const enquiries: Record<EnquiryKey, Enquiry> = {
   },
   "early-access": {
     label: "Get early access",
-    eyebrow: "Gamified Assessments · Coming soon",
+    eyebrow: "Decode · Coming soon",
     title: "Get early access",
-    intro: "Gamified Assessments is launching soon. Tell us about your hiring and we'll invite you to the early access programme.",
-    subject: "Gamified Assessments early access",
+    intro: "Decode is launching soon. Tell us about your hiring and we'll invite you to the early access programme.",
+    subject: "Decode early access",
     messageLabel: "Which roles are you hiring for?",
     submit: "Request early access",
     thanks: "Thanks, you're on the early access list. We'll be in touch within one working day.",

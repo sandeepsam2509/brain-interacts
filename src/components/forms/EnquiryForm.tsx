@@ -5,7 +5,7 @@ import { routes } from "@/lib/site";
 import { Field, FormStatus, Honeypot, inputClass } from "./fields";
 import { useSubmit } from "./useSubmit";
 
-const products = ["Corporate Brain", "FinCheck", "Gamified Assessments", "A solution / consulting"];
+const products = ["Corporate Brain", "FinCheck", "Decode", "A solution / consulting"];
 
 /**
  * The form behind every enquiry button. The enquiry type sets the wording, whether the product
@@ -106,7 +106,7 @@ export function EnquiryForm({
           </a>
           .
         </p>
-        <button type="submit" disabled={sending} className="w-full rounded-lg bg-lime px-6 py-3 text-base font-bold text-navy hover:bg-[#c7ea72] disabled:opacity-60">
+        <button type="submit" disabled={sending} className="w-full rounded-lg bg-lime px-6 py-3 text-base font-bold text-navy hover:bg-[#F7CF3D] disabled:opacity-60">
           {sending ? "Sending…" : enquiry.submit}
         </button>
         <FormStatus status={status} tone={tone} sentText={enquiry.thanks} />

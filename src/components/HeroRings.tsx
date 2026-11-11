@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-// Three interlocking rings in the brand colours, drawn in 3D on a canvas and turning slowly.
+// Three interlocking rings in the brand colours (red, amber, green), drawn in 3D on a canvas and turning slowly.
 // A labelled point travels on each ring: Leadership, Managers, Employees.
 import { ringSets, type RingItem } from "@/content/rings";
 
 const GEOMETRY = [
-  { color: "59,181,232", tiltX: 0.35, tiltZ: 0.0, speed: 0.22 },
-  { color: "154,215,81", tiltX: 0.35, tiltZ: 2.094, speed: -0.18 },
-  { color: "234,210,95", tiltX: 0.35, tiltZ: 4.189, speed: 0.15 },
+  { color: "185,28,28", tiltX: 0.35, tiltZ: 0.0, speed: 0.22 },
+  { color: "244,194,13", tiltX: 0.35, tiltZ: 2.094, speed: -0.18 },
+  { color: "21,128,61", tiltX: 0.35, tiltZ: 4.189, speed: 0.15 },
 ];
 
 export function HeroRings({ items = ringSets.corporateBrain }: { items?: RingItem[] }) {
@@ -71,8 +71,8 @@ export function HeroRings({ items = ringSets.corporateBrain }: { items?: RingIte
 
       // soft glow in the centre
       const g = ctx.createRadialGradient(ox, oy, 0, ox, oy, R * 1.4);
-      g.addColorStop(0, "rgba(120,180,255,0.12)");
-      g.addColorStop(1, "rgba(120,180,255,0)");
+      g.addColorStop(0, "rgba(203,213,225,0.12)");
+      g.addColorStop(1, "rgba(203,213,225,0)");
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, w, h);
 
@@ -143,7 +143,7 @@ export function HeroRings({ items = ringSets.corporateBrain }: { items?: RingIte
           className={`pointer-events-none rounded-xl border border-navy-line bg-navy-raised/90 px-3.5 py-2.5 shadow-lg backdrop-blur sm:absolute sm:w-max sm:max-w-[210px] ${spots[i]}`}
           style={{ borderLeft: `3px solid rgb(${r.color})` }}
         >
-          <p className="m-0 font-mono text-[11px] uppercase" style={{ color: `rgb(${r.color})` }}>{r.label}</p>
+          <p className="m-0 font-mono text-[11px] font-semibold tracking-[0.08em] text-white uppercase">{r.label}</p>
           <p className="m-0 mt-0.5 text-[13px] leading-[1.4] font-semibold text-white">{r.text}</p>
         </div>
       ))}

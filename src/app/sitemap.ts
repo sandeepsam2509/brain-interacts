@@ -6,9 +6,9 @@ import { site } from "@/lib/site";
 const paths = [
   "/",
   "/about",
-  "/platforms/corporate-brain",
+  "/brand",
+  "/industries",
   "/platforms/fincheck",
-  "/platforms/gamified-assessments",
   "/services/custom-assessment-systems",
   "/services/corporate-culture-study",
   "/services/root-cause-analytics",

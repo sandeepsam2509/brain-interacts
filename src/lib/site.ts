@@ -7,20 +7,21 @@ export const site = {
   name: "Brain Interacts",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://braininteracts.com",
   description:
-    "Behavioral analytics and people analytics for organizations that build teams on evidence. See how your people really work, and who should do what next.",
+    "Brain Interacts is a people analytics company. We research how work happens in each industry and build products, like Corporate Brain and Decode, that help workplaces flourish.",
   email: "support@braininteracts.com",
   phone: "+91 72760 69027",
   phoneHref: "tel:+917276069027",
   signIn: "https://corporatebrain.braininteracts.com",
+  decode: "https://decode.braininteracts.com",
   // Company LinkedIn page. Left empty until the exact URL is confirmed; the footer hides the link while empty.
   linkedIn: "",
 };
 
 export const routes = {
   home: "/",
-  corporateBrain: "/platforms/corporate-brain",
+  corporateBrain: "https://corporatebrain.braininteracts.com/",
   finCheck: "/platforms/fincheck",
-  gamified: "/platforms/gamified-assessments",
+  gamified: "https://decode.braininteracts.com/",
   customAssessments: "/services/custom-assessment-systems",
   cultureStudy: "/services/corporate-culture-study",
   rootCause: "/services/root-cause-analytics",
@@ -36,6 +37,8 @@ export const routes = {
   stories: "/customer-stories",
   pricing: "/pricing",
   about: "/about",
+  brand: "/brand",
+  industries: "/industries",
   contact: "/contact",
   unlock: "/unlock",
   demo: "/contact?enquiry=demo#enquiry",
@@ -60,7 +63,7 @@ export const mainNav: MainNavItem[] = [
     href: routes.corporateBrain,
     children: [
       { label: "Corporate Brain", href: routes.corporateBrain, description: "People analytics and task intelligence for every level" },
-      { label: "Gamified Assessments", href: routes.gamified, description: "Simulations that show how people decide", badge: "Soon" },
+      { label: "Decode", href: routes.gamified, description: "Game-based assessments for 85 roles" },
       { label: "FinCheck", href: routes.finCheck, description: "Behavioral risk intelligence for lenders", badge: "Soon" },
     ],
   },
@@ -74,6 +77,7 @@ export const mainNav: MainNavItem[] = [
     ],
   },
 
+  { label: "Industries", href: routes.industries },
   { label: "Resources", href: routes.resources },
 
   { label: "Customer Stories", href: routes.stories },
@@ -88,7 +92,7 @@ export const footerColumns: NavGroup[] = [
     items: [
       { label: "Corporate Brain", href: routes.corporateBrain },
       { label: "FinCheck", href: routes.finCheck },
-      { label: "Gamified Assessments", href: routes.gamified },
+      { label: "Decode", href: routes.gamified },
     ],
   },
   {
@@ -97,6 +101,7 @@ export const footerColumns: NavGroup[] = [
       { label: "Custom Psychological Assessment Systems", href: routes.customAssessments },
       { label: "Corporate Culture Study", href: routes.cultureStudy },
       { label: "Root Cause Analytics", href: routes.rootCause },
+      { label: "Industries", href: routes.industries },
     ],
   },
   {
@@ -116,6 +121,7 @@ export const footerColumns: NavGroup[] = [
     items: [
       { label: "About", href: routes.about },
       { label: "Contact", href: routes.contact },
+      { label: "Brand", href: routes.brand },
       { label: "Legal", href: routes.legal },
       { label: "Integrations", href: routes.integrations },
       { label: "Careers", href: routes.careers },

@@ -160,7 +160,7 @@ export function AssessmentFinder() {
                 ))}
               </ol>
             </div>
-            <div className="flex flex-col border-t border-rule bg-[#F6F7F9] p-5 md:p-7 lg:border-t-0 lg:border-l">
+            <div className="flex flex-col border-t border-rule bg-[#F5F7FA] p-5 md:p-7 lg:border-t-0 lg:border-l">
               <p className="font-mono text-xs text-ink-muted uppercase">Based on</p>
               <ul className="m-0 mt-3 flex list-none flex-wrap gap-2 p-0">
                 {Object.values(context).map((v) => (
@@ -174,7 +174,7 @@ export function AssessmentFinder() {
               <div className="mt-auto pt-6">
                 <Link
                   href={enquiryHref("assessment-requirements", context)}
-                  className="flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-center text-base font-bold text-navy no-underline hover:bg-[#c7ea72]"
+                  className="flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-center text-base font-bold text-navy no-underline hover:bg-[#F7CF3D]"
                 >
                   Discuss this setup with our experts
                 </Link>

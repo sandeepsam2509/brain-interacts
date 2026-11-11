@@ -67,7 +67,7 @@ export default async function StoryPage({ params }: Props) {
                 <dt className="text-sm text-ink-muted">Products used</dt>
                 <dd className="m-0 mt-1 flex flex-wrap gap-1.5">
                   {s.products.map((p) => (
-                    <Link key={p} href={productLinks[p]} className="rounded-full bg-[#EEF1F6] px-2.5 py-1 text-[13px] font-semibold text-ink no-underline hover:bg-navy hover:text-white">
+                    <Link key={p} href={productLinks[p]} className="rounded-full bg-[#EEF2F6] px-2.5 py-1 text-[13px] font-semibold text-ink no-underline hover:bg-navy hover:text-white">
                       {p}
                     </Link>
                   ))}
@@ -108,7 +108,7 @@ export default async function StoryPage({ params }: Props) {
           <ul className="m-0 grid list-none gap-6 p-0 md:grid-cols-2">
             {related.map((r) => (
               <li key={r.slug}>
-                <Link href={storyHref(r)} className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)] md:p-7">
+                <Link href={storyHref(r)} className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)] md:p-7">
                   <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">{r.industry}</p>
                   <p className="mt-2.5 text-[17px] leading-snug font-bold">{r.title}</p>
                   <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{r.challenge}</p>

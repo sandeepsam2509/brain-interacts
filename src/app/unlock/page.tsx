@@ -62,7 +62,7 @@ export default async function UnlockPage({ searchParams }: Props) {
               <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">Leave your details and we&apos;ll send you a payment link and next steps.</p>
               <a
                 href={enquiryHref("full-report", { archetype, assessment })}
-                className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1e3a66]"
+                className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1E293B]"
               >
                 Request my full report
               </a>

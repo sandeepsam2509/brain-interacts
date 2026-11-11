@@ -95,7 +95,7 @@ export async function fulfilPayment(paymentId: string): Promise<{ ok: boolean; a
       to: team,
       replyTo: buyerEmail || undefined,
       subject: `Required: full report (paid ${FULL_REPORT.label}): ${n.name || buyerEmail} (${n.archetype || "archetype n/a"})`,
-      html: `<p style="font-family:Arial,sans-serif;font-size:15px;color:#0A1628"><strong>A full report and action framework has been paid for and is required.</strong> Please prepare it and send it to the customer.</p>${fieldsTable([
+      html: `<p style="font-family:Arial,sans-serif;font-size:15px;color:#0F172A"><strong>A full report and action framework has been paid for and is required.</strong> Please prepare it and send it to the customer.</p>${fieldsTable([
         ["Name", n.name || ""],
         ["Email", buyerEmail],
         ["Mobile", n.phone || payment.contact || ""],
@@ -111,11 +111,11 @@ export async function fulfilPayment(paymentId: string): Promise<{ ok: boolean; a
     await sendEmail({
       to: buyerEmail,
       subject: "Payment received: your Corporate Brain full report",
-      html: `<div style="font-family:Arial,sans-serif;color:#0A1628;font-size:15px;line-height:1.6">
+      html: `<div style="font-family:Arial,sans-serif;color:#0F172A;font-size:15px;line-height:1.6">
         <p>Hi ${esc(n.name || "there")},</p>
         <p>Thank you. We've received your payment of <strong>${FULL_REPORT.label}</strong> for the <strong>${FULL_REPORT.title}</strong>${n.archetype ? ` (${esc(n.archetype)})` : ""}.</p>
-        <p>Our experts will prepare your report and email it to you. If you have any questions, just reply to this email or write to <a href="mailto:${esc(site.email)}" style="color:#1B5F96">${esc(site.email)}</a>.</p>
-        <p style="color:#45556E;font-size:13px">Payment reference: ${esc(payment.id)}</p>
+        <p>Our experts will prepare your report and email it to you. If you have any questions, just reply to this email or write to <a href="mailto:${esc(site.email)}" style="color:#0F172A">${esc(site.email)}</a>.</p>
+        <p style="color:#475569;font-size:13px">Payment reference: ${esc(payment.id)}</p>
       </div>`,
     }).catch(() => undefined);
   }

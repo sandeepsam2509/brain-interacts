@@ -62,7 +62,7 @@ export function ApplicationForm({ roles }: { roles: string[] }) {
         </span>
       </label>
       <div className="md:col-span-2">
-        <button type="submit" disabled={sending} className="rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1e3a66] disabled:opacity-60 max-md:w-full">
+        <button type="submit" disabled={sending} className="rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1E293B] disabled:opacity-60 max-md:w-full">
           {sending ? "Sending…" : "Submit application"}
         </button>
         <FormStatus status={status} sentText="Thanks, your application is in. We'll get back to you within two weeks." />

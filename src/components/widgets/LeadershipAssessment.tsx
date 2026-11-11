@@ -60,12 +60,12 @@ export function LeadershipAssessment() {
               a free executive report by email: your primary and secondary archetype with match scores, your five trait scores, and how each one tends to show
               up in the way you lead.
             </p>
-            <button type="button" onClick={() => setStep("quiz")} className="mt-6 rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1e3a66]">
+            <button type="button" onClick={() => setStep("quiz")} className="mt-6 rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1E293B]">
               Start the self-assessment
             </button>
             <p className="mt-3 text-xs text-ink-muted">Built on the Big Five, the most widely researched model of personality.</p>
           </div>
-          <ul className="m-0 list-none self-center rounded-xl bg-[#F6F7F9] p-5 text-[14px] text-ink-body">
+          <ul className="m-0 list-none self-center rounded-xl bg-[#F5F7FA] p-5 text-[14px] text-ink-body">
             {["Your primary and secondary Corporate Brain archetype", "Five trait scores, each explained for leaders", "Where your style helps, and where to watch out", "Your full report by email in minutes"].map((t) => (
               <li key={t} className="flex gap-3 py-2">
                 <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
@@ -133,7 +133,7 @@ export function LeadershipAssessment() {
               })}
             </ul>
           </div>
-          <div className="flex flex-col border-t border-rule bg-[#F6F7F9] p-5 md:p-7 lg:border-t-0 lg:border-l">
+          <div className="flex flex-col border-t border-rule bg-[#F5F7FA] p-5 md:p-7 lg:border-t-0 lg:border-l">
             {step === "email" ? (
               <form onSubmit={send}>
                 <p className="text-lg font-extrabold">Get your full executive report</p>
@@ -154,11 +154,11 @@ export function LeadershipAssessment() {
                   }}
                   className="w-full rounded-lg border border-rule-strong bg-white px-4 py-3.5 text-base"
                 />
-                <button type="submit" disabled={status.state === "sending"} className="mt-3 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#c7ea72] disabled:opacity-60">
+                <button type="submit" disabled={status.state === "sending"} className="mt-3 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D] disabled:opacity-60">
                   {status.state === "sending" ? "Sending…" : "Email my report"}
                 </button>
                 {status.state === "error" && (
-                  <p role="alert" className="mt-3 text-sm font-semibold text-[#B42318]">
+                  <p role="alert" className="mt-3 text-sm font-semibold text-[#B91C1C]">
                     {status.message}
                   </p>
                 )}
@@ -179,7 +179,7 @@ export function LeadershipAssessment() {
                 </p>
                 <Link
                   href={enquiryHref("executive-briefing", { "self-assessment": `${styles.main}${styles.secondary ? ` / ${styles.secondary}` : ""}` })}
-                  className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1e3a66]"
+                  className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1E293B]"
                 >
                   See your whole leadership team
                 </Link>

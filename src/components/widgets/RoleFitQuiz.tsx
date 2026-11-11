@@ -115,7 +115,7 @@ export function RoleFitQuiz() {
                 onClick={() => setPicks((p) => [...p, i])}
                 className="flex min-h-12 items-center gap-3 rounded-xl border border-rule-strong bg-white px-4 py-3 text-left text-[14px] font-semibold transition-colors hover:border-navy hover:bg-navy hover:text-white"
               >
-                <span aria-hidden="true" className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F6F7F9] font-mono text-xs text-ink">
+                <span aria-hidden="true" className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F5F7FA] font-mono text-xs text-ink">
                   {String.fromCharCode(65 + i)}
                 </span>
                 {o.label}
@@ -148,13 +148,13 @@ export function RoleFitQuiz() {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col border-t border-rule bg-[#F6F7F9] p-5 md:p-7 lg:border-t-0 lg:border-l">
+          <div className="flex flex-col border-t border-rule bg-[#F5F7FA] p-5 md:p-7 lg:border-t-0 lg:border-l">
             <p className="text-lg font-extrabold">Sound like you?</p>
             <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">This is how we think about fit: how you like to work, matched to what a role needs.</p>
             <button
               type="button"
               onClick={() => pickRoleInForm(best.value)}
-              className="mt-5 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#c7ea72]"
+              className="mt-5 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D]"
             >
               Apply as {best.title}
             </button>

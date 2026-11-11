@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <LegalPage title="Privacy Policy" label="Privacy policy" lead="How Brain Interacts collects and protects personal data, in line with India's Digital Personal Data Protection Act, 2023.">
       <h2>1. Who we are</h2>
       <p>
-        This website (braininteracts.com) and the Corporate Brain, FinCheck and Gamified Assessments products are operated by {legal.entity}, registered at{" "}
+        This website (braininteracts.com) and the Corporate Brain, FinCheck and Decode (game-based assessments) products are operated by {legal.entity}, registered at{" "}
         {legal.address} (&quot;Brain Interacts&quot;). For personal data collected through this website, we are the Data Fiduciary under India&apos;s Digital
         Personal Data Protection Act, 2023 (&quot;DPDP Act&quot;).
       </p>

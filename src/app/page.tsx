@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { HeroRings } from "@/components/HeroRings";
 import { WorkPeople } from "@/components/WorkPeople";
 import { ArrowLink, ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
-import { audiences, hero, matches, matchSteps, products, stories } from "@/content/home";
+import { audiences, hero, industries, matches, matchSteps, products, stories } from "@/content/home";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "People Analytics & Behavioral Insights Platform, Brain Interacts" },
+  title: { absolute: "Brain Interacts, People Analytics for Every Industry" },
   description:
-    "Corporate Brain maps working styles and skills against your goals, then suggests who should lead, who should take each task, and how to support each person.",
+    "Brain Interacts is a people analytics company. We research how work happens in each industry and build products, like Corporate Brain and Decode, that help workplaces flourish.",
   alternates: { canonical: "/" },
 };
 
@@ -39,12 +39,36 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Industries we research */}
+      <Section tone="light">
+        <Eyebrow icon="briefcase" color="goldInk">
+          Industries we research
+        </Eyebrow>
+        <H2 className="mb-3 max-w-[820px]">We study how each industry works, then build for its people.</H2>
+        <p className="mb-8 max-w-[700px] leading-[1.7] text-ink-body">
+          Every industry hires, trains and leads differently. Our research team studies the roles, standards and day-to-day situations in each
+          one, so our products and solutions fit the work your people really do.
+        </p>
+        <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
+          {industries.map((i) => (
+            <li key={i} className="rounded-full border border-rule bg-cloud px-4 py-2 text-[14px] font-semibold text-ink">
+              {i}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8">
+          <ArrowLink href={routes.industries} tone="light">
+            See how we help each industry
+          </ArrowLink>
+        </div>
+      </Section>
+
       {/* Products */}
       <Section tone="light">
         <Eyebrow icon="grid" color="link">
           Products
         </Eyebrow>
-        <H2 className="mb-8 max-w-[780px]">One behavioral layer. Three products.</H2>
+        <H2 className="mb-8 max-w-[780px]">Products built from our research.</H2>
         <div className="grid gap-5 md:grid-cols-3">
           {products.map((p) => (
             <div key={p.name} className={`rounded-2xl border border-rule border-t-[3px] bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg ${p.rule}`}>
@@ -91,10 +115,10 @@ export default function HomePage() {
           </div>
 
           {/* Product-style panel; illustrative example */}
-          <div className="rounded-2xl border border-rule bg-white p-4 shadow-[0_18px_48px_rgba(10,22,40,0.10)] md:p-5" aria-label="Example of Brain Suggests task matching">
+          <div className="rounded-2xl border border-rule bg-white p-4 shadow-[0_18px_48px_rgba(15,23,42,0.10)] md:p-5" aria-label="Example of Brain Suggests task matching">
             <div className="mb-3 flex items-center justify-between px-1">
               <p className="text-[13px] font-bold">Task board · Suggested owners</p>
-              <span className="rounded-full bg-[#EDF7DC] px-2.5 py-1 text-[11px] font-semibold text-green-ink">Example</span>
+              <span className="rounded-full bg-[#E8F3EC] px-2.5 py-1 text-[11px] font-semibold text-green-ink">Example</span>
             </div>
             <div className="grid gap-3">
               {matches.map((m) => (

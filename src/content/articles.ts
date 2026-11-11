@@ -2,16 +2,22 @@
 // grounded in the research base of "The Behavioral Enterprise" monograph; every study cited
 // here appears in the references below each article.
 
+import { seriesArticles } from "./articles-series";
+
 export type Block =
   | { t: "p"; text: string }
   | { t: "h2"; text: string }
+  | { t: "h3"; text: string }
+  | { t: "image"; src: string; alt: string; credit: string; creditUrl: string }
   | { t: "quote"; text: string }
-  | { t: "list"; items: string[] }
+  | { t: "list"; items: string[]; ordered?: boolean }
   | { t: "steps"; items: { title: string; text: string }[] }
   | { t: "callout"; title: string; text: string }
   | { t: "compare"; headings: [string, string]; rows: [string, string][] };
 
 export type Article = {
+  /** Position in the numbered article series, if part of it. */
+  number?: number;
   slug: string;
   title: string;
   dek: string;
@@ -23,7 +29,7 @@ export type Article = {
   related: string[];
 };
 
-export const articles: Article[] = [
+const coreArticles: Article[] = [
   {
     slug: "performance-problems-are-fit-problems",
     title: "Most performance problems are really fit problems",
@@ -274,3 +280,6 @@ export const articles: Article[] = [
 ];
 
 export const findArticle = (slug: string) => articles.find((a) => a.slug === slug);
+
+/** All articles: the numbered series (1 to 48) first, in order, then the original long reads. */
+export const articles: Article[] = [...seriesArticles, ...coreArticles];

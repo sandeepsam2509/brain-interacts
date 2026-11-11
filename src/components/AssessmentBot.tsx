@@ -119,7 +119,7 @@ export function AssessmentBot() {
           ref={panelRef}
           tabIndex={-1}
           aria-label="Free working-style assessment"
-          className="fixed inset-0 z-[70] flex flex-col overflow-hidden bg-white text-ink outline-none sm:inset-auto sm:right-5 sm:bottom-24 sm:h-[600px] sm:max-h-[calc(100dvh-120px)] sm:w-[380px] sm:rounded-[18px] sm:shadow-[0_20px_56px_rgba(10,22,40,0.30)]"
+          className="fixed inset-0 z-[70] flex flex-col overflow-hidden bg-white text-ink outline-none sm:inset-auto sm:right-5 sm:bottom-24 sm:h-[600px] sm:max-h-[calc(100dvh-120px)] sm:w-[380px] sm:rounded-[18px] sm:shadow-[0_20px_56px_rgba(15,23,42,0.30)]"
         >
           <div className="bg-navy px-[18px] pt-[18px] pb-3.5 text-white">
             <div className="flex items-center gap-3">
@@ -150,7 +150,7 @@ export function AssessmentBot() {
             <p className="mt-2 text-xs text-on-navy-muted">{progressText}</p>
           </div>
 
-          <div ref={logRef} role="log" aria-live="polite" className="flex flex-1 flex-col gap-2.5 overflow-y-auto bg-[#F6F7F9] p-4">
+          <div ref={logRef} role="log" aria-live="polite" className="flex flex-1 flex-col gap-2.5 overflow-y-auto bg-[#F5F7FA] p-4">
             {msgs.map((m) =>
               m.from === "bot" ? (
                 <p key={m.id} className="max-w-[85%] self-start rounded-[14px_14px_14px_4px] border border-rule bg-white px-3.5 py-3 text-[14px] leading-normal whitespace-pre-line">
@@ -211,7 +211,7 @@ export function AssessmentBot() {
                   </button>
                 </div>
                 {status.state === "error" && (
-                  <p role="alert" className="mt-2 text-[13px] text-[#B42318]">
+                  <p role="alert" className="mt-2 text-[13px] text-[#B91C1C]">
                     {status.message}
                   </p>
                 )}
@@ -244,7 +244,7 @@ export function AssessmentBot() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-label={open ? "Close the free assessment" : "Open the free assessment"}
-        className={`bot-launcher fixed right-4 bottom-4 z-[60] flex h-14 items-center gap-2.5 rounded-full bg-navy pr-5 pl-3 text-[14px] font-bold text-white shadow-[0_10px_28px_rgba(10,22,40,0.35)] sm:right-5 sm:bottom-5 sm:h-[60px] ${open ? "max-sm:hidden" : ""}`}
+        className={`bot-launcher fixed right-4 bottom-4 z-[60] flex h-14 items-center gap-2.5 rounded-full bg-navy pr-5 pl-3 text-[14px] font-bold text-white shadow-[0_10px_28px_rgba(15,23,42,0.35)] sm:right-5 sm:bottom-5 sm:h-[60px] ${open ? "max-sm:hidden" : ""}`}
       >
         <BrandMark size={30} />
         {open ? "Close" : "Free assessment"}

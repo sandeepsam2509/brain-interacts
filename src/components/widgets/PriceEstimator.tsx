@@ -44,7 +44,7 @@ export function PriceEstimator() {
       <div className="grid lg:grid-cols-[1fr_1fr]">
         <div className="flex flex-col gap-7 p-5 md:p-7">
           <Slider id="pe-team" label="Team size" value={team} min={10} max={3000} step={10} display={`${num(team)} people`} onChange={setTeam} />
-          <div className="rounded-xl bg-[#F6F7F9] p-4 text-sm">
+          <div className="rounded-xl bg-[#F5F7FA] p-4 text-sm">
             <p className="font-mono text-xs text-ink-muted uppercase">Typical seat mix</p>
             <dl className="m-0 mt-3 grid grid-cols-3 gap-3">
               {[
@@ -110,7 +110,7 @@ export function PriceEstimator() {
           <div className="mt-auto pt-7">
             <Link
               href={enquiryHref("quote", { "team size": `${team} people` })}
-              className="flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy no-underline hover:bg-[#c7ea72]"
+              className="flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy no-underline hover:bg-[#F7CF3D]"
             >
               Get a custom quote for {num(team)} people
             </Link>
