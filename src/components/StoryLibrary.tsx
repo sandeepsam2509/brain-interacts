@@ -8,6 +8,7 @@ const industryTone: Record<string, string> = {
   "Facilities management": "#F4C20D",
   Manufacturing: "#CBD5E1",
   "IT services": "#F4C20D",
+  ITES: "#15803D",
   "Industrial automation": "#15803D",
 };
 

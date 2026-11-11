@@ -127,6 +127,33 @@ export const stories: Story[] = [
     ],
   },
   {
+    slug: "redington-turning-the-bench-into-a-growth-engine",
+    industry: "ITES",
+    client: "Redington",
+    named: true,
+    logo: "/customers/redington.png",
+    title: "Turning the bench into a growth engine",
+    who: "How Redington used Corporate Brain to put its bench to work on HR, sales and marketing projects, and saved the cost of new hires.",
+    products: ["Corporate Brain"],
+    challenge:
+      "Like many fast-growing technology companies in India, Redington carried a bench: skilled people between client projects, on the payroll but not producing. At the same time, HR, sales and marketing kept asking for more hands.",
+    how: "Using Corporate Brain, we evaluated every bench employee on two fronts: technical skills and Big Five personality traits. Together they showed who could take on what, beyond their job title.",
+    more: {
+      challenge: [
+        "Hiring for those teams meant new cost, while bench talent sat idle. Redington needed a reliable way to know which bench employees would fit which non-technical work, and work well with those teams.",
+      ],
+      how: [
+        "Corporate Brain matched people to small, project-based assignments across HR, sales and marketing. The bench started delivering real work, teams worked together more smoothly, productivity rose and Redington avoided the cost of new hires.",
+      ],
+    },
+    stats: [
+      { value: "92%", label: "Bench utilization achieved" },
+      { value: "12", label: "Projects delivered across HR, sales and marketing" },
+      { value: "84%", label: "Improvement in productivity" },
+      { value: "₹54L", label: "Hiring cost saved" },
+    ],
+  },
+  {
     slug: "it-services-assigning-work-by-strengths",
     industry: "IT services",
     client: "Top-tier global IT services enterprise",
