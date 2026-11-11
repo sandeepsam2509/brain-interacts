@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- small client logos */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -24,8 +25,8 @@ export default async function StoryPage({ params }: Props) {
   if (!s) notFound();
   const related = stories.filter((x) => x.slug !== s.slug && (x.industry === s.industry || x.products.some((p) => s.products.includes(p)))).slice(0, 2);
   const sections = [
-    { h: "The challenge", t: s.challenge },
-    { h: "How they used Brain", t: s.how },
+    { h: "The challenge", t: [s.challenge, ...(s.more?.challenge ?? [])] },
+    { h: s.named ? `How ${s.client} used Brain Interacts` : "How they used Brain", t: [s.how, ...(s.more?.how ?? [])] },
   ];
 
   return (
@@ -53,6 +54,7 @@ export default async function StoryPage({ params }: Props) {
       <div className="mx-auto grid max-w-[1280px] gap-12 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-16">
         <aside>
           <div className="rounded-2xl border border-rule p-6 lg:sticky lg:top-24">
+            {s.logo && <img src={s.logo} alt={`${s.client} logo`} className="mb-5 h-16 w-auto" />}
             <p className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">At a glance</p>
             <dl className="m-0 mt-4 space-y-4 text-[14px]">
               <div>
@@ -74,7 +76,7 @@ export default async function StoryPage({ params }: Props) {
                 </dd>
               </div>
             </dl>
-            <p className="mt-5 border-t border-rule pt-4 text-[13px] leading-[1.55] text-ink-muted">Client names are kept confidential.</p>
+            {!s.named && <p className="mt-5 border-t border-rule pt-4 text-[13px] leading-[1.55] text-ink-muted">Client names are kept confidential.</p>}
           </div>
         </aside>
 
@@ -82,9 +84,32 @@ export default async function StoryPage({ params }: Props) {
           {sections.map((x) => (
             <section key={x.h} className="mb-10">
               <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">{x.h}</h2>
-              <p className="mt-3 text-[16px] leading-[1.8] text-ink-body">{x.t}</p>
+              {x.t.map((t) => (
+                <p key={t} className="mt-3 text-[16px] leading-[1.8] text-ink-body">
+                  {t}
+                </p>
+              ))}
             </section>
           ))}
+          {s.stats && (
+            <section className="mb-10">
+              <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">Progress at {s.client}</h2>
+              <dl className="m-0 mt-5 grid gap-6 sm:grid-cols-2">
+                {s.stats.map((st, i) => (
+                  <div key={st.label} className={`border-t-[3px] pt-4 ${["border-brand-red", "border-amber", "border-brand-green", "border-navy"][i % 4]}`}>
+                    <dt className="text-[44px] leading-none font-bold tracking-[-0.03em] tabular-nums">{st.value}</dt>
+                    <dd className="m-0 mt-2 text-[15px] leading-[1.6] text-ink-body">{st.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+          {s.quote && (
+            <figure className="mb-10 rounded-2xl bg-cloud p-7 md:p-8">
+              <blockquote className="m-0 text-[18px] leading-[1.7] font-semibold text-ink">&ldquo;{s.quote.text}&rdquo;</blockquote>
+              <figcaption className="mt-4 text-[14px] text-ink-muted">{s.quote.by}</figcaption>
+            </figure>
+          )}
           {/* The result section appears only once the client has approved a published outcome. */}
           {s.result && (
             <section className="mb-10">

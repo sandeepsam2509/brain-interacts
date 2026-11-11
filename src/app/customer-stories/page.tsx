@@ -9,7 +9,7 @@ import { routes } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Customer Stories",
   description:
-    "How facilities, manufacturing, IT and automation companies use Brain Interacts products to align teams and assign work. Client names are kept confidential.",
+    "How facilities, manufacturing, IT and automation companies use Brain Interacts products to align teams, assign work and reduce attrition.",
   alternates: { canonical: routes.stories },
 };
 
@@ -41,8 +41,8 @@ export default function CustomerStoriesPage() {
         {/* "Trusted by" strip: anonymised client descriptions instead of logos */}
         <div className="relative border-t border-navy-line">
           <div className="mx-auto max-w-[1280px] px-4 py-8 md:px-8">
-            <p className="mb-5 text-center text-sm text-on-navy-muted">Trusted by teams across India. Client names are kept confidential.</p>
-            <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-3 lg:grid-cols-6">
+            <p className="mb-5 text-center text-sm text-on-navy-muted">Trusted by teams across India, including BVG, Redington, Megamech Industries and Pune Techtrol.</p>
+            <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">
               {stories.map((s) => (
                 <li key={s.slug}>
                   <Link
