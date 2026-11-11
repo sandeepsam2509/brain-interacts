@@ -14,11 +14,11 @@ const legacyRedirects: [string, string][] = [
   ["/services/root-cause-analysis", "/services/root-cause-analytics"],
   ["/services/corporate-mental-health-workshops", "/services/corporate-culture-study"],
   ["/services", "/services/custom-assessment-systems"],
-  ["/platforms", "/platforms/corporate-brain"],
-  ["/how-it-works", "/platforms/corporate-brain"],
+  ["/platforms", "https://corporatebrain.braininteracts.com/"],
+  ["/how-it-works", "https://corporatebrain.braininteracts.com/"],
   ["/for/leadership", "/for-ceos"],
-  ["/for/managers", "/platforms/corporate-brain"],
-  ["/for/employees", "/platforms/corporate-brain"],
+  ["/for/managers", "https://corporatebrain.braininteracts.com/"],
+  ["/for/employees", "https://corporatebrain.braininteracts.com/"],
   ["/diagnostic", "/contact"],
   ["/demo", "/contact"],
   ["/resources/blog", "/resources"],
@@ -35,6 +35,9 @@ const nextConfig: NextConfig = {
       ...legacyRedirects.map(([source, destination]) => ({ source, destination, permanent: true })),
       // Decode has its own site.
       { source: "/platforms/gamified-assessments", destination: "https://decode.braininteracts.com/", permanent: false },
+      // Corporate Brain has its own site.
+      { source: "/platforms/corporate-brain", destination: "https://corporatebrain.braininteracts.com/", permanent: false },
+      { source: "/corporate-brain", destination: "https://corporatebrain.braininteracts.com/", permanent: false },
       { source: "/decode", destination: "https://decode.braininteracts.com/", permanent: false },
     ];
   },

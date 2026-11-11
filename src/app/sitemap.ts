@@ -7,7 +7,6 @@ const paths = [
   "/",
   "/about",
   "/brand",
-  "/platforms/corporate-brain",
   "/platforms/fincheck",
   "/services/custom-assessment-systems",
   "/services/corporate-culture-study",

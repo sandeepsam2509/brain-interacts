@@ -19,7 +19,7 @@ export const site = {
 
 export const routes = {
   home: "/",
-  corporateBrain: "/platforms/corporate-brain",
+  corporateBrain: "https://corporatebrain.braininteracts.com/",
   finCheck: "/platforms/fincheck",
   gamified: "https://decode.braininteracts.com/",
   customAssessments: "/services/custom-assessment-systems",
