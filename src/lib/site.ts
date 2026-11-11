@@ -7,7 +7,7 @@ export const site = {
   name: "Brain Interacts",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://braininteracts.com",
   description:
-    "Behavioral analytics and people analytics for organizations that build teams on evidence. See how your people really work, and who should do what next.",
+    "Brain Interacts is a people analytics company. We research how work happens in each industry and build products, like Corporate Brain and Decode, that help workplaces flourish.",
   email: "support@braininteracts.com",
   phone: "+91 72760 69027",
   phoneHref: "tel:+917276069027",
@@ -21,7 +21,7 @@ export const routes = {
   home: "/",
   corporateBrain: "/platforms/corporate-brain",
   finCheck: "/platforms/fincheck",
-  gamified: "/platforms/gamified-assessments",
+  gamified: "https://decode.braininteracts.com/",
   customAssessments: "/services/custom-assessment-systems",
   cultureStudy: "/services/corporate-culture-study",
   rootCause: "/services/root-cause-analytics",

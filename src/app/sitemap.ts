@@ -9,7 +9,6 @@ const paths = [
   "/brand",
   "/platforms/corporate-brain",
   "/platforms/fincheck",
-  "/platforms/gamified-assessments",
   "/services/custom-assessment-systems",
   "/services/corporate-culture-study",
   "/services/root-cause-analytics",

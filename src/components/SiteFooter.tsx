@@ -13,7 +13,7 @@ export function SiteFooter() {
             <Wordmark height={52} />
           </Link>
           <p className="mt-[18px] max-w-[340px] text-[14px] leading-[1.7]">
-            Team analytics, behavioral analysis and workforce analytics for organizations that build on evidence.
+            A people analytics company. We research how work happens in each industry and build products that help workplaces flourish.
           </p>
           <div className="mt-5 flex flex-col gap-2 text-[14px]">
             <a href={`mailto:${site.email}`} className="text-[#E2E8F0] no-underline hover:underline">

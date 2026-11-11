@@ -1,13 +1,26 @@
 import { routes } from "@/lib/site";
 
 export const hero = {
-  eyebrow: "People analytics · workforce intelligence",
-  title: "See how your people really work,",
-  titleAccent: "and who should do what next.",
+  eyebrow: "People analytics · research-led products",
+  title: "People analytics that help",
+  titleAccent: "workplaces flourish.",
   lead:
-    "Corporate Brain is a behavioral analytics platform for every department. It connects your company goal to each team and each person's working style, then suggests who should lead, who should take each task, and how to support each person.",
+    "Brain Interacts is a people analytics company. We research how work really happens in banking, insurance, retail, healthcare and more, then build products and solutions that help each industry understand and empower its people. Our products: Corporate Brain and Decode.",
   note: "Built on the Big Five, the most widely researched model of working style.",
 };
+
+export const industries = [
+  "Banking & Financial Services",
+  "Insurance",
+  "ITES",
+  "Retail & E-commerce",
+  "FMCG & Consumer Goods",
+  "Healthcare & Pharmaceuticals",
+  "Logistics & Supply Chain",
+  "Telecommunication",
+  "Education",
+  "Hospitality & Travel",
+];
 
 export const snapshot = {
   eyebrow: "Free working-style snapshot",

@@ -31,7 +31,12 @@ const nextConfig: NextConfig = {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
   async redirects() {
-    return legacyRedirects.map(([source, destination]) => ({ source, destination, permanent: true }));
+    return [
+      ...legacyRedirects.map(([source, destination]) => ({ source, destination, permanent: true })),
+      // Decode has its own site.
+      { source: "/platforms/gamified-assessments", destination: "https://decode.braininteracts.com/", permanent: false },
+      { source: "/decode", destination: "https://decode.braininteracts.com/", permanent: false },
+    ];
   },
 };
 
