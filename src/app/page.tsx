@@ -56,6 +56,11 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+        <div className="mt-8">
+          <ArrowLink href={routes.industries} tone="light">
+            See how we help each industry
+          </ArrowLink>
+        </div>
       </Section>
 
       {/* Products */}

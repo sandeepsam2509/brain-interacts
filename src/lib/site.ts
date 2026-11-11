@@ -38,6 +38,7 @@ export const routes = {
   pricing: "/pricing",
   about: "/about",
   brand: "/brand",
+  industries: "/industries",
   contact: "/contact",
   unlock: "/unlock",
   demo: "/contact?enquiry=demo#enquiry",
@@ -76,6 +77,7 @@ export const mainNav: MainNavItem[] = [
     ],
   },
 
+  { label: "Industries", href: routes.industries },
   { label: "Resources", href: routes.resources },
 
   { label: "Customer Stories", href: routes.stories },
@@ -99,6 +101,7 @@ export const footerColumns: NavGroup[] = [
       { label: "Custom Psychological Assessment Systems", href: routes.customAssessments },
       { label: "Corporate Culture Study", href: routes.cultureStudy },
       { label: "Root Cause Analytics", href: routes.rootCause },
+      { label: "Industries", href: routes.industries },
     ],
   },
   {
