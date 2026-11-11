@@ -1,6 +1,9 @@
+/* eslint-disable @next/next/no-img-element -- small client logos */
 import type { Metadata } from "next";
-import { CtaBlock, PageHero } from "@/components/blocks";
-import { Eyebrow, H2, Section } from "@/components/ui";
+import Link from "next/link";
+import { CtaBlock } from "@/components/blocks";
+import { ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
+import { stories, storyHref } from "@/content/stories";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
@@ -10,8 +13,6 @@ export const metadata: Metadata = {
     "Brain Interacts researches how work happens in banking, insurance, ITES, retail, FMCG, healthcare, logistics, telecom, education and hospitality, then builds people analytics products for each.",
   alternates: { canonical: routes.industries },
 };
-
-const trail = [{ label: "Home", href: routes.home }, { label: "Industries" }];
 
 type Industry = { id: string; name: string; intro: string; roles: string[]; challenges: string[] };
 
@@ -88,67 +89,140 @@ const industries: Industry[] = [
   },
 ];
 
-const approach = [
-  { title: "Study the work", text: "Our research team maps the roles, job standards, rules and day-to-day situations in each industry." },
-  { title: "Build for the role", text: "We turn that research into assessments, analytics and solutions that reflect the real job, not a generic test." },
-  { title: "Help people flourish", text: "Organisations get clear evidence about their people; people get a fair chance to show how they work and a plan to grow." },
+const layers = [
+  { n: "01", title: "Industry research", text: "We study each sector's roles, job standards, regulations and the situations people face on an ordinary day." },
+  { n: "02", title: "Role and skill models", text: "Research becomes a clear model of what good looks like in each role, by level of experience." },
+  { n: "03", title: "Evidence from behavior", text: "Decode's job games and our assessments show how people actually decide, not just what they say about themselves." },
+  { n: "04", title: "People intelligence", text: "Corporate Brain brings the evidence together: archetypes, team fit, gaps and who is best placed to do what." },
+  { n: "05", title: "Decisions in action", text: "Leaders hire, promote, staff projects and plan development with evidence, and track the change over time." },
 ];
 
+const maturity = [
+  { stage: "Intuition", text: "Decisions on gut feel, tenure and CVs." },
+  { stage: "Measurement", text: "Assessments and scores, kept in silos." },
+  { stage: "Insight", text: "Patterns across teams, roles and locations." },
+  { stage: "Prediction", text: "Early signals for attrition, fit and readiness." },
+  { stage: "Flourishing", text: "Every person in the right role, growing on a plan." },
+];
+
+const pillars = [
+  { n: "01", title: "Research first", text: "Every product starts with fieldwork in the industry it serves." },
+  { n: "02", title: "Built for the role", text: "Situations, skills and language that match the real job." },
+  { n: "03", title: "Evidence, not labels", text: "We describe what people did and how it compares, never a verdict." },
+  { n: "04", title: "Private by design", text: "Each organisation sees only its own people, under India's DPDP Act." },
+  { n: "05", title: "Growth, not judgement", text: "Every gap becomes a development plan, and progress is reassessed." },
+];
+
+const tints = ["bg-[#FDECEC]", "bg-[#FEF7DA]", "bg-[#E8F3EC]", "bg-[#EEF2F6]", "bg-white"];
+
 export default function IndustriesPage() {
+  const named = stories.filter((s) => s.named);
   return (
     <>
-      <PageHero
-        trail={trail}
-        title="People analytics,"
-        accent="built for your industry."
-        lead="Every industry hires, trains and leads differently. Brain Interacts researches how work really happens in each one, then builds products and solutions, like Corporate Brain and Decode, that help its people and workplaces flourish."
-        actions={[
-          { label: "Talk to us about your industry", href: enquiryHref("demo"), variant: "gold" },
-          { label: "Explore Decode", href: routes.gamified, variant: "outlineDark" },
-        ]}
-      />
-
-      {/* Jump list */}
-      <Section tone="light" innerClassName="py-8 md:py-10">
-        <nav aria-label="Industries">
-          <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
-            {industries.map((i) => (
-              <li key={i.id}>
-                <a
-                  href={`#${i.id}`}
-                  className="block rounded-full border border-rule bg-cloud px-4 py-2 text-[14px] font-semibold text-ink no-underline hover:border-navy"
-                >
-                  {i.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      {/* Hero */}
+      <Section tone="dark" className="relative overflow-hidden" innerClassName="relative pt-14 pb-16 md:pt-20 md:pb-24">
+        <svg aria-hidden="true" viewBox="0 0 72 82" className="pointer-events-none absolute -right-10 bottom-0 h-[110%] max-h-[560px] opacity-25 md:right-10">
+          <circle cx="36" cy="14" r="14" fill="#B91C1C" />
+          <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F4C20D" />
+          <path d="M22 40H50L36 64Z" fill="#FFFFFF" />
+        </svg>
+        <p className="text-[12px] font-semibold tracking-[0.08em] text-amber uppercase">Industries</p>
+        <h1 className="mt-4 max-w-[900px] text-[clamp(32px,5vw,64px)] leading-[1.02] font-extrabold tracking-[-0.035em]">
+          From workforce data <span className="text-amber">to people intelligence.</span>
+        </h1>
+        <p className="mt-6 max-w-[640px] text-[16px] leading-[1.7] text-on-navy md:text-[18px]">
+          We research how work really happens in ten industries, then build products and solutions that help their people and workplaces flourish.
+        </p>
+        <div className="mt-9 flex flex-wrap gap-3">
+          <ButtonLink href={enquiryHref("demo")}>Talk to us about your industry</ButtonLink>
+          <ButtonLink href="#industries" variant="outlineDark">
+            Explore industries
+          </ButtonLink>
+        </div>
       </Section>
 
-      {/* Approach */}
-      <Section tone="light" className="border-t border-rule">
+      {/* Narrative */}
+      <Section tone="light">
+        <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+          <div>
+            <Eyebrow icon="spark" color="goldInk">
+              Why it matters
+            </Eyebrow>
+            <H2>Every industry runs on people. Few can see how their people really work.</H2>
+          </div>
+          <div className="space-y-5 text-[16px] leading-[1.8] text-ink-body">
+            <p>
+              A bank branch, a contact floor and a factory shift ask very different things of people. Yet most hiring and promotion still relies on
+              CVs, interviews and tenure: what people say and what they have done, not how they act when it matters.
+            </p>
+            <p>
+              Generic tests don&rsquo;t fix this, because they don&rsquo;t know the job. That is why we start with research in each industry and build
+              from there, so the evidence reflects the work your people actually do.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Five layers */}
+      <Section tone="light" className="border-t border-rule bg-cloud">
         <Eyebrow icon="flow" color="goldInk">
-          Our approach
+          How we work
         </Eyebrow>
-        <H2 className="mb-10 max-w-[760px]">Research first. Then products that fit the work.</H2>
-        <ol className="m-0 grid list-none gap-4 p-0 md:grid-cols-3">
-          {approach.map((a, n) => (
-            <li key={a.title} className="rounded-[12px] border border-rule bg-white p-6">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-navy text-[14px] font-bold text-white">{n + 1}</span>
-              <h3 className="mt-4 text-[18px] font-semibold">{a.title}</h3>
-              <p className="mt-2 leading-[1.7] text-ink-body">{a.text}</p>
+        <H2 className="mb-10 max-w-[820px]">Our approach is built across five connected layers.</H2>
+        <ol className="m-0 list-none space-y-3 p-0">
+          {layers.map((l, i) => (
+            <li
+              key={l.n}
+              className="grid items-center gap-3 rounded-[12px] border border-rule bg-white p-5 md:grid-cols-[80px_260px_1fr] md:gap-8 md:p-6"
+              style={{ marginLeft: `${i * 2}%`, marginRight: `${(4 - i) * 2}%` }}
+            >
+              <span className="text-[28px] leading-none font-bold text-gold-ink tabular-nums">{l.n}</span>
+              <h3 className="text-[19px] font-semibold">{l.title}</h3>
+              <p className="m-0 leading-[1.7] text-ink-body">{l.text}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* Maturity model */}
+      <Section tone="dark">
+        <Eyebrow icon="chart" color="gold">
+          People intelligence model
+        </Eyebrow>
+        <H2 className="mb-10 max-w-[820px] text-white">Five stages, from gut feel to a workplace that flourishes.</H2>
+        <ol className="m-0 grid list-none gap-3 p-0 md:grid-cols-5">
+          {maturity.map((m, i) => (
+            <li key={m.stage} className="relative rounded-[12px] border border-navy-line bg-navy-raised p-5">
+              <div className="mb-4 flex h-1.5 gap-1">
+                {[0, 1, 2, 3, 4].map((k) => (
+                  <span key={k} className={`flex-1 rounded-full ${k <= i ? ["bg-brand-red", "bg-amber", "bg-amber", "bg-brand-green", "bg-brand-green"][i] : "bg-navy-line"}`} />
+                ))}
+              </div>
+              <p className="m-0 text-[12px] font-semibold tracking-[0.08em] text-on-navy-muted uppercase">Stage {i + 1}</p>
+              <h3 className="mt-1 text-[18px] font-semibold text-white">{m.stage}</h3>
+              <p className="mt-2 text-[14px] leading-[1.6] text-on-navy">{m.text}</p>
             </li>
           ))}
         </ol>
       </Section>
 
       {/* Industries */}
-      <Section tone="light" className="border-t border-rule bg-cloud">
+      <Section tone="light" id="industries">
         <Eyebrow icon="briefcase" color="goldInk">
           Industries
         </Eyebrow>
-        <H2 className="mb-10">Ten industries we research and serve.</H2>
+        <H2 className="mb-8">Ten industries we research and serve.</H2>
+        <nav aria-label="Industries" className="mb-10">
+          <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
+            {industries.map((i) => (
+              <li key={i.id}>
+                <a href={`#${i.id}`} className="block rounded-full border border-rule bg-cloud px-4 py-2 text-[14px] font-semibold text-ink no-underline hover:border-navy">
+                  {i.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <div className="grid gap-5 lg:grid-cols-2">
           {industries.map((i) => (
             <article key={i.id} id={i.id} className="scroll-mt-28 rounded-[18px] border border-rule bg-white p-6 md:p-8">
@@ -168,9 +242,7 @@ export default function IndustriesPage() {
                   <ul className="m-0 mt-2 list-none space-y-1.5 p-0 text-[14px] text-ink-body">
                     {i.challenges.map((c) => (
                       <li key={c} className="flex gap-2">
-                        <span aria-hidden="true" className="font-bold text-green-ink">
-                          ✓
-                        </span>
+                        <span aria-hidden="true" className="font-bold text-green-ink">✓</span>
                         {c}
                       </li>
                     ))}
@@ -182,30 +254,75 @@ export default function IndustriesPage() {
         </div>
       </Section>
 
-      {/* Products */}
-      <Section tone="dark">
-        <Eyebrow icon="grid" color="gold">
-          Products
-        </Eyebrow>
-        <H2 className="mb-10 text-white">Two products, one goal: workplaces that flourish.</H2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <a href={routes.corporateBrain} className="block rounded-[12px] border border-navy-line bg-navy-raised p-6 text-white no-underline hover:border-on-navy-muted">
-            <h3 className="text-[20px] font-semibold">Corporate Brain →</h3>
-            <p className="mt-2 leading-[1.7] text-on-navy">People analytics and task intelligence: who should lead, who should take each task, and how to support each person.</p>
-          </a>
-          <a href={routes.gamified} className="block rounded-[12px] border border-navy-line bg-navy-raised p-6 text-white no-underline hover:border-on-navy-muted">
-            <h3 className="text-[20px] font-semibold">Decode →</h3>
-            <p className="mt-2 leading-[1.7] text-on-navy">Short, animated job games that show how candidates and employees handle real situations from their industry.</p>
-          </a>
+      {/* Case studies carousel */}
+      <Section tone="light" className="border-t border-rule bg-cloud">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <Eyebrow icon="quote" color="goldInk">
+              Customer stories
+            </Eyebrow>
+            <H2>Transforming workplaces with evidence.</H2>
+          </div>
+          <Link href={routes.stories} className="font-semibold text-ink">
+            All customer stories →
+          </Link>
         </div>
+        <ul className="m-0 -mx-4 flex list-none snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:px-0" aria-label="Customer stories, scroll sideways for more">
+          {named.map((s) => (
+            <li key={s.slug} className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]">
+              <Link href={storyHref(s)} className="flex h-full flex-col rounded-[18px] border border-rule bg-white p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)]">
+                <div className="flex h-12 items-center">
+                  {s.logo ? <img src={s.logo} alt={`${s.client} logo`} className="h-full w-auto max-w-[160px] object-contain" /> : <span className="text-[18px] font-bold">{s.client}</span>}
+                </div>
+                <p className="mt-5 text-[12px] font-semibold tracking-[0.08em] text-gold-ink uppercase">{s.industry}</p>
+                <h3 className="mt-1.5 text-[19px] leading-[1.3] font-semibold">{s.title}</h3>
+                {s.stats?.[0] && (
+                  <p className="mt-auto pt-6">
+                    <span className="block text-[36px] leading-none font-bold tracking-[-0.03em] tabular-nums">{s.stats[0].value}</span>
+                    <span className="mt-1 block text-[14px] text-ink-muted">{s.stats[0].label}</span>
+                  </p>
+                )}
+                <span className="mt-5 text-[14px] font-bold">Read the story →</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Statement */}
+      <Section tone="dark" innerClassName="py-16 md:py-24">
+        <p className="text-[12px] font-semibold tracking-[0.08em] text-amber uppercase">Our ambition</p>
+        <p className="mt-5 max-w-[1000px] text-[clamp(26px,3.6vw,46px)] leading-[1.15] font-bold tracking-[-0.025em] text-white">
+          To help every workplace we serve understand its people well enough that each person can do their best work, and keep growing.
+        </p>
+      </Section>
+
+      {/* Pillars */}
+      <Section tone="light">
+        <Eyebrow icon="target" color="goldInk">
+          What guides us
+        </Eyebrow>
+        <H2 className="mb-10">Five principles behind everything we build.</H2>
+        <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-5">
+          {pillars.map((p, i) => (
+            <li key={p.n} className={`rounded-[18px] border border-rule p-6 ${tints[i]}`}>
+              <span className="text-[34px] leading-none font-bold text-ink tabular-nums">{p.n}</span>
+              <h3 className="mt-6 text-[18px] font-semibold">{p.title}</h3>
+              <p className="mt-2 text-[14px] leading-[1.65] text-ink-body">{p.text}</p>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <CtaBlock
         tone="dark"
-        title="Don't see your industry?"
-        accent="Let's talk."
-        text="We are always researching new sectors and roles. Tell us about your teams and we'll show you what fits."
-        actions={[{ label: "Contact us", href: routes.contact, variant: "gold" }]}
+        title="Put people intelligence"
+        accent="at the core."
+        text="Tell us about your industry and your teams. We'll show you what the evidence looks like for your roles."
+        actions={[
+          { label: "Reach out to us", href: enquiryHref("demo"), variant: "gold" },
+          { label: "Explore Decode", href: routes.gamified, variant: "outlineDark" },
+        ]}
       />
     </>
   );
