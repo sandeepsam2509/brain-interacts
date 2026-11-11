@@ -52,7 +52,7 @@ export function AttritionCalculator() {
           />
         </div>
 
-        <div className="border-t border-rule bg-[#F6F7F9] p-5 md:p-7 lg:border-t-0 lg:border-l" aria-live="polite">
+        <div className="border-t border-rule bg-[#F5F7FA] p-5 md:p-7 lg:border-t-0 lg:border-l" aria-live="polite">
           <p className="font-mono text-xs text-ink-muted uppercase">Estimated cost of turnover per year</p>
           <p className="mt-2 text-[clamp(24px,2.9vw,34px)] leading-tight font-extrabold tracking-[-0.03em]">
             {inr(low)} <span className="text-ink-muted">–</span> {inr(high)}
@@ -73,7 +73,7 @@ export function AttritionCalculator() {
 
           <Link
             href={enquiryHref("diagnostic", { headcount: String(headcount), attrition: `${attrition}%` })}
-            className="mt-6 flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy no-underline hover:bg-[#c7ea72]"
+            className="mt-6 flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy no-underline hover:bg-[#F7CF3D]"
           >
             Find the causes behind your attrition
           </Link>

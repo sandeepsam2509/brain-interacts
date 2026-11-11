@@ -113,7 +113,7 @@ export default function AboutPage() {
             link: { label: "Explore FinCheck", href: routes.finCheck, accent: "sky" },
           },
           {
-            title: "Gamified Assessments",
+            title: "Decode",
             text: "Game-based assessments that show how people decide under real conditions.",
             link: { label: "Explore", href: routes.gamified, accent: "gold" },
           },

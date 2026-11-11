@@ -8,18 +8,18 @@ export function SiteFooter() {
     <footer className="border-t border-navy-rule bg-navy text-on-navy-muted">
       <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-10 px-6 pt-14 pb-12 md:grid-cols-3 md:pt-[72px] lg:grid-cols-6 lg:gap-10">
         <div className="col-span-2 md:col-span-3 lg:col-span-2">
-          <Link href={routes.home} aria-label={`${site.name} home`} className="flex items-center gap-2.5 no-underline">
-            <BrandMark size={36} />
-            <Wordmark height={20} />
+          <Link href={routes.home} aria-label={`${site.name} home`} className="flex items-center gap-1 no-underline">
+            <BrandMark size={44} />
+            <Wordmark height={52} />
           </Link>
           <p className="mt-[18px] max-w-[340px] text-[14px] leading-[1.7]">
             Team analytics, behavioral analysis and workforce analytics for organizations that build on evidence.
           </p>
           <div className="mt-5 flex flex-col gap-2 text-[14px]">
-            <a href={`mailto:${site.email}`} className="text-[#E8EDF5] no-underline hover:underline">
+            <a href={`mailto:${site.email}`} className="text-[#E2E8F0] no-underline hover:underline">
               {site.email}
             </a>
-            <a href={site.phoneHref} className="text-[#E8EDF5] no-underline hover:underline">
+            <a href={site.phoneHref} className="text-[#E2E8F0] no-underline hover:underline">
               {site.phone}
             </a>
           </div>

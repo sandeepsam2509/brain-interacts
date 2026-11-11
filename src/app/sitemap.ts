@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 const paths = [
   "/",
   "/about",
+  "/brand",
   "/platforms/corporate-brain",
   "/platforms/fincheck",
   "/platforms/gamified-assessments",

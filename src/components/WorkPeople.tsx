@@ -75,7 +75,7 @@ export function WorkPeople({ tone = "light" }: { tone?: Tone }) {
               <h3 className={`text-lg font-extrabold ${c.ink}`}>{c.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.6] text-ink-body">{c.text}</p>
               <div className="mt-auto pt-6">
-                <div className="rounded-xl bg-[#f4f6f9] p-4" aria-hidden="true">{c.visual}</div>
+                <div className="rounded-xl bg-[#F5F7FA] p-4" aria-hidden="true">{c.visual}</div>
               </div>
             </div>
           </article>

@@ -91,10 +91,10 @@ export default function HomePage() {
           </div>
 
           {/* Product-style panel; illustrative example */}
-          <div className="rounded-2xl border border-rule bg-white p-4 shadow-[0_18px_48px_rgba(10,22,40,0.10)] md:p-5" aria-label="Example of Brain Suggests task matching">
+          <div className="rounded-2xl border border-rule bg-white p-4 shadow-[0_18px_48px_rgba(15,23,42,0.10)] md:p-5" aria-label="Example of Brain Suggests task matching">
             <div className="mb-3 flex items-center justify-between px-1">
               <p className="text-[13px] font-bold">Task board · Suggested owners</p>
-              <span className="rounded-full bg-[#EDF7DC] px-2.5 py-1 text-[11px] font-semibold text-green-ink">Example</span>
+              <span className="rounded-full bg-[#E8F3EC] px-2.5 py-1 text-[11px] font-semibold text-green-ink">Example</span>
             </div>
             <div className="grid gap-3">
               {matches.map((m) => (

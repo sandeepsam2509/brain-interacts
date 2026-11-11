@@ -20,15 +20,15 @@ export const publicBase = () =>
 /** Brand signature with the logo, added to the end of every email unless the email has its own footer. */
 export function signatureHtml() {
   const base = publicBase();
-  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:28px;border-top:1px solid #E1E6EE;font-family:Arial,sans-serif">
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:28px;border-top:1px solid #DCE3EB;font-family:Arial,sans-serif">
   <tr><td style="padding-top:18px">
-    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="#0A1628" style="background:#0A1628;border-radius:8px;padding:10px 14px">
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="#0F172A" style="background:#0F172A;border-radius:8px;padding:10px 14px">
       <img src="${base}/email/brain-interacts-logo.png" width="120" height="30" alt="Brain Interacts" style="display:block;border:0;width:120px;height:30px">
     </td></tr></table>
   </td></tr>
-  <tr><td style="padding-top:10px;font-size:12px;line-height:1.7;color:#45556E">
-    <strong style="color:#0A1628">Brain Interacts</strong> · Corporate Brain<br>
-    <a href="mailto:support@braininteracts.com" style="color:#1B5F96;text-decoration:none">support@braininteracts.com</a> · +91 72760 69027 · <a href="${base}" style="color:#1B5F96;text-decoration:none">braininteracts.com</a>
+  <tr><td style="padding-top:10px;font-size:12px;line-height:1.7;color:#475569">
+    <strong style="color:#0F172A">Brain Interacts</strong> · Corporate Brain<br>
+    <a href="mailto:support@braininteracts.com" style="color:#0F172A;text-decoration:none">support@braininteracts.com</a> · +91 72760 69027 · <a href="${base}" style="color:#0F172A;text-decoration:none">braininteracts.com</a>
   </td></tr>
 </table>`;
 }
@@ -91,8 +91,8 @@ export function fieldsTable(fields: [string, unknown][]): string {
     .filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== "")
     .map(
       ([k, v]) =>
-        `<tr><td style="padding:8px 12px;border-bottom:1px solid #E1E6EE;font-weight:700;vertical-align:top;white-space:nowrap">${esc(k)}</td><td style="padding:8px 12px;border-bottom:1px solid #E1E6EE;white-space:pre-wrap">${esc(v)}</td></tr>`,
+        `<tr><td style="padding:8px 12px;border-bottom:1px solid #DCE3EB;font-weight:700;vertical-align:top;white-space:nowrap">${esc(k)}</td><td style="padding:8px 12px;border-bottom:1px solid #DCE3EB;white-space:pre-wrap">${esc(v)}</td></tr>`,
     )
     .join("");
-  return `<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;color:#0A1628">${rows}</table>`;
+  return `<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;color:#0F172A">${rows}</table>`;
 }

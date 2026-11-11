@@ -59,7 +59,7 @@ export function UnlockCheckout({ email: initialEmail, archetype, assessment }: {
         image: `${window.location.origin}/brand/brain-interacts-mark.svg`,
         prefill: { name, email, contact: phone },
         notes: { archetype },
-        theme: { color: "#0A1628" },
+        theme: { color: "#0F172A" },
         modal: { ondismiss: () => setState({ step: "form" }) },
         handler: async (r: RazorpayResponse) => {
           setState({ step: "confirming" });
@@ -110,11 +110,11 @@ export function UnlockCheckout({ email: initialEmail, archetype, assessment }: {
       <Field id="un-phone" label="Mobile number" required>
         <input id="un-phone" type="tel" required autoComplete="tel" inputMode="tel" placeholder="+91" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputClass()} />
       </Field>
-      <button type="submit" disabled={busy} className="mt-1 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#c7ea72] disabled:opacity-60">
+      <button type="submit" disabled={busy} className="mt-1 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D] disabled:opacity-60">
         {state.step === "confirming" ? "Confirming your payment…" : state.step === "paying" ? "Opening secure payment…" : "Pay ₹999 securely"}
       </button>
       {state.step === "error" && (
-        <p role="alert" className="text-sm font-semibold text-[#B42318]">
+        <p role="alert" className="text-sm font-semibold text-[#B91C1C]">
           {state.message}
         </p>
       )}

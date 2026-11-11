@@ -5,7 +5,7 @@ import { Field, FormStatus, Honeypot, inputClass } from "./fields";
 import { useSubmit } from "./useSubmit";
 
 const topics = {
-  Products: ["Corporate Brain", "FinCheck", "Gamified Assessments"],
+  Products: ["Corporate Brain", "FinCheck", "Decode"],
   Solutions: ["Custom Psychological Assessment Systems", "Corporate Culture Study", "Root Cause Analytics"],
   Other: ["Hiring query", "General query"],
 };
@@ -75,7 +75,7 @@ export function ContactForm() {
         </span>
       </label>
       <div className="md:col-span-2">
-        <button type="submit" disabled={sending} className="rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1e3a66] disabled:opacity-60 max-md:w-full">
+        <button type="submit" disabled={sending} className="rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1E293B] disabled:opacity-60 max-md:w-full">
           {sending ? "Sending…" : "Send your enquiry"}
         </button>
         <FormStatus status={status} sentText="Thanks, your message is with our team. We'll reply within one working day." />

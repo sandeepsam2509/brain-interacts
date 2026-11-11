@@ -2,27 +2,36 @@
 
 /* Brand tokens, taken from the Claude Design canvas. */
 @theme {
-  --color-navy: #0a1628;
-  --color-navy-raised: #101f38;
-  --color-navy-line: #2a3b57;
-  --color-navy-rule: #1c2b45;
-  --color-lime: #b8e05a;
-  --color-gold: #f2c14e;
-  --color-sky: #5bb8f5;
-  --color-on-navy: #aeb9cb;
-  --color-on-navy-soft: #c5cedc;
-  --color-on-navy-muted: #a9b4c6;
-  --color-ink: #0a1628;
-  --color-ink-body: #45556e;
-  --color-ink-muted: #55657e;
-  --color-ink-link: #1b5f96;
-  --color-rule: #e1e6ee;
-  --color-rule-strong: #c3cbd8;
-  --color-gold-ink: #6e5309;
-  --color-green-ink: #4a7516;
+  /* Brain Interacts + Decode brand (Nov 2026): navy and white, with red, amber and green
+     used only where they mean something. No sky, lime, teal or purple. */
+  --color-navy: #0f172a;
+  --color-navy-raised: #1e293b;
+  --color-navy-line: #334155;
+  --color-navy-rule: #1e293b;
+  /* Legacy accent names kept so every page picks up the new palette:
+     lime = the key action on navy (amber), gold = amber, sky = light slate. */
+  --color-lime: #f4c20d;
+  --color-gold: #f4c20d;
+  --color-sky: #cbd5e1;
+  --color-amber: #f4c20d;
+  --color-brand-red: #b91c1c;
+  --color-brand-green: #15803d;
+  --color-cloud: #f5f7fa;
+  --color-on-navy: #cbd5e1;
+  --color-on-navy-soft: #e2e8f0;
+  --color-on-navy-muted: #94a3b8;
+  --color-ink: #0f172a;
+  --color-ink-body: #475569;
+  --color-ink-muted: #64748b;
+  --color-ink-link: #0f172a;
+  --color-rule: #dce3eb;
+  --color-rule-strong: #cbd5e1;
+  --color-gold-ink: #806600;
+  --color-green-ink: #15803d;
 
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  /* Inter is the only typeface. */
+  --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-inter), "Segoe UI", system-ui, sans-serif;
 }
 
 html {
@@ -41,11 +50,11 @@ body {
 }
 
 ::selection {
-  background: rgb(184 224 90 / 0.4);
+  background: rgb(244 194 13 / 0.35);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-sky);
+  outline: 2px solid var(--color-amber);
   outline-offset: 2px;
 }
 
@@ -72,27 +81,24 @@ body {
 .group:focus-visible .logo-beat { animation: logo-beat 0.5s ease-out 1; }
 @keyframes logo-beat { 40% { transform: scale(1.06); } 100% { transform: scale(1); } }
 
-/* Dark closing sections: the three logo colours turn slowly behind the text. */
+/* Dark closing sections: red, amber and green turn slowly behind the text. */
 .cta-aurora {
-  background: conic-gradient(from 0deg, rgb(154 215 81 / 0.22), rgb(234 210 95 / 0.14), rgb(59 181 232 / 0.24), rgb(154 215 81 / 0.22));
+  background: conic-gradient(from 0deg, rgb(185 28 28 / 0.16), rgb(244 194 13 / 0.14), rgb(21 128 61 / 0.18), rgb(185 28 28 / 0.16));
   filter: blur(70px);
   animation: cta-spin 26s linear infinite;
 }
 @keyframes cta-spin { to { transform: rotate(1turn); } }
 
 /* Logo intro. */
-.intro-ring { fill: none; stroke-width: 1.2; stroke-dasharray: 140; stroke-dashoffset: 140; animation: intro-draw 1s ease forwards; }
-.intro-ring:nth-of-type(2) { animation-delay: 0.15s; }
-.intro-ring:nth-of-type(3) { animation-delay: 0.3s; }
-.intro-fill { opacity: 0; animation: intro-in 0.45s ease 1.05s forwards; }
-.intro-word { opacity: 0; transform: translateX(18px); animation: intro-in 0.5s ease 1.25s forwards; }
-@keyframes intro-draw { to { stroke-dashoffset: 0; } }
+.intro-body { opacity: 0; transform: translateY(16px); animation: intro-in 0.5s ease 0.1s forwards; }
+.intro-collar { opacity: 0; animation: intro-in 0.35s ease 0.55s forwards; }
+.intro-head { opacity: 0; transform: translateY(-26px); animation: intro-in 0.45s cubic-bezier(0.3, 1.4, 0.5, 1) 0.6s forwards; }
+.intro-word { opacity: 0; transform: translateX(18px); animation: intro-in 0.5s ease 1.05s forwards; }
 @keyframes intro-in { to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .float-3d, .glow-a, .glow-b, .glow-c, .cta-aurora, .logo-beat, .intro-ring, .intro-fill, .intro-word { animation: none !important; }
-  .intro-ring { stroke-dashoffset: 0; }
-  .intro-fill, .intro-word { opacity: 1; transform: none; }
+  .float-3d, .glow-a, .glow-b, .glow-c, .cta-aurora, .logo-beat, .intro-body, .intro-collar, .intro-head, .intro-word { animation: none !important; }
+  .intro-body, .intro-collar, .intro-head, .intro-word { opacity: 1; transform: none; }
 }
 
 /* Scroll reveal (classes are added by ScrollReveal, so content shows without JavaScript). */
@@ -124,9 +130,9 @@ body.menu-open .bot-launcher { display: none; }
 
 /* Range sliders in the widgets: navy track filled with lime up to the thumb. */
 .widget-range { -webkit-appearance: none; appearance: none; height: 8px; border-radius: 999px; cursor: pointer;
-  background: linear-gradient(to right, var(--color-lime) 0 var(--fill, 50%), #e1e6ee var(--fill, 50%) 100%); }
+  background: linear-gradient(to right, var(--color-lime) 0 var(--fill, 50%), #DCE3EB var(--fill, 50%) 100%); }
 .widget-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 999px;
   background: var(--color-navy); border: 4px solid #fff; box-shadow: 0 2px 8px rgba(10, 22, 40, 0.35); }
 .widget-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 999px; background: var(--color-navy); border: 4px solid #fff;
   box-shadow: 0 2px 8px rgba(10, 22, 40, 0.35); }
-.widget-range:focus-visible { outline: 2px solid var(--color-sky); outline-offset: 4px; }
+.widget-range:focus-visible { outline: 2px solid var(--color-amber); outline-offset: 4px; }

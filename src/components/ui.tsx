@@ -48,7 +48,7 @@ export function Eyebrow({
   color: EyebrowColor;
 }) {
   return (
-    <p className={`mb-3.5 flex items-center gap-2 font-mono text-[13px] ${eyebrowColors[color]}`}>
+    <p className={`mb-3.5 flex items-center gap-2 text-[12px] font-semibold tracking-[0.08em] uppercase ${eyebrowColors[color]}`}>
       <Icon name={icon} />
       <span>{children}</span>
     </p>
@@ -64,10 +64,10 @@ export function H2({ children, className = "" }: { children: ReactNode; classNam
 }
 
 const buttonStyles = {
-  lime: "bg-lime text-navy hover:bg-[#c7ea72]",
-  gold: "bg-gold text-navy hover:bg-[#f6d27a]",
-  sky: "bg-sky text-navy hover:bg-[#82cbf8]",
-  navy: "bg-navy text-white hover:bg-[#1e3a66]",
+  lime: "bg-lime text-navy hover:bg-[#F7CF3D]",
+  gold: "bg-gold text-navy hover:bg-[#F7CF3D]",
+  sky: "bg-sky text-navy hover:bg-[#E2E8F0]",
+  navy: "bg-navy text-white hover:bg-[#1E293B]",
   outlineLight: "border border-rule-strong text-ink hover:border-ink",
   outlineDark: "border border-navy-line text-white hover:border-on-navy",
 } as const;

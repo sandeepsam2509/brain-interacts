@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// Logo intro: the three circles draw themselves in, fill with colour, then the wordmark
+// Logo intro: the figure's body rises, the head drops into place, then the wordmark
 // slides in. Once per browser session, over a page that is already rendered underneath.
 // Skipped for visitors who ask for reduced motion; any click skips it.
 export function LogoIntro() {
@@ -34,12 +34,11 @@ export function LogoIntro() {
       onClick={() => setState("hidden")}
       className={`fixed inset-0 z-[100] grid place-items-center bg-navy transition-opacity duration-500 ${state === "leaving" ? "opacity-0" : "opacity-100"}`}
     >
-      <svg viewBox="4 2 342 85" className="w-[min(360px,75vw)] overflow-visible">
-        <circle className="intro-ring" cx="48" cy="34" r="22" stroke="#3BB5E8" />
-        <circle className="intro-ring" cx="36" cy="55" r="22" stroke="#9AD751" />
-        <circle className="intro-ring" cx="60" cy="55" r="22" stroke="#EAD25F" />
-        <image className="intro-fill" href="/brand/brain-interacts-mark.svg" x="8" y="6" width="80" height="77" />
-        <image className="intro-word" href="/brand/brain-interacts-wordmark.svg" x="90" y="28" width="248" height="32" />
+      <svg viewBox="0 0 378 100" className="w-[min(420px,80vw)] overflow-visible">
+        <circle className="intro-head" cx="36" cy="24" r="14" fill="#B91C1C" />
+        <path className="intro-body" d="M0 90L22 50H50L72 90H52L36 74L20 90Z" fill="#FACC15" />
+        <path className="intro-collar" d="M22 50H50L36 74Z" fill="#FFFFFF" />
+        <image className="intro-word" href="/brand/brain-interacts-wordmark.svg" x="92" y="0" width="286" height="100" />
       </svg>
     </div>
   );

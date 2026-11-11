@@ -1,12 +1,12 @@
 // Customer stories. Clients are anonymised; each result is confirmed with the client before it is published.
 import { routes } from "@/lib/site";
 
-export type Product = "Corporate Brain" | "Root Cause Analytics" | "Gamified Assessments" | "Corporate Culture Study";
+export type Product = "Corporate Brain" | "Root Cause Analytics" | "Decode" | "Corporate Culture Study";
 
 export const productLinks: Record<Product, string> = {
   "Corporate Brain": routes.corporateBrain,
   "Root Cause Analytics": routes.rootCause,
-  "Gamified Assessments": routes.gamified,
+  "Decode": routes.gamified,
   "Corporate Culture Study": routes.cultureStudy,
 };
 
@@ -51,9 +51,9 @@ export const stories: Story[] = [
     client: "Multi-plant Indian manufacturing group",
     title: "Promoting the right people into supervision",
     who: "A large Indian manufacturing group with multiple plants.",
-    products: ["Gamified Assessments", "Corporate Brain"],
+    products: ["Decode", "Corporate Brain"],
     challenge: "Strong operators were being promoted into supervisor roles that did not suit them.",
-    how: "Gamified Assessments and Corporate Brain profiles gave HR a structured view of leadership potential, alongside interviews and performance records.",
+    how: "Decode and Corporate Brain profiles gave HR a structured view of leadership potential, alongside interviews and performance records.",
   },
   {
     slug: "it-services-assigning-work-by-strengths",

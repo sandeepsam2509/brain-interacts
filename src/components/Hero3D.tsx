@@ -20,7 +20,7 @@ export const renders = {
 export type Tint = "brand" | "gold" | "sky" | "lime";
 
 const glow: Record<Tint, [string, string, string]> = {
-  brand: ["bg-sky", "bg-lime", "bg-gold"],
+  brand: ["bg-brand-red", "bg-amber", "bg-brand-green"],
   gold: ["bg-gold", "bg-gold", "bg-lime"],
   sky: ["bg-sky", "bg-sky", "bg-lime"],
   lime: ["bg-lime", "bg-lime", "bg-sky"],

@@ -171,7 +171,7 @@ function Body({ blocks }: { blocks: Block[] }) {
             return (
               <aside
                 key={i}
-                className="my-8 rounded-2xl bg-[#EEF1F6] p-6 md:p-7"
+                className="my-8 rounded-2xl bg-[#EEF2F6] p-6 md:p-7"
               >
                 <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">
                   {b.title}
@@ -226,7 +226,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <section className="border-b border-rule bg-[#EEF1F6]">
+      <section className="border-b border-rule bg-[#EEF2F6]">
         <div className="mx-auto max-w-[1280px] px-4 pt-10 pb-10 md:px-8 md:pt-14">
           <nav aria-label="Breadcrumb" className="mb-6 text-sm text-ink-muted">
             <Link
@@ -356,7 +356,7 @@ export default async function ArticlePage({ params }: Props) {
               <li key={r.slug}>
                 <Link
                   href={`/resources/articles/${r.slug}`}
-                  className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)] md:p-7"
+                  className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)] md:p-7"
                 >
                   <p className="font-mono text-[11px] tracking-[0.12em] text-gold-ink uppercase">
                     Article · {r.topic}

@@ -39,7 +39,7 @@ export function Honeypot() {
 export function FormStatus({ status, tone = "light", sentText }: { status: Status; tone?: FieldTone; sentText: string }) {
   if (status.state === "error") {
     return (
-      <p role="alert" className={`mt-3 text-sm font-semibold ${tone === "dark" ? "text-[#FDA29B]" : "text-[#B42318]"}`}>
+      <p role="alert" className={`mt-3 text-sm font-semibold ${tone === "dark" ? "text-[#FCA5A5]" : "text-[#B91C1C]"}`}>
         {status.message}
       </p>
     );

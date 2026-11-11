@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- the Decode SVG logo doesn't need next/image */
 import type { Metadata } from "next";
 import { HeroRings } from "@/components/HeroRings";
 import { ringSets } from "@/content/rings";
@@ -7,13 +8,13 @@ import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gamified Assessments (Coming Soon), Game-Based Hiring Assessments",
+  title: "Decode (Coming Soon), Game-Based Hiring Assessments",
   description:
     "Short, game-based assessments that show how candidates think, decide and recover, built on the Big Five and the Corporate Brain model. Coming soon; join the early access programme.",
   alternates: { canonical: routes.gamified },
 };
 
-const trail = [{ label: "Home", href: routes.home }, { label: "Products", href: routes.corporateBrain }, { label: "Gamified Assessments" }];
+const trail = [{ label: "Home", href: routes.home }, { label: "Products", href: routes.corporateBrain }, { label: "Decode" }];
 
 const compare = [
   { q: "Candidates can guess the answer you want", g: "Candidates show you what they do, choice by choice" },
@@ -45,7 +46,7 @@ const earlyAccess = [
 
 const faqs = [
   {
-    q: "When will Gamified Assessments launch?",
+    q: "When will Decode launch?",
     a: "We are finalising the first role tracks with early access partners. Join the programme and we will share the timeline with you directly.",
   },
   {
@@ -67,6 +68,7 @@ export default function GamifiedPage() {
     <>
       <PageHero
         trail={trail}
+        logo={<img src="/brand/decode-wordmark-white.svg" alt="Decode" width={200} height={58} className="h-auto w-[170px] md:w-[200px]" />}
         badge="Coming soon"
         title="Hiring assessments candidates"
         accent="actually want to finish."
@@ -85,7 +87,7 @@ export default function GamifiedPage() {
         </Eyebrow>
         <H2 className="mb-8 max-w-[820px]">Questionnaires record what people say. A game shows what they do.</H2>
         <div className="overflow-hidden rounded-2xl border border-rule bg-white">
-          <div className="hidden grid-cols-2 border-b border-rule bg-[#F4F6F9] md:grid">
+          <div className="hidden grid-cols-2 border-b border-rule bg-[#F5F7FA] md:grid">
             <p className="px-6 py-3 font-mono text-[12px] text-ink-muted uppercase">Traditional questionnaire</p>
             <p className="px-6 py-3 font-mono text-[12px] text-ink-link uppercase">Gamified assessment</p>
           </div>

@@ -16,7 +16,7 @@ export const mainServiceAgreement: LegalDoc = {
         "\"Affiliate\" means any entity that controls, is controlled by, or is under common control with a party, where control means owning more than 50% of the voting interests or otherwise having the power to direct its management and policies.",
         "\"Agreement\" means this MSA together with the Data Processing Addendum, the Acceptable Use Policy, every Order Form and Statement of Work, and any exhibits or amendments.",
         "\"Assessment Data\" means responses, scores, profiles, archetypes, reports and other outputs generated about individuals through the Services.",
-        "\"Brain Interacts Services\" means the generally available software and assessment services we provide, including Corporate Brain, Gamified Assessments and FinCheck, as specified in an Order Form or provided as a free trial.",
+        "\"Brain Interacts Services\" means the generally available software and assessment services we provide, including Corporate Brain, Decode (game-based assessments) and FinCheck, as specified in an Order Form or provided as a free trial.",
         "\"Customer Data\" means all data, including Personal Data and Assessment Data, submitted by or for the Customer to the Services or generated for the Customer by them. It does not include System Data.",
         "\"Documentation\" means our user guides and product documentation, as updated from time to time.",
         "\"Order Form\" means an ordering document signed by both parties that specifies the Services, seats, term and fees.",

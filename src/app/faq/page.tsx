@@ -30,7 +30,7 @@ const groups: Group[] = [
     title: "Results and accuracy",
     items: [
       { q: "Is the Big Five reliable for workplace decisions?", a: "The Big Five is the most widely researched model of personality. Corporate Brain treats results as one input alongside interviews, work samples and performance records, never the only one." },
-      { q: "Can employees fake their answers?", a: "Self-reported answers can be shaded, especially in hiring. Corporate Brain marks borderline scores and offers Gamified Assessments, which observe behavior directly." },
+      { q: "Can employees fake their answers?", a: "Self-reported answers can be shaded, especially in hiring. Corporate Brain marks borderline scores and offers Decode, which observe behavior directly." },
       { q: "How long does the questionnaire take?", a: "About 4 minutes: 20 short statements rated from very inaccurate to very accurate." },
       { q: "Do results change over time?", a: "Yes. Employees can retake the questionnaire and see what changed." },
     ],

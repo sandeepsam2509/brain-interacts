@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { type MainNavItem, mainNav, routes, site } from "@/lib/site";
-import { BrandMark, Wordmark } from "./BrandMark";
+import { BrandMark, BrandStripe, Wordmark } from "./BrandMark";
 
 function Chevron({ open }: { open: boolean }) {
   return (
@@ -77,11 +77,12 @@ export function SiteHeader() {
 
   return (
     <header className={`sticky top-0 z-50 border-b border-navy-rule transition-colors duration-300 ${compact ? "bg-navy/90 backdrop-blur-md" : "bg-navy"}`}>
+      <BrandStripe />
       <div className={`mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 transition-[padding] duration-300 md:px-6 ${compact ? "py-2 md:py-2.5" : "py-3 md:py-[18px]"}`}>
         <Link href={routes.home} aria-label={`${site.name} home`} className="group flex items-center no-underline">
-          <BrandMark size={32} className="logo-beat" />
-          <span className={`overflow-hidden transition-all duration-500 ease-out motion-reduce:transition-none ${compact ? "ml-0 max-w-0 opacity-0" : "ml-2.5 max-w-[160px] opacity-100"}`}>
-            <Wordmark height={18} />
+          <BrandMark size={38} className="logo-beat" />
+          <span className={`overflow-hidden transition-all duration-500 ease-out motion-reduce:transition-none ${compact ? "ml-0 max-w-0 opacity-0" : "ml-1 max-w-[140px] opacity-100"}`}>
+            <Wordmark height={44} />
           </span>
         </Link>
 
@@ -150,7 +151,7 @@ export function SiteHeader() {
           <a href={site.signIn} className="hidden px-2 py-3 text-[14px] font-semibold whitespace-nowrap text-white no-underline xl:inline-block">
             Sign in
           </a>
-          <Link href={routes.demo} className="rounded-lg bg-lime px-3.5 py-2.5 text-[14px] font-bold whitespace-nowrap text-navy no-underline hover:bg-[#c7ea72] md:px-5 md:py-3">
+          <Link href={routes.demo} className="rounded-lg bg-lime px-3.5 py-2.5 text-[14px] font-bold whitespace-nowrap text-navy no-underline hover:bg-[#F7CF3D] md:px-5 md:py-3">
             Get a demo
           </Link>
           <button

@@ -5,37 +5,37 @@ import { useMemo, useState } from "react";
 import { type Product, type Story, storyHref } from "@/content/stories";
 
 const industryTone: Record<string, string> = {
-  "Facilities management": "#F2C14E",
-  Manufacturing: "#5BB8F5",
-  "IT services": "#B8E05A",
-  "Industrial automation": "#7FB82E",
+  "Facilities management": "#F4C20D",
+  Manufacturing: "#CBD5E1",
+  "IT services": "#F4C20D",
+  "Industrial automation": "#15803D",
 };
 
 /** Abstract brand artwork per story (no client logos or photos). */
 export function StoryArt({ story, seed = 0 }: { story: Story; seed?: number }) {
-  const a = industryTone[story.industry] ?? "#5BB8F5";
+  const a = industryTone[story.industry] ?? "#CBD5E1";
   const v = seed % 3;
   return (
     <svg viewBox="0 0 320 200" className="h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-      <rect width="320" height="200" fill="#0A1628" />
+      <rect width="320" height="200" fill="#0F172A" />
       {v === 0 && (
         <>
           <circle cx="250" cy="40" r="110" fill={a} opacity="0.9" />
-          <circle cx="80" cy="190" r="80" fill="#5BB8F5" opacity="0.3" />
+          <circle cx="80" cy="190" r="80" fill="#CBD5E1" opacity="0.3" />
         </>
       )}
       {v === 1 && (
         <>
           {[0, 1, 2, 3, 4].map((i) => (
-            <rect key={i} x={40 + i * 50} y={150 - (i + 1) * 22} width="34" height={(i + 1) * 22 + 20} rx="6" fill={i === 4 ? a : "#1E3A66"} />
+            <rect key={i} x={40 + i * 50} y={150 - (i + 1) * 22} width="34" height={(i + 1) * 22 + 20} rx="6" fill={i === 4 ? a : "#1E293B"} />
           ))}
-          <path d="M40 120 C 110 60, 180 110, 280 30" stroke="#F2C14E" strokeWidth="5" fill="none" strokeLinecap="round" />
+          <path d="M40 120 C 110 60, 180 110, 280 30" stroke="#F4C20D" strokeWidth="5" fill="none" strokeLinecap="round" />
         </>
       )}
       {v === 2 &&
         [0, 1, 2, 3].map((row) =>
           [0, 1, 2, 3, 4, 5].map((col) => (
-            <circle key={`${row}-${col}`} cx={50 + col * 44} cy={40 + row * 40} r={(row + col) % 4 === 0 ? 13 : 7} fill={(row + col) % 4 === 0 ? a : "#1E3A66"} />
+            <circle key={`${row}-${col}`} cx={50 + col * 44} cy={40 + row * 40} r={(row + col) % 4 === 0 ? 13 : 7} fill={(row + col) % 4 === 0 ? a : "#1E293B"} />
           )),
         )}
     </svg>
@@ -48,7 +48,7 @@ function Card({ s, seed }: { s: Story; seed: number }) {
     <li className="flex">
       <Link
         href={storyHref(s)}
-        className="group flex w-full flex-col overflow-hidden rounded-2xl border border-rule bg-white text-ink no-underline transition-shadow duration-300 hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)]"
+        className="group flex w-full flex-col overflow-hidden rounded-2xl border border-rule bg-white text-ink no-underline transition-shadow duration-300 hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)]"
       >
         <div className="relative aspect-[16/9] overflow-hidden">
           <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none">
@@ -62,7 +62,7 @@ function Card({ s, seed }: { s: Story; seed: number }) {
           <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{s.challenge}</p>
           <ul className="m-0 mt-4 flex list-none flex-wrap gap-1.5 p-0">
             {s.products.map((p) => (
-              <li key={p} className="rounded-full bg-[#EEF1F6] px-2.5 py-1 text-[12px] font-semibold text-ink">
+              <li key={p} className="rounded-full bg-[#EEF2F6] px-2.5 py-1 text-[12px] font-semibold text-ink">
                 {p}
               </li>
             ))}
