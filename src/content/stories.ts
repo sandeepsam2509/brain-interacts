@@ -100,14 +100,31 @@ export const stories: Story[] = [
     how: "The team composition view showed which working styles each leadership team was missing; managers used task suggestions to staff improvement projects.",
   },
   {
-    slug: "manufacturing-promoting-into-supervision",
+    slug: "megamech-promoting-the-right-people-into-supervision",
     industry: "Manufacturing",
-    client: "Multi-plant Indian manufacturing group",
+    client: "Megamech Industries",
+    named: true,
+    logo: "/customers/megamech.png",
     title: "Promoting the right people into supervision",
-    who: "A large Indian manufacturing group with multiple plants.",
+    who: "How Megamech Industries, a Pune manufacturer, used gamified assessments and Corporate Brain's Leadership Portal to find its high-potential employees and put the right people in the right roles.",
     products: ["Decode", "Corporate Brain"],
-    challenge: "Strong operators were being promoted into supervisor roles that did not suit them.",
-    how: "Decode and Corporate Brain profiles gave HR a structured view of leadership potential, alongside interviews and performance records.",
+    challenge:
+      "Megamech Industries needed more supervisors from within its own teams. Promotions were usually based on tenure or on who was best at the job, but a strong operator does not always make a strong supervisor.",
+    how: "We built gamified assessments for Megamech's teams. Through short, engaging simulations they showed how each person decides, leads and handles pressure, and team productivity improved along the way.",
+    more: {
+      challenge: [
+        "The wrong promotion costs twice: the team loses a good operator and gains a struggling leader. Megamech wanted an objective way to spot its high-potential employees and prepare them before they stepped up.",
+      ],
+      how: [
+        "The results pinpointed Megamech's High Potentials (HiPos). Each one then followed a 6-month development and management development plan in the Leadership Portal inside Corporate Brain, so the right people landed in the right supervisory roles.",
+      ],
+    },
+    stats: [
+      { value: "72%", label: "Improvement in team productivity" },
+      { value: "6 mo", label: "Development and management plan per HiPo" },
+      { value: "18", label: "High Potentials identified" },
+      { value: "4", label: "HiPos promoted into supervision" },
+    ],
   },
   {
     slug: "it-services-assigning-work-by-strengths",
