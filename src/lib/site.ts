@@ -12,6 +12,7 @@ export const site = {
   phone: "+91 72760 69027",
   phoneHref: "tel:+917276069027",
   signIn: "https://corporatebrain.braininteracts.com",
+  decode: "https://decode.braininteracts.com",
   // Company LinkedIn page. Left empty until the exact URL is confirmed; the footer hides the link while empty.
   linkedIn: "",
 };
@@ -61,7 +62,7 @@ export const mainNav: MainNavItem[] = [
     href: routes.corporateBrain,
     children: [
       { label: "Corporate Brain", href: routes.corporateBrain, description: "People analytics and task intelligence for every level" },
-      { label: "Decode", href: routes.gamified, description: "Simulations that show how people decide", badge: "Soon" },
+      { label: "Decode", href: routes.gamified, description: "Game-based assessments for 85 roles" },
       { label: "FinCheck", href: routes.finCheck, description: "Behavioral risk intelligence for lenders", badge: "Soon" },
     ],
   },

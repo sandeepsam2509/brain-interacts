@@ -27,9 +27,9 @@ export const products = [
     tagColor: "text-gold-ink",
   },
   {
-    tag: "Assessments · Coming soon",
+    tag: "Game-based assessments",
     name: "Decode",
-    text: "Short simulations that show how people decide under pressure.",
+    text: "Short job games for 85 roles across 14 industries. See how people really work.",
     href: routes.gamified,
     rule: "border-[#334155]",
     tagColor: "text-ink-link",
