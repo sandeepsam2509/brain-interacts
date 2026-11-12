@@ -115,7 +115,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-[2fr_1fr_1fr]">
             {[
-              ["/site/ee5cc825.webp", "Worker operating machinery on a factory floor", "Manufacturing & FMCG", "manufacturing-and-facilities"],
+              ["/site/ee5cc825.webp", "Worker operating machinery on a factory floor", "Manufacturing & FMCG", "fmcg-and-consumer-goods"],
               ["/site/7e00bc9e.webp", "Professionals meeting in a modern office", "ITES", "ites"],
               ["/site/8fc9f461.webp", "Leadership team around a boardroom table", "Banking & Insurance", "banking-and-financial-services"],
             ].map(([src, alt, label, id]) => (

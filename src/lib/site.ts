@@ -141,7 +141,6 @@ export const mainNav: MainNavItem[] = [
       {
         title: "Goods & supply",
         items: [
-          { label: "Manufacturing & facilities", href: `${routes.industries}#manufacturing-and-facilities` },
           { label: "FMCG & consumer goods", href: `${routes.industries}#fmcg-and-consumer-goods` },
           { label: "Retail & e-commerce", href: `${routes.industries}#retail-and-e-commerce` },
           { label: "Logistics & supply chain", href: `${routes.industries}#logistics-and-supply-chain` },
@@ -158,7 +157,7 @@ export const mainNav: MainNavItem[] = [
         ],
       },
     ],
-    feature: { image: "/site/ee5cc825.webp", title: "New: Manufacturing & facilities", text: "Where most of our customer proof sits →", href: `${routes.industries}#manufacturing-and-facilities`, accent: "amber" },
+    feature: { image: "/site/ee5cc825.webp", title: "10 industries researched", text: "How work happens in each one →", href: routes.industries, accent: "amber" },
   },
   { label: "Customers", href: routes.stories },
   {
@@ -214,7 +213,7 @@ export const footerColumns: NavGroup[] = [
     items: [
       { label: "Banking", href: `${routes.industries}#banking-and-financial-services` },
       { label: "Insurance", href: `${routes.industries}#insurance` },
-      { label: "Manufacturing & facilities", href: `${routes.industries}#manufacturing-and-facilities` },
+      { label: "FMCG & consumer goods", href: `${routes.industries}#fmcg-and-consumer-goods` },
       { label: "ITES", href: `${routes.industries}#ites` },
       { label: "All industries", href: routes.industries },
     ],
