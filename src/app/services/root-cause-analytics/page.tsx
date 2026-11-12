@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 const trail = [{ label: "Home", href: routes.home }, { label: "Solutions", href: routes.customAssessments }, { label: "Root Cause Analytics" }];
 
 // Illustrative heatmap cells: [fill colour, opacity] per department row.
-const LOW: [string, number] = ["#CBD5E1", 0.35];
-const MED: [string, number] = ["#F4C20D", 0.5];
-const HIGH: [string, number] = ["#F4C20D", 0.8];
-const OK: [string, number] = ["#F4C20D", 0.4];
+const LOW: [string, number] = ["#C9D2E0", 0.35];
+const MED: [string, number] = ["#F5A524", 0.5];
+const HIGH: [string, number] = ["#F5A524", 0.8];
+const OK: [string, number] = ["#F5A524", 0.4];
 const departments = ["Sales", "Engineering", "Operations", "HR"];
 const risks = ["Skills", "Friction", "Burnout", "Turnover", "Lead"];
 const cells = [
@@ -36,7 +36,7 @@ function RiskHeatmap() {
         <span className="text-on-navy-muted">Illustrative</span>
       </figcaption>
       <svg viewBox="0 0 400 220" className="h-auto w-full" role="img" aria-label="Illustrative risk heatmap of five risk areas across four departments">
-        <g fontFamily="var(--font-inter), sans-serif" fontSize="12" fill="#94A3B8">
+        <g fontFamily="var(--font-inter), sans-serif" fontSize="12" fill="#93A1B8">
           {departments.map((d, r) => (
             <text key={d} x="0" y={52 + r * 44}>
               {d}

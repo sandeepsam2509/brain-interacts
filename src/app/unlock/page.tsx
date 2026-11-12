@@ -45,7 +45,7 @@ export default async function UnlockPage({ searchParams }: Props) {
           <ul className="mt-8 list-none p-0 text-[14px] leading-[1.6] text-on-navy-soft">
             {["Prepared by our experts from your assessment", "A personal action framework you can use straight away", "Secure payment by Razorpay: UPI, cards and net banking"].map((t) => (
               <li key={t} className="flex gap-3 py-1.5">
-                <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
+                <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-red text-xs font-bold text-white">
                   ✓
                 </span>
                 {t}
@@ -62,7 +62,7 @@ export default async function UnlockPage({ searchParams }: Props) {
               <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">Leave your details and we&apos;ll send you a payment link and next steps.</p>
               <a
                 href={enquiryHref("full-report", { archetype, assessment })}
-                className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1E293B]"
+                className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#22324D]"
               >
                 Request my full report
               </a>

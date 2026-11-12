@@ -14,7 +14,7 @@ const accentText: Record<Accent, string> = {
   sky: "text-sky",
   lime: "text-lime",
   white: "text-white",
-  amber: "text-[#806600]",
+  amber: "text-[#A86A00]",
   blue: "text-ink-link",
   green: "text-green-ink",
   navy: "text-navy",
@@ -27,9 +27,9 @@ const accentBorder: Record<Accent, string> = {
   sky: "border-sky",
   lime: "border-lime",
   white: "border-white",
-  amber: "border-[#F4C20D]",
-  blue: "border-[#334155]",
-  green: "border-[#15803D]",
+  amber: "border-[#F5A524]",
+  blue: "border-[#33415A]",
+  green: "border-[#2BA36B]",
   navy: "border-navy",
   slate: "border-ink-muted",
   link: "border-ink-link",
@@ -292,7 +292,7 @@ export function ScreenshotPlaceholder({ tone, title, caption }: { tone: Tone; ti
   return (
     <div
       className={`flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border border-dashed p-6 text-center ${
-        tone === "dark" ? "border-navy-line text-[#94A3B8]" : "border-rule-strong text-ink-muted"
+        tone === "dark" ? "border-navy-line text-[#93A1B8]" : "border-rule-strong text-ink-muted"
       }`}
     >
       <strong className={`text-base ${tone === "dark" ? "text-white" : "text-ink"}`}>[SCREENSHOT: {title}]</strong>

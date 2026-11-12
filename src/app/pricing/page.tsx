@@ -61,7 +61,7 @@ function PlanCard({ plan }: { plan: Plan }) {
   return (
     <div className={`flex flex-col rounded-[20px] border p-7 md:p-8 ${dark ? "border-navy bg-navy text-white" : "border-rule bg-white text-ink"}`}>
       <div className={`items-center ${plan.tag ? "flex min-h-7" : "hidden md:flex md:min-h-7"}`}>
-        {plan.tag && <span className="rounded-full bg-lime px-2.5 py-1 font-mono text-[11px] font-medium text-navy uppercase">{plan.tag}</span>}
+        {plan.tag && <span className="rounded-full bg-brand-red px-2.5 py-1 font-mono text-[11px] font-medium text-white uppercase">{plan.tag}</span>}
       </div>
       <h3 className={`text-2xl font-extrabold ${plan.tag ? "mt-4" : "md:mt-4"}`}>{plan.name}</h3>
       <p className={`mt-1 ${dark ? "text-on-navy" : "text-ink-body"}`}>{plan.who}</p>

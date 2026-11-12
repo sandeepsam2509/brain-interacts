@@ -64,10 +64,10 @@ export function H2({ children, className = "" }: { children: ReactNode; classNam
 }
 
 const buttonStyles = {
-  lime: "bg-lime text-navy hover:bg-[#F7CF3D]",
-  gold: "bg-gold text-navy hover:bg-[#F7CF3D]",
-  sky: "bg-sky text-navy hover:bg-[#E2E8F0]",
-  navy: "bg-navy text-white hover:bg-[#1E293B]",
+  lime: "bg-brand-red text-white hover:bg-brand-red-dark",
+  gold: "bg-brand-red text-white hover:bg-brand-red-dark",
+  sky: "bg-sky text-navy hover:bg-[#DCE3EE]",
+  navy: "bg-navy text-white hover:bg-[#22324D]",
   outlineLight: "border border-rule-strong text-ink hover:border-ink",
   outlineDark: "border border-navy-line text-white hover:border-on-navy",
 } as const;

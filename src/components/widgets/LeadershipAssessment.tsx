@@ -60,7 +60,7 @@ export function LeadershipAssessment() {
               a free executive report by email: your primary and secondary archetype with match scores, your five trait scores, and how each one tends to show
               up in the way you lead.
             </p>
-            <button type="button" onClick={() => setStep("quiz")} className="mt-6 rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#1E293B]">
+            <button type="button" onClick={() => setStep("quiz")} className="mt-6 rounded-lg bg-navy px-6 py-4 text-base font-bold text-white hover:bg-[#22324D]">
               Start the self-assessment
             </button>
             <p className="mt-3 text-xs text-ink-muted">Built on the Big Five, the most widely researched model of personality.</p>
@@ -68,7 +68,7 @@ export function LeadershipAssessment() {
           <ul className="m-0 list-none self-center rounded-xl bg-[#F5F7FA] p-5 text-[14px] text-ink-body">
             {["Your primary and secondary Corporate Brain archetype", "Five trait scores, each explained for leaders", "Where your style helps, and where to watch out", "Your full report by email in minutes"].map((t) => (
               <li key={t} className="flex gap-3 py-2">
-                <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy">
+                <span aria-hidden="true" className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-red text-xs font-bold text-white">
                   ✓
                 </span>
                 {t}
@@ -154,11 +154,11 @@ export function LeadershipAssessment() {
                   }}
                   className="w-full rounded-lg border border-rule-strong bg-white px-4 py-3.5 text-base"
                 />
-                <button type="submit" disabled={status.state === "sending"} className="mt-3 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D] disabled:opacity-60">
+                <button type="submit" disabled={status.state === "sending"} className="mt-3 w-full rounded-lg bg-brand-red px-6 py-4 text-base font-bold text-white hover:bg-brand-red-dark disabled:opacity-60">
                   {status.state === "sending" ? "Sending…" : "Email my report"}
                 </button>
                 {status.state === "error" && (
-                  <p role="alert" className="mt-3 text-sm font-semibold text-[#B91C1C]">
+                  <p role="alert" className="mt-3 text-sm font-semibold text-[#E5484D]">
                     {status.message}
                   </p>
                 )}
@@ -179,7 +179,7 @@ export function LeadershipAssessment() {
                 </p>
                 <Link
                   href={enquiryHref("executive-briefing", { "self-assessment": `${styles.main}${styles.secondary ? ` / ${styles.secondary}` : ""}` })}
-                  className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#1E293B]"
+                  className="mt-5 flex w-full items-center justify-center rounded-lg bg-navy px-6 py-4 text-base font-bold text-white no-underline hover:bg-[#22324D]"
                 >
                   See your whole leadership team
                 </Link>

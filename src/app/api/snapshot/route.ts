@@ -38,19 +38,19 @@ export async function POST(req: Request): Promise<Response> {
   const base = publicBase();
 
   // Brand palette (matches the website).
-  const NAVY = "#0F172A";
-  const NAVY_RAISED = "#1E293B";
-  const LIME = "#F4C20D";
-  const GOLD = "#F4C20D";
-  const SKY = "#CBD5E1";
-  const INK = "#0F172A";
-  const BODY = "#475569";
-  const MUTED = "#64748B";
-  const RULE = "#DCE3EB";
-  const BAND = "#EEF2F6";
+  const NAVY = "#0A1628";
+  const NAVY_RAISED = "#22324D";
+  const LIME = "#F5A524";
+  const GOLD = "#F5A524";
+  const SKY = "#C9D2E0";
+  const INK = "#0A1628";
+  const BODY = "#4A5872";
+  const MUTED = "#5B6B85";
+  const RULE = "#E1E6EE";
+  const BAND = "#EDF0F5";
   const FONT = "'Inter','Segoe UI',Arial,sans-serif";
   const MONO = "'Inter','Segoe UI',Arial,sans-serif";
-  const traitColor: Record<string, string> = { O: GOLD, C: SKY, E: LIME, A: "#15803D", N: "#B91C1C" };
+  const traitColor: Record<string, string> = { O: GOLD, C: SKY, E: LIME, A: "#2BA36B", N: "#E5484D" };
 
   const eyebrow = (text: string, color = MUTED) =>
     `<p style="margin:0 0 6px;font-family:${MONO};font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:${color}">${text}</p>`;
@@ -99,7 +99,7 @@ export async function POST(req: Request): Promise<Response> {
       return `<tr>
         <td width="28" style="padding:9px 0;border-bottom:1px solid ${RULE};font-family:${MONO};font-size:12px;color:${MUTED}">0${i + 1}</td>
         <td width="120" style="padding:9px 0;border-bottom:1px solid ${RULE};font-family:${FONT};font-size:14px;font-weight:${strong ? 800 : 500};color:${INK}">${esc(r.name)}</td>
-        <td style="padding:9px 12px;border-bottom:1px solid ${RULE}">${bar(r.similarity, strong ? NAVY : "#94A3B8", 6)}</td>
+        <td style="padding:9px 12px;border-bottom:1px solid ${RULE}">${bar(r.similarity, strong ? NAVY : "#93A1B8", 6)}</td>
         <td width="44" align="right" style="padding:9px 0;border-bottom:1px solid ${RULE};font-family:${MONO};font-size:13px;font-weight:700;color:${INK}">${r.similarity.toFixed(1)}</td>
       </tr>`;
     })
@@ -109,7 +109,7 @@ export async function POST(req: Request): Promise<Response> {
     ? modifiers
         .map(
           (m) => `<tr><td style="padding:10px 0;border-bottom:1px solid ${RULE};font-family:${FONT};font-size:14px;line-height:1.5">
-            <span style="color:#15803D;font-size:16px;margin-right:6px">&#9679;</span><strong style="color:${INK}">${esc(m.name)}</strong><span style="color:${BODY}"> · ${esc(m.effect)}</span></td></tr>`,
+            <span style="color:#2BA36B;font-size:16px;margin-right:6px">&#9679;</span><strong style="color:${INK}">${esc(m.name)}</strong><span style="color:${BODY}"> · ${esc(m.effect)}</span></td></tr>`,
         )
         .join("")
     : `<tr><td style="font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">None of your scores crossed a modifier threshold, so the archetype guidance applies as it is.</td></tr>`;
@@ -130,28 +130,28 @@ export async function POST(req: Request): Promise<Response> {
   </td></tr>
   <tr><td bgcolor="${NAVY}" style="background:${NAVY};padding:28px 32px 32px">
     ${eyebrow(leadership ? "Corporate Brain · Executive report" : "Corporate Brain · Working-style report", LIME)}
-    <p style="margin:0 0 4px;font-family:${FONT};font-size:15px;color:#CBD5E1">Your primary archetype</p>
-    <p style="margin:0;font-family:${FONT};font-size:40px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#FFFFFF">${esc(main)}${secondary ? `<span style="font-size:20px;font-weight:700;color:#94A3B8"> with ${/^[AEIOU]/.test(secondary) ? "an" : "a"} ${esc(secondary)} side</span>` : ""}</p>
+    <p style="margin:0 0 4px;font-family:${FONT};font-size:15px;color:#C9D2E0">Your primary archetype</p>
+    <p style="margin:0;font-family:${FONT};font-size:40px;line-height:1.1;font-weight:800;letter-spacing:-.02em;color:#FFFFFF">${esc(main)}${secondary ? `<span style="font-size:20px;font-weight:700;color:#93A1B8"> with ${/^[AEIOU]/.test(secondary) ? "an" : "a"} ${esc(secondary)} side</span>` : ""}</p>
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin:16px 0 0"><tr>
       <td bgcolor="${LIME}" style="background:${LIME};border-radius:999px;padding:6px 14px;font-family:${MONO};font-size:13px;font-weight:700;color:${NAVY}">${ranked[0].similarity.toFixed(1)} / 100 match</td>
     </tr></table>
     <p style="margin:18px 0 0;font-family:${FONT};font-size:16px;line-height:1.6;color:#FFFFFF">${esc(mainInfo.how)}</p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${NAVY_RAISED}" style="margin:20px 0 0;background:${NAVY_RAISED};border-radius:12px"><tr>
-      <td valign="top" width="50%" style="padding:16px 18px;font-family:${FONT};font-size:14px;line-height:1.55;color:#CBD5E1"><span style="display:block;margin-bottom:4px;font-family:${MONO};font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:${GOLD}">Watch for</span>${esc(mainInfo.watch)}</td>
-      <td valign="top" width="50%" style="padding:16px 18px;font-family:${FONT};font-size:14px;line-height:1.55;color:#CBD5E1"><span style="display:block;margin-bottom:4px;font-family:${MONO};font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:${LIME}">${leadership ? "Works best when" : "Best managed with"}</span>${esc(mainInfo.manage)}</td>
+      <td valign="top" width="50%" style="padding:16px 18px;font-family:${FONT};font-size:14px;line-height:1.55;color:#C9D2E0"><span style="display:block;margin-bottom:4px;font-family:${MONO};font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:${GOLD}">Watch for</span>${esc(mainInfo.watch)}</td>
+      <td valign="top" width="50%" style="padding:16px 18px;font-family:${FONT};font-size:14px;line-height:1.55;color:#C9D2E0"><span style="display:block;margin-bottom:4px;font-family:${MONO};font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:${LIME}">${leadership ? "Works best when" : "Best managed with"}</span>${esc(mainInfo.manage)}</td>
     </tr></table>
   </td></tr>
 
   ${section(`<p style="margin:0;font-family:${FONT};font-size:15px;line-height:1.65;color:${BODY}">${leadership ? "Thanks for taking the Brain Interacts leadership self-assessment." : "Thanks for taking the Brain Interacts working-style assessment."} Your answers were scored with the Corporate Brain model: five Big Five trait scores, matched against our ten archetypes. A PDF copy of this report is attached.</p>`)}
 
-  ${section(`${eyebrow("Secondary archetype", "#0F172A")}${secondaryCard}`)}
+  ${section(`${eyebrow("Secondary archetype", "#0A1628")}${secondaryCard}`)}
 
-  ${section(`${eyebrow("Big Five", "#0F172A")}${h2("Your five trait scores")}<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
+  ${section(`${eyebrow("Big Five", "#0A1628")}${h2("Your five trait scores")}<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
     <p style="margin:10px 0 0;font-family:${FONT};font-size:12px;line-height:1.55;color:${MUTED}">Scores run from 0 to 100. ${CUTOFF} or more counts as High; within ${BORDERLINE} points of ${CUTOFF} is marked borderline. For neuroticism, a higher score means more sensitivity to stress.</p>`)}
 
-  ${section(`${eyebrow("Archetype match", "#0F172A")}${h2("Your closest archetypes")}<p style="margin:0 0 8px;font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">How closely your scores match each Corporate Brain archetype, out of 100.</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rankRows}</table>`)}
+  ${section(`${eyebrow("Archetype match", "#0A1628")}${h2("Your closest archetypes")}<p style="margin:0 0 8px;font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">How closely your scores match each Corporate Brain archetype, out of 100.</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rankRows}</table>`)}
 
-  ${section(`${eyebrow("Modifiers", "#0F172A")}${h2("What adjusts the guidance")}<p style="margin:0 0 6px;font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">Modifiers switch on when a trait score crosses a threshold, and fine-tune how you work best.</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${modifierList}</table>`)}
+  ${section(`${eyebrow("Modifiers", "#0A1628")}${h2("What adjusts the guidance")}<p style="margin:0 0 6px;font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">Modifiers switch on when a trait score crosses a threshold, and fine-tune how you work best.</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${modifierList}</table>`)}
 
   ${section(`<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${BAND}" style="background:${BAND};border-radius:12px"><tr><td style="padding:18px 20px">
     ${eyebrow("How to use this", MUTED)}
@@ -160,7 +160,7 @@ export async function POST(req: Request): Promise<Response> {
 
   <tr><td style="padding:28px 32px 0">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:2px solid ${GOLD};border-radius:14px"><tr><td style="padding:22px 24px">
-      ${eyebrow("Full report · INR 999", "#806600")}
+      ${eyebrow("Full report · INR 999", "#A86A00")}
       <p style="margin:0 0 6px;font-family:${FONT};font-size:19px;font-weight:800;line-height:1.3;color:${INK}">Unlock your full report and action framework</p>
       <p style="margin:0 0 16px;font-family:${FONT};font-size:14px;line-height:1.6;color:${BODY}">Go deeper than this snapshot with your detailed Corporate Brain report and a personal action framework.</p>
       <table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="${NAVY}" style="background:${NAVY};border-radius:8px">
@@ -178,7 +178,7 @@ export async function POST(req: Request): Promise<Response> {
 
   <tr><td bgcolor="${NAVY}" style="background:${NAVY};padding:22px 32px">
     <img src="${base}/email/brain-interacts-logo.png" width="112" height="28" alt="Brain Interacts" style="display:block;border:0;width:112px;height:28px;margin-bottom:12px">
-    <p style="margin:0;font-family:${FONT};font-size:12px;line-height:1.7;color:#94A3B8"><a href="mailto:${esc(site.email)}" style="color:#CBD5E1;text-decoration:none">${esc(site.email)}</a> · ${esc(site.phone)}<br>You received this because you asked for your report at braininteracts.com.</p>
+    <p style="margin:0;font-family:${FONT};font-size:12px;line-height:1.7;color:#93A1B8"><a href="mailto:${esc(site.email)}" style="color:#C9D2E0;text-decoration:none">${esc(site.email)}</a> · ${esc(site.phone)}<br>You received this because you asked for your report at braininteracts.com.</p>
   </td></tr>
 
 </table>

@@ -36,7 +36,7 @@ export default async function ResourcesPage({ searchParams }: Props) {
   return (
     <>
       {/* Light hero, in the style of a modern resource library */}
-      <section className="relative overflow-hidden border-b border-rule bg-[#EEF2F6]">
+      <section className="relative overflow-hidden border-b border-rule bg-[#EDF0F5]">
         <div aria-hidden="true" className="pointer-events-none absolute -top-40 -right-32 h-[420px] w-[420px] rounded-full bg-brand-red/20 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-48 left-1/3 h-[380px] w-[380px] rounded-full bg-amber/20 blur-3xl" />
         <div className="relative mx-auto max-w-[1280px] px-4 pt-10 pb-12 md:px-8 md:pt-14 md:pb-16">

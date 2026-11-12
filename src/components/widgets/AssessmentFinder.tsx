@@ -151,7 +151,7 @@ export function AssessmentFinder() {
               <ol className="m-0 mt-4 list-none p-0">
                 {result.blocks.map((b, i) => (
                   <li key={b.title} className="flex gap-4 border-b border-rule py-4 last:border-b-0">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-lime font-mono text-sm font-medium text-navy">{i + 1}</span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-red font-mono text-sm font-medium text-white">{i + 1}</span>
                     <span>
                       <strong className="block text-[15px]">{b.title}</strong>
                       <span className="mt-1 block text-[14px] leading-[1.6] text-ink-body">{b.why}</span>
@@ -174,7 +174,7 @@ export function AssessmentFinder() {
               <div className="mt-auto pt-6">
                 <Link
                   href={enquiryHref("assessment-requirements", context)}
-                  className="flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-center text-base font-bold text-navy no-underline hover:bg-[#F7CF3D]"
+                  className="flex w-full items-center justify-center rounded-lg bg-brand-red px-6 py-4 text-center text-base font-bold text-white no-underline hover:bg-brand-red-dark"
                 >
                   Discuss this setup with our experts
                 </Link>

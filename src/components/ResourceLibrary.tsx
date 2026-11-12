@@ -12,10 +12,10 @@ const typeLabel = (t: ResourceType) => resourceTypes.find((x) => x.key === t)?.s
 
 // Brand colour per type, used for the label and the thumbnail art.
 const tone: Record<ResourceType, { label: string; bg: string; a: string; b: string }> = {
-  whitepapers: { label: "text-ink-link", bg: "#EEF2F6", a: "#CBD5E1", b: "#0F172A" },
-  research: { label: "text-green-ink", bg: "#E8F3EC", a: "#F4C20D", b: "#0F172A" },
-  articles: { label: "text-gold-ink", bg: "#FEF7DA", a: "#F4C20D", b: "#0F172A" },
-  science: { label: "text-ink", bg: "#E2E8F0", a: "#CBD5E1", b: "#0F172A" },
+  whitepapers: { label: "text-ink-link", bg: "#EDF0F5", a: "#C9D2E0", b: "#0A1628" },
+  research: { label: "text-green-ink", bg: "#E3F5EC", a: "#F5A524", b: "#0A1628" },
+  articles: { label: "text-gold-ink", bg: "#FFF1D6", a: "#F5A524", b: "#0A1628" },
+  science: { label: "text-ink", bg: "#DCE3EE", a: "#C9D2E0", b: "#0A1628" },
 };
 
 /** Abstract brand artwork for items without a cover image. */
@@ -24,12 +24,12 @@ export function Art({ r, seed }: { r: Resource; seed: number }) {
   const v = seed % 3;
   return (
     <svg viewBox="0 0 320 200" className="h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-      <rect width="320" height="200" fill="#0F172A" />
+      <rect width="320" height="200" fill="#0A1628" />
       {v === 0 && (
         <>
           <g transform="translate(150 10) scale(2.3)">
-            <circle cx="36" cy="14" r="14" fill="#B91C1C" opacity="0.85" />
-            <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F4C20D" opacity="0.9" />
+            <circle cx="36" cy="14" r="14" fill="#E5484D" opacity="0.85" />
+            <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F5A524" opacity="0.9" />
             <path d="M22 40H50L36 64Z" fill="#FFFFFF" />
           </g>
         </>
@@ -37,16 +37,16 @@ export function Art({ r, seed }: { r: Resource; seed: number }) {
       {v === 1 && (
         <>
           {[0, 1, 2, 3, 4].map((i) => (
-            <rect key={i} x={40 + i * 50} y={150 - (i + 1) * 22} width="34" height={(i + 1) * 22 + 20} rx="6" fill={i === 4 ? t.a : "#1E293B"} />
+            <rect key={i} x={40 + i * 50} y={150 - (i + 1) * 22} width="34" height={(i + 1) * 22 + 20} rx="6" fill={i === 4 ? t.a : "#22324D"} />
           ))}
-          <path d="M40 120 C 110 60, 180 110, 280 30" stroke="#F4C20D" strokeWidth="5" fill="none" strokeLinecap="round" />
+          <path d="M40 120 C 110 60, 180 110, 280 30" stroke="#F5A524" strokeWidth="5" fill="none" strokeLinecap="round" />
         </>
       )}
       {v === 2 && (
         <>
           {[0, 1, 2, 3].map((row) =>
             [0, 1, 2, 3, 4, 5].map((col) => (
-              <circle key={`${row}-${col}`} cx={50 + col * 44} cy={40 + row * 40} r={(row + col) % 4 === 0 ? 13 : 7} fill={(row + col) % 4 === 0 ? t.a : "#1E293B"} />
+              <circle key={`${row}-${col}`} cx={50 + col * 44} cy={40 + row * 40} r={(row + col) % 4 === 0 ? 13 : 7} fill={(row + col) % 4 === 0 ? t.a : "#22324D"} />
             )),
           )}
         </>
@@ -66,7 +66,7 @@ function Thumb({ r, seed, large = false }: { r: Resource; seed: number; large?: 
             width={720}
             height={1018}
             sizes={large ? "260px" : "150px"}
-            className={`h-full w-auto rounded-[6px] shadow-[0_14px_30px_rgba(15,23,42,0.28)] transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transition-none ${large ? "max-h-[340px]" : ""}`}
+            className={`h-full w-auto rounded-[6px] shadow-[0_14px_30px_rgba(10,22,40,0.28)] transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transition-none ${large ? "max-h-[340px]" : ""}`}
           />
         </div>
       ) : (
@@ -112,7 +112,7 @@ function Card({ r, seed }: { r: Resource; seed: number }) {
     <li className="flex">
       <CardShell
         r={r}
-        className={`group flex w-full flex-col overflow-hidden rounded-2xl border border-rule bg-white transition-shadow duration-300 ${r.comingSoon ? "" : "cursor-pointer hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)]"}`}
+        className={`group flex w-full flex-col overflow-hidden rounded-2xl border border-rule bg-white transition-shadow duration-300 ${r.comingSoon ? "" : "cursor-pointer hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)]"}`}
       >
         <Thumb r={r} seed={seed} />
         <div className="flex flex-1 flex-col p-5 md:p-6">
@@ -133,14 +133,14 @@ function Card({ r, seed }: { r: Resource; seed: number }) {
 function Featured({ r }: { r: Resource }) {
   const a = action(r);
   return (
-    <CardShell r={r} className="group mb-10 grid w-full cursor-pointer overflow-hidden rounded-[20px] border border-rule bg-white transition-shadow duration-300 hover:shadow-[0_22px_54px_rgba(15,23,42,0.14)] lg:grid-cols-[1.05fr_1fr]">
+    <CardShell r={r} className="group mb-10 grid w-full cursor-pointer overflow-hidden rounded-[20px] border border-rule bg-white transition-shadow duration-300 hover:shadow-[0_22px_54px_rgba(10,22,40,0.14)] lg:grid-cols-[1.05fr_1fr]">
       <Thumb r={r} seed={0} large />
       <div className="flex flex-col justify-center p-6 md:p-10">
         <p className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">Featured · {typeLabel(r.type)}</p>
         <h2 className="mt-3 text-[clamp(21px,2.2vw,30px)] leading-[1.12] font-extrabold tracking-[-0.02em]">{r.title}</h2>
         <p className="mt-4 text-[15px] leading-[1.65] text-ink-body">{r.summary}</p>
         {r.meta && <p className="mt-3 text-sm text-ink-muted">{r.meta}</p>}
-        <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[14px] font-bold text-white transition-colors group-hover:bg-[#1E293B]">
+        <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[14px] font-bold text-white transition-colors group-hover:bg-[#22324D]">
           {a.label} <span aria-hidden="true">{a.arrow}</span>
         </span>
       </div>
@@ -216,7 +216,7 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
                     type="button"
                     aria-pressed={on}
                     onClick={() => setCategory(c.key)}
-                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[14px] transition-colors ${on ? "bg-navy font-bold text-white" : "font-semibold text-ink hover:bg-[#EEF2F6]"}`}
+                    className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[14px] transition-colors ${on ? "bg-navy font-bold text-white" : "font-semibold text-ink hover:bg-[#EDF0F5]"}`}
                   >
                     {c.label}
                     <span className={`font-mono text-xs ${on ? "text-lime" : "text-ink-muted"}`}>{counts[c.key]}</span>
@@ -232,8 +232,8 @@ export function ResourceLibrary({ items, initialCategory }: { items: Resource[];
               .filter((t) => available.has(t))
               .map((t) => (
                 <li key={t}>
-                  <label className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-[14px] text-ink hover:bg-[#EEF2F6]">
-                    <input type="checkbox" checked={chosenTopics.includes(t)} onChange={() => toggleTopic(t)} className="h-4 w-4 accent-[#0F172A]" />
+                  <label className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-[14px] text-ink hover:bg-[#EDF0F5]">
+                    <input type="checkbox" checked={chosenTopics.includes(t)} onChange={() => toggleTopic(t)} className="h-4 w-4 accent-[#0A1628]" />
                     {t}
                   </label>
                 </li>

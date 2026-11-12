@@ -35,7 +35,7 @@ export function SignupForm({ tone, id, button = "Subscribe" }: { tone: Tone; id:
             dark ? "border-navy-line bg-navy-raised text-white placeholder:text-on-navy-muted" : "border-rule-strong bg-white text-ink placeholder:text-ink-muted"
           }`}
         />
-        <button type="submit" disabled={sending} className={`rounded-lg px-6 py-4 text-base font-bold disabled:opacity-60 ${dark ? "bg-lime text-navy" : "bg-navy text-white"}`}>
+        <button type="submit" disabled={sending} className={`rounded-lg px-6 py-4 text-base font-bold disabled:opacity-60 ${dark ? "bg-brand-red text-white" : "bg-navy text-white"}`}>
           {sending ? "Sending…" : button}
         </button>
       </div>

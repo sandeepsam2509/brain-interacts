@@ -1,10 +1,13 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- small menu images */
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { type MainNavItem, mainNav, routes, site } from "@/lib/site";
-import { BrandMark, BrandStripe, Wordmark } from "./BrandMark";
+import { type MainNavItem, type MenuItem, mainNav, routes, site } from "@/lib/site";
+import { BrandMark, Wordmark } from "./BrandMark";
+
+const dotColor = { red: "bg-brand-red", amber: "bg-amber", green: "bg-brand-green" } as const;
 
 function Chevron({ open }: { open: boolean }) {
   return (
@@ -14,23 +17,73 @@ function Chevron({ open }: { open: boolean }) {
   );
 }
 
+function MenuLink({ item }: { item: MenuItem }) {
+  return (
+    <Link href={item.href} className="group block rounded-lg py-2 no-underline">
+      <span className="flex items-center gap-2 text-[14px] font-semibold text-ink group-hover:underline">
+        {item.dot && <span aria-hidden="true" className={`h-2 w-2 rounded-full ${dotColor[item.dot]}`} />}
+        {item.label}
+        {item.badge && <span className="rounded-full bg-green-tint px-2 py-0.5 text-[11px] font-semibold text-green-ink">{item.badge}</span>}
+      </span>
+      {item.description && <span className={`mt-0.5 block text-[12.5px] text-ink-muted ${item.dot ? "pl-4" : ""}`}>{item.description}</span>}
+      {item.chips && (
+        <span className="mt-2 flex flex-wrap gap-1.5 pl-4">
+          {item.chips.map((c) => (
+            <span key={c} className="rounded-full bg-cloud px-2.5 py-1 text-[11.5px] text-ink-body">
+              {c}
+            </span>
+          ))}
+        </span>
+      )}
+    </Link>
+  );
+}
+
+function MegaPanel({ item }: { item: MainNavItem }) {
+  const groups = item.groups ?? [];
+  return (
+    <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-7" style={{ gridTemplateColumns: `repeat(${groups.length}, minmax(0,1fr))${item.feature ? " 300px" : ""}` }}>
+      {groups.map((g) => (
+        <div key={g.title}>
+          <p className="mb-2 text-[11.5px] font-semibold tracking-[0.08em] text-ink-muted uppercase">{g.title}</p>
+          <ul className="m-0 list-none space-y-1 p-0">
+            {g.items.map((it) => (
+              <li key={it.label}>
+                <MenuLink item={it} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      {item.feature && (
+        <Link href={item.feature.href} className="group block overflow-hidden rounded-xl bg-cloud no-underline">
+          <img src={item.feature.image} alt="" className="h-[140px] w-full object-cover" />
+          <span className="block p-4">
+            <span aria-hidden="true" className={`mb-2 block h-[3px] w-7 rounded ${dotColor[item.feature.accent]}`} />
+            <span className="block text-[14px] font-semibold text-ink group-hover:underline">{item.feature.title}</span>
+            <span className="mt-1 block text-[12.5px] text-ink-muted">{item.feature.text}</span>
+          </span>
+        </Link>
+      )}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [menu, setMenu] = useState<string | null>(null); // open desktop dropdown
+  const [menu, setMenu] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
 
-  // Close everything when the page changes.
   useEffect(() => {
     setMobileOpen(false);
     setMenu(null);
   }, [pathname]);
 
   useEffect(() => {
-    // Once the page scrolls, the header slims down and the wordmark folds away behind the mark.
     const onScroll = () => setScrolled(window.scrollY > 8);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -39,7 +92,7 @@ export function SiteHeader() {
       }
     };
     const onClick = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) setMenu(null);
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setMenu(null);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -52,95 +105,64 @@ export function SiteHeader() {
     };
   }, []);
 
-  // Stop the page scrolling behind the open phone menu.
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    document.body.classList.toggle("menu-open", mobileOpen); // hides the assessment launcher under the menu
+    document.body.classList.toggle("menu-open", mobileOpen);
     return () => {
       document.body.style.overflow = "";
       document.body.classList.remove("menu-open");
     };
   }, [mobileOpen]);
 
-  const compact = scrolled && !mobileOpen;
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
-  const groupActive = (item: MainNavItem) => (item.children ? item.children.some((c) => isActive(c.href)) : isActive(item.href));
-
-  // Small delay before closing so the pointer can travel from the button to the panel.
   const openMenu = (label: string) => {
     window.clearTimeout(closeTimer.current);
     setMenu(label);
   };
   const closeSoon = () => {
-    closeTimer.current = window.setTimeout(() => setMenu(null), 120);
+    closeTimer.current = window.setTimeout(() => setMenu(null), 140);
   };
+  const openItem = mainNav.find((i) => i.label === menu && i.groups);
 
   return (
-    <header className={`sticky top-0 z-50 border-b border-navy-rule transition-colors duration-300 ${compact ? "bg-navy/90 backdrop-blur-md" : "bg-navy"}`}>
-      <BrandStripe />
-      <div className={`mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 transition-[padding] duration-300 md:px-6 ${compact ? "py-2 md:py-2.5" : "py-3 md:py-[18px]"}`}>
-        <Link href={routes.home} aria-label={`${site.name} home`} className="group flex items-center no-underline">
-          <BrandMark size={38} className="logo-beat" />
-          <span className={`overflow-hidden transition-all duration-500 ease-out motion-reduce:transition-none ${compact ? "ml-0 max-w-0 opacity-0" : "ml-1 max-w-[140px] opacity-100"}`}>
-            <Wordmark height={44} />
+    <header ref={headerRef} className={`sticky top-0 z-50 transition-colors duration-300 ${scrolled && !mobileOpen ? "bg-navy/95 backdrop-blur-md" : "bg-navy"}`} onMouseLeave={closeSoon}>
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-3.5">
+        <Link href={routes.home} aria-label={`${site.name} home`} className="flex shrink-0 items-center no-underline">
+          <BrandMark size={34} />
+          <span className="ml-1">
+            <Wordmark height={40} />
           </span>
         </Link>
 
-        <nav ref={navRef} aria-label="Main" className="hidden xl:block">
-          <ul className="m-0 flex list-none items-center gap-0.5 p-0 text-[14px] font-semibold whitespace-nowrap">
+        <nav aria-label="Main" className="hidden xl:block">
+          <ul className="m-0 flex list-none items-center gap-1 p-0 text-[14px] whitespace-nowrap">
             {mainNav.map((item) => {
-              const active = groupActive(item);
-              if (!item.children) {
+              const open = menu === item.label;
+              if (!item.groups) {
                 return (
-                  <li key={item.label}>
+                  <li key={item.label} onMouseEnter={() => setMenu(null)}>
                     <Link
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
-                      className={`block rounded-lg px-2.5 py-2 no-underline transition-colors hover:text-white ${active ? "text-white" : "text-on-navy-soft"}`}
+                      className={`block rounded-md px-3 py-2 no-underline hover:text-white ${isActive(item.href) ? "text-white" : "text-on-navy-soft"}`}
                     >
                       {item.label}
                     </Link>
                   </li>
                 );
               }
-              const open = menu === item.label;
-              const panelId = `menu-${item.label.toLowerCase()}`;
               return (
-                <li key={item.label} className="relative" onMouseEnter={() => openMenu(item.label)} onMouseLeave={closeSoon}>
+                <li key={item.label} onMouseEnter={() => openMenu(item.label)}>
                   <button
                     type="button"
                     aria-expanded={open}
-                    aria-controls={panelId}
+                    aria-controls="mega-menu"
                     onClick={() => (open ? setMenu(null) : openMenu(item.label))}
-                    className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 transition-colors hover:text-white ${active || open ? "text-white" : "text-on-navy-soft"}`}
+                    className={`flex items-center gap-1.5 rounded-md px-3 py-2 hover:text-white ${open ? "bg-navy-raised text-white" : "text-on-navy-soft"}`}
                   >
                     {item.label}
                     <Chevron open={open} />
                   </button>
-                  <div
-                    id={panelId}
-                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 motion-reduce:transition-none ${
-                      open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
-                    }`}
-                  >
-                    <ul className="m-0 w-[340px] list-none rounded-2xl border border-navy-line bg-navy-raised p-2 shadow-[0_24px_48px_rgba(0,0,0,0.4)]">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            aria-current={pathname === child.href ? "page" : undefined}
-                            className={`block rounded-xl px-4 py-3 no-underline transition-colors hover:bg-navy ${pathname === child.href ? "bg-navy" : ""}`}
-                          >
-                            <span className="flex items-center gap-2 text-[14px] font-bold text-white">
-                              {child.label}
-                              {child.badge && <span className="rounded-full bg-sky/15 px-2 py-0.5 text-[11px] font-semibold text-sky">{child.badge}</span>}
-                            </span>
-                            {child.description && <span className="mt-0.5 block text-[13px] font-medium text-on-navy-muted">{child.description}</span>}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </li>
               );
             })}
@@ -148,10 +170,16 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <a href={site.signIn} className="hidden px-2 py-3 text-[14px] font-semibold whitespace-nowrap text-white no-underline xl:inline-block">
+          <a href={site.signIn} className="hidden px-2 py-2 text-[14px] whitespace-nowrap text-on-navy-soft no-underline hover:text-white xl:inline-block">
             Sign in
           </a>
-          <Link href={routes.demo} className="rounded-lg bg-lime px-3.5 py-2.5 text-[14px] font-bold whitespace-nowrap text-navy no-underline hover:bg-[#F7CF3D] md:px-5 md:py-3">
+          <Link
+            href={routes.snapshot}
+            className="hidden rounded-lg border border-navy-line px-4 py-2.5 text-[14px] font-semibold whitespace-nowrap text-white no-underline hover:border-on-navy md:inline-block"
+          >
+            Free assessment
+          </Link>
+          <Link href={routes.demo} className="rounded-lg bg-brand-red px-4 py-2.5 text-[14px] font-semibold whitespace-nowrap text-white no-underline hover:bg-brand-red-dark">
             Get a demo
           </Link>
           <button
@@ -169,50 +197,81 @@ export function SiteHeader() {
         </div>
       </div>
 
+      {/* Desktop mega menu */}
+      <div
+        id="mega-menu"
+        onMouseEnter={() => window.clearTimeout(closeTimer.current)}
+        className={`absolute inset-x-0 top-full hidden border-b border-rule bg-white shadow-[0_24px_48px_rgba(10,22,40,0.14)] transition-opacity duration-150 xl:block ${
+          openItem ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
+        {openItem && <MegaPanel item={openItem} />}
+      </div>
+
+      {/* Phone menu */}
       {mobileOpen && (
-        <nav id="mobile-menu" aria-label="Main" className="h-[calc(100dvh-69px)] overflow-y-auto border-t border-navy-rule bg-navy px-4 pb-10 xl:hidden">
+        <nav id="mobile-menu" aria-label="Main" className="flex h-[calc(100dvh-68px)] flex-col overflow-y-auto bg-white px-5 pb-6 xl:hidden">
           <ul className="m-0 list-none p-0">
             {mainNav.map((item) => {
-              if (!item.children) {
+              if (!item.groups) {
                 return (
-                  <li key={item.label} className="border-b border-navy-rule">
-                    <Link href={item.href} className="block py-4 text-[15px] font-semibold text-white no-underline">
+                  <li key={item.label} className="border-b border-rule">
+                    <Link href={item.href} className="flex items-center justify-between py-4 text-[16px] font-semibold text-ink no-underline">
                       {item.label}
+                      <span aria-hidden="true">→</span>
                     </Link>
                   </li>
                 );
               }
               const open = mobileSection === item.label;
               return (
-                <li key={item.label} className="border-b border-navy-rule">
+                <li key={item.label} className="border-b border-rule">
                   <button
                     type="button"
                     aria-expanded={open}
                     onClick={() => setMobileSection(open ? null : item.label)}
-                    className="flex w-full items-center justify-between py-4 text-left text-[15px] font-semibold text-white"
+                    className="flex w-full items-center justify-between py-4 text-left text-[16px] font-semibold text-ink"
                   >
                     {item.label}
-                    <Chevron open={open} />
+                    <span aria-hidden="true" className="text-[20px] leading-none text-ink-muted">
+                      {open ? "−" : "+"}
+                    </span>
                   </button>
                   {open && (
-                    <ul className="m-0 mb-3 list-none border-l border-navy-line p-0 pl-4">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link href={child.href} className="block py-2.5 text-[15px] text-on-navy-soft no-underline">
-                            {child.label}
-                            {child.badge && <span className="ml-2 text-[13px] text-sky">{child.badge}</span>}
-                          </Link>
-                        </li>
+                    <div className="pb-4">
+                      {item.groups.map((g) => (
+                        <div key={g.title} className="mb-3">
+                          <p className="mb-1 text-[11.5px] font-semibold tracking-[0.08em] text-ink-muted uppercase">{g.title}</p>
+                          <ul className="m-0 list-none p-0">
+                            {g.items.map((it) => (
+                              <li key={it.label}>
+                                <Link href={it.href} className="flex items-center gap-2 py-2 text-[15px] text-ink-body no-underline">
+                                  {it.dot && <span aria-hidden="true" className={`h-2 w-2 rounded-full ${dotColor[it.dot]}`} />}
+                                  {it.label}
+                                  {it.badge && <span className="text-[12px] text-green-ink">{it.badge}</span>}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   )}
                 </li>
               );
             })}
           </ul>
-          <a href={site.signIn} className="mt-4 block py-2 font-semibold text-on-navy-soft no-underline">
-            Sign in
-          </a>
+          <div className="mt-auto space-y-3 pt-8">
+            <Link href={routes.demo} className="block rounded-lg bg-brand-red py-3.5 text-center font-semibold text-white no-underline">
+              Get a demo
+            </Link>
+            <Link href={routes.snapshot} className="block rounded-lg border border-ink py-3.5 text-center font-semibold text-ink no-underline">
+              Free assessment
+            </Link>
+            <a href={site.signIn} className="block py-2 text-center text-ink underline">
+              Sign in
+            </a>
+          </div>
         </nav>
       )}
     </header>

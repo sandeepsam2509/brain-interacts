@@ -113,7 +113,7 @@ const pillars = [
   { n: "05", title: "Growth, not judgement", text: "Every gap becomes a development plan, and progress is reassessed." },
 ];
 
-const tints = ["bg-[#FDECEC]", "bg-[#FEF7DA]", "bg-[#E8F3EC]", "bg-[#EEF2F6]", "bg-white"];
+const tints = ["bg-[#FDE8E9]", "bg-[#FFF1D6]", "bg-[#E3F5EC]", "bg-[#EDF0F5]", "bg-white"];
 
 export default function IndustriesPage() {
   const named = stories.filter((s) => s.named);
@@ -122,8 +122,8 @@ export default function IndustriesPage() {
       {/* Hero */}
       <Section tone="dark" className="relative overflow-hidden" innerClassName="relative pt-14 pb-16 md:pt-20 md:pb-24">
         <svg aria-hidden="true" viewBox="0 0 72 82" className="pointer-events-none absolute -right-10 bottom-0 h-[110%] max-h-[560px] opacity-25 md:right-10">
-          <circle cx="36" cy="14" r="14" fill="#B91C1C" />
-          <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F4C20D" />
+          <circle cx="36" cy="14" r="14" fill="#E5484D" />
+          <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F5A524" />
           <path d="M22 40H50L36 64Z" fill="#FFFFFF" />
         </svg>
         <p className="text-[12px] font-semibold tracking-[0.08em] text-amber uppercase">Industries</p>
@@ -270,7 +270,7 @@ export default function IndustriesPage() {
         <ul className="m-0 -mx-4 flex list-none snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:px-0" aria-label="Customer stories, scroll sideways for more">
           {named.map((s) => (
             <li key={s.slug} className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]">
-              <Link href={storyHref(s)} className="flex h-full flex-col rounded-[18px] border border-rule bg-white p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)]">
+              <Link href={storyHref(s)} className="flex h-full flex-col rounded-[18px] border border-rule bg-white p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)]">
                 <div className="flex h-12 items-center">
                   {s.logo ? <img src={s.logo} alt={`${s.client} logo`} className="h-full w-auto max-w-[160px] object-contain" /> : <span className="text-[18px] font-bold">{s.client}</span>}
                 </div>

@@ -86,7 +86,7 @@ export function CookieConsent() {
       </p>
       </div>
       <div className="mt-3 flex shrink-0 flex-col gap-2 sm:flex-row md:mt-0">
-        <button type="button" onClick={() => choose("accepted")} className="rounded-lg bg-lime px-5 py-2.5 font-bold text-navy">
+        <button type="button" onClick={() => choose("accepted")} className="rounded-lg bg-brand-red px-5 py-2.5 font-bold text-white">
           Accept
         </button>
         <button type="button" onClick={() => choose("declined")} className="rounded-lg border border-navy-line px-5 py-2.5 font-bold text-white">

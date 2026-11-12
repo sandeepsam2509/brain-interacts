@@ -64,7 +64,7 @@ export default function CustomerStoriesPage() {
         <p className="mb-5 font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">Featured story</p>
         <Link
           href={storyHref(featured)}
-          className="group grid overflow-hidden rounded-[20px] border border-rule bg-white text-ink no-underline transition-shadow duration-300 hover:shadow-[0_22px_54px_rgba(15,23,42,0.14)] lg:grid-cols-[1.05fr_1fr]"
+          className="group grid overflow-hidden rounded-[20px] border border-rule bg-white text-ink no-underline transition-shadow duration-300 hover:shadow-[0_22px_54px_rgba(10,22,40,0.14)] lg:grid-cols-[1.05fr_1fr]"
         >
           <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
             <StoryArt story={featured} seed={1} />
@@ -83,7 +83,7 @@ export default function CustomerStoriesPage() {
                 <dd className="m-0 mt-1.5 text-[14px] leading-[1.6] text-ink-body">{featured.how}</dd>
               </div>
             </dl>
-            <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[14px] font-bold text-white transition-colors group-hover:bg-[#1E293B]">
+            <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[14px] font-bold text-white transition-colors group-hover:bg-[#22324D]">
               Read the story <span aria-hidden="true">→</span>
             </span>
           </div>
@@ -123,7 +123,7 @@ export default function CustomerStoriesPage() {
 
       {/* CTA */}
       <Section tone="light" innerClassName="py-12 md:py-16">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-[24px] bg-[#EEF2F6] p-8 md:flex-row md:items-center md:p-12">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-[24px] bg-[#EDF0F5] p-8 md:flex-row md:items-center md:p-12">
           <div>
             <h2 className="text-[clamp(22px,2.7vw,34px)] leading-[1.1] font-extrabold tracking-[-0.02em]">Want results like these?</h2>
             <p className="mt-3 text-lg text-ink-body">See how Corporate Brain would read your teams.</p>

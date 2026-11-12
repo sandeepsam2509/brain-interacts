@@ -50,81 +50,201 @@ export const routes = {
   privacy: "/privacy",
   terms: "/legal/terms-of-service",
   cookies: "/cookies",
-  snapshot: "/#snapshot",
+  snapshot: "/contact?enquiry=technical-assessment#enquiry",
+  payback: "/pricing#payback",
+  trust: "/privacy",
 } as const;
 
-export type MenuItem = { label: string; href: string; description?: string; badge?: string };
-export type MainNavItem = { label: string; href: string; children?: MenuItem[] };
+export type MenuItem = {
+  label: string;
+  href: string;
+  description?: string;
+  badge?: string;
+  /** Coloured dot before the label: red, amber or green. */
+  dot?: "red" | "amber" | "green";
+  /** Small chips under the item, e.g. the Corporate Brain views. */
+  chips?: string[];
+};
+export type MenuGroup = { title: string; items: MenuItem[] };
+export type MenuFeature = { image: string; title: string; text: string; href: string; accent: "red" | "amber" | "green" };
+export type MainNavItem = { label: string; href: string; groups?: MenuGroup[]; feature?: MenuFeature };
 
-/** Top menu. Items with children open a dropdown on desktop and a sub-list on phones. */
+/** Top menu, built around how buyers decide: problem, industry, proof, trust. */
 export const mainNav: MainNavItem[] = [
   {
-    label: "Products",
+    label: "Platform",
     href: routes.corporateBrain,
-    children: [
-      { label: "Corporate Brain", href: routes.corporateBrain, description: "People analytics and task intelligence for every level" },
-      { label: "Decode", href: routes.gamified, description: "Game-based assessments for 85 roles" },
-      { label: "FinCheck", href: routes.finCheck, description: "Behavioral risk intelligence for lenders", badge: "Soon" },
+    groups: [
+      {
+        title: "Products",
+        items: [
+          { label: "Corporate Brain", href: routes.corporateBrain, description: "People analytics and task intelligence", dot: "red", chips: ["Leadership view", "Manager view", "Employee view"] },
+          { label: "Decode", href: routes.gamified, description: "Game-based assessments for 85 roles", dot: "amber" },
+          { label: "FinCheck", href: routes.finCheck, description: "Behavioral risk intelligence for lenders", dot: "green", badge: "Coming soon" },
+        ],
+      },
+      {
+        title: "Why trust it",
+        items: [
+          { label: "How it works", href: routes.scienceMethodology, description: "From profile to match to decision" },
+          { label: "The science", href: routes.science, description: "THE BRAIN and the Big Five" },
+          { label: "Trust & security", href: routes.trust, description: "How we protect your data under DPDP" },
+          { label: "Integrations", href: routes.integrations, description: "Connect your HR tools" },
+        ],
+      },
     ],
+    feature: { image: "/site/631ec024.webp", title: "See Corporate Brain live", text: "A 30-minute walkthrough on your own org →", href: routes.demo, accent: "red" },
   },
   {
     label: "Solutions",
     href: routes.customAssessments,
-    children: [
-      { label: "Custom Psychological Assessment Systems", href: routes.customAssessments, description: "Assessments built around your roles" },
-      { label: "Corporate Culture Study", href: routes.cultureStudy, description: "Make culture something you can measure" },
-      { label: "Root Cause Analytics", href: routes.rootCause, description: "Find the causes behind the symptoms" },
+    groups: [
+      {
+        title: "By goal",
+        items: [
+          { label: "Hire the right people", href: routes.gamified },
+          { label: "Assign work by strengths", href: routes.corporateBrain },
+          { label: "Build leaders & succession", href: routes.customAssessments },
+          { label: "Reduce attrition", href: routes.rootCause },
+          { label: "Measure & fix culture", href: routes.cultureStudy },
+        ],
+      },
+      {
+        title: "By role",
+        items: [
+          { label: "For CXOs", href: routes.ceo, description: "Alignment and succession risk", dot: "red" },
+          { label: "For HR heads", href: routes.gamified, description: "Hiring, retention, development", dot: "amber" },
+          { label: "For managers", href: routes.corporateBrain, description: "Team fit and coaching", dot: "green" },
+        ],
+      },
+      {
+        title: "Services",
+        items: [
+          { label: "Custom assessment systems", href: routes.customAssessments, description: "Built around your roles" },
+          { label: "Corporate culture study", href: routes.cultureStudy, description: "Make culture measurable" },
+          { label: "Root cause analytics", href: routes.rootCause, description: "Find the cause behind the symptom" },
+        ],
+      },
     ],
   },
-
-  { label: "Industries", href: routes.industries },
-  { label: "Resources", href: routes.resources },
-
-  { label: "Customer Stories", href: routes.stories },
+  {
+    label: "Industries",
+    href: routes.industries,
+    groups: [
+      {
+        title: "Financial services",
+        items: [
+          { label: "Banking & financial services", href: `${routes.industries}#banking-and-financial-services` },
+          { label: "Insurance", href: `${routes.industries}#insurance` },
+        ],
+      },
+      {
+        title: "Goods & supply",
+        items: [
+          { label: "Manufacturing & facilities", href: `${routes.industries}#manufacturing-and-facilities` },
+          { label: "FMCG & consumer goods", href: `${routes.industries}#fmcg-and-consumer-goods` },
+          { label: "Retail & e-commerce", href: `${routes.industries}#retail-and-e-commerce` },
+          { label: "Logistics & supply chain", href: `${routes.industries}#logistics-and-supply-chain` },
+          { label: "Healthcare & pharma", href: `${routes.industries}#healthcare-and-pharmaceuticals` },
+        ],
+      },
+      {
+        title: "Services",
+        items: [
+          { label: "ITES", href: `${routes.industries}#ites` },
+          { label: "Telecommunication", href: `${routes.industries}#telecommunication` },
+          { label: "Hospitality & travel", href: `${routes.industries}#hospitality-and-travel` },
+          { label: "Education", href: `${routes.industries}#education` },
+        ],
+      },
+    ],
+    feature: { image: "/site/ee5cc825.webp", title: "New: Manufacturing & facilities", text: "Where most of our customer proof sits →", href: `${routes.industries}#manufacturing-and-facilities`, accent: "amber" },
+  },
+  { label: "Customers", href: routes.stories },
+  {
+    label: "Resources",
+    href: routes.resources,
+    groups: [
+      {
+        title: "Learn",
+        items: [
+          { label: "Resource library", href: routes.blog, description: "Articles on behavior at work" },
+          { label: "Whitepapers", href: routes.whitepapers, description: "The Behavioral Enterprise Series" },
+          { label: "Research", href: routes.research, description: "The Behavioral Enterprise monograph" },
+          { label: "The science & methodology", href: routes.science },
+          { label: "FAQ", href: routes.faq },
+        ],
+      },
+      {
+        title: "Proof",
+        items: [
+          { label: "Customer stories", href: routes.stories, description: "Results by industry and problem" },
+          { label: "Payback estimator", href: routes.payback, description: "On the Pricing page" },
+        ],
+      },
+    ],
+    feature: { image: "/site/9b9a9a4e.webp", title: "The Behavioral Enterprise", text: "Research monograph · Download PDF →", href: routes.research, accent: "green" },
+  },
   { label: "Pricing", href: routes.pricing },
-  { label: "About", href: routes.about },
-  { label: "Contact", href: routes.contact },
 ];
 
 export const footerColumns: NavGroup[] = [
   {
-    label: "Products",
+    label: "Platform",
     items: [
       { label: "Corporate Brain", href: routes.corporateBrain },
-      { label: "FinCheck", href: routes.finCheck },
       { label: "Decode", href: routes.gamified },
+      { label: "FinCheck", href: routes.finCheck },
+      { label: "How it works", href: routes.scienceMethodology },
+      { label: "Integrations", href: routes.integrations },
     ],
   },
   {
     label: "Solutions",
     items: [
-      { label: "Custom Psychological Assessment Systems", href: routes.customAssessments },
-      { label: "Corporate Culture Study", href: routes.cultureStudy },
-      { label: "Root Cause Analytics", href: routes.rootCause },
-      { label: "Industries", href: routes.industries },
+      { label: "Hire the right people", href: routes.gamified },
+      { label: "Reduce attrition", href: routes.rootCause },
+      { label: "Leaders & succession", href: routes.customAssessments },
+      { label: "For CXOs", href: routes.ceo },
+      { label: "Culture study", href: routes.cultureStudy },
+    ],
+  },
+  {
+    label: "Industries",
+    items: [
+      { label: "Banking", href: `${routes.industries}#banking-and-financial-services` },
+      { label: "Insurance", href: `${routes.industries}#insurance` },
+      { label: "Manufacturing & facilities", href: `${routes.industries}#manufacturing-and-facilities` },
+      { label: "ITES", href: `${routes.industries}#ites` },
+      { label: "All industries", href: routes.industries },
     ],
   },
   {
     label: "Resources",
     items: [
-      { label: "The Science", href: routes.science },
-      { label: "Resource library", href: routes.resources },
+      { label: "Library", href: routes.resources },
       { label: "Whitepapers", href: routes.whitepapers },
-      { label: "Customer Stories", href: routes.stories },
-      { label: "Pricing", href: routes.pricing },
+      { label: "Research", href: routes.research },
+      { label: "The science", href: routes.science },
       { label: "FAQ", href: routes.faq },
-      { label: "For CEOs", href: routes.ceo },
     ],
   },
   {
     label: "Company",
     items: [
       { label: "About", href: routes.about },
+      { label: "Careers", href: routes.careers },
       { label: "Contact", href: routes.contact },
       { label: "Brand", href: routes.brand },
       { label: "Legal", href: routes.legal },
-      { label: "Integrations", href: routes.integrations },
-      { label: "Careers", href: routes.careers },
+    ],
+  },
+  {
+    label: "Trust",
+    items: [
+      { label: "Security", href: routes.trust },
+      { label: "DPDP & privacy", href: routes.privacy },
+      { label: "Data policy", href: routes.cookies },
     ],
   },
 ];
