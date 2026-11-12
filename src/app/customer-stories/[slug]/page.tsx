@@ -42,7 +42,7 @@ export default async function StoryPage({ params }: Props) {
               <span className="text-white">{s.industry}</span>
             </nav>
             <p className="font-mono text-[12px] tracking-[0.14em] text-lime uppercase">{s.industry}</p>
-            <h1 className="mt-3 text-[clamp(27px,3.7vw,48px)] leading-[1.05] font-extrabold tracking-[-0.03em]">{s.title}</h1>
+            <h1 className="mt-3 text-[clamp(27px,3.7vw,48px)] leading-[1.05] font-bold">{s.title}</h1>
             <p className="mt-5 max-w-[620px] text-[16px] leading-[1.65] text-on-navy">{s.who}</p>
           </div>
           <div className="aspect-[16/11] overflow-hidden rounded-[20px]">
@@ -69,7 +69,7 @@ export default async function StoryPage({ params }: Props) {
                 <dt className="text-sm text-ink-muted">Products used</dt>
                 <dd className="m-0 mt-1 flex flex-wrap gap-1.5">
                   {s.products.map((p) => (
-                    <Link key={p} href={productLinks[p]} className="rounded-full bg-[#EDF0F5] px-2.5 py-1 text-[13px] font-semibold text-ink no-underline hover:bg-navy hover:text-white">
+                    <Link key={p} href={productLinks[p]} className="rounded-full bg-cloud px-2.5 py-1 text-[13px] font-semibold text-ink no-underline hover:bg-navy hover:text-white">
                       {p}
                     </Link>
                   ))}
@@ -83,7 +83,7 @@ export default async function StoryPage({ params }: Props) {
         <article className="min-w-0 max-w-[760px]">
           {sections.map((x) => (
             <section key={x.h} className="mb-10">
-              <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">{x.h}</h2>
+              <h2 className="text-[clamp(19px,1.9vw,24px)] font-bold">{x.h}</h2>
               {x.t.map((t) => (
                 <p key={t} className="mt-3 text-[16px] leading-[1.8] text-ink-body">
                   {t}
@@ -93,7 +93,7 @@ export default async function StoryPage({ params }: Props) {
           ))}
           {s.stats && (
             <section className="mb-10">
-              <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">Progress at {s.client}</h2>
+              <h2 className="text-[clamp(19px,1.9vw,24px)] font-bold">Progress at {s.client}</h2>
               <dl className="m-0 mt-5 grid gap-6 sm:grid-cols-2">
                 {s.stats.map((st, i) => (
                   <div key={st.label} className={`border-t-[3px] pt-4 ${["border-brand-red", "border-amber", "border-brand-green", "border-navy"][i % 4]}`}>
@@ -113,12 +113,12 @@ export default async function StoryPage({ params }: Props) {
           {/* The result section appears only once the client has approved a published outcome. */}
           {s.result && (
             <section className="mb-10">
-              <h2 className="text-[clamp(19px,1.9vw,24px)] font-extrabold tracking-[-0.02em]">The result</h2>
+              <h2 className="text-[clamp(19px,1.9vw,24px)] font-bold">The result</h2>
               <p className="mt-3 text-[16px] leading-[1.8] text-ink-body">{s.result}</p>
             </section>
           )}
           <div className="rounded-2xl bg-navy p-7 text-white md:p-8">
-            <p className="text-xl font-extrabold">Facing a similar challenge?</p>
+            <p className="text-xl font-bold">Facing a similar challenge?</p>
             <p className="mt-2 text-on-navy">See how {s.products.join(" and ")} would read your teams.</p>
             <ButtonLink href={enquiryHref("results", { story: s.title })} className="mt-5">
               See results like these for your team
