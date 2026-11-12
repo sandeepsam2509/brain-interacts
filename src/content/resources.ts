@@ -51,7 +51,7 @@ const papers: Resource[] = whitepapers.map((w) => ({
   summary: w.summary,
   topic: wpTopic[w.slug] ?? "Teams & performance",
   meta: w.file ? `${w.pages} pages · PDF · ${w.kind === "research" ? w.audience : `For ${w.audience}`}` : `For ${w.audience}`,
-  whitepaper: w.file ? w.slug : undefined,
+  href: w.file ? (w.kind === "research" ? `/resources/research/${w.slug}` : `/resources/whitepapers/${w.slug}`) : undefined,
   cover: w.cover,
   comingSoon: !w.file,
 }));

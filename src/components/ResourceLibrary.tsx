@@ -150,10 +150,10 @@ function Featured({ r }: { r: Resource }) {
 
 const PAGE = 9;
 
-export function ResourceLibrary({ items, initialCategory }: { items: Resource[]; initialCategory: Category }) {
+export function ResourceLibrary({ items, initialCategory, initialQuery = "" }: { items: Resource[]; initialCategory: Category; initialQuery?: string }) {
   const [category, setCategory] = useState<Category>(initialCategory);
   const [chosenTopics, setChosenTopics] = useState<Topic[]>([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [limit, setLimit] = useState(PAGE);
 
   // Keep the address in step with the filter, so a filtered view can be shared or bookmarked.
