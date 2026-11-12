@@ -29,7 +29,7 @@ const numColor = ["text-brand-red", "text-gold-ink", "text-green-ink"];
 
 const team = [
   { name: "Srishti Sharma", role: "Co-Founder and Chief Research Officer", photo: "/team/srishti-sharma.webp", bar: "bg-brand-red" },
-  { name: "Sandeep Kumar", role: "Co-Founder and VP of Sales and Marketing", photo: "/team/sandeep-kumar.webp", bar: "bg-amber" },
+  { name: "Sandeep Kumar", role: "Co-Founder and Vice President of Sales and Marketing", photo: "/team/sandeep-kumar.webp", bar: "bg-amber" },
 ];
 
 export default function AboutPage() {

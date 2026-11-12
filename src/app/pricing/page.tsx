@@ -67,7 +67,7 @@ const compare = [
 const faqs = [
   ["Corporate Brain", "bg-red-tint text-brand-red", "Do all employees need the same seat?", "No. Most organizations mix a few Leadership seats, Manager seats for team leads, and Employee seats for everyone else."],
   ["Corporate Brain", "bg-red-tint text-brand-red", "Is there a minimum number of users?", "Ask for a custom quote and we will confirm the right starting size."],
-  ["Decode", "bg-amber-tint text-gold-ink", "Is there a subscription for Decode?", "No. You buy credits and spend them per skill, per candidate. Previewing a game is free."],
+  ["Decode", "bg-amber-tint text-gold-ink", "Is there a subscription for Decode?", "No. You buy credits (from 1,000, in multiples of 100) and spend them per skill, per candidate. Credits come back if someone has not started when you cancel their invitation. Previewing a game is free."],
   ["Decode", "bg-amber-tint text-gold-ink", "How do I pay for Decode?", "By UPI, card or net banking, with a receipt by email."],
   ["Both", "bg-green-tint text-green-ink", "What are credits?", "Each assessment sent to an employee or candidate uses credits. You see the cost before you send, and can top up any time."],
   ["Both", "bg-green-tint text-green-ink", "Is our data kept separate?", "Yes. Every customer's data is kept separate, and Corporate Brain gives each customer its own database."],
@@ -215,7 +215,7 @@ export default function PricingPage() {
                 <div>
                   <p className="m-0 text-[13px] text-ink-muted">Price per credit</p>
                   <p className="m-0 font-display text-[34px] leading-tight font-semibold text-ink">₹1</p>
-                  <p className="m-0 text-[12.5px] text-ink-muted">Big Five personality game: 500 credits, any level</p>
+                  <p className="m-0 text-[12.5px] text-ink-muted">Big Five personality game: 1,000 credits, any level</p>
                 </div>
                 <a href={routes.gamified} className="rounded-lg bg-amber px-4 py-2.5 text-[14px] font-semibold text-navy no-underline hover:bg-[#F7B84A]">
                   Preview a game free
