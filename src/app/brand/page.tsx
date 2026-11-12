@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- SVG logos don't need next/image */
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { PageHero } from "@/components/blocks";
+import { Hero } from "@/components/v3";
 import { Eyebrow, H2, Section } from "@/components/ui";
 import { routes, site } from "@/lib/site";
 
@@ -51,17 +51,22 @@ const rules = [
   "Never recolour, stretch, rotate or add shadows to a logo.",
   "Keep clear space around the logo, and don't place it on busy photos or mid-tone backgrounds.",
   "Red, amber and green always appear in that order: in the Decode lens and in the top stripe.",
-  "Inter is the only typeface. Headings are in sentence case.",
+  "Write \"Brain Interacts\" as two words, and don't use the Corporate Brain taglines for Brain Interacts.",
+  "Space Grotesk for headings and numbers, Inter for body text. Headings are in sentence case.",
 ];
 
 export default function BrandPage() {
   return (
     <>
-      <PageHero
-        trail={trail}
-        title="Brand and logos."
-        accent="Everything in one place."
-        lead="Official logos, colours and guidelines for Brain Interacts and our products. Free to use when you write about us or work with us; please follow the guidelines."
+      <Hero
+        crumbs={trail}
+        eyebrow="Brand"
+        title="Brain Interacts brand assets."
+        lead="Logos, colours and type for press, partners and our own team. Please use them as shown."
+        actions={[
+          { label: "Download the logo pack (ZIP)", href: "/brand/downloads/brain-interacts-logo-pack.zip" },
+          { label: "Ask for other files", href: `mailto:${site.email}` },
+        ]}
       />
 
       {/* Brain Interacts */}
@@ -181,9 +186,21 @@ export default function BrandPage() {
             <Eyebrow icon="quote" color="goldInk">
               Typography
             </Eyebrow>
-            <p className="m-0 text-[72px] leading-none font-bold tracking-[-0.03em]">Aa</p>
-            <p className="mt-4 text-[20px] font-semibold">Inter</p>
-            <p className="mt-1 leading-[1.7] text-ink-body">Regular, Medium, SemiBold and Bold. Free under the SIL Open Font License.</p>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <p className="font-display m-0 text-[72px] leading-none font-bold tracking-[-0.03em]">Aa</p>
+                <p className="mt-4 text-[20px] font-semibold">Space Grotesk</p>
+                <p className="mt-1 leading-[1.7] text-ink-body">Bold for headings and numbers.</p>
+              </div>
+              <div>
+                <p className="m-0 text-[72px] leading-none font-bold tracking-[-0.03em]" style={{ fontFamily: "var(--font-inter)" }}>
+                  Aa
+                </p>
+                <p className="mt-4 text-[20px] font-semibold">Inter</p>
+                <p className="mt-1 leading-[1.7] text-ink-body">Regular for body text, semibold for labels.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-[13.5px] text-ink-muted">Both are free under the SIL Open Font License.</p>
             <p className="mt-8 leading-[1.7] text-ink-body">
               Need something else, like a high-resolution file or a logo for print? Write to{" "}
               <a href={`mailto:${site.email}`} className="font-semibold text-ink underline">

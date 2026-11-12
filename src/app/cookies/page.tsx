@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <LegalPage title="Cookie Notice" label="Cookie notice" lead="Which cookies and analytics we use, and the choices you have.">
+    <LegalPage href={routes.cookies} title="Cookie Notice" label="Cookie notice" lead="Which cookies and analytics we use, and the choices you have.">
       <h2>What we use</h2>
       <LegalTable
         headings={["Tool", "What it does", "Needs your consent?"]}

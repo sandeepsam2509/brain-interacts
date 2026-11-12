@@ -15,14 +15,14 @@ const legacyRedirects: [string, string][] = [
   ["/services/corporate-mental-health-workshops", "/services/corporate-culture-study"],
   ["/services", "/services/custom-assessment-systems"],
   ["/platforms", "https://corporatebrain.braininteracts.com/"],
-  ["/how-it-works", "https://corporatebrain.braininteracts.com/"],
-  ["/for/leadership", "/for-ceos"],
+  ["/for/leadership", "/solutions/for-cxos"],
   ["/for/managers", "https://corporatebrain.braininteracts.com/"],
   ["/for/employees", "https://corporatebrain.braininteracts.com/"],
   ["/diagnostic", "/contact"],
   ["/demo", "/contact"],
   ["/resources/blog", "/resources"],
-  ["/security", "/legal"],
+  ["/for-ceos", "/solutions/for-cxos"],
+  ["/security", "/trust"],
   ["/terms", "/legal/terms-of-service"],
 ];
 
