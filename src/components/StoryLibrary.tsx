@@ -4,49 +4,24 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { type Product, type Story, storyHref } from "@/content/stories";
 
-const industryTone: Record<string, string> = {
-  "Facilities management": "#F5A524",
-  Manufacturing: "#C9D2E0",
-  "IT services": "#F5A524",
-  ITES: "#2BA36B",
-  "Industrial automation": "#2BA36B",
+/** Abstract brand artwork per story (no client logos or photos). */
+const storyPhoto: Record<string, string> = {
+  "bvg-fixing-the-floor-not-the-people": "/site/f27e8606.webp",
+  "pune-techtrol-gen-z-attrition": "/site/793df1a3.webp",
+  "facilities-staffing-around-strengths": "/site/94257643.webp",
+  "manufacturing-balanced-plant-leadership": "/site/8fc9f461.webp",
+  "megamech-promoting-the-right-people-into-supervision": "/site/ee5cc825.webp",
+  "redington-turning-the-bench-into-a-growth-engine": "/site/7e00bc9e.webp",
+  "it-services-assigning-work-by-strengths": "/site/631ec024.webp",
+  "technology-services-lost-momentum": "/site/9b9a9a4e.webp",
+  "automation-aligning-engineering-and-customer-teams": "/site/dc17ab22.webp",
 };
 
-/** Abstract brand artwork per story (no client logos or photos). */
-export function StoryArt({ story, seed = 0 }: { story: Story; seed?: number }) {
-  const a = industryTone[story.industry] ?? "#C9D2E0";
-  const v = seed % 3;
-  return (
-    <svg viewBox="0 0 320 200" className="h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-      <rect width="320" height="200" fill="#0A1628" />
-      {v === 0 && (
-        <>
-          {/* The Brain Interacts figure: head, body and collar */}
-          <g transform="translate(150 10) scale(2.3)">
-            <circle cx="36" cy="14" r="14" fill="#E5484D" opacity="0.85" />
-            <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F5A524" opacity="0.9" />
-            <path d="M22 40H50L36 64Z" fill="#FFFFFF" />
-          </g>
-        </>
-      )}
-      {v === 1 && (
-        <>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <rect key={i} x={40 + i * 50} y={150 - (i + 1) * 22} width="34" height={(i + 1) * 22 + 20} rx="6" fill={i === 4 ? a : "#22324D"} />
-          ))}
-          <path d="M40 120 C 110 60, 180 110, 280 30" stroke="#F5A524" strokeWidth="5" fill="none" strokeLinecap="round" />
-        </>
-      )}
-      {v === 2 &&
-        [0, 1, 2, 3].map((row) =>
-          [0, 1, 2, 3, 4, 5].map((col) => (
-            <circle key={`${row}-${col}`} cx={50 + col * 44} cy={40 + row * 40} r={(row + col) % 4 === 0 ? 13 : 7} fill={(row + col) % 4 === 0 ? a : "#22324D"} />
-          )),
-        )}
-    </svg>
-  );
+/** Photo for a customer story (stock imagery, not the client's own site). */
+export function StoryArt({ story }: { story: Story; seed?: number }) {
+  // eslint-disable-next-line @next/next/no-img-element -- static design images
+  return <img src={storyPhoto[story.slug] ?? "/site/44843417.webp"} alt="" aria-hidden="true" className="h-full w-full object-cover" />;
 }
-
 
 function Card({ s, seed }: { s: Story; seed: number }) {
   return (
@@ -67,7 +42,7 @@ function Card({ s, seed }: { s: Story; seed: number }) {
           <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{s.challenge}</p>
           <ul className="m-0 mt-4 flex list-none flex-wrap gap-1.5 p-0">
             {s.products.map((p) => (
-              <li key={p} className="rounded-full bg-[#EDF0F5] px-2.5 py-1 text-[12px] font-semibold text-ink">
+              <li key={p} className="rounded-full bg-cloud px-2.5 py-1 text-[12px] font-semibold text-ink">
                 {p}
               </li>
             ))}
