@@ -145,7 +145,7 @@ export default function HomePage() {
         <div className={`${wrap} py-16 md:py-24`}>
           <h2 className={`${h2} m-0`}>Products built from our research.</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <a href={routes.corporateBrain} className="group overflow-hidden rounded-xl bg-white text-ink no-underline">
+            <a href={routes.corporateBrain} className="group flex flex-col overflow-hidden rounded-xl bg-white text-ink no-underline">
               <div aria-hidden="true" className="h-[150px] bg-cloud p-4">
                 <div className="grid grid-cols-3 gap-2">
                   {["border-brand-red", "border-amber", "border-brand-green"].map((b) => (
@@ -158,14 +158,17 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <p className={`${eyebrow} m-0 text-[11px] text-brand-red`}>Flagship</p>
-                <h3 className="mt-2 text-[22px] font-semibold">Corporate Brain</h3>
+                <h3 className="mt-3 flex h-8 items-center font-display">
+                  <img src="/brand/corporate-brain-mark.svg" alt="" className="h-8 w-auto" />
+                  <span className="ml-2 text-[22px] font-semibold">Corporate Brain</span>
+                </h3>
                 <p className="mt-2 text-[14.5px] leading-[1.6] text-ink-body">People analytics and task intelligence for leadership, managers and employees.</p>
-                <span className="mt-3 inline-block font-semibold underline">Explore →</span>
+                <span className="mt-auto inline-block pt-3 font-semibold underline">Explore →</span>
               </div>
             </a>
-            <a href={routes.gamified} className="group overflow-hidden rounded-xl bg-white text-ink no-underline">
+            <a href={routes.gamified} className="group flex flex-col overflow-hidden rounded-xl bg-white text-ink no-underline">
               <div aria-hidden="true" className="grid h-[150px] grid-cols-4 grid-rows-2 gap-2 bg-amber-tint p-4">
                 <div className="rounded-md bg-amber" />
                 <div className="rounded-md bg-white" />
@@ -176,14 +179,16 @@ export default function HomePage() {
                 <div className="rounded-full bg-brand-green" />
                 <div className="rounded-md bg-white" />
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <p className={`${eyebrow} m-0 text-[11px] text-gold-ink`}>Game-based assessments</p>
-                <h3 className="mt-2 text-[22px] font-semibold">Decode</h3>
+                <h3 className="mt-3 flex h-8 items-center gap-2">
+                  <img src="/brand/decode-wordmark-navy.svg" alt="Decode" className="h-7 w-auto" />
+                </h3>
                 <p className="mt-2 text-[14.5px] leading-[1.6] text-ink-body">Short job games for 85 roles across 14 industries.</p>
-                <span className="mt-3 inline-block font-semibold underline">Explore →</span>
+                <span className="mt-auto inline-block pt-3 font-semibold underline">Explore →</span>
               </div>
             </a>
-            <Link href={routes.finCheck} className="group overflow-hidden rounded-xl bg-white text-ink no-underline">
+            <Link href={routes.finCheck} className="group flex flex-col overflow-hidden rounded-xl bg-white text-ink no-underline">
               <div aria-hidden="true" className="h-[150px] bg-green-tint p-4">
                 <div className="flex justify-between text-[12px] font-semibold">
                   <span>Behavioral risk</span>
@@ -196,11 +201,11 @@ export default function HomePage() {
                 </div>
                 <p className="m-0 mt-3 text-[12px] text-ink-muted">Applicant consistency · 0.86</p>
               </div>
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <p className={`${eyebrow} m-0 text-[11px] text-green-ink`}>For lenders · Coming soon</p>
-                <h3 className="mt-2 text-[22px] font-semibold">FinCheck</h3>
+                <h3 className="mt-3 flex h-8 items-center text-[22px] font-semibold">FinCheck</h3>
                 <p className="mt-2 text-[14.5px] leading-[1.6] text-ink-body">Behavioral risk intelligence for banks and NBFCs.</p>
-                <span className="mt-3 inline-block font-semibold underline">Explore →</span>
+                <span className="mt-auto inline-block pt-3 font-semibold underline">Explore →</span>
               </div>
             </Link>
           </div>
@@ -258,30 +263,36 @@ export default function HomePage() {
           <h2 className={`${h2} m-0 text-ink`}>Work and people decisions, in one place.</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <div className="rounded-xl bg-white p-6">
+              <div className="h-[92px]">
               <div aria-hidden="true" className="grid grid-cols-3 gap-2 text-center text-[11px] font-semibold">
                 <span className="rounded-md bg-green-tint py-1.5 text-green-ink">Discovery</span>
                 <span className="rounded-md bg-amber-tint py-1.5 text-gold-ink">Build</span>
                 <span className="rounded-md bg-cloud py-1.5 text-ink-muted">Launch</span>
               </div>
               <p className="m-0 mt-2 text-[12px] text-ink-muted">Suggested lead: Integrator · 92% fit</p>
+              </div>
               <h3 className="mt-4 text-[18px] font-semibold">Projects</h3>
               <p className="mt-2 text-[14.5px] leading-[1.6] text-ink-body">Plan milestones and timelines, and get a best-fit lead and team suggested.</p>
             </div>
             <div className="rounded-xl bg-white p-6">
+              <div className="h-[92px]">
               <div aria-hidden="true" className="flex items-center gap-2 text-[11px] font-semibold">
                 <span className="rounded-md bg-cloud px-2 py-1.5">Done</span>→<span className="rounded-md bg-amber-tint px-2 py-1.5 text-gold-ink">In review</span>→
                 <span className="rounded-md bg-green-tint px-2 py-1.5 text-green-ink">Approved</span>
               </div>
               <p className="m-0 mt-2 text-[12px] text-ink-muted">Reviewer sign-off required</p>
+              </div>
               <h3 className="mt-4 text-[18px] font-semibold">Tasks with review</h3>
               <p className="mt-2 text-[14.5px] leading-[1.6] text-ink-body">Nothing counts as done until it is reviewed and approved.</p>
             </div>
             <div className="rounded-xl bg-white p-6">
+              <div className="h-[92px]">
               <div aria-hidden="true" className="space-y-1.5 text-[11px] font-semibold">
                 <div className="w-full rounded-sm bg-navy px-2 py-0.5 text-white">24 Applied</div>
                 <div className="w-[70%] rounded-sm bg-amber px-2 py-0.5 text-navy">11 Assessed</div>
                 <div className="w-[45%] rounded-sm bg-red-tint px-2 py-0.5 text-brand-red">5 Interview</div>
                 <div className="w-[28%] rounded-sm bg-brand-green px-2 py-0.5 text-white">1 Hired</div>
+              </div>
               </div>
               <h3 className="mt-4 text-[18px] font-semibold">Hiring</h3>
               <p className="mt-2 text-[14.5px] leading-[1.6] text-ink-body">Link openings to projects, send assessments and track every candidate.</p>
@@ -301,7 +312,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {featured.map((s, i) => (
-              <Link key={s.slug} href={storyHref(s)} className="group overflow-hidden rounded-xl bg-white text-ink no-underline">
+              <Link key={s.slug} href={storyHref(s)} className="group flex flex-col overflow-hidden rounded-xl bg-white text-ink no-underline">
                 <img src={storyImg[i]} alt="" className="h-[170px] w-full object-cover" />
                 <div className="p-5">
                   <p className={`${eyebrow} m-0 text-[11px] ${storyTone[i]}`}>
