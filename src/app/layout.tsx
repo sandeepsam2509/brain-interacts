@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { AssessmentBot } from "@/components/AssessmentBot";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -12,16 +12,19 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const grotesk = Space_Grotesk({
+// Fonts are bundled with the site so builds never depend on reaching Google Fonts.
+const grotesk = localFont({
+  src: "../fonts/space-grotesk-latin-wght-normal.woff2",
   variable: "--font-grotesk",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "300 700",
+  display: "swap",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "../fonts/inter-latin-wght-normal.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "100 900",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
