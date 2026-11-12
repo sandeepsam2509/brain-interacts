@@ -1,8 +1,6 @@
-/* eslint-disable @next/next/no-img-element -- small client logos */
+/* eslint-disable @next/next/no-img-element -- static photos */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CtaBlock } from "@/components/blocks";
-import { ButtonLink, Eyebrow, H2, Section } from "@/components/ui";
 import { stories, storyHref } from "@/content/stories";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
@@ -10,320 +8,297 @@ import { routes } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Industries, People Analytics by Sector",
   description:
-    "Brain Interacts researches how work happens in banking, insurance, ITES, retail, FMCG, healthcare, logistics, telecom, education and hospitality, then builds people analytics products for each.",
+    "Brain Interacts researches how work happens in banking, insurance, ITES, retail, FMCG, healthcare, logistics, telecom, education, hospitality and manufacturing, then builds people analytics products for each.",
   alternates: { canonical: routes.industries },
 };
 
-type Industry = { id: string; name: string; intro: string; roles: string[]; challenges: string[] };
+const wrap = "mx-auto max-w-[1280px] px-4 md:px-[70px]";
+const eyebrow = "text-[12px] font-semibold tracking-[0.1em] uppercase";
+const h2 = "font-display text-[clamp(26px,3vw,40px)] leading-[1.12] font-semibold tracking-[-0.02em]";
+const btnRed = "inline-flex items-center rounded-lg bg-brand-red px-5 py-3 text-[15px] font-semibold text-white no-underline hover:bg-brand-red-dark";
+const btnGhostDark = "inline-flex items-center rounded-lg border border-navy-line px-5 py-3 text-[15px] font-semibold text-white no-underline hover:border-on-navy";
+
+type Industry = { id: string; name: string; short: string; img: string; alt: string; intro: string; roles: string[]; help: string[] };
 
 const industries: Industry[] = [
-  {
-    id: "banking-and-financial-services",
-    name: "Banking & Financial Services",
-    intro: "Branch, credit and collections teams handle money, rules and customers at the same time. Small judgement calls carry real risk.",
-    roles: ["Branch banking", "Credit & lending", "Collections & recovery", "Relationship management", "Operations & compliance"],
-    challenges: ["Hiring at scale for branch and sales roles", "Checking judgement on KYC, credit and compliance", "High early attrition in front-line roles"],
-  },
-  {
-    id: "insurance",
-    name: "Insurance",
-    intro: "Agency, underwriting and claims teams balance selling, risk and empathy, often far from head office.",
-    roles: ["Agency & distribution", "Underwriting", "Claims", "Customer service", "Bancassurance"],
-    challenges: ["Finding agents who stay and perform", "Consistent judgement in underwriting and claims", "Coaching a spread-out field force"],
-  },
-  {
-    id: "ites",
-    name: "ITES",
-    intro: "Contact centres and IT-enabled services run on volume, quality and shift work. Fit for the role shows up in the first weeks.",
-    roles: ["Customer support", "Quality & training", "Workforce management", "Team leads", "Back-office processing"],
-    challenges: ["Fast, fair hiring for large batches", "Spotting future team leads early", "Reducing attrition in the first 90 days"],
-  },
-  {
-    id: "retail-and-e-commerce",
-    name: "Retail & E-commerce",
-    intro: "Store, merchandising and online operations teams work at pace, with customers and stock changing by the hour.",
-    roles: ["Store sales", "Store management", "Merchandising & buying", "E-commerce operations", "Customer care"],
-    challenges: ["Seasonal hiring at speed", "Building store managers from within", "Keeping service consistent across locations"],
-  },
-  {
-    id: "fmcg-and-consumer-goods",
-    name: "FMCG & Consumer Goods",
-    intro: "Sales, distribution and supply chain teams keep products moving through thousands of outlets and partners.",
-    roles: ["Sales & distribution", "Brand & marketing", "Supply chain & planning", "Trade marketing", "Area and territory managers"],
-    challenges: ["Hiring field sales who can work alone", "Matching managers to territories", "Developing first-time managers"],
-  },
-  {
-    id: "healthcare-and-pharmaceuticals",
-    name: "Healthcare & Pharmaceuticals",
-    intro: "Production, quality and medical sales teams work under strict standards where care and accuracy come first.",
-    roles: ["Pharma production", "Quality control & assurance", "Medical sales", "Patient care & front office", "Regulatory affairs"],
-    challenges: ["Attention to detail in regulated work", "Hiring medical representatives who build trust", "Supporting staff under pressure"],
-  },
-  {
-    id: "logistics-and-supply-chain",
-    name: "Logistics & Supply Chain",
-    intro: "Warehouse, fleet and freight teams solve problems against the clock, every shift.",
-    roles: ["Warehouse operations", "Transportation & fleet", "EXIM & freight forwarding", "Planning & inventory", "Last-mile operations"],
-    challenges: ["Finding supervisors who stay calm under pressure", "Safety and process discipline", "Staffing peaks and new sites"],
-  },
-  {
-    id: "telecommunication",
-    name: "Telecommunication",
-    intro: "Network, field and customer teams keep services running across large areas, often with little supervision.",
-    roles: ["Network operations", "Field engineering", "Customer service", "Retail & distribution", "Enterprise sales"],
-    challenges: ["Technical problem-solving in the field", "Hiring for large customer service teams", "Upskilling as technology changes"],
-  },
-  {
-    id: "education",
-    name: "Education",
-    intro: "Teaching, admissions and learning design teams shape outcomes for students, parents and institutions.",
-    roles: ["Teaching", "Admissions & counselling", "Instructional design", "Academic operations", "EdTech sales"],
-    challenges: ["Hiring teachers and counsellors who fit the culture", "Supporting staff wellbeing", "Developing academic leaders"],
-  },
-  {
-    id: "hospitality-and-travel",
-    name: "Hospitality & Travel",
-    intro: "Front office, food and beverage and housekeeping teams create the guest experience in every interaction.",
-    roles: ["Front office", "Food & beverage", "Housekeeping", "Travel sales & operations", "Guest relations"],
-    challenges: ["Service mindset at hiring", "High turnover in guest-facing roles", "Growing supervisors from within"],
-  },
+  { id: "banking-and-financial-services", name: "Banking & Financial Services", short: "Banking & Financial Services", img: "/site/03b5dbaf.webp", alt: "A customer using a bank ATM keypad", intro: "Branch, credit and collections staff juggle money, rules and customers, where small judgment calls carry real risk.", roles: ["Branch banking", "Credit & lending", "Collections & recovery", "Relationship management", "Operations & compliance"], help: ["High-volume hiring for branch and sales roles", "Judgment checks for KYC, credit and compliance", "Early attrition in front-line jobs"] },
+  { id: "insurance", name: "Insurance", short: "Insurance", img: "/site/dc17ab22.webp", alt: "An advisor meeting clients", intro: "Agency, underwriting and claims teams balance sales, risk and empathy, often far from head office.", roles: ["Agency & distribution", "Underwriting", "Claims", "Customer service", "Bancassurance"], help: ["Finding agents who stay and perform", "Consistent underwriting and claims judgment", "Coaching a spread-out field force"] },
+  { id: "ites", name: "ITES", short: "ITES", img: "/site/bb275f24.webp", alt: "Contact centre agents at their desks", intro: "Contact centres and IT-enabled services run on volume, quality and shifts, and fit shows in the first weeks.", roles: ["Customer support", "Quality & training", "Workforce management", "Team leads", "Back-office processing"], help: ["Fast, fair hiring in large batches", "Spotting future team leads early", "Cutting attrition in the first 90 days"] },
+  { id: "retail-and-e-commerce", name: "Retail & E-commerce", short: "Retail & E-commerce", img: "/site/9c4d0203.webp", alt: "A shopper in a clothing store", intro: "Store, merchandising and online teams move fast as customers and stock change by the hour.", roles: ["Store sales", "Store management", "Merchandising & buying", "E-commerce operations", "Customer care"], help: ["Seasonal hiring at speed", "Promoting store managers from within", "Consistent service across locations"] },
+  { id: "fmcg-and-consumer-goods", name: "FMCG & Consumer Goods", short: "FMCG & Consumer Goods", img: "/site/914e2441.webp", alt: "Supermarket aisle with packaged goods", intro: "Sales, distribution and supply chain teams move products through thousands of outlets and partners.", roles: ["Sales & distribution", "Brand & marketing", "Supply chain & planning", "Trade marketing", "Area & territory managers"], help: ["Hiring field sales staff who work independently", "Matching managers to territories", "Developing first-time managers"] },
+  { id: "healthcare-and-pharmaceuticals", name: "Healthcare & Pharmaceuticals", short: "Healthcare & Pharmaceuticals", img: "/site/1d8f1936.webp", alt: "A scientist working in a laboratory", intro: "Production, quality and medical sales teams work under strict standards where care and accuracy come first.", roles: ["Pharma production", "Quality control & assurance", "Medical sales", "Patient care & front office", "Regulatory affairs"], help: ["Attention to detail in regulated work", "Hiring medical reps who build trust", "Supporting staff under pressure"] },
+  { id: "logistics-and-supply-chain", name: "Logistics & Supply Chain", short: "Logistics & Supply Chain", img: "/site/94257643.webp", alt: "A forklift loading a truck", intro: "Warehouse, fleet and freight teams solve time-critical problems every shift.", roles: ["Warehouse operations", "Transportation & fleet", "EXIM & freight forwarding", "Planning & inventory", "Last-mile operations"], help: ["Finding supervisors who stay calm under pressure", "Safety and process discipline", "Staffing peaks and new sites"] },
+  { id: "telecommunication", name: "Telecommunication", short: "Telecommunication", img: "/site/7251127f.webp", alt: "A telecom tower", intro: "Network, field and customer teams keep services running across wide areas, often unsupervised.", roles: ["Network operations", "Field engineering", "Customer service", "Retail & distribution", "Enterprise sales"], help: ["Field problem-solving", "Hiring for large customer service teams", "Upskilling as technology changes"] },
+  { id: "education", name: "Education", short: "Education", img: "/site/fc928bb2.webp", alt: "A teacher in a classroom", intro: "Teaching, admissions and learning design teams shape outcomes for students, parents and institutions.", roles: ["Teaching", "Admissions & counselling", "Instructional design", "Academic operations", "EdTech sales"], help: ["Hiring teachers and counsellors who fit the culture", "Supporting staff wellbeing", "Developing academic leaders"] },
+  { id: "hospitality-and-travel", name: "Hospitality & Travel", short: "Hospitality & Travel", img: "/site/42f05e52.webp", alt: "A hotel reception desk", intro: "Front office, food and beverage, and housekeeping teams create the guest experience in every interaction.", roles: ["Front office", "Food & beverage", "Housekeeping", "Travel sales & operations", "Guest relations"], help: ["Hiring for a service mindset", "Managing turnover in guest-facing roles", "Growing supervisors from within"] },
+  { id: "manufacturing-and-facilities", name: "Manufacturing & Facilities", short: "Manufacturing & Facilities", img: "/site/ee5cc825.webp", alt: "A worker welding on a factory floor", intro: "Plant, maintenance and facilities teams run on shifts, safety and supervisors who can lead a crew.", roles: ["Production & operations", "Quality", "Maintenance", "Facilities supervisors", "Plant leadership"], help: ["Promoting the right operators into supervision", "Cutting early attrition in younger workers", "Spotting management behaviors that slow the floor"] },
 ];
 
 const layers = [
-  { n: "01", title: "Industry research", text: "We study each sector's roles, job standards, regulations and the situations people face on an ordinary day." },
-  { n: "02", title: "Role and skill models", text: "Research becomes a clear model of what good looks like in each role, by level of experience." },
-  { n: "03", title: "Evidence from behavior", text: "Decode's job games and our assessments show how people actually decide, not just what they say about themselves." },
-  { n: "04", title: "People intelligence", text: "Corporate Brain brings the evidence together: archetypes, team fit, gaps and who is best placed to do what." },
-  { n: "05", title: "Decisions in action", text: "Leaders hire, promote, staff projects and plan development with evidence, and track the change over time." },
+  ["01", "Industry research", "We study each sector's roles, standards, regulations and daily situations.", "border-brand-red"],
+  ["02", "Role and skill models", "We define what strong performance looks like at each level of experience.", "border-amber"],
+  ["03", "Evidence from behavior", "Job games and assessments show how people actually decide.", "border-brand-green"],
+  ["04", "People intelligence", "Evidence becomes archetypes, team fit, gaps and suitability.", "border-brand-red"],
+  ["05", "Decisions in action", "Hiring, promotion, staffing and development, tracked over time.", "border-amber"],
 ];
 
-const maturity = [
-  { stage: "Intuition", text: "Decisions on gut feel, tenure and CVs." },
-  { stage: "Measurement", text: "Assessments and scores, kept in silos." },
-  { stage: "Insight", text: "Patterns across teams, roles and locations." },
-  { stage: "Prediction", text: "Early signals for attrition, fit and readiness." },
-  { stage: "Flourishing", text: "Every person in the right role, growing on a plan." },
+const stages = [
+  ["Intuition", "Decisions on gut feel, tenure and CVs."],
+  ["Measurement", "Assessments and scores, kept in separate silos."],
+  ["Insight", "Patterns across teams, roles and locations."],
+  ["Prediction", "Early signals for attrition, fit and readiness."],
+  ["Flourishing", "Each person in the right role, growing under a plan."],
 ];
 
-const pillars = [
-  { n: "01", title: "Research first", text: "Every product starts with fieldwork in the industry it serves." },
-  { n: "02", title: "Built for the role", text: "Situations, skills and language that match the real job." },
-  { n: "03", title: "Evidence, not labels", text: "We describe what people did and how it compares, never a verdict." },
-  { n: "04", title: "Private by design", text: "Each organisation sees only its own people, under India's DPDP Act." },
-  { n: "05", title: "Growth, not judgement", text: "Every gap becomes a development plan, and progress is reassessed." },
+const principles = [
+  ["Research first", "Every product starts with fieldwork in its industry."],
+  ["Built for the role", "Situations, skills and language match the real job."],
+  ["Evidence, not labels", "We describe what people did and how it compares, not verdicts."],
+  ["Private by design", "Each organization sees only its own people, under India's DPDP Act."],
+  ["Growth, not judgement", "Gaps become development plans, and progress is reassessed."],
 ];
-
-const tints = ["bg-[#FDE8E9]", "bg-[#FFF1D6]", "bg-[#E3F5EC]", "bg-[#EDF0F5]", "bg-white"];
+const tint = ["bg-red-tint text-brand-red", "bg-amber-tint text-gold-ink", "bg-green-tint text-green-ink"];
+const bar = ["bg-brand-red", "bg-amber", "bg-brand-green"];
 
 export default function IndustriesPage() {
   const named = stories.filter((s) => s.named);
   return (
     <>
       {/* Hero */}
-      <Section tone="dark" className="relative overflow-hidden" innerClassName="relative pt-14 pb-16 md:pt-20 md:pb-24">
-        <svg aria-hidden="true" viewBox="0 0 72 82" className="pointer-events-none absolute -right-10 bottom-0 h-[110%] max-h-[560px] opacity-25 md:right-10">
-          <circle cx="36" cy="14" r="14" fill="#E5484D" />
-          <path d="M0 80L22 40H50L72 80H52L36 64L20 80Z" fill="#F5A524" />
-          <path d="M22 40H50L36 64Z" fill="#FFFFFF" />
-        </svg>
-        <p className="text-[12px] font-semibold tracking-[0.08em] text-amber uppercase">Industries</p>
-        <h1 className="mt-4 max-w-[900px] text-[clamp(32px,5vw,64px)] leading-[1.02] font-extrabold tracking-[-0.035em]">
-          From workforce data <span className="text-amber">to people intelligence.</span>
-        </h1>
-        <p className="mt-6 max-w-[640px] text-[16px] leading-[1.7] text-on-navy md:text-[18px]">
-          We research how work really happens in ten industries, then build products and solutions that help their people and workplaces flourish.
-        </p>
-        <div className="mt-9 flex flex-wrap gap-3">
-          <ButtonLink href={enquiryHref("demo")}>Talk to us about your industry</ButtonLink>
-          <ButtonLink href="#industries" variant="outlineDark">
-            Explore industries
-          </ButtonLink>
-        </div>
-      </Section>
-
-      {/* Narrative */}
-      <Section tone="light">
-        <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+      <section className="bg-navy text-white">
+        <div className={`${wrap} grid items-center gap-12 pt-14 pb-16 md:pt-20 md:pb-20 lg:grid-cols-2`}>
           <div>
-            <Eyebrow icon="spark" color="goldInk">
-              Why it matters
-            </Eyebrow>
-            <H2>Every industry runs on people. Few can see how their people really work.</H2>
+            <p className={`${eyebrow} text-amber`}>Industries</p>
+            <h1 className="mt-5 text-[clamp(36px,4.4vw,58px)] leading-[1.06] font-semibold tracking-[-0.025em]">From workforce data to people intelligence.</h1>
+            <p className="mt-6 max-w-[520px] text-[16px] leading-[1.65] text-on-navy md:text-[17px]">
+              We research how work happens in ten industries, then build products and solutions that fit the roles, rules and pressures of each one.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href={enquiryHref("demo")} className={btnRed}>
+                Talk to us about your industry
+              </Link>
+              <a href="#industries" className={btnGhostDark}>
+                Explore industries
+              </a>
+            </div>
           </div>
-          <div className="space-y-5 text-[16px] leading-[1.8] text-ink-body">
-            <p>
-              A bank branch, a contact floor and a factory shift ask very different things of people. Yet most hiring and promotion still relies on
-              CVs, interviews and tenure: what people say and what they have done, not how they act when it matters.
-            </p>
-            <p>
-              Generic tests don&rsquo;t fix this, because they don&rsquo;t know the job. That is why we start with research in each industry and build
-              from there, so the evidence reflects the work your people actually do.
-            </p>
+          <div className="grid grid-cols-3 grid-rows-3 gap-2.5" style={{ height: 420 }}>
+            <img src="/site/03b5dbaf.webp" alt="" className="col-span-2 row-span-2 h-full w-full rounded-xl object-cover" />
+            <img src="/site/1d8f1936.webp" alt="" className="h-full w-full rounded-xl object-cover" />
+            <img src="/site/94257643.webp" alt="" className="h-full w-full rounded-xl object-cover" />
+            <img src="/site/bb275f24.webp" alt="" className="h-full w-full rounded-xl object-cover" />
+            <img src="/site/9c4d0203.webp" alt="" className="h-full w-full rounded-xl object-cover" />
+            <div className="flex flex-col justify-end rounded-xl bg-white p-4 text-ink">
+              <span className="font-display text-[34px] leading-none font-semibold text-brand-red">10</span>
+              <span className="mt-1 text-[14px] font-semibold">industries researched</span>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Five layers */}
-      <Section tone="light" className="border-t border-rule bg-cloud">
-        <Eyebrow icon="flow" color="goldInk">
-          How we work
-        </Eyebrow>
-        <H2 className="mb-10 max-w-[820px]">Our approach is built across five connected layers.</H2>
-        <ol className="m-0 list-none space-y-3 p-0">
-          {layers.map((l, i) => (
-            <li
-              key={l.n}
-              className="grid items-center gap-3 rounded-[12px] border border-rule bg-white p-5 md:grid-cols-[80px_260px_1fr] md:gap-8 md:p-6"
-              style={{ marginLeft: `${i * 2}%`, marginRight: `${(4 - i) * 2}%` }}
-            >
-              <span className="text-[28px] leading-none font-bold text-gold-ink tabular-nums">{l.n}</span>
-              <h3 className="text-[19px] font-semibold">{l.title}</h3>
-              <p className="m-0 leading-[1.7] text-ink-body">{l.text}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
-
-      {/* Maturity model */}
-      <Section tone="dark">
-        <Eyebrow icon="chart" color="gold">
-          People intelligence model
-        </Eyebrow>
-        <H2 className="mb-10 max-w-[820px] text-white">Five stages, from gut feel to a workplace that flourishes.</H2>
-        <ol className="m-0 grid list-none gap-3 p-0 md:grid-cols-5">
-          {maturity.map((m, i) => (
-            <li key={m.stage} className="relative rounded-[12px] border border-navy-line bg-navy-raised p-5">
-              <div className="mb-4 flex h-1.5 gap-1">
-                {[0, 1, 2, 3, 4].map((k) => (
-                  <span key={k} className={`flex-1 rounded-full ${k <= i ? ["bg-brand-red", "bg-amber", "bg-amber", "bg-brand-green", "bg-brand-green"][i] : "bg-navy-line"}`} />
-                ))}
+      {/* Why it matters */}
+      <section className="bg-white">
+        <div className={`${wrap} grid items-center gap-14 py-16 md:py-24 lg:grid-cols-2`}>
+          <div className="relative pb-12">
+            <img src="/site/ee5cc825.webp" alt="A worker on a factory floor" className="aspect-[1.32] w-[88%] rounded-xl object-cover" />
+            <div className="absolute right-0 bottom-0 w-[270px] rounded-xl border border-rule bg-white p-4 text-[13px] shadow-[0_18px_40px_rgba(10,22,40,0.14)]">
+              <div className="flex justify-between">
+                <span className="text-ink-muted">CV, interview, tenure</span>
+                <span className="font-semibold">What people say</span>
               </div>
-              <p className="m-0 text-[12px] font-semibold tracking-[0.08em] text-on-navy-muted uppercase">Stage {i + 1}</p>
-              <h3 className="mt-1 text-[18px] font-semibold text-white">{m.stage}</h3>
-              <p className="mt-2 text-[14px] leading-[1.6] text-on-navy">{m.text}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
+              <div className="mt-2 h-1.5 rounded-full bg-cloud">
+                <div className="h-1.5 w-[35%] rounded-full bg-rule-strong" />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <span className="text-ink-muted">Job games, behavior</span>
+                <span className="font-semibold">How people act</span>
+              </div>
+              <div className="mt-2 h-1.5 rounded-full bg-cloud">
+                <div className="h-1.5 w-[88%] rounded-full bg-brand-green" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className={`${eyebrow} text-brand-red`}>Why it matters</p>
+            <h2 className={`${h2} mt-3 text-ink`}>Every industry runs on people. Few can see how their people really work.</h2>
+            <p className="mt-5 leading-[1.7] text-ink-body">
+              A bank branch, a contact floor and a factory shift each ask for different things. Yet most hiring and promotion still leans on CVs,
+              interviews and tenure, which show what people say and have done, not how they act under pressure.
+            </p>
+            <p className="mt-4 leading-[1.7] text-ink-body">Generic tests miss this because they don&rsquo;t know the job. So we start with research into the industry itself.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* How we work */}
+      <section className="bg-cloud">
+        <div className={`${wrap} py-16 md:py-24`}>
+          <div className="grid items-end gap-8 md:grid-cols-[1.5fr_1fr]">
+            <div>
+              <p className={`${eyebrow} text-brand-red`}>How we work</p>
+              <h2 className={`${h2} mt-3 text-ink`}>Our approach is built across five connected layers.</h2>
+            </div>
+            <img src="/site/9b9a9a4e.webp" alt="Researchers sorting notes in a workshop" className="hidden h-[150px] w-full rounded-xl object-cover md:block" />
+          </div>
+          <ol className="m-0 mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-5">
+            {layers.map(([n, t, d, b]) => (
+              <li key={n} className={`rounded-xl border-t-[3px] bg-white p-5 ${b}`}>
+                <span className="font-display text-[22px] font-semibold text-ink">{n}</span>
+                <h3 className="mt-3 text-[16px] font-semibold text-ink">{t}</h3>
+                <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Model */}
+      <section className="bg-navy text-white">
+        <div className={`${wrap} py-16 md:py-24`}>
+          <p className={`${eyebrow} text-amber`}>People intelligence model</p>
+          <h2 className={`${h2} mt-3 max-w-[640px]`}>Five stages, from gut feel to a workplace that flourishes.</h2>
+          <div aria-hidden="true" className="mt-10 h-1 rounded-full bg-gradient-to-r from-on-navy-muted via-amber to-brand-green" />
+          <ol className="m-0 mt-8 grid list-none items-end gap-4 p-0 md:grid-cols-5">
+            {stages.map(([t, d], i) => (
+              <li key={t} className="rounded-xl bg-white p-5 text-ink" style={{ marginBottom: `${i * 20}px` }}>
+                <p className="m-0 text-[11px] font-semibold tracking-[0.08em] text-ink-muted uppercase">Stage {i + 1}</p>
+                <h3 className="mt-1.5 text-[18px] font-semibold">{t}</h3>
+                <p className="mt-2 text-[14px] leading-[1.55] text-ink-body">{d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* Industries */}
-      <Section tone="light" id="industries">
-        <Eyebrow icon="briefcase" color="goldInk">
-          Industries
-        </Eyebrow>
-        <H2 className="mb-8">Ten industries we research and serve.</H2>
-        <nav aria-label="Industries" className="mb-10">
-          <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
+      <section id="industries" className="scroll-mt-20 bg-white">
+        <div className={`${wrap} pt-16 md:pt-24`}>
+          <h2 className={`${h2} m-0 text-ink`}>Industries we research and serve.</h2>
+          <ul className="m-0 mt-8 grid list-none grid-cols-2 gap-2.5 p-0 sm:grid-cols-3 lg:grid-cols-6">
             {industries.map((i) => (
               <li key={i.id}>
-                <a href={`#${i.id}`} className="block rounded-full border border-rule bg-cloud px-4 py-2 text-[14px] font-semibold text-ink no-underline hover:border-navy">
-                  {i.name}
+                <a href={`#${i.id}`} className="group relative block h-[120px] overflow-hidden rounded-xl">
+                  <img src={i.img} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span className="absolute inset-0 bg-gradient-to-t from-navy/85 to-transparent" />
+                  <span className="absolute inset-x-3 bottom-2.5 text-[13px] leading-tight font-semibold text-white">{i.short}</span>
                 </a>
               </li>
             ))}
           </ul>
-        </nav>
-        <div className="grid gap-5 lg:grid-cols-2">
-          {industries.map((i) => (
-            <article key={i.id} id={i.id} className="scroll-mt-28 rounded-[18px] border border-rule bg-white p-6 md:p-8">
-              <h3 className="text-[22px] font-bold tracking-[-0.01em]">{i.name}</h3>
-              <p className="mt-2 leading-[1.7] text-ink-body">{i.intro}</p>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                <div>
-                  <p className="m-0 text-[12px] font-semibold tracking-[0.08em] text-gold-ink uppercase">Roles we study</p>
-                  <ul className="m-0 mt-2 list-none space-y-1.5 p-0 text-[14px] text-ink-body">
-                    {i.roles.map((r) => (
-                      <li key={r}>{r}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="m-0 text-[12px] font-semibold tracking-[0.08em] text-gold-ink uppercase">Where we help</p>
-                  <ul className="m-0 mt-2 list-none space-y-1.5 p-0 text-[14px] text-ink-body">
-                    {i.challenges.map((c) => (
-                      <li key={c} className="flex gap-2">
-                        <span aria-hidden="true" className="font-bold text-green-ink">✓</span>
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        </div>
+        {industries.map((ind, k) => (
+          <article key={ind.id} id={ind.id} className={`scroll-mt-20 ${k % 2 ? "bg-cloud" : "bg-white"}`}>
+            <div className={`${wrap} grid items-center gap-10 py-12 md:py-16 lg:grid-cols-2`}>
+              <div className={`overflow-hidden rounded-xl ${k % 2 ? "lg:order-2" : ""}`}>
+                <img src={ind.img} alt={ind.alt} className="h-[260px] w-full object-cover md:h-[300px]" />
+                <div className={`h-1 ${bar[k % 3]}`} />
               </div>
-            </article>
-          ))}
-        </div>
-      </Section>
+              <div>
+                <p className={`${eyebrow} m-0 text-[11px] text-ink-muted`}>Industry {String(k + 1).padStart(2, "0")}</p>
+                <h3 className="mt-2 font-display text-[clamp(24px,2.4vw,30px)] font-semibold text-ink">{ind.name}</h3>
+                <p className="mt-3 leading-[1.65] text-ink-body">{ind.intro}</p>
+                <ul className="m-0 mt-4 flex list-none flex-wrap gap-2 p-0">
+                  {ind.roles.map((r) => (
+                    <li key={r} className="rounded-full border border-rule-strong bg-white px-3 py-1 text-[12.5px] text-ink-body">
+                      {r}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 mb-2 text-[14px] font-semibold text-ink">Where we help</p>
+                <ul className="m-0 list-none space-y-1.5 p-0">
+                  {ind.help.map((h) => (
+                    <li key={h} className="flex gap-2.5 text-[14.5px] text-ink-body">
+                      <span aria-hidden="true" className="text-green-ink">✓</span>
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
 
-      {/* Case studies carousel */}
-      <Section tone="light" className="border-t border-rule bg-cloud">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <Eyebrow icon="quote" color="goldInk">
-              Customer stories
-            </Eyebrow>
-            <H2>Transforming workplaces with evidence.</H2>
+      {/* Stories */}
+      <section className="bg-navy text-white">
+        <div className={`${wrap} py-16 md:py-24`}>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className={`${h2} m-0`}>Transforming workplaces with evidence.</h2>
+            <Link href={routes.stories} className="font-semibold text-amber">
+              All customer stories →
+            </Link>
           </div>
-          <Link href={routes.stories} className="font-semibold text-ink">
-            All customer stories →
-          </Link>
-        </div>
-        <ul className="m-0 -mx-4 flex list-none snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:px-0" aria-label="Customer stories, scroll sideways for more">
-          {named.map((s) => (
-            <li key={s.slug} className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31%]">
-              <Link href={storyHref(s)} className="flex h-full flex-col rounded-[18px] border border-rule bg-white p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)]">
-                <div className="flex h-12 items-center">
-                  {s.logo ? <img src={s.logo} alt={`${s.client} logo`} className="h-full w-auto max-w-[160px] object-contain" /> : <span className="text-[18px] font-bold">{s.client}</span>}
-                </div>
-                <p className="mt-5 text-[12px] font-semibold tracking-[0.08em] text-gold-ink uppercase">{s.industry}</p>
-                <h3 className="mt-1.5 text-[19px] leading-[1.3] font-semibold">{s.title}</h3>
-                {s.stats?.[0] && (
-                  <p className="mt-auto pt-6">
-                    <span className="block text-[36px] leading-none font-bold tracking-[-0.03em] tabular-nums">{s.stats[0].value}</span>
-                    <span className="mt-1 block text-[14px] text-ink-muted">{s.stats[0].label}</span>
+          <ul className="m-0 mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
+            {named.map((s, i) => (
+              <li key={s.slug}>
+                <Link href={storyHref(s)} className="flex h-full flex-col rounded-xl bg-white p-5 text-ink no-underline hover:shadow-xl">
+                  <div className="flex h-10 items-center">
+                    {s.logo ? <img src={s.logo} alt={`${s.client} logo`} className="h-full w-auto max-w-[140px] object-contain" /> : <span className="font-semibold">{s.client}</span>}
+                  </div>
+                  <p className={`${eyebrow} mt-4 mb-0 text-[11px] ${["text-brand-red", "text-gold-ink", "text-green-ink"][i % 3]}`}>
+                    {s.industry} · {s.client}
                   </p>
-                )}
-                <span className="mt-5 text-[14px] font-bold">Read the story →</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
+                  <h3 className="mt-1.5 text-[16px] leading-[1.3] font-semibold">{s.title}</h3>
+                  {s.stats?.[0] && (
+                    <p className="m-0 mt-auto pt-5">
+                      <span className="block font-display text-[32px] leading-none font-semibold">{s.stats[0].value}</span>
+                      <span className="mt-1 block text-[13px] text-ink-muted">{s.stats[0].label}</span>
+                    </p>
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      {/* Statement */}
-      <Section tone="dark" innerClassName="py-16 md:py-24">
-        <p className="text-[12px] font-semibold tracking-[0.08em] text-amber uppercase">Our ambition</p>
-        <p className="mt-5 max-w-[1000px] text-[clamp(26px,3.6vw,46px)] leading-[1.15] font-bold tracking-[-0.025em] text-white">
-          To help every workplace we serve understand its people well enough that each person can do their best work, and keep growing.
-        </p>
-      </Section>
+      {/* Ambition */}
+      <section className="bg-white">
+        <div className={`${wrap} grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2`}>
+          <div>
+            <p className={`${eyebrow} text-brand-red`}>Our ambition</p>
+            <p className="mt-4 font-display text-[clamp(24px,2.6vw,34px)] leading-[1.25] font-semibold text-ink">
+              Help every workplace understand its people well enough that each person can do their best work, and keep growing.
+            </p>
+          </div>
+          <img src="/site/fc928bb2.webp" alt="A teacher with students in a classroom" className="h-[260px] w-full rounded-xl object-cover" />
+        </div>
+      </section>
 
-      {/* Pillars */}
-      <Section tone="light">
-        <Eyebrow icon="target" color="goldInk">
-          What guides us
-        </Eyebrow>
-        <H2 className="mb-10">Five principles behind everything we build.</H2>
-        <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-5">
-          {pillars.map((p, i) => (
-            <li key={p.n} className={`rounded-[18px] border border-rule p-6 ${tints[i]}`}>
-              <span className="text-[34px] leading-none font-bold text-ink tabular-nums">{p.n}</span>
-              <h3 className="mt-6 text-[18px] font-semibold">{p.title}</h3>
-              <p className="mt-2 text-[14px] leading-[1.65] text-ink-body">{p.text}</p>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      {/* Principles */}
+      <section className="bg-cloud">
+        <div className={`${wrap} py-16 md:py-24`}>
+          <p className={`${eyebrow} text-brand-red`}>What guides us</p>
+          <h2 className={`${h2} mt-3 text-ink`}>Five principles behind everything we build.</h2>
+          <ul className="m-0 mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-5">
+            {principles.map(([t, d], i) => (
+              <li key={t} className="rounded-xl bg-white p-5">
+                <span className={`grid h-9 w-9 place-items-center rounded-full text-[13px] font-semibold ${tint[i % 3]}`}>{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[16px] font-semibold text-ink">{t}</h3>
+                <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{d}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      <CtaBlock
-        tone="dark"
-        title="Put people intelligence"
-        accent="at the core."
-        text="Tell us about your industry and your teams. We'll show you what the evidence looks like for your roles."
-        actions={[
-          { label: "Reach out to us", href: enquiryHref("demo"), variant: "gold" },
-          { label: "Explore Decode", href: routes.gamified, variant: "outlineDark" },
-        ]}
-      />
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-navy text-white">
+        <img src="/site/42f05e52.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <div className="absolute inset-0 bg-navy/60" />
+        <div className={`${wrap} relative py-20 text-center md:py-28`}>
+          <h2 className="m-0 text-[clamp(28px,3.6vw,46px)] leading-[1.1] font-semibold tracking-[-0.02em]">Put people intelligence at the core.</h2>
+          <p className="mx-auto mt-4 max-w-[560px] text-[17px] text-on-navy-soft">Tell us your industry and teams, and we&rsquo;ll show you what evidence looks like for your roles.</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link href={enquiryHref("demo")} className={btnRed}>
+              Reach out to us
+            </Link>
+            <a href={routes.gamified} className={btnGhostDark}>
+              Explore Decode
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
