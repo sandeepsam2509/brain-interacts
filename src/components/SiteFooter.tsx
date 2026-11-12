@@ -6,7 +6,7 @@ import { CookieSettingsButton } from "./CookieConsent";
 export function SiteFooter() {
   return (
     <footer className="border-t border-navy-rule bg-navy text-on-navy-muted">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-10 px-6 pt-14 pb-12 md:grid-cols-3 md:pt-[72px] lg:grid-cols-6 lg:gap-10">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-10 px-6 pt-14 pb-12 md:grid-cols-3 md:pt-[72px] lg:grid-cols-8 lg:gap-8">
         <div className="col-span-2 md:col-span-3 lg:col-span-2">
           <Link href={routes.home} aria-label={`${site.name} home`} className="flex items-center gap-1 no-underline">
             <BrandMark size={44} />
@@ -16,10 +16,10 @@ export function SiteFooter() {
             A people analytics company. We research how work happens in each industry and build products that help workplaces flourish.
           </p>
           <div className="mt-5 flex flex-col gap-2 text-[14px]">
-            <a href={`mailto:${site.email}`} className="text-[#E2E8F0] no-underline hover:underline">
+            <a href={`mailto:${site.email}`} className="text-[#DCE3EE] no-underline hover:underline">
               {site.email}
             </a>
-            <a href={site.phoneHref} className="text-[#E2E8F0] no-underline hover:underline">
+            <a href={site.phoneHref} className="text-[#DCE3EE] no-underline hover:underline">
               {site.phone}
             </a>
           </div>
@@ -27,9 +27,9 @@ export function SiteFooter() {
 
         {footerColumns.map((col) => (
           <nav key={col.label} aria-label={col.label} className="flex flex-col gap-3 text-[14px]">
-            <strong className="mb-1 text-white">{col.label}</strong>
+            <strong className="mb-1 font-display text-white">{col.label}</strong>
             {col.items.map((item) => (
-              <Link key={item.href} href={item.href} className="text-on-navy-muted no-underline hover:text-white">
+              <Link key={item.label} href={item.href} className="text-on-navy-muted no-underline hover:text-white">
                 {item.label}
               </Link>
             ))}

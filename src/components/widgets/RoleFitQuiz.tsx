@@ -154,7 +154,7 @@ export function RoleFitQuiz() {
             <button
               type="button"
               onClick={() => pickRoleInForm(best.value)}
-              className="mt-5 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D]"
+              className="mt-5 w-full rounded-lg bg-brand-red px-6 py-4 text-base font-bold text-white hover:bg-brand-red-dark"
             >
               Apply as {best.title}
             </button>

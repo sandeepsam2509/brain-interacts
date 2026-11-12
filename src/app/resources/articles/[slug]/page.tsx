@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Crumbs } from "@/components/resources/parts";
+import { topicSlug } from "@/content/whitepaperPages";
 import { notFound } from "next/navigation";
 import { Art } from "@/components/ResourceLibrary";
 import { ButtonLink, Section } from "@/components/ui";
@@ -171,7 +173,7 @@ function Body({ blocks }: { blocks: Block[] }) {
             return (
               <aside
                 key={i}
-                className="my-8 rounded-2xl bg-[#EEF2F6] p-6 md:p-7"
+                className="my-8 rounded-2xl bg-[#EDF0F5] p-6 md:p-7"
               >
                 <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">
                   {b.title}
@@ -226,40 +228,22 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <section className="border-b border-rule bg-[#EEF2F6]">
-        <div className="mx-auto max-w-[1280px] px-4 pt-10 pb-10 md:px-8 md:pt-14">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-ink-muted">
-            <Link
-              href={routes.resources}
-              className="text-ink-muted no-underline hover:text-ink"
-            >
-              Resource library
+      <section className="bg-navy text-white">
+        <div className="mx-auto max-w-[1000px] px-4 pt-10 pb-12 md:px-8 md:pt-12 md:pb-14">
+          <Crumbs items={[{ label: "Home", href: routes.home }, { label: "Resources", href: routes.resources }, { label: "Articles", href: routes.blog }, { label: a.topic }]} />
+          <p className="flex flex-wrap items-center gap-3 text-[13px] text-on-navy-soft">
+            <Link href={`/resources/topics/${topicSlug(a.topic)}`} className="rounded-full bg-amber px-3 py-1 font-semibold text-ink no-underline">
+              {a.topic}
             </Link>
-            <span className="mx-2">/</span>
-            <Link
-              href={routes.blog}
-              className="text-ink-muted no-underline hover:text-ink"
-            >
-              Articles
-            </Link>
-          </nav>
-          <p className="font-mono text-[11px] tracking-[0.12em] text-gold-ink uppercase">
-            Article · {a.topic}
+            {a.minutes} min read · Brain Interacts Research
           </p>
-          <h1 className="mt-3 max-w-[920px] text-[clamp(27px,3.7vw,48px)] leading-[1.05] font-extrabold tracking-[-0.03em] text-ink">
-            {a.title}
-          </h1>
-          <p className="mt-5 max-w-[760px] text-[17px] leading-[1.6] text-ink-body md:text-[17px]">
-            {a.dek}
-          </p>
-          <p className="mt-6 text-sm text-ink-muted">
-            Brain Interacts Research · {a.minutes} min read
-          </p>
+          <h1 className="mt-4 text-[clamp(28px,4vw,50px)] leading-[1.06] font-bold">{a.title}</h1>
+          <p className="mt-4 max-w-[760px] text-[17px] leading-[1.6] text-on-navy">{a.dek}</p>
         </div>
       </section>
 
       <div className="mx-auto max-w-[1280px] px-4 md:px-8">
-        <div className="-mt-px aspect-[21/7] overflow-hidden rounded-b-[20px] md:aspect-[21/6]">
+        <div className="-mt-px aspect-[21/8] overflow-hidden rounded-b-[20px] md:aspect-[21/7]">
           {res && <Art r={res} seed={articles.indexOf(a)} />}
         </div>
       </div>
@@ -267,7 +251,7 @@ export default async function ArticlePage({ params }: Props) {
       <div className="mx-auto grid max-w-[1280px] gap-12 px-4 py-12 md:px-8 md:py-16 lg:grid-cols-[minmax(0,720px)_300px] lg:justify-between">
         <article className="min-w-0">
           {a.takeaways.length > 0 && (
-            <div className="mb-10 rounded-2xl border border-rule p-6 md:p-7">
+            <div className="mb-10 rounded-xl border-l-4 border-brand-green bg-cloud p-6 md:p-7">
               <p className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">
                 Key takeaways
               </p>
@@ -279,7 +263,7 @@ export default async function ArticlePage({ params }: Props) {
                   >
                     <span
                       aria-hidden="true"
-                      className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy"
+                      className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-green text-xs font-bold text-white"
                     >
                       ✓
                     </span>
@@ -321,7 +305,7 @@ export default async function ArticlePage({ params }: Props) {
                     <li key={h.text}>
                       <a
                         href={`#${anchor(h.text)}`}
-                        className="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-[14px] leading-snug text-ink-body no-underline hover:border-navy hover:text-ink"
+                        className="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-[14px] leading-snug text-ink-body no-underline hover:border-brand-red hover:text-ink"
                       >
                         {h.text}
                       </a>
@@ -332,14 +316,13 @@ export default async function ArticlePage({ params }: Props) {
             )}
             <div className="mt-10 rounded-2xl bg-navy p-6 text-white">
               <p className="text-lg font-extrabold">
-                Discover your working style
+                See it on your team
               </p>
               <p className="mt-2 text-[14px] leading-[1.6] text-on-navy">
-                Twenty statements. Your archetype and scored report in your
-                inbox within minutes. Free.
+                Corporate Brain shows working style beside every task.
               </p>
               <ButtonLink href={routes.snapshot} className="mt-4">
-                Take the free assessment
+                Book a free assessment
               </ButtonLink>
             </div>
           </div>
@@ -356,7 +339,7 @@ export default async function ArticlePage({ params }: Props) {
               <li key={r.slug}>
                 <Link
                   href={`/resources/articles/${r.slug}`}
-                  className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)] md:p-7"
+                  className="group block h-full rounded-2xl border border-rule p-6 text-ink no-underline transition-shadow hover:shadow-[0_18px_44px_rgba(10,22,40,0.12)] md:p-7"
                 >
                   <p className="font-mono text-[11px] tracking-[0.12em] text-gold-ink uppercase">
                     Article · {r.topic}

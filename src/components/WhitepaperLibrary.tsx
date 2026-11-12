@@ -138,7 +138,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
               <button
                 type="button"
                 onClick={() => open(p)}
-                className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-lime px-5 py-3 text-[14px] font-bold text-navy transition-colors hover:bg-[#F7CF3D]"
+                className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-brand-red px-5 py-3 text-[14px] font-bold text-white transition-colors hover:bg-brand-red-dark"
               >
                 Download PDF <span aria-hidden="true">↓</span>
               </button>
@@ -162,7 +162,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
         ref={dialogRef}
         aria-labelledby="wp-dialog-title"
         onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
-        className="m-auto max-h-[94dvh] w-[min(760px,calc(100vw-24px))] overflow-y-auto rounded-[20px] bg-white p-0 text-ink shadow-[0_24px_64px_rgba(15,23,42,0.45)] backdrop:bg-navy/70 backdrop:backdrop-blur-sm"
+        className="m-auto max-h-[94dvh] w-[min(760px,calc(100vw-24px))] overflow-y-auto rounded-[20px] bg-white p-0 text-ink shadow-[0_24px_64px_rgba(10,22,40,0.45)] backdrop:bg-navy/70 backdrop:backdrop-blur-sm"
       >
         {active && (
           <div className="grid md:grid-cols-[230px_1fr]">
@@ -215,7 +215,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
                     type="button"
                     disabled={sending}
                     onClick={() => submit(active, saved)}
-                    className="mt-5 w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D] disabled:opacity-60"
+                    className="mt-5 w-full rounded-lg bg-brand-red px-6 py-4 text-base font-bold text-white hover:bg-brand-red-dark disabled:opacity-60"
                   >
                     {sending ? "Preparing…" : "Download PDF"}
                   </button>
@@ -234,7 +234,7 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
                     Not you? Use different details
                   </button>
                   {state.status === "error" && (
-                    <p role="alert" className="mt-3 text-sm font-semibold text-[#B91C1C]">
+                    <p role="alert" className="mt-3 text-sm font-semibold text-[#E5484D]">
                       {state.message}
                     </p>
                   )}
@@ -277,11 +277,11 @@ export function WhitepaperLibrary({ papers, variant = "grid" }: { papers: Paper[
                     </span>
                   </label>
                   <div className="sm:col-span-2">
-                    <button type="submit" disabled={sending} className="w-full rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy hover:bg-[#F7CF3D] disabled:opacity-60">
+                    <button type="submit" disabled={sending} className="w-full rounded-lg bg-brand-red px-6 py-4 text-base font-bold text-white hover:bg-brand-red-dark disabled:opacity-60">
                       {sending ? "Preparing…" : "Download PDF"}
                     </button>
                     {state.status === "error" && (
-                      <p role="alert" className="mt-3 text-sm font-semibold text-[#B91C1C]">
+                      <p role="alert" className="mt-3 text-sm font-semibold text-[#E5484D]">
                         {state.message}
                       </p>
                     )}

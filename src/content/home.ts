@@ -36,7 +36,7 @@ export const products = [
     name: "Corporate Brain",
     text: "People analytics and task intelligence for leadership, managers and employees.",
     href: routes.corporateBrain,
-    rule: "border-[#F4C20D]",
+    rule: "border-[#F5A524]",
     tagColor: "text-gold-ink",
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     name: "Decode",
     text: "Short job games for 85 roles across 14 industries. See how people really work.",
     href: routes.gamified,
-    rule: "border-[#334155]",
+    rule: "border-[#33415A]",
     tagColor: "text-ink-link",
   },
   {
@@ -52,7 +52,7 @@ export const products = [
     name: "FinCheck",
     text: "Behavioral risk intelligence for banks and NBFCs.",
     href: routes.finCheck,
-    rule: "border-[#15803D]",
+    rule: "border-[#2BA36B]",
     tagColor: "text-green-ink",
   },
 ];

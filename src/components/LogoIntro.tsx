@@ -35,7 +35,7 @@ export function LogoIntro() {
       className={`fixed inset-0 z-[100] grid place-items-center bg-navy transition-opacity duration-500 ${state === "leaving" ? "opacity-0" : "opacity-100"}`}
     >
       <svg viewBox="0 0 378 100" className="w-[min(420px,80vw)] overflow-visible">
-        <circle className="intro-head" cx="36" cy="24" r="14" fill="#B91C1C" />
+        <circle className="intro-head" cx="36" cy="24" r="14" fill="#E5484D" />
         <path className="intro-body" d="M0 90L22 50H50L72 90H52L36 74L20 90Z" fill="#FACC15" />
         <path className="intro-collar" d="M22 50H50L36 74Z" fill="#FFFFFF" />
         <image className="intro-word" href="/brand/brain-interacts-wordmark.svg" x="92" y="0" width="286" height="100" />

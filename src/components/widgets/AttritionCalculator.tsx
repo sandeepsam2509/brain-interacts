@@ -73,7 +73,7 @@ export function AttritionCalculator() {
 
           <Link
             href={enquiryHref("diagnostic", { headcount: String(headcount), attrition: `${attrition}%` })}
-            className="mt-6 flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy no-underline hover:bg-[#F7CF3D]"
+            className="mt-6 flex w-full items-center justify-center rounded-lg bg-brand-red px-6 py-4 text-base font-bold text-white no-underline hover:bg-brand-red-dark"
           >
             Find the causes behind your attrition
           </Link>

@@ -133,7 +133,7 @@ export default function FinCheckPage() {
               placeholder="Work email"
               className="min-w-0 flex-1 rounded-lg border border-navy-line bg-navy-raised px-4 py-4 text-base text-white placeholder:text-on-navy-muted"
             />
-            <button type="submit" className="rounded-lg bg-sky px-6 py-4 text-base font-bold text-navy hover:bg-[#E2E8F0]">
+            <button type="submit" className="rounded-lg bg-sky px-6 py-4 text-base font-bold text-navy hover:bg-[#DCE3EE]">
               Request a pilot
             </button>
           </form>

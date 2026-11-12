@@ -50,7 +50,7 @@ const cards = [
     visual: (
       <div className="grid grid-cols-4 gap-1.5 text-center text-[10px] font-semibold">
         {[["Applied", 24], ["Assessed", 11], ["Interview", 5], ["Hired", 1]].map(([s, n], i) => (
-          <div key={s} className={`rounded-lg py-1.5 ${i === 3 ? "bg-lime text-navy" : "bg-rule/60 text-ink-body"}`}>
+          <div key={s} className={`rounded-lg py-1.5 ${i === 3 ? "bg-brand-red text-white" : "bg-rule/60 text-ink-body"}`}>
             <span className="block text-[14px] font-extrabold">{n}</span>
             {s}
           </div>

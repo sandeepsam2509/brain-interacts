@@ -110,7 +110,7 @@ export function PriceEstimator() {
           <div className="mt-auto pt-7">
             <Link
               href={enquiryHref("quote", { "team size": `${team} people` })}
-              className="flex w-full items-center justify-center rounded-lg bg-lime px-6 py-4 text-base font-bold text-navy no-underline hover:bg-[#F7CF3D]"
+              className="flex w-full items-center justify-center rounded-lg bg-brand-red px-6 py-4 text-base font-bold text-white no-underline hover:bg-brand-red-dark"
             >
               Get a custom quote for {num(team)} people
             </Link>

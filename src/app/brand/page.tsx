@@ -38,10 +38,10 @@ function LogoTile({ dark = false, label, children }: { dark?: boolean; label: st
 }
 
 const colours = [
-  { name: "Navy", hex: "#0F172A", use: "Text, buttons, dark sections and the logo.", text: "text-white" },
-  { name: "Red", hex: "#B91C1C", use: "The logo and the top stripe. Errors only, never a person's score.", text: "text-white" },
-  { name: "Amber", hex: "#F4C20D", use: "The key button on navy and development areas.", text: "text-navy" },
-  { name: "Green", hex: "#15803D", use: "Strengths, progress and completed steps.", text: "text-white" },
+  { name: "Navy", hex: "#0A1628", use: "Text, buttons, dark sections and the logo.", text: "text-white" },
+  { name: "Red", hex: "#E5484D", use: "The logo and the top stripe. Errors only, never a person's score.", text: "text-white" },
+  { name: "Amber", hex: "#F5A524", use: "The key button on navy and development areas.", text: "text-navy" },
+  { name: "Green", hex: "#2BA36B", use: "Strengths, progress and completed steps.", text: "text-white" },
   { name: "Cloud", hex: "#F5F7FA", use: "Light page backgrounds.", text: "text-navy" },
   { name: "White", hex: "#FFFFFF", use: "Cards and most of the page.", text: "text-navy" },
 ];
