@@ -119,7 +119,7 @@ export default function HomePage() {
               ["/site/7e00bc9e.webp", "Professionals meeting in a modern office", "ITES", "ites"],
               ["/site/8fc9f461.webp", "Leadership team around a boardroom table", "Banking & Insurance", "banking-and-financial-services"],
             ].map(([src, alt, label, id]) => (
-              <Link key={label} href={`${routes.industries}#${id}`} className="group relative block overflow-hidden rounded-xl">
+              <Link key={label} href={`/industries/${id}`} className="group relative block overflow-hidden rounded-xl">
                 <img src={src} alt={alt} className="h-[220px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] md:h-[270px]" />
                 <span className="absolute bottom-3 left-3 rounded-md bg-white px-3 py-1.5 text-[13px] font-semibold text-ink">{label}</span>
               </Link>

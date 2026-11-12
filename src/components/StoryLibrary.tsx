@@ -37,9 +37,16 @@ function Card({ s, seed }: { s: Story; seed: number }) {
           <span className="absolute bottom-3 left-3 max-w-[85%] rounded-lg bg-white/95 px-3 py-1.5 text-[12px] font-bold text-ink shadow-sm">{s.client}</span>
         </div>
         <div className="flex flex-1 flex-col p-5 md:p-6">
-          <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">{s.industry}</p>
-          <h3 className="mt-2.5 text-[16px] leading-snug font-bold tracking-[-0.01em]">{s.title}</h3>
-          <p className="mt-2 text-[14px] leading-[1.6] text-ink-body">{s.challenge}</p>
+          <p className="text-[11.5px] font-semibold tracking-[0.1em] text-ink-muted uppercase">{s.industry}</p>
+          <h3 className="mt-2 text-[17px] leading-snug font-semibold">{s.title}</h3>
+          {s.stats?.[0] ? (
+            <p className="mt-3 border-t border-rule pt-3">
+              <span className={`font-display block text-[30px] leading-none font-bold ${["text-brand-red", "text-gold-ink", "text-green-ink"][seed % 3]}`}>{s.stats[0].value}</span>
+              <span className="mt-1 block text-[13px] text-ink-body">{s.stats[0].label}</span>
+            </p>
+          ) : (
+            <p className="mt-2 line-clamp-3 text-[14px] leading-[1.6] text-ink-body">{s.challenge}</p>
+          )}
           <ul className="m-0 mt-4 flex list-none flex-wrap gap-1.5 p-0">
             {s.products.map((p) => (
               <li key={p} className="rounded-full bg-cloud px-2.5 py-1 text-[12px] font-semibold text-ink">
@@ -47,7 +54,7 @@ function Card({ s, seed }: { s: Story; seed: number }) {
               </li>
             ))}
           </ul>
-          <span className="mt-auto pt-5 text-[14px] font-bold group-hover:text-ink-link">
+          <span className="mt-auto pt-5 text-[14px] font-semibold underline">
             Read the story <span aria-hidden="true">→</span>
           </span>
         </div>

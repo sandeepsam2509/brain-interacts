@@ -45,14 +45,16 @@ export const routes = {
   legal: "/legal",
   integrations: "/integrations",
   careers: "/careers",
-  ceo: "/for-ceos",
+  ceo: "/solutions/for-cxos",
+  reduceAttrition: "/solutions/reduce-attrition",
+  howItWorks: "/how-it-works",
   faq: "/faq",
   privacy: "/privacy",
   terms: "/legal/terms-of-service",
   cookies: "/cookies",
   snapshot: "/contact?enquiry=technical-assessment#enquiry",
   payback: "/pricing#payback",
-  trust: "/privacy",
+  trust: "/trust",
 } as const;
 
 export type MenuItem = {
@@ -86,7 +88,7 @@ export const mainNav: MainNavItem[] = [
       {
         title: "Why trust it",
         items: [
-          { label: "How it works", href: routes.scienceMethodology, description: "From profile to match to decision" },
+          { label: "How it works", href: routes.howItWorks, description: "From profile to match to decision" },
           { label: "The science", href: routes.science, description: "THE BRAIN and the Big Five" },
           { label: "Trust & security", href: routes.trust, description: "How we protect your data under DPDP" },
           { label: "Integrations", href: routes.integrations, description: "Connect your HR tools" },
@@ -105,7 +107,7 @@ export const mainNav: MainNavItem[] = [
           { label: "Hire the right people", href: routes.gamified },
           { label: "Assign work by strengths", href: routes.corporateBrain },
           { label: "Build leaders & succession", href: routes.customAssessments },
-          { label: "Reduce attrition", href: routes.rootCause },
+          { label: "Reduce attrition", href: routes.reduceAttrition },
           { label: "Measure & fix culture", href: routes.cultureStudy },
         ],
       },
@@ -134,26 +136,26 @@ export const mainNav: MainNavItem[] = [
       {
         title: "Financial services",
         items: [
-          { label: "Banking & financial services", href: `${routes.industries}#banking-and-financial-services` },
-          { label: "Insurance", href: `${routes.industries}#insurance` },
+          { label: "Banking & financial services", href: "/industries/banking-and-financial-services" },
+          { label: "Insurance", href: "/industries/insurance" },
         ],
       },
       {
         title: "Goods & supply",
         items: [
-          { label: "FMCG & consumer goods", href: `${routes.industries}#fmcg-and-consumer-goods` },
-          { label: "Retail & e-commerce", href: `${routes.industries}#retail-and-e-commerce` },
-          { label: "Logistics & supply chain", href: `${routes.industries}#logistics-and-supply-chain` },
-          { label: "Healthcare & pharma", href: `${routes.industries}#healthcare-and-pharmaceuticals` },
+          { label: "FMCG & consumer goods", href: "/industries/fmcg-and-consumer-goods" },
+          { label: "Retail & e-commerce", href: "/industries/retail-and-e-commerce" },
+          { label: "Logistics & supply chain", href: "/industries/logistics-and-supply-chain" },
+          { label: "Healthcare & pharma", href: "/industries/healthcare-and-pharmaceuticals" },
         ],
       },
       {
         title: "Services",
         items: [
-          { label: "ITES", href: `${routes.industries}#ites` },
-          { label: "Telecommunication", href: `${routes.industries}#telecommunication` },
-          { label: "Hospitality & travel", href: `${routes.industries}#hospitality-and-travel` },
-          { label: "Education", href: `${routes.industries}#education` },
+          { label: "ITES", href: "/industries/ites" },
+          { label: "Telecommunication", href: "/industries/telecommunication" },
+          { label: "Hospitality & travel", href: "/industries/hospitality-and-travel" },
+          { label: "Education", href: "/industries/education" },
         ],
       },
     ],
@@ -194,7 +196,7 @@ export const footerColumns: NavGroup[] = [
       { label: "Corporate Brain", href: routes.corporateBrain },
       { label: "Decode", href: routes.gamified },
       { label: "FinCheck", href: routes.finCheck },
-      { label: "How it works", href: routes.scienceMethodology },
+      { label: "How it works", href: routes.howItWorks },
       { label: "Integrations", href: routes.integrations },
     ],
   },
@@ -202,7 +204,7 @@ export const footerColumns: NavGroup[] = [
     label: "Solutions",
     items: [
       { label: "Hire the right people", href: routes.gamified },
-      { label: "Reduce attrition", href: routes.rootCause },
+      { label: "Reduce attrition", href: routes.reduceAttrition },
       { label: "Leaders & succession", href: routes.customAssessments },
       { label: "For CXOs", href: routes.ceo },
       { label: "Culture study", href: routes.cultureStudy },
@@ -211,10 +213,10 @@ export const footerColumns: NavGroup[] = [
   {
     label: "Industries",
     items: [
-      { label: "Banking", href: `${routes.industries}#banking-and-financial-services` },
-      { label: "Insurance", href: `${routes.industries}#insurance` },
-      { label: "FMCG & consumer goods", href: `${routes.industries}#fmcg-and-consumer-goods` },
-      { label: "ITES", href: `${routes.industries}#ites` },
+      { label: "Banking", href: "/industries/banking-and-financial-services" },
+      { label: "Insurance", href: "/industries/insurance" },
+      { label: "FMCG & consumer goods", href: "/industries/fmcg-and-consumer-goods" },
+      { label: "ITES", href: "/industries/ites" },
       { label: "All industries", href: routes.industries },
     ],
   },

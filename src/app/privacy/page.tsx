@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" label="Privacy policy" lead="How Brain Interacts collects and protects personal data, in line with India's Digital Personal Data Protection Act, 2023.">
+    <LegalPage href={routes.privacy} title="Privacy Policy" label="Privacy policy" lead="How Brain Interacts collects and protects personal data, in line with India's Digital Personal Data Protection Act, 2023.">
       <h2>1. Who we are</h2>
       <p>
         This website (braininteracts.com) and the Corporate Brain, FinCheck and Decode (game-based assessments) products are operated by {legal.entity}, registered at{" "}

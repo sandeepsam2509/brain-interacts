@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import { CtaBlock, PageHero } from "./blocks";
-import { Section } from "./ui";
+import Link from "next/link";
+import { CtaBlock } from "./blocks";
+import { Crumbs } from "./resources/parts";
+import { LegalToc } from "./LegalToc";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
 
@@ -14,24 +16,70 @@ export const legal = {
   privacyEmail: "privacy@braininteracts.com",
 };
 
-/** Shared layout for Privacy, Terms and Cookies: dark title band, then readable prose. */
-export function LegalPage({ title, label, lead, children }: { title: string; label: string; lead: string; children: ReactNode }) {
+const tabs = [
+  { label: "Privacy policy", href: routes.privacy },
+  { label: "Terms of use", href: routes.terms },
+  { label: "Cookie policy", href: routes.cookies },
+  { label: "Data processing", href: "/legal/data-processing-addendum" },
+];
+
+const prose =
+  "min-w-0 max-w-[780px] text-[15.5px] leading-[1.75] text-ink-body [&_h2]:font-display [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-[24px] [&_h2]:font-bold [&_h2]:text-ink [&_li]:mt-2 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6";
+
+/** Shared legal layout: dark title band with tabs, then an "On this page" list beside readable text. */
+export function LegalShell({ title, crumbLabel, meta, active, children, cta }: { title: string; crumbLabel?: string; meta: string; active?: string; children: ReactNode; cta?: ReactNode }) {
   return (
     <>
-      <PageHero trail={[{ label: "Home", href: routes.home }, { label: title }]} label={{ icon: "grid", text: label, color: "gold" }} title={title} lead={lead} />
-      <Section tone="light">
-        <div className="max-w-[780px] text-[15px] leading-[1.75] text-ink-body [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-ink [&_li]:mt-2 [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
-          <p className="font-mono text-sm text-ink-muted">Last updated: {legal.lastUpdated}</p>
-          {children}
+      <section className="bg-navy text-white">
+        <div className="mx-auto max-w-[1280px] px-4 pt-10 pb-10 md:px-8 md:pt-12">
+          <Crumbs items={[{ label: "Home", href: routes.home }, { label: "Legal", href: routes.legal }, { label: crumbLabel ?? title }]} />
+          <h1 className="text-[clamp(34px,4.4vw,52px)] leading-[1.05] font-bold">{title}</h1>
+          <p className="mt-3 text-on-navy">{meta}</p>
+          <nav aria-label="Legal documents" className="mt-6 flex flex-wrap gap-2">
+            {tabs.map((t) => (
+              <Link
+                key={t.href}
+                href={t.href}
+                aria-current={active === t.href ? "page" : undefined}
+                className={`rounded-full px-4 py-2 text-[13.5px] font-semibold no-underline ${active === t.href ? "bg-white text-ink" : "border border-navy-line text-white hover:border-on-navy"}`}
+              >
+                {t.label}
+              </Link>
+            ))}
+          </nav>
         </div>
-      </Section>
-      <CtaBlock
-        tone="dark"
-        title="Questions about your data?"
-        text="Ask what we hold, or request access, correction or erasure. Our Data Protection team will reply by email."
-        actions={[{ label: "Contact our Data Protection team", href: enquiryHref("data-protection") }]}
-      />
+      </section>
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 md:px-8 md:py-16 lg:grid-cols-[220px_minmax(0,1fr)]">
+          <LegalToc targetId="legal-text" />
+          <div id="legal-text" className={prose}>
+            {children}
+          </div>
+        </div>
+      </section>
+      {cta}
     </>
+  );
+}
+
+export function LegalPage({ title, lead, children, href }: { title: string; label?: string; lead: string; children: ReactNode; href?: string }) {
+  return (
+    <LegalShell
+      title={title}
+      meta={`Last updated: ${legal.lastUpdated}`}
+      active={href}
+      cta={
+        <CtaBlock
+          tone="dark"
+          title="Questions about your data?"
+          text="Ask what we hold, or request access, correction or erasure. Our Data Protection team will reply by email."
+          actions={[{ label: "Contact our Data Protection team", href: enquiryHref("data-protection") }]}
+        />
+      }
+    >
+      <p className="mt-0! rounded-xl bg-green-tint p-5 text-ink">{lead}</p>
+      {children}
+    </LegalShell>
   );
 }
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { StoryArt, StoryLibrary } from "@/components/StoryLibrary";
 import { ButtonLink, Section } from "@/components/ui";
+import { Crumbs, Eyebrow, wrap } from "@/components/resources/parts";
 import { allProducts, featuredStorySlug, findStory, industries, stories, storyHref } from "@/content/stories";
 import { enquiryHref } from "@/lib/enquiries";
 import { routes } from "@/lib/site";
@@ -13,113 +14,87 @@ export const metadata: Metadata = {
   alternates: { canonical: routes.stories },
 };
 
+const headline: [string, string, string][] = [
+  ["82%", "better operational efficiency", "border-brand-red"],
+  ["46%+", "drop in Gen Z attrition", "border-amber"],
+  ["92%", "bench utilization", "border-brand-green"],
+  ["₹54L", "hiring cost saved", "border-brand-red"],
+];
+
 export default function CustomerStoriesPage() {
   const featured = findStory(featuredStorySlug)!;
 
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy text-white">
-        <div aria-hidden="true" className="pointer-events-none absolute -top-40 -right-32 h-[460px] w-[460px] rounded-full bg-sky/20 blur-3xl" />
-        <div aria-hidden="true" className="pointer-events-none absolute -bottom-56 left-1/4 h-[420px] w-[420px] rounded-full bg-lime/15 blur-3xl" />
-        <div className="relative mx-auto max-w-[1280px] px-4 pt-14 pb-12 text-center md:px-8 md:pt-20 md:pb-16">
-          <p className="font-mono text-[12px] tracking-[0.14em] text-lime uppercase">Customer stories</p>
-          <h1 className="mx-auto mt-4 max-w-[900px] text-[clamp(32px,4.8vw,64px)] leading-[1.02] font-bold">
-            Teams making people decisions <span className="text-lime">with evidence.</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-[16px] leading-[1.65] text-on-navy md:text-[16px]">
-            How facilities, manufacturing, IT and automation companies use Brain Interacts to align teams and assign work.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href={enquiryHref("results")}>See results like these for your team</ButtonLink>
-            <ButtonLink href="#stories" variant="outlineDark">
-              Browse stories
-            </ButtonLink>
-          </div>
-        </div>
-
-        {/* "Trusted by" strip: anonymised client descriptions instead of logos */}
-        <div className="relative border-t border-navy-line">
-          <div className="mx-auto max-w-[1280px] px-4 py-8 md:px-8">
-            <p className="mb-5 text-center text-sm text-on-navy-muted">Trusted by teams across India, including BVG, Redington, Megamech Industries and Pune Techtrol.</p>
-            <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 md:grid-cols-4">
-              {stories.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={storyHref(s)}
-                    className="flex h-full flex-col justify-center rounded-xl border border-navy-line px-4 py-3 text-center text-white no-underline transition-colors hover:border-lime hover:bg-navy-raised"
-                  >
-                    <span className="text-[13px] leading-snug font-bold">{s.client}</span>
-                    <span className="mt-1 font-mono text-[10px] tracking-[0.1em] text-on-navy-muted uppercase">{s.industry}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <section className="bg-navy text-white">
+        <div className={`${wrap} pt-10 pb-12 md:pt-12 md:pb-16`}>
+          <Crumbs items={[{ label: "Home", href: routes.home }, { label: "Customers" }]} />
+          <Eyebrow color="amber">Customers</Eyebrow>
+          <h1 className="max-w-[820px] text-[clamp(34px,4.6vw,56px)] leading-[1.05] font-bold">Transforming workplaces with evidence.</h1>
+          <p className="mt-4 max-w-[600px] text-[17px] text-on-navy">How facilities, manufacturing and IT companies used Brain Interacts to hire, place and keep the right people.</p>
+          <ul className="m-0 mt-8 grid list-none grid-cols-2 gap-3 p-0 lg:grid-cols-4">
+            {headline.map(([v, l, bar]) => (
+              <li key={l} className={`rounded-xl border-t-4 bg-white p-4 text-ink ${bar}`}>
+                <span className="font-display block text-[28px] leading-none font-bold">{v}</span>
+                <span className="mt-1.5 block text-[13px] text-ink-body">{l}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* Featured story */}
-      <Section tone="light" innerClassName="pt-14 pb-4 md:pt-20">
-        <p className="mb-5 font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">Featured story</p>
-        <Link
-          href={storyHref(featured)}
-          className="group grid overflow-hidden rounded-[20px] border border-rule bg-white text-ink no-underline transition-shadow duration-300 hover:shadow-[0_22px_54px_rgba(10,22,40,0.14)] lg:grid-cols-[1.05fr_1fr]"
-        >
-          <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
-            <StoryArt story={featured} seed={1} />
-            <span className="absolute bottom-4 left-4 rounded-lg bg-white/95 px-3 py-1.5 text-[13px] font-bold shadow-sm">{featured.client}</span>
-          </div>
-          <div className="flex flex-col justify-center p-6 md:p-10">
-            <p className="font-mono text-[11px] tracking-[0.12em] text-ink-link uppercase">{featured.industry}</p>
-            <h2 className="mt-3 text-[clamp(21px,2.2vw,32px)] leading-[1.1] font-bold">{featured.title}</h2>
-            <dl className="m-0 mt-6 grid gap-5 sm:grid-cols-2">
-              <div>
-                <dt className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">The challenge</dt>
-                <dd className="m-0 mt-1.5 text-[14px] leading-[1.6] text-ink-body">{featured.challenge}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[11px] tracking-[0.12em] text-ink-muted uppercase">How they used Brain</dt>
-                <dd className="m-0 mt-1.5 text-[14px] leading-[1.6] text-ink-body">{featured.how}</dd>
-              </div>
-            </dl>
-            <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-navy px-5 py-3 text-[14px] font-bold text-white transition-colors group-hover:bg-brand-red">
-              Read the story <span aria-hidden="true">→</span>
-            </span>
-          </div>
-        </Link>
-      </Section>
+      <section className="bg-cloud">
+        <div className={`${wrap} pt-14 pb-4 md:pt-16`}>
+          <Link href={storyHref(featured)} className="group grid overflow-hidden rounded-2xl bg-white text-ink no-underline hover:shadow-[0_22px_54px_rgba(10,22,40,0.14)] lg:grid-cols-[1fr_1.1fr]">
+            <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
+              <StoryArt story={featured} />
+            </div>
+            <div className="flex flex-col justify-center p-6 md:p-10">
+              <span className="w-fit rounded-full bg-red-tint px-3 py-1 text-[12px] font-semibold text-brand-red">Featured story</span>
+              <p className="mt-3 text-[12px] font-semibold tracking-[0.1em] text-ink-muted uppercase">
+                {featured.industry} · {featured.client}
+              </p>
+              <h2 className="mt-2 text-[clamp(22px,2.4vw,32px)] leading-[1.1] font-bold">{featured.title}</h2>
+              <p className="mt-3 text-[15px] text-ink-body">{featured.how}</p>
+              {featured.stats && (
+                <dl className="m-0 mt-5 flex flex-wrap gap-7">
+                  {featured.stats.slice(0, 3).map((st, i) => (
+                    <div key={st.label}>
+                      <dt className={`font-display text-[28px] leading-none font-bold ${["text-brand-red", "text-gold-ink", "text-green-ink"][i]}`}>{st.value}</dt>
+                      <dd className="m-0 mt-1 max-w-[140px] text-[12.5px] text-ink-muted">{st.label}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              <span className="mt-7 inline-flex w-fit rounded-lg bg-brand-red px-5 py-3 text-[14px] font-semibold text-white group-hover:bg-brand-red-dark">Read the story</span>
+            </div>
+          </Link>
+        </div>
+      </section>
 
       {/* All stories with filters */}
-      <Section tone="light" innerClassName="pt-12 pb-16 md:pb-24">
+      <Section tone="light" className="bg-cloud" innerClassName="pt-12 pb-16 md:pb-24">
         <div id="stories" className="scroll-mt-24">
           <h2 className="mb-6 text-[clamp(22px,2.4vw,32px)] leading-[1.1] font-bold">All customer stories</h2>
           <StoryLibrary items={stories} industries={industries} products={allProducts} />
         </div>
       </Section>
 
-      {/* Industries */}
-      <Section tone="dark" innerClassName="py-16 md:py-20">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+      {/* References */}
+      <section className="bg-navy text-white">
+        <div className={`${wrap} flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center`}>
           <div>
-            <p className="font-mono text-[12px] tracking-[0.14em] text-lime uppercase">Industries</p>
-            <h2 className="mt-3 text-[clamp(22px,2.7vw,35px)] leading-[1.08] font-bold">Built for teams where people decisions carry weight.</h2>
+            <Eyebrow color="amber">References</Eyebrow>
+            <h2 className="text-[clamp(24px,2.8vw,36px)] font-bold">Talk to a customer in your industry.</h2>
+            <p className="mt-2 max-w-[620px] text-on-navy">Some customers are named with their permission; others we describe by industry and size. Ask us and we can arrange a reference call.</p>
           </div>
-          <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
-            {industries.map((i) => {
-              const n = stories.filter((s) => s.industry === i).length;
-              return (
-                <li key={i} className="rounded-2xl border border-navy-line p-5">
-                  <p className="text-lg font-bold">{i}</p>
-                  <p className="mt-1 text-sm text-on-navy">
-                    {n} {n === 1 ? "story" : "stories"}
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
+          <Link href={enquiryHref("results")} className="shrink-0 rounded-lg bg-brand-red px-5 py-3 font-semibold text-white no-underline hover:bg-brand-red-dark">
+            Ask for a reference call
+          </Link>
         </div>
-      </Section>
+      </section>
 
       {/* CTA */}
       <Section tone="light" innerClassName="py-12 md:py-16">
