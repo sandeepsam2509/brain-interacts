@@ -471,8 +471,8 @@ export default function HomePage() {
 
       {/* Closing CTA */}
       <section className="relative overflow-hidden bg-navy text-white">
-        <img src="/site/44843417.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-navy/60" />
+        <img src="/site/closing-data.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
+        <div className="absolute inset-0 bg-navy/40" />
         <div className={`${wrap} relative py-20 text-center md:py-28`}>
           <h2 className="m-0 text-[clamp(30px,4vw,52px)] leading-[1.08] font-semibold tracking-[-0.02em]">Build teams on evidence, not instinct.</h2>
           <p className="mt-4 text-[17px] text-on-navy-soft">See Corporate Brain on your own org structure in a live walkthrough.</p>
