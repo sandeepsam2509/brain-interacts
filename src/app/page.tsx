@@ -47,9 +47,11 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy text-white">
-        <div className={`${wrap} grid items-center gap-12 pt-14 pb-16 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr]`}>
-          <div>
+      <section className="relative overflow-hidden bg-navy text-white">
+        <img src="/site/hero-wall.webp" alt="An analyst with a laptop reviewing data on a wall of screens" className="absolute inset-0 h-full w-full object-cover object-left" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/10 via-navy/70 to-navy md:via-navy/80" />
+        <div className={`${wrap} relative grid pt-14 pb-16 md:pt-24 md:pb-28 lg:grid-cols-2`}>
+          <div className="lg:col-start-2">
             <p className={`${eyebrow} text-amber`}>People analytics, built on research</p>
             <h1 className="mt-5 text-[clamp(36px,4.4vw,60px)] leading-[1.06] font-semibold tracking-[-0.025em]">People analytics that help workplaces flourish.</h1>
             <p className="mt-6 max-w-[520px] text-[16px] leading-[1.65] text-on-navy md:text-[17px]">
@@ -64,22 +66,11 @@ export default function HomePage() {
                 Free technical assessment
               </Link>
             </div>
-            <p className="mt-6 text-[13px] text-on-navy-muted">Built on the Big Five, the most widely researched model of working style.</p>
-          </div>
-          <div className="relative">
-            <img src="/site/631ec024.webp" alt="A team meeting with a colleague presenting" className="aspect-[1.16] w-full rounded-2xl object-cover" />
-            <span className="absolute -top-3 right-3 rounded-lg bg-amber px-3 py-1.5 text-[13px] font-semibold text-navy md:-right-3">Leadership · Managers · Employees</span>
-            <div className="absolute -bottom-6 left-3 w-[250px] rounded-xl bg-white p-4 text-ink shadow-[0_20px_40px_rgba(10,22,40,0.3)] md:-left-8">
-              <p className="m-0 text-[11px] font-semibold tracking-[0.08em] text-ink-muted uppercase">Brain suggests</p>
-              <p className="m-0 mt-1.5 text-[15px] font-semibold">Plan Q1 product roadmap</p>
-              <div className="mt-3 flex items-center justify-between text-[13px]">
-                <span>Integrator archetype</span>
-                <span className="rounded-full bg-green-tint px-2 py-0.5 text-[12px] font-semibold text-green-ink">92% fit</span>
-              </div>
-              <div className="mt-2 h-1.5 rounded-full bg-rule">
-                <div className="h-1.5 w-[92%] rounded-full bg-brand-green" />
-              </div>
-            </div>
+            <p className="mt-7 inline-flex items-center gap-3 rounded-lg bg-white px-3.5 py-2 text-[13px] font-semibold text-ink">
+              Brain suggests: Integrator
+              <span className="rounded-full bg-green-tint px-2 py-0.5 text-[12px] text-green-ink">92% fit</span>
+            </p>
+            <p className="mt-4 text-[13px] text-on-navy-soft">Built on the Big Five, the most widely researched model of working style.</p>
           </div>
         </div>
       </section>
@@ -216,7 +207,7 @@ export default function HomePage() {
       <section className="bg-white">
         <div className={`${wrap} grid items-center gap-14 py-16 md:py-24 lg:grid-cols-2`}>
           <div className="relative">
-            <img src="/site/86bfbc2c.webp" alt="A manager coaching a colleague at a laptop" className="aspect-[1.35] w-full rounded-xl object-cover" />
+            <img src="/site/tablet-review.webp" alt="Two colleagues reviewing results on a tablet" className="aspect-[1.35] w-full rounded-xl object-cover" />
             <div className="absolute right-3 -bottom-10 w-[240px] rounded-xl border border-rule bg-white p-4 shadow-[0_18px_40px_rgba(10,22,40,0.16)] md:right-auto md:left-[38%]">
               <p className="m-0 font-semibold">Ship release checklist</p>
               <div className="mt-2 flex justify-between text-[13px]">
@@ -353,85 +344,135 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Research */}
-      <section className="bg-navy text-white">
-        <div className={`${wrap} grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2`}>
+      {/* Analytics */}
+      <section className="relative overflow-hidden bg-navy text-white">
+        <img src="/site/analytics-monitors.webp" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-15" />
+        <div className={`${wrap} relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2`}>
           <div>
-            <p className={`${eyebrow} text-amber`}>Our research</p>
-            <h2 className={`${h2} mt-3`}>Science you can explain to your board.</h2>
+            <p className={`${eyebrow} text-amber`}>Analytics</p>
+            <h2 className={`${h2} mt-3`}>Unlock analytics like never before.</h2>
             <p className="mt-4 leading-[1.65] text-on-navy">
-              Everything we build starts with THE BRAIN, our Behavioural Reasoning and Interaction Network. It maps Big Five working styles to how people
-              actually interact at work.
+              Most dashboards tell you what happened. Ours show why: who works best with whom, where a team is out of balance, and which people are ready
+              for more.
             </p>
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            <p className="mt-4 leading-[1.65] text-on-navy">
+              Every insight comes from THE BRAIN, our Behavioural Reasoning and Interaction Network, built on the Big Five and studied role by role across ten
+              industries.
+            </p>
+            <dl className="m-0 mt-7 flex flex-wrap gap-10">
               {[
-                ["border-brand-red", "Big Five", "The most researched model of working style"],
-                ["border-amber", "Interactions", "How styles work together, not just alone"],
-                ["border-brand-green", "Industry roles", "Studied role by role, in ten industries"],
-              ].map(([b, t, d]) => (
-                <div key={t} className={`rounded-lg border-t-[3px] bg-white p-3.5 text-ink ${b}`}>
-                  <p className="m-0 text-[14px] font-semibold">{t}</p>
-                  <p className="m-0 mt-1 text-[12.5px] leading-[1.45] text-ink-body">{d}</p>
+                ["10", "industries researched"],
+                ["85", "roles with job games"],
+                ["3", "levels: org, team, person"],
+              ].map(([v, l]) => (
+                <div key={l}>
+                  <dt className="font-display text-[34px] leading-none font-bold">{v}</dt>
+                  <dd className="m-0 mt-1 text-[12.5px] text-on-navy-soft">{l}</dd>
                 </div>
               ))}
-            </div>
-            <div className="mt-7 flex flex-col gap-3">
-              <Link href={routes.science} className="font-semibold text-amber">
-                See our science & methodology →
+            </dl>
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <Link href={routes.demo} className={btnRed}>
+                See the analytics in a demo
               </Link>
-              <Link href={routes.whitepapers} className="font-semibold text-white">
-                Read The Behavioral Enterprise Series →
+              <Link href={routes.science} className="font-semibold text-white">
+                Our science & methodology →
               </Link>
             </div>
           </div>
-          <div className="relative pb-16">
-            <img src="/site/9b9a9a4e.webp" alt="Researchers sorting notes in a workshop" className="w-[85%] rounded-xl object-cover" />
-            <img
-              src="/site/5fa91dc1.webp"
-              alt="Analyst reviewing charts on a tablet"
-              className="absolute right-0 bottom-0 w-[58%] rounded-xl border-4 border-navy object-cover"
-            />
+          <div className="space-y-4">
+            {[
+              ["border-brand-red", "Team Analytics", "For leadership", "bg-red-tint text-brand-red", "bg-brand-red", ["Team mix of working styles against your company goals", "Where a team is missing a strength, and who could fill it", "Friction risks between people before they slow work"]],
+              ["border-amber", "People Analytics", "For managers", "bg-amber-tint text-gold-ink", "bg-amber", ["Primary and secondary archetype for every person", "Strengths, skill gaps and a growth plan", "Best-fit person for each task, with reasons"]],
+              ["border-brand-green", "Behavioral Analytics", "For HR", "bg-green-tint text-green-ink", "bg-brand-green", ["How people decide under pressure, from job games", "Early signals for attrition, fit and readiness", "Big Five profiles mapped to real roles"]],
+            ].map(([bar, t, tag, tagc, dot, items]) => (
+              <div key={t as string} className={`rounded-xl border-l-4 bg-white p-5 text-ink ${bar}`}>
+                <p className="m-0 flex items-center gap-2.5">
+                  <span className="font-display text-[18px] font-semibold">{t}</span>
+                  <span className={`rounded-full px-2.5 py-0.5 text-[11.5px] font-semibold ${tagc}`}>{tag}</span>
+                </p>
+                <ul className="m-0 mt-3 list-none space-y-1.5 p-0">
+                  {(items as string[]).map((it) => (
+                    <li key={it} className="flex gap-2.5 text-[13.5px] text-ink-body">
+                      <span aria-hidden="true" className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${dot}`} />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Trust */}
       <section className="bg-cloud">
-        <div className={`${wrap} grid items-center gap-12 py-16 md:py-24 lg:grid-cols-2`}>
-          <div className="relative">
-            <img src="/site/f694d932.webp" alt="Secure server racks" className="h-[300px] w-full rounded-xl object-cover md:h-[360px]" />
-            <div className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-lg bg-white p-3.5 shadow-lg">
-              <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-full bg-green-tint text-green-ink">✓</span>
-              <div>
-                <p className="m-0 text-[14px] font-semibold text-ink">Only you see your people&rsquo;s data</p>
-                <p className="m-0 text-[12.5px] text-ink-muted">Customer data is deleted after the contract ends</p>
+        <div className={`${wrap} py-16 md:py-24`}>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="relative">
+              <img src="/site/secure-lock.webp" alt="A digital padlock on a circuit board" className="h-[320px] w-full rounded-2xl object-cover md:h-[440px]" />
+              <div className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-xl bg-white p-4 shadow-lg">
+                <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-green-tint text-green-ink">
+                  ✓
+                </span>
+                <div>
+                  <p className="m-0 text-[14px] font-semibold text-ink">Your data, deleted after 30 days</p>
+                  <p className="m-0 text-[12.5px] text-ink-muted">Email and chat data used for analysis. Employees always see their own results.</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className={`${eyebrow} text-brand-red`}>Trust & security</p>
+              <h2 className={`${h2} mt-3 text-ink`}>People data deserves enterprise-grade care.</h2>
+              <p className="mt-4 leading-[1.65] text-ink-body">Every customer gets a separate database, and nothing is collected without consent. Built for Indian law first.</p>
+              <ul className="m-0 mt-6 grid list-none gap-3 p-0 sm:grid-cols-2">
+                {[
+                  ["DPDP Act aligned", "India's Data Protection Act, 2023"],
+                  ["Consent first", "No email or chat analysis without it"],
+                  ["Encryption in transit", "Data is encrypted as it moves"],
+                  ["Role-based access", "Each role sees only what it needs"],
+                ].map(([t, d]) => (
+                  <li key={t} className="flex gap-3 rounded-xl border border-rule bg-white p-3.5">
+                    <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-green-tint text-green-ink">
+                      ✓
+                    </span>
+                    <span>
+                      <span className="block text-[14px] font-semibold text-ink">{t}</span>
+                      <span className="block text-[12.5px] text-ink-muted">{d}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-7 flex flex-wrap items-center gap-5">
+                <Link href={routes.trust} className="rounded-lg bg-navy px-5 py-3 text-[15px] font-semibold text-white no-underline hover:bg-navy-raised">
+                  How we protect your data
+                </Link>
+                <Link href={enquiryHref("security-docs")} className="font-semibold text-ink underline">
+                  Request our security pack →
+                </Link>
               </div>
             </div>
           </div>
-          <div>
-            <p className={`${eyebrow} text-brand-red`}>Trust & security</p>
-            <h2 className={`${h2} mt-3 text-ink`}>People data deserves enterprise-grade care.</h2>
-            <p className="mt-4 leading-[1.65] text-ink-body">
-              Each organisation sees only its own people, and nothing is collected without consent. Built for Indian law first.
-            </p>
-            <ul className="m-0 mt-6 flex list-none flex-wrap gap-2.5 p-0">
-              {["DPDP Act aligned", "Consent-based collection", "Encryption in transit", "Role-based access"].map((c) => (
-                <li key={c} className="rounded-lg border border-rule-strong bg-white px-3.5 py-2 text-[13px] font-semibold text-ink">
-                  {c}
-                </li>
-              ))}
-            </ul>
-            <Link href={routes.trust} className="mt-6 inline-block font-semibold text-ink underline">
-              How we protect your data →
-            </Link>
-          </div>
+          <ul className="m-0 mt-10 grid list-none grid-cols-2 gap-3 p-0 lg:grid-cols-4">
+            {[
+              ["border-brand-red", "Separate database", "for every customer"],
+              ["border-amber", "30 days", "then email and chat data is deleted"],
+              ["border-brand-green", "Consent first", "no analysis without it"],
+              ["border-brand-red", "Your results", "employees always see their own"],
+            ].map(([b, t, d]) => (
+              <li key={t} className={`rounded-xl border-t-4 bg-white p-4 ${b}`}>
+                <span className="font-display block text-[18px] font-semibold text-ink">{t}</span>
+                <span className="block text-[13px] text-ink-muted">{d}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* Closing CTA */}
       <section className="relative overflow-hidden bg-navy text-white">
-        <img src="/site/44843417.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-navy/60" />
+        <img src="/site/closing-data.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
+        <div className="absolute inset-0 bg-navy/40" />
         <div className={`${wrap} relative py-20 text-center md:py-28`}>
           <h2 className="m-0 text-[clamp(30px,4vw,52px)] leading-[1.08] font-semibold tracking-[-0.02em]">Build teams on evidence, not instinct.</h2>
           <p className="mt-4 text-[17px] text-on-navy-soft">See Corporate Brain on your own org structure in a live walkthrough.</p>
